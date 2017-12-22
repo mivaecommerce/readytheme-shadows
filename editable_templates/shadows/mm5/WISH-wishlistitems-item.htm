@@ -1,0 +1,266 @@
+<mvt:if expr="l.settings:wishlistitems:total_count EQ 0">
+	<section class="o-layout">
+		<div class="o-layout__item">
+			<p class="x-messages x-messages--info">This wish list is empty.</p>
+		</div>
+	</section>
+	<mvt:exit />
+</mvt:if>
+
+<mvt:if expr="l.settings:wishlistitems:total_count GT 1">
+	<section class="u-flex o-layout--align-center o-layout--justify-between o-layout--wrap">
+		<div class="x-display-list-filtering">
+			<nav class="x-display-list-filtering__per-page">
+				<ul class="o-list-bare">
+					<li class="o-list-block__item">
+						<label class="c-form-label u-text-normal">Show:</label>
+					</li>
+					<mvt:if expr="g.Per_Page EQ 12">
+						<li class="o-list-inline__item">
+							<span class="c-button u-bg-gray-40 u-color-white" title="Show 12 Products Per Page">12</span>
+						</li>
+					<mvt:else>
+						<li class="o-list-inline__item">
+							<a class="c-button" href="&mvte:urls:_self:auto_sep;WishList_ID=&mvte:global:WishList_ID;&Sort_By=&mvte:global:Sort_By;&Per_Page=12" title="Show 12 Products Per Page">12</a>
+						</li>
+					</mvt:if>
+					<mvt:if expr="g.Per_Page EQ 24">
+						<li class="o-list-inline__item">
+							<span class="c-button u-bg-gray-40 u-color-white" title="Show 12 Products Per Page">24</span>
+						</li>
+					<mvt:else>
+						<li class="o-list-inline__item">
+							<a class="c-button" href="&mvte:urls:_self:auto_sep;WishList_ID=&mvte:global:WishList_ID;&Sort_By=&mvte:global:Sort_By;&Per_Page=24" title="Show 24 Products Per Page">24</a>
+						</li>
+					</mvt:if>
+					<mvt:if expr="g.Per_Page EQ -1">
+						<li class="o-list-inline__item">
+							<span class="c-button u-bg-gray-40 u-color-white" title="Show All Products">All</span>
+						</li>
+					<mvt:else>
+						<li class="o-list-inline__item">
+							<a class="c-button" href="&mvte:urls:_self:auto_sep;WishList_ID=&mvte:global:WishList_ID;&Sort_By=&mvte:global:Sort_By;&Per_Page=-1" title="Show All Products">All</a>
+						</li>
+					</mvt:if>
+				</ul>
+			</nav>
+		</div>
+		<!-- end .x-display-list-filtering -->
+		<mvt:if expr="l.settings:wishlistitems:page_links:last_page GT 1">
+			<nav class="x-pagination">
+				<ul class="o-list-inline">
+					<mvt:if expr="l.settings:wishlistitems:page_links:current_page NE 1">
+						<li class="o-list-inline__item">
+							<a class="c-button" href="&mvte:urls:_self:auto_sep;&mvte:wishlistitems:page_links:prev_link_params;" title="Go to the previous page.">
+								<span class="u-icon-triangle-left"></span>
+							</a>
+						</li>
+					<mvt:else>
+						<li class="o-list-inline__item">
+							<span class="c-button" title="You are on the first page.">
+								<span class="u-icon-triangle-left"></span>
+							</span>
+						</li>
+					</mvt:if>
+					<mvt:if expr="NOT l.settings:wishlistitems:page_links:contains_first">
+						<li class="o-list-inline__item">
+							<a href="&mvte:urls:_self:auto_sep;&mvte:wishlistitems:page_links:first_link_params;" title="Go to first page.">1&hellip;</a>
+						</li>
+					</mvt:if>
+					<mvt:foreach iterator="pages" array="wishlistitems:page_links:pages">
+						<mvt:if expr="l.settings:wishlistitems:page_links:current_page EQ l.settings:pages:page_num">
+							<li class="o-list-inline__item">
+								<span class="u-text-bold" title="You are on page &mvte:pages:page_num;.">&mvte:pages:page_num;</span>
+							</li>
+						<mvt:else>
+							<li class="o-list-inline__item">
+								<a href="&mvte:urls:_self:auto_sep;&mvte:pages:link_params;" title="Go to page &mvte:pages:page_num;.">&mvte:pages:page_num;</a>
+							</li>
+						</mvt:if>
+					</mvt:foreach>
+					<mvt:if expr="NOT l.settings:wishlistitems:page_links:contains_last">
+						<li class="o-list-inline__item">
+							<a href="&mvte:urls:_self:auto_sep;&mvte:wishlistitems:page_links:last_link_params;" title="Go to last page.">&hellip;&mvte:wishlistitems:page_links:last_page;</a>
+						</li>
+					</mvt:if>
+					<mvt:if expr="l.settings:wishlistitems:page_links:current_page NE l.settings:wishlistitems:page_links:last_page">
+						<a class="button cmp-product-list__next-previous cmp-product-list__next-previous--next" href="&mvte:urls:_self:auto_sep;&mvte:wishlistitems:page_links:next_link_params;">
+							<span></span>
+							<span class="icon--arrow-right-long"></span>
+						</a>
+						<li class="o-list-inline__item">
+							<a class="c-button" href="&mvte:urls:_self:auto_sep;&mvte:wishlistitems:page_links:next_link_params;" title="Go to the next page.">
+								<span class="u-icon-triangle-right"></span>
+							</a>
+						</li>
+					<mvt:else>
+						<li class="o-list-inline__item">
+							<span class="c-button" title="You are on the last page.">
+								<span class="u-icon-triangle-right"></span>
+							</span>
+						</li>
+					</mvt:if>
+				</ul>
+			</nav>
+			<!-- end .x-pagination -->
+		</mvt:if>
+	</section>
+</mvt:if>
+
+<mvt:if expr="( l.settings:wishlistitems:wishlist:cust_id EQ g.Basket:cust_id ) AND ( NOT ISNULL g.Edit_Wish )">
+	<form name="edit_wish" method="post" action="&mvte:urls:_self:secure;">
+		<fieldset>
+			<legend>Edit A Wish List Item</legend>
+			<input type="hidden" name="Action" value="UPWL" />
+			<input type="hidden" name="Sort_By" value="&mvte:global:Sort_By;" />
+			<input type="hidden" name="Offset" value="&mvte:global:PrevOffset;" />
+			<input type="hidden" name="Per_Page" value="&mvte:global:Per_Page;" />
+			<input type="hidden" name="WishList_ID" value="&mvte:global:WishList_ID;" />
+			<input type="hidden" name="Wish_ID" value="&mvte:global:Edit_Wish;" />
+</mvt:if>
+			<section class="o-layout u-grids-1 u-grids-2--s u-grids-3--l x-product-list">
+
+				<mvt:foreach iterator="wishlistitem" array="wishlistitems:items">
+					<div class="o-layout__item x-product-list__item">
+						<figure class="x-product-list__figure">
+							<img class="x-product-list__image" src="&mvte:wishlistitem:product:imagetypes:main;" alt="&mvte:wishlistitem:product:name;">
+							<figcaption>
+								<mvt:if expr="( ISNULL g.Edit_Wish ) OR ( l.settings:wishlistitems:wishlist:cust_id NE g.Basket:cust_id )">
+									<form class="c-control-group" method="post" action="&mvte:urls:BASK:secure;">
+										<input type="hidden" name="Action" value="AFWL" />
+										<input type="hidden" name="Wish_ID" value="&mvte:wishlistitem:id;" />
+										<input type="hidden" name="Quantity" value="&mvte:wishlistitem:quantity;" />
+										<mvt:if expr="l.settings:wishlistitem:product:inv_level NE 'out'">
+											<mvt:item name="buttons" param="AddToBasketL" file="cssui-buttonAddToBasketL-item.htm" />
+										</mvt:if>
+										<a class="c-button c-button--full c-button--hollow c-button--huge c-control-group__button u-color-gray-40 u-text-bold u-font-small u-text-uppercase" href="&mvte:urls:_self:auto_sep;Action=RMWL&amp;WishList_ID=&mvta:global:WishList_ID;&amp;Wish_ID=&mvta:wishlistitem:id;&amp;Offset=&mvta:global:Offset;">Remove</a>
+									</form>
+								</mvt:if>
+
+								<a href="&mvte:wishlistitem:product:link;"><strong class="x-product-list__name">&mvt:wishlistitem:product:name;</strong></a>
+								<div class="u-font-small">Added: &mvt:wishlistitem:formatted_dtadded_date;</div>
+								
+								<mvt:if expr="( l.settings:wishlistitems:wishlist:cust_id EQ g.Basket:cust_id ) AND ( g.Edit_Wish EQ l.settings:wishlistitem:id )">
+									<ul class="c-form-list">
+										<li class="c-form-list__item">
+											<label class="c-form-label" for="Quantity">Quantity</label>
+											<input id="Quantity" class="c-form-input" type="number" min="0" name="Quantity" value="&mvte:wishlistitem:quantity;" />
+										</li>
+									</ul>
+								<mvt:else>
+									<p>Quantity: &mvte:wishlistitem:quantity;</p>
+								</mvt:if>
+								
+								<mvt:foreach iterator="option" array="wishlistitem:product:options">
+									<div class="u-font-small">
+										<mvt:if expr="l.settings:option:option_id">
+											&mvt:option:attr_prompt;: &mvt:option:opt_prompt;
+										<mvt:elseif expr="NOT ISNULL l.settings:option:data">
+											&mvt:option:attr_prompt;: &mvt:option:data;
+										<mvt:elseif expr="NOT ISNULL l.settings:option:data_long">
+											&mvt:option:attr_prompt;: &mvt:option:data_long;
+										<mvt:else>
+											&mvt:option:attr_prompt;
+										</mvt:if>
+									</div>
+								</mvt:foreach>
+								
+								<mvt:if expr="l.settings:wishlistitem:product:base_price GT l.settings:wishlistitem:product:price">
+									<span class="x-product-list__price u-color-gray-30">Was: <s>&mvt:wishlistitem:product:formatted_base_price;</s></span>
+									<span class="x-product-list__price u-text-bold u-color-red">Now: &mvt:wishlistitem:product:formatted_price;</span>
+								<mvt:else>
+									<span class="x-product-list__price">&mvt:wishlistitem:product:formatted_price;</span>
+								</mvt:if>
+								<mvt:if expr="( l.settings:wishlistitems:wishlist:cust_id EQ g.Basket:cust_id ) AND ( g.Edit_Wish EQ l.settings:wishlistitem:id )">
+									<ul class="c-form-list">
+										<li class="c-form-list__item">
+											<label class="c-form-label" for="Notes">Notes</label>
+											<textarea id="Notes" class="c-form-input c-form-input--long" name="Notes">&mvte:wishlistitem:notes;</textarea>
+										</li>
+									</ul>
+								<mvt:elseif expr="NOT ISNULL l.settings:wishlistitem:notes">
+									<p>Notes: &mvte:wishlistitem:notes;</p>
+								</mvt:if>
+								<mvt:if expr="l.settings:wishlistitems:wishlist:cust_id EQ g.Basket:cust_id">
+									<mvt:if expr="g.Edit_Wish NE l.settings:wishlistitem:id">
+										<p><a class="u-font-small u-color-gray-30" href="&mvte:urls:_self:auto_sep;WishList_ID=&mvta:global:WishList_ID;&amp;Edit_Wish=&mvta:wishlistitem:id;&amp;Offset=&mvta:global:Offset;&amp;Sort_By=&mvte:global:Sort_By;&amp;Per_Page=&mvte:global:Per_Page;">Edit comment, quantity, and wish list</a></p>
+									</mvt:if>
+								</mvt:if>
+
+								<mvt:if expr="( l.settings:wishlistitems:wishlist:cust_id EQ g.Basket:cust_id ) AND ( g.Edit_Wish EQ l.settings:wishlistitem:id )">
+									<div class="c-control-group">
+										<mvt:item name="buttons" param="Update" file="cssui-buttonUpdate-item.htm" />
+										<a class="c-button c-button--full c-button--hollow c-button--huge c-control-group__button u-color-gray-40 u-text-bold u-font-small u-text-uppercase" href="&mvte:urls:_self:auto_sep;WishList_ID=&mvta:global:WishList_ID;&amp;Offset=&mvta:global:Offset;&amp;Sort_By=&mvte:global:Sort_By;&amp;Per_Page=&mvte:global:Per_Page;">Cancel</a>
+									</div>
+								</mvt:if>
+								
+							</figcaption>
+						</figure>
+					</div>
+				</mvt:foreach>
+
+			</section>
+			<!-- end .x-product-list -->
+<mvt:if expr="( l.settings:wishlistitems:wishlist:cust_id EQ g.Basket:cust_id ) AND ( NOT ISNULL g.Edit_Wish )">
+		</fieldset>
+	</form>
+</mvt:if>
+
+<mvt:if expr="l.settings:wishlistitems:page_links:last_page GT 1">
+	<nav class="x-pagination x-pagination--centered">
+		<ul class="o-list-inline">
+			<mvt:if expr="l.settings:wishlistitems:page_links:current_page NE 1">
+				<li class="o-list-inline__item">
+					<a class="c-button" href="&mvte:urls:_self:auto_sep;&mvte:wishlistitems:page_links:prev_link_params;" title="Go to the previous page.">
+						<span class="u-icon-triangle-left"></span>
+					</a>
+				</li>
+			<mvt:else>
+				<li class="o-list-inline__item">
+					<span class="c-button" title="You are on the first page.">
+						<span class="u-icon-triangle-left"></span>
+					</span>
+				</li>
+			</mvt:if>
+			<mvt:if expr="NOT l.settings:wishlistitems:page_links:contains_first">
+				<li class="o-list-inline__item">
+					<a href="&mvte:urls:_self:auto_sep;&mvte:wishlistitems:page_links:first_link_params;" title="Go to first page.">1&hellip;</a>
+				</li>
+			</mvt:if>
+			<mvt:foreach iterator="pages" array="wishlistitems:page_links:pages">
+				<mvt:if expr="l.settings:wishlistitems:page_links:current_page EQ l.settings:pages:page_num">
+					<li class="o-list-inline__item">
+						<span class="u-text-bold" title="You are on page &mvte:pages:page_num;.">&mvte:pages:page_num;</span>
+					</li>
+				<mvt:else>
+					<li class="o-list-inline__item">
+						<a href="&mvte:urls:_self:auto_sep;&mvte:pages:link_params;" title="Go to page &mvte:pages:page_num;.">&mvte:pages:page_num;</a>
+					</li>
+				</mvt:if>
+			</mvt:foreach>
+			<mvt:if expr="NOT l.settings:wishlistitems:page_links:contains_last">
+				<li class="o-list-inline__item">
+					<a href="&mvte:urls:_self:auto_sep;&mvte:wishlistitems:page_links:last_link_params;" title="Go to last page.">&hellip;&mvte:wishlistitems:page_links:last_page;</a>
+				</li>
+			</mvt:if>
+			<mvt:if expr="l.settings:wishlistitems:page_links:current_page NE l.settings:wishlistitems:page_links:last_page">
+				<a class="button cmp-product-list__next-previous cmp-product-list__next-previous--next" href="&mvte:urls:_self:auto_sep;&mvte:wishlistitems:page_links:next_link_params;">
+					<span></span>
+					<span class="icon--arrow-right-long"></span>
+				</a>
+				<li class="o-list-inline__item">
+					<a class="c-button" href="&mvte:urls:_self:auto_sep;&mvte:wishlistitems:page_links:next_link_params;" title="Go to the next page.">
+						<span class="u-icon-triangle-right"></span>
+					</a>
+				</li>
+			<mvt:else>
+				<li class="o-list-inline__item">
+					<span class="c-button" title="You are on the last page.">
+						<span class="u-icon-triangle-right"></span>
+					</span>
+				</li>
+			</mvt:if>
+		</ul>
+	</nav>
+	<!-- end .x-pagination -->
+</mvt:if>

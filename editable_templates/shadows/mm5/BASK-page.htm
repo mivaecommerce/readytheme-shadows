@@ -1,0 +1,46 @@
+<mvt:comment>
+	/**
+	 * This controls the `Delete Entire Cart` function.
+	*/
+</mvt:comment>
+<mvt:if expr="g.Clear_Cart">
+	<mvt:do file="g.Module_Library_DB" name="l.settings:result" value="Basket_Reset_Contents( g.Basket )" />
+	<mvt:assign name="l.result" value="miva_output_header( 'Location', l.settings:urls:BASK:auto )" />
+	<mvt:assign name="l.result" value="miva_output_header( 'Status', '302 Moved Temporarily' )" />
+</mvt:if>
+
+<mvt:item name="html_profile" file="cssui-html-profile-item.htm" />
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<base href="&mvt:global:basehref;">
+	<mvt:if expr="NOT ISNULL l.settings:page:title">
+		<title>&mvt:page:title;</title>
+	<mvt:else>
+		<title>&mvt:store:name;: &mvt:page:name;</title>
+	</mvt:if>
+	<mvt:item name="head" param="css_list" />
+	<mvt:item name="head" param="head_tag" file="cssui-global-head-item.htm" />
+</head>
+<body id="js-&mvte:page:code;" class="o-site-wrapper t-page-&mvt:global:pageClass;">
+	<mvt:item name="hdft" param="global_header" file="global-header-item.htm" />
+
+	<section class="o-layout">
+		<div class="o-layout__item">
+			<mvt:item name="hdft" param="header" file="BASK-header-item.htm" />
+			<mvt:item name="readytheme" param="contentsection( 'messages' )" />
+		</div>
+	</section>
+
+	<mvt:item name="basket" file="BASK-basket-item.htm" />
+	
+	<section class="o-layout">
+		<div class="o-layout__item">
+			<mvt:item name="hdft" param="footer" file="BASK-footer-item.htm" />
+		</div>
+	</section>
+
+	<mvt:item name="hdft" param="global_footer" file="global-footer-item.htm" />
+</body>
+</html>

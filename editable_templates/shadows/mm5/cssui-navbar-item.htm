@@ -1,0 +1,53 @@
+<section class="o-layout u-bg-gray-50 u-color-white t-site-header__top-navigation &mvt:global:checkout_hidden;">
+	<div class="o-layout__item u-width-12 u-width-6--m u-width-8--l u-width-10--w">
+		<mvt:item name="readytheme" param="banner( 'header_message' )" />
+	</div>
+	<div class="o-layout o-layout--align-center o-layout__item u-text-uppercase u-width-12 u-width-6--m u-width-4--l u-width-2--w t-site-header__links">
+		<div class="o-layout__item">
+			<a class="u-color-gray-10" href="&mvte:urls:CTUS:auto;">Support</a>
+		</div>
+		<div class="o-layout__item">
+			<mvt:item name="customerlink" file="cssui-custlinklogin-item.htm,cssui-custlinkedit-item.htm" />
+		</div>
+		<div class="o-layout__item">
+			<a class="u-color-gray-10 t-site-header__basket-link" data-hook="open-mini-basket" href="&mvte:urls:BASK:auto;">
+				<span class="u-icon-cart-empty u-color-gray-40"></span> Cart
+				<span class="u-bg-gray-40 u-color-gray-10 t-site-header__basket-link-quantity" data-hook="mini-basket-count">&mvte:global_minibasket:basket_count;</span>
+			</a>
+		</div>
+		<mvt:if expr="g.Basket:cust_id EQ 0">
+			<div class="u-over-everything t-global-account" data-hook="global-account">
+				<form class="t-global-account__form" method="post" action="&mvte:urls:_self:secure;" autocomplete="off">
+					<fieldset>
+						<legend>Global Account Log In</legend>
+						<input type="hidden" name="Action" value="LOGN" />
+						<input type="hidden" name="Category_Code" value="&mvte:global:Category_Code;" />
+						<input type="hidden" name="Product_Code" value="&mvte:global:Product_Code;" />
+						<input type="hidden" name="Search" value="&mvte:global:Search;" />
+						<input type="hidden" name="Per_Page" value="&mvte:global:Per_Page;" />
+						<input type="hidden" name="Sort_By" value="&mvte:global:Sort_By;" />
+						<ul class="c-form-list">
+							<li class="c-form-list__item c-form-list__item--full">
+								<label class="u-hide-visually">Email Adress</label>
+								<input class="c-form-input c-form-input--large" type="email" name="Customer_LoginEmail" value="&mvte:global:Customer_LoginEmail;" autocomplete="email" placeholder="Email" required>
+							</li>
+							<li class="c-form-list__item c-form-list__item--full">
+								<label class="u-hide-visually">Password</label>
+								<input class="c-form-input c-form-input--large" type="password" name="Customer_Password" autocomplete="current-password" placeholder="Password">
+							</li>
+							<li class="c-form-list__item c-form-list__item--full">
+								<input class="c-button c-button--full c-button--huge u-bg-gray-50 u-color-white u-text-bold u-text-uppercase" type="submit" value="Sign In">
+							</li>
+							<li class="c-form-list__item c-form-list__item--full">
+								<a class="c-button c-button--full c-button--hollow c-button--huge u-bg-white u-color-gray-50 u-text-bold u-text-uppercase" href="&mvte:urls:LOGN:secure;">Register</a>
+							</li>
+							<li class="c-form-list__item c-form-list__item--full u-text-center">
+								<a class="u-color-gray-30 u-text-bold u-font-small u-text-uppercase" href="&mvte:urls:FPWD:secure;">Forgot Password?</a>
+							</li>
+						</ul>
+					</fieldset>
+				</form>
+			</div>
+		</mvt:if>
+	</div>
+</section>

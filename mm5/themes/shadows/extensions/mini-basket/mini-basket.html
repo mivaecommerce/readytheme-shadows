@@ -1,0 +1,81 @@
+<section class="cmp-mini-basket off-canvas" data-hook="cmp-mini-basket off-canvas">
+	<div class="bg--blue color--white font--uppercase off-canvas__wrap off-canvas--right">
+		<header class="off-canvas__header">
+			<mvt:if expr="g.basket:cust_id EQ 0">
+				<a class="color--gray font--small font--uppercase no-decoration" data-hook="toggle-off-canvas" data-target="cmp-my-account" data-direction="right" href="&mvte:urls:LOGN:secure;">Log In</a>
+			</mvt:if>
+			<a class="color--gray font--small font--uppercase no-decoration is--active" data-hook="toggle-off-canvas" data-target="cmp-mini-basket" data-direction="right" href="&mvte:urls:BASK:auto;">Bag</a>
+			<button class="bg--transparent h-nb h-np off-canvas__close icon--cross" data-hook="close-off-canvas"></button>
+		</header>
+		<mvt:if expr="NOT l.settings:global_minibasket:empty">
+			<div class="off-canvas__content" data-hook="cmp-mini-basket__content" data-item-count="&mvt:global_minibasket:basket_count;" data-subtotal="&mvt:global_minibasket:formatted_total;">
+				<mvt:foreach iterator="item" array="global_minibasket:groups">
+					<mvt:do file="g.Module_Library_DB" name="l.success" value="Product_Load_Code(l.settings:item:code, l.settings:item_p )" />
+					<mvt:do file="g.Module_Feature_URI_UT" name="l.settings:item:uri" value="Store_Product_URL(l.settings:item_p, NULL)" />
+					<div class="cmp-mini-basket__line">
+						<figure class="cmp-mini-basket__image bg--white">
+							<img src="&mvte:item:imagetypes:main;" alt="&mvt:item:name;" title="&mvt:item:name;">
+						</figure>
+						<a class="cmp-mini-basket__item" href="&mvt:item:uri;">
+							<span class="cmp-mini-basket__product-name">
+								&mvt:item:name;
+								<mvt:foreach iterator="option" array="item:options">
+									<br>
+									<span class="font--small">
+										<mvt:if expr="l.settings:option:option_id">
+											&mvt:option:attr_prompt;: &mvt:option:opt_prompt;
+										<mvt:elseif expr="NOT ISNULL l.settings:option:data">
+											&mvt:option:attr_prompt;: &mvt:option:data;
+										<mvt:elseif expr="NOT ISNULL l.settings:option:data_long">
+											&mvt:option:attr_prompt;: &mvt:option:data_long;
+										<mvt:else>
+											&mvt:option:attr_prompt;
+										</mvt:if>
+									</span>
+								</mvt:foreach>
+							</span>
+							<div class="cmp-mini-basket__item-total">
+								<span class="font--small">Qty: &mvte:item:quantity;</span>
+								<hr>
+								<span class="font--semibold cmp-mini-basket__item-price">&mvt:item:formatted_subtotal;</span>
+							</div>
+						</a>
+						<mvt:if expr="l.settings:item:subterm_id">
+							<div class="cmp-mini-basket__subscription">Subscription: &mvte:item:productsubscriptionterm:descrip;</div>
+						</mvt:if>
+					</div>
+				</mvt:foreach>
+			</div>
+		<mvt:else>
+			<div class="off-canvas__content" data-hook="cmp-mini-basket__content">
+				<div class="cmp-mini-basket__line font--bold">Your Shopping Bag Is Empty</div>
+			</div>
+		</mvt:if>
+		<div class="off-canvas__footer">
+			<mvt:comment>
+				<!-- Uncomment this section if you would like to show charges in the mini-basket. -->
+				<div class="cmp-mini-basket__charges">
+					<mvt:foreach iterator="charge" array="global_minibasket:charges">
+						<div class="cmp-mini-basket__charge-item">
+							<span class="font--uppercase">&mvt:charge:descrip;</span>
+							<span>&mvt:charge:formatted_disp_amt;</span>
+						</div>
+					</mvt:foreach>
+				</div>
+			</mvt:comment>
+			<div class="cmp-mini-basket__total">
+				<span class="font--semibold font--uppercase">
+					<span class="icon--bag-empty"> </span>
+					Bag Total
+				</span>
+				<span class="font--semibold" data-hook="cmp-mini-basket__subtotal">&mvt:global_minibasket:formatted_total;</span>
+			</div>
+			<div class="cmp-mini-basket__cta">
+				<button class="button button--medium cta-primary font--uppercase" data-hook="close-off-canvas">Continue Shopping</button>
+				<a class="button button--medium cta-primary font--uppercase" href="&mvte:urls:BASK:auto;">Edit Your Bag</a>
+				<a class="button button--medium cta-primary--invert font--semibold font--uppercase" href="&mvte:urls:OINF:secure;">Checkout</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- end .cmp-mini-basket -->
