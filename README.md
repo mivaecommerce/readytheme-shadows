@@ -18,6 +18,9 @@ You can also download Shadows from the [Miva AppStore](https://apps.miva.com/sha
 #### Documentation
 [https://docs.miva.com/elements/index.html](https://docs.miva.com/elements/index.html)
 
+#### Style Guide
+[https://mivaecommerce.github.io/readytheme-shadows/index.html](https://mivaecommerce.github.io/readytheme-shadows/index.html)
+
 ## Features
 
 #### Refined Checkout
