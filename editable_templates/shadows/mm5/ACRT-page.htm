@@ -22,16 +22,25 @@
 	</section>
 
 	<section class="o-layout o-layout--justify-center">
-		<div class="o-layout__item u-width-12 u-width-6--m u-width-4--l">
-			<form method="post" action="&mvte:urls:LOGN:auto;">
+		<div class="o-layout__item u-width-12 u-width-6--m">
+			<form method="post" action="&mvte:urls:CPWD:secure;">
 				<fieldset>
 					<legend>&mvt:page:name;</legend>
-					<input type="hidden" name="Customer_Temporary_Password" value="&mvte:global:Customer_Temporary_Password;">
-					<p class="x-messages x-messages--info">Your password has been reset.</p>
-					<p>Your temporary password is: <strong class="u-color-red">&mvte:global:Customer_Temporary_Password;</strong></p>
+					<input type="hidden" name="Action" value="LOGN" />
+					<input type="hidden" name="Customer_Temporary_Password" value="&mvte:global:Customer_Temporary_Password;" autocomplete="off">
+					<input type="hidden" name="Customer_Password" value="&mvte:global:Customer_Temporary_Password;" autocomplete="off">
+					<p class="x-messages x-messages--borderless x-messages--with-icon">
+						<span class="x-messages__icon u-icon-info u-color-gray-30">&nbsp;</span>
+						<span>Your password has been reset.<br><br>To verify your account, please enter your email address to log in. You will be directed to update your password.</span>
+					</p>
+					<br>
 					<ul class="c-form-list">
-						<li class="c-form-list__item u-text-right">
-							<input class="c-button" type="submit" value="Click Here to Log In and Change Your Password" title="Click Here to Log In and Change Your Password">
+						<li class="c-form-list__item c-form-list__item--full">
+							<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required &mvt:global:invalid_credentials;" for="l-Customer_LoginEmail">Email Address</label>
+							<div class="c-control-group">
+								<input id="l-Customer_LoginEmail" class="c-form-input c-form-input--large c-control-group__field" type="email" name="Customer_LoginEmail" value="&mvte:global:Customer_LoginEmail;" autocomplete="email" required>
+								<input class="c-button c-button--large c-control-group__button u-bg-gray-40 u-color-white u-font-small u-text-uppercase" type="submit" value="Continue" title="Click Here to Log In and Change Your Password">
+							</div>
 						</li>
 					</ul>
 				</fieldset>
@@ -48,3 +57,13 @@
 	<mvt:item name="hdft" param="global_footer" file="global-footer-item.htm" />
 </body>
 </html>
+
+
+
+<!-- Use This For The Customer Password Recovery Email. Replace UPPERCASE Items With Store Information. -->
+<p>Your request for your password has been processed.</p>
+<p>If you have any questions or require additional help, please contact our customer service team.</p>
+<p><a href="CTUS PAGE URI" target="_blank">Customer Service</a><br />Phone: STORE PHONE NUMBER</p>
+<p>Thank You,<br /><br />STORE NAME<br />STORE URI</p>
+<br />
+<strong>Click this link to reset your password: </strong>

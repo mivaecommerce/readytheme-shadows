@@ -134,75 +134,77 @@
 	</mvt:if>
 </section>
 
-<section class="o-layout">
-	<div class="o-layout__item">
-		<hr class="c-keyline">
-		<p class="c-heading-delta u-text-bold u-text-uppercase">Additional Addresses</p>
-		<hr class="c-keyline">
-	</div>
-</section>
-
-<section class="o-layout u-grids-1 u-grids-3--m">
-	<mvt:foreach iterator="address" array="addressbook:addresses">
-		<article class="o-layout__item u-font-small">
-			<p class="c-heading-echo u-text-bold u-text-uppercase">
-				&mvte:address:descrip;&nbsp;&nbsp;<a class="c-heading--subheading" href="&mvte:urls:CADE:secure_sep;Address_ID=&mvta:address:id;&amp;CSRF_Token=&mvta:global:Basket:csrf_token;">Edit</a>
-				<a class="color--red h-float-right icon--remove no-decoration" href="&mvte:urls:_self:secure_sep;Action=DCSA&amp;Address_ID=&mvta:address:id;&amp;CSRF_Token=&mvta:global:Basket:csrf_token;"></a>
-			</p>
-			<p>
-				<mvt:if expr="NOT ISNULL l.settings:address:fname OR NOT ISNULL l.settings:address:lname">
-					<strong>&mvte:address:fname; &mvte:address:lname;</strong><br>
-				</mvt:if>
-				<mvt:if expr="NOT ISNULL l.settings:address:addr1">
-					&mvte:address:addr1;<br>
-				</mvt:if>
-				<mvt:if expr="NOT ISNULL l.settings:address:addr2">
-					&mvte:address:addr2;<br>
-				</mvt:if>
-				<mvt:if expr="NOT ISNULL l.settings:address:city OR NOT ISNULL l.settings:address:state OR NOT ISNULL l.settings:address:zip">
-					<mvt:if expr="NOT ISNULL l.settings:address:city">&mvte:address:city;</mvt:if><mvt:if expr="NOT ISNULL l.settings:address:city AND NOT ISNULL l.settings:address:state">,</mvt:if>
-					<mvt:if expr="NOT ISNULL l.settings:address:state">&mvte:address:state;</mvt:if>
-					<mvt:if expr="NOT ISNULL l.settings:address:zip">&mvte:address:zip;</mvt:if>
-					<br>
-				</mvt:if>
-				<mvt:if expr="NOT ISNULL l.settings:address:cntry">
-					&mvte:address:cntry;<br>
-				</mvt:if>
-				<mvt:if expr="l.settings:address:resdntl">
-					Residential Address<br>
-				</mvt:if>
-				<mvt:if expr="( NOT ISNULL l.settings:address:fname OR NOT ISNULL l.settings:address:lname ) AND ( NOT ISNULL l.settings:address:addr OR NOT ISNULL l.settings:address:addr2 OR NOT ISNULL l.settings:address:city OR NOT ISNULL l.settings:address:state OR NOT ISNULL l.settings:address:zip OR NOT ISNULL l.settings:address:cntry OR l.settings:address:resdntl )">
-					<br>
-				</mvt:if>
-				<mvt:if expr="NOT ISNULL l.settings:address:comp">
-					Company: &mvte:address:comp;<br>
-				</mvt:if>
-				<mvt:if expr="NOT ISNULL l.settings:address:email">
-					Email: &mvte:address:email;<br>
-				</mvt:if>
-				<mvt:if expr="NOT ISNULL l.settings:address:phone">
-					Phone: &mvte:address:phone;<br>
-				</mvt:if>
-				<mvt:if expr="NOT ISNULL l.settings:address:fax">
-					Fax: &mvte:address:fax;<br>
-				</mvt:if>
-			</p>
-			<mvt:if expr="l.settings:address:id NE g.Customer:ship_id OR l.settings:address:id NE g.Customer:bill_id">
-				<ul class="o-list-inline u-font-small">
-					<li class="o-list-inline__item u-text-bold">Set as default:</li>
-					<mvt:if expr="l.settings:address:id NE g.Customer:ship_id">
-						<li class="o-list-inline__item">
-							<a href="&mvte:urls:_self:secure_sep;Action=CCSA&amp;ShippingAddress_ID=&mvta:address:id;&amp;CSRF_Token=&mvta:global:Basket:csrf_token;">Shipping</a>
-						</li>
+<mvt:if expr="l.settings:addressbook:address_count GT 0">
+	<section class="o-layout">
+		<div class="o-layout__item">
+			<hr class="c-keyline">
+			<p class="c-heading-delta u-text-bold u-text-uppercase">Additional Addresses</p>
+			<hr class="c-keyline">
+		</div>
+	</section>
+	
+	<section class="o-layout u-grids-1 u-grids-3--m">
+		<mvt:foreach iterator="address" array="addressbook:addresses">
+			<article class="o-layout__item u-font-small">
+				<p class="c-heading-echo u-text-bold u-text-uppercase">
+					&mvte:address:descrip;&nbsp;&nbsp;<a class="c-heading--subheading" href="&mvte:urls:CADE:secure_sep;Address_ID=&mvta:address:id;&amp;CSRF_Token=&mvta:global:Basket:csrf_token;">Edit</a>
+					<a class="color--red h-float-right icon--remove no-decoration" href="&mvte:urls:_self:secure_sep;Action=DCSA&amp;Address_ID=&mvta:address:id;&amp;CSRF_Token=&mvta:global:Basket:csrf_token;"></a>
+				</p>
+				<p>
+					<mvt:if expr="NOT ISNULL l.settings:address:fname OR NOT ISNULL l.settings:address:lname">
+						<strong>&mvte:address:fname; &mvte:address:lname;</strong><br>
 					</mvt:if>
-					<mvt:if expr="l.settings:address:id NE g.Customer:bill_id">
-						<li class="o-list-inline__item">
-							<a href="&mvte:urls:_self:secure_sep;Action=CCSA&amp;BillingAddress_ID=&mvta:address:id;&amp;CSRF_Token=&mvta:global:Basket:csrf_token;">Billing</a>
-						</li>
+					<mvt:if expr="NOT ISNULL l.settings:address:addr1">
+						&mvte:address:addr1;<br>
 					</mvt:if>
-				</ul>
-			</mvt:if>
-			<p><a class="u-color-red u-font-small" href="&mvte:urls:_self:secure_sep;Action=DCSA&amp;Address_ID=&mvta:address:id;&amp;CSRF_Token=&mvta:global:Basket:csrf_token;">Delete This Address</a></p>
-		</article>
-	</mvt:foreach>
-</section>
+					<mvt:if expr="NOT ISNULL l.settings:address:addr2">
+						&mvte:address:addr2;<br>
+					</mvt:if>
+					<mvt:if expr="NOT ISNULL l.settings:address:city OR NOT ISNULL l.settings:address:state OR NOT ISNULL l.settings:address:zip">
+						<mvt:if expr="NOT ISNULL l.settings:address:city">&mvte:address:city;</mvt:if><mvt:if expr="NOT ISNULL l.settings:address:city AND NOT ISNULL l.settings:address:state">,</mvt:if>
+						<mvt:if expr="NOT ISNULL l.settings:address:state">&mvte:address:state;</mvt:if>
+						<mvt:if expr="NOT ISNULL l.settings:address:zip">&mvte:address:zip;</mvt:if>
+						<br>
+					</mvt:if>
+					<mvt:if expr="NOT ISNULL l.settings:address:cntry">
+						&mvte:address:cntry;<br>
+					</mvt:if>
+					<mvt:if expr="l.settings:address:resdntl">
+						Residential Address<br>
+					</mvt:if>
+					<mvt:if expr="( NOT ISNULL l.settings:address:fname OR NOT ISNULL l.settings:address:lname ) AND ( NOT ISNULL l.settings:address:addr OR NOT ISNULL l.settings:address:addr2 OR NOT ISNULL l.settings:address:city OR NOT ISNULL l.settings:address:state OR NOT ISNULL l.settings:address:zip OR NOT ISNULL l.settings:address:cntry OR l.settings:address:resdntl )">
+						<br>
+					</mvt:if>
+					<mvt:if expr="NOT ISNULL l.settings:address:comp">
+						Company: &mvte:address:comp;<br>
+					</mvt:if>
+					<mvt:if expr="NOT ISNULL l.settings:address:email">
+						Email: &mvte:address:email;<br>
+					</mvt:if>
+					<mvt:if expr="NOT ISNULL l.settings:address:phone">
+						Phone: &mvte:address:phone;<br>
+					</mvt:if>
+					<mvt:if expr="NOT ISNULL l.settings:address:fax">
+						Fax: &mvte:address:fax;<br>
+					</mvt:if>
+				</p>
+				<mvt:if expr="l.settings:address:id NE g.Customer:ship_id OR l.settings:address:id NE g.Customer:bill_id">
+					<ul class="o-list-inline u-font-small">
+						<li class="o-list-inline__item u-text-bold">Set as default:</li>
+						<mvt:if expr="l.settings:address:id NE g.Customer:ship_id">
+							<li class="o-list-inline__item">
+								<a href="&mvte:urls:_self:secure_sep;Action=CCSA&amp;ShippingAddress_ID=&mvta:address:id;&amp;CSRF_Token=&mvta:global:Basket:csrf_token;">Shipping</a>
+							</li>
+						</mvt:if>
+						<mvt:if expr="l.settings:address:id NE g.Customer:bill_id">
+							<li class="o-list-inline__item">
+								<a href="&mvte:urls:_self:secure_sep;Action=CCSA&amp;BillingAddress_ID=&mvta:address:id;&amp;CSRF_Token=&mvta:global:Basket:csrf_token;">Billing</a>
+							</li>
+						</mvt:if>
+					</ul>
+				</mvt:if>
+				<p><a class="u-color-red u-font-small" href="&mvte:urls:_self:secure_sep;Action=DCSA&amp;Address_ID=&mvta:address:id;&amp;CSRF_Token=&mvta:global:Basket:csrf_token;">Delete This Address</a></p>
+			</article>
+		</mvt:foreach>
+	</section>
+</mvt:if>

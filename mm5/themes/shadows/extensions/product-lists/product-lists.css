@@ -55,3 +55,14 @@
 	.x-product-list__action {
 		padding-top: 16px;
 	}
+
+	/**
+	* If you are creating a product carousel, add this class to the element.
+	*/
+	.x-product-list--carousel {}
+
+		.x-product-list--carousel .x-product-list__item {
+			margin-bottom: 0;
+			padding-right: 0.5rem;
+			padding-left: 0.5rem;
+		}

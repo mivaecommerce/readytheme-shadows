@@ -14,17 +14,13 @@
 	<mvt:if expr="l.settings:payment:capabilities:split">
 		<script>
 			function AmountType_Changed(amounttype) {
-				var balance_amount,
-					amount,
-					additional;
-				
-				balance_amount = document.querySelector('[data-hook="payment-balance-amount"]');
-				amount = document.querySelector('[data-hook="payment-amount"]');
-				additional = document.querySelector('[data-hook="payment-additional"]');
+				var balance_amount = document.querySelector('[data-hook="payment-balance-amount"]');
+				var amount = document.querySelector('[data-hook="payment-amount"]');
+				var additional = document.querySelector('[data-hook="payment-additional"]');
 
 				if (amounttype === 'total') {
 					amount.disabled = true;
-					additional.style.display = 'none';
+					additional.classList.add('u-hidden');
 
 					if (balance_amount) {
 						balance_amount.disabled = true;
@@ -32,7 +28,7 @@
 				}
 				else if (amounttype === 'balance') {
 					amount.disabled = true;
-					additional.style.display = '';
+					additional.classList.remove('u-hidden');
 
 					if (balance_amount) {
 						balance_amount.disabled = false;
@@ -40,7 +36,7 @@
 				}
 				else if (amounttype === 'partial') {
 					amount.disabled = false;
-					additional.style.display = '';
+					additional.classList.remove('u-hidden');
 
 					if (balance_amount) {
 						balance_amount.disabled	= true;
@@ -64,6 +60,7 @@
 							{name: 'visa', value: '&mvte:method:module;:&mvte:method:code;'},
 						</mvt:if>
 						<mvt:assign name="g.cc_payment" value="1" />
+						<mvt:assign name="g.payment_module_class" value="l.settings:method:module $ '-payment-form'" />
 					</mvt:if>
 				</mvt:foreach>
 			]
@@ -76,16 +73,16 @@
 	<section class="o-layout">
 		<div class="o-layout__item">
 			<mvt:item name="hdft" param="header" file="OPAY-header-item.htm" />
-			<mvt:item name="readytheme" param="contentsection( 'messages' )" />
 			<mvt:item name="customfields" param="Write_Basket('order_instructions', g.order_instructions)" />
 		</div>
 	</section>
 
 	<section class="o-layout o-layout--wide">
-		<div class="o-layout__item u-width-12 u-width-8--l">
+		<div class="o-layout__item u-width-12 u-width-8--l u-width-5--w u-offset-2--w">
 			<mvt:item name="readytheme" param="contentsection( 'checkout_steps' )" />
+			<mvt:item name="readytheme" param="contentsection( 'messages' )" />
 			
-			<form data-hook="opay-form" method="post" action="&mvt:payment:url;">
+			<form id="opay_form" data-hook="opay-form" method="post" action="&mvt:payment:url;">
 				<fieldset>
 					<legend>&mvt:page:name;</legend>
 					<input type="hidden" name="Action" value="AUTH" />
@@ -107,8 +104,24 @@
 								<mvt:item name="mivapay" file="OPAY-mivapay-item.htm" />
 							</li>
 						</ul>
+					<mvt:elseif expr="'brain' CIN g.PaymentMethod">
+						<ul class="c-form-list">
+							<li class="c-form-list__item c-form-list__item--full">
+								<mvt:foreach array="payment:fields" iterator="field">
+									<mvt:item name="payment" param="field:code" />
+								</mvt:foreach>
+							</li>
+						</ul>
+					<mvt:elseif expr="'square' CIN g.PaymentMethod">
+						<ul class="c-form-list o-layout u-grids-1 u-text-bold u-text-uppercase t-payment-form t-&mvt:global:payment_module_class;">
+							<li class="c-form-list__item">
+								<mvt:foreach array="payment:fields" iterator="field">
+									<mvt:item name="payment" param="field:code" />
+								</mvt:foreach>
+							</li>
+						</ul>
 					<mvt:else>
-						<ul class="c-form-list o-layout u-grids-1 u-text-bold u-text-uppercase t-payment-form">
+						<ul class="c-form-list o-layout u-grids-1 u-text-bold u-text-uppercase t-payment-form t-&mvt:global:payment_module_class;">
 							<mvt:foreach array="payment:fields" iterator="field">
 								<mvt:if expr="'exp' CIN l.settings:field:code">
 									<li class="c-form-list__item o-layout__item" data-hook="mvt-select" data-classlist="c-form-select__dropdown c-form-input--huge u-font-small" data-id="&mvt:field:code;">
@@ -265,7 +278,7 @@
 							</div>
 							<div class="o-layout__item t-payment-cta">
 								<mvt:if expr="l.settings:paymentsettings:mivapay:enabled AND ( l.settings:mivapay:paymentcardtype:id OR l.settings:mivapay:paymentcard:id )">
-									<script type="text/javascript">
+									<script>
 										var onclick_submit = function () {
 											if (MivaPay && ( typeof MivaPay.Submit === 'function' )) {
 												MivaPay.Submit(function () {
@@ -279,17 +292,19 @@
 									</script>
 									
 									<span onclick="onclick_submit(); return false;">
-										<input class="c-button c-button--huge c-button--full u-bg-gray-50 u-text-uppercase" type="submit" value="Complete Order">
+										<input class="c-button c-button--huge c-button--full u-bg-gray-50 u-font-small u-text-medium u-text-uppercase" type="submit" value="Complete Order">
 									</span>
+								<mvt:elseif expr="'brain' CIN g.PaymentMethod">
+									<input class="c-button c-button--huge c-button--full u-bg-gray-50 u-font-small u-text-medium u-text-uppercase" type="submit" value="Complete Order">
 								<mvt:else>
 									<mvt:if expr="g.cc_payment EQ 1">
 										<mvt:if expr="l.settings:payment:capabilities:split">
-											<input class="c-button c-button--huge c-button--full u-bg-gray-50 u-text-uppercase" data-hook="submit-form" type="submit" value="Complete Order">
+											<input class="c-button c-button--huge c-button--full u-bg-gray-50 u-font-small u-text-medium u-text-uppercase" data-hook="submit-form" type="submit" value="Complete Order">
 										<mvt:else>
-											<input class="c-button c-button--huge c-button--full u-bg-gray-50 u-text-uppercase" data-hook="submit-form" type="submit" value="Complete Order" disabled>
+											<input class="c-button c-button--huge c-button--full u-bg-gray-50 u-font-small u-text-medium u-text-uppercase" data-hook="submit-form" type="submit" value="Complete Order">
 										</mvt:if>
 									<mvt:else>
-										<input class="c-button c-button--huge c-button--full u-bg-gray-50 u-text-uppercase" data-hook="submit-form" type="submit" value="Complete Order">
+										<input class="c-button c-button--huge c-button--full u-bg-gray-50 u-font-small u-text-medium u-text-uppercase" data-hook="submit-form" type="submit" value="Complete Order">
 									</mvt:if>
 								</mvt:if>
 							</div>
@@ -302,7 +317,7 @@
 			
 			<mvt:item name="customer" file="OPAY-custflds-item.htm" />
 		</div>
-		<aside class="o-layout__item u-width-12 u-width-4--l">
+		<aside class="o-layout__item u-width-12 u-width-4--l u-width-5--w">
 			<mvt:item name="basket" file="OPAY-basket-item.htm" />
 		</aside>
 	</section>

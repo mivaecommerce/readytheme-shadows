@@ -370,6 +370,45 @@
 			}
 		};
 
+		var hideCTA = function (carouselItems, carouselItemElements, carouselPrevious, carouselNext, settings) {
+			if (window.matchMedia('(min-width: 768px) and (max-width: 959px)').matches) {
+				if (carouselItemElements < settings.groupMedium) {
+					carouselItems[0].style.justifyContent = 'center';
+					carouselPrevious.style.display = 'none';
+					carouselNext.style.display = 'none';
+				}
+				else {
+					carouselItems.style.justifyContent = 'flex-start';
+					carouselPrevious.style.display = 'inline-block';
+					carouselNext.style.display = 'inline-block';
+				}
+			}
+			else if (window.matchMedia('(min-width: 960px) and (max-width: 1439px)').matches) {
+				if (carouselItemElements < settings.groupLarge) {
+					carouselItems[0].style.justifyContent = 'center';
+					carouselPrevious.style.display = 'none';
+					carouselNext.style.display = 'none';
+				}
+				else {
+					carouselItems[0].style.justifyContent = 'flex-start';
+					carouselPrevious.style.display = 'inline-block';
+					carouselNext.style.display = 'inline-block';
+				}
+			}
+			else if (window.matchMedia('(min-width: 1440px)').matches)  {
+				if (carouselItemElements < settings.groupWide) {
+					carouselItems[0].style.justifyContent = 'center';
+					carouselPrevious.style.display = 'none';
+					carouselNext.style.display = 'none';
+				}
+				else {
+					carouselItems[0].style.justifyContent = 'flex-start';
+					carouselPrevious.style.display = 'inline-block';
+					carouselNext.style.display = 'inline-block';
+				}
+			}
+		};
+
 		var roundabout = function (target, options) {
 			var navigationClicked;
 			var slideInterval;
@@ -385,6 +424,7 @@
 			var carouselPrevious = carousel.querySelector('[data-hook~="carousel__button-previous"]');
 			var carouselContainer = carousel.querySelector('[data-hook~="carousel__container"]');
 			var carouselItems = carouselContainer.children;
+			var carouselItemElements = carouselItems[0].childElementCount;
 
 			/**
 			 * If the carousel needs to group items together, group and recheck on resize
@@ -414,6 +454,21 @@
 			}
 			else {
 				$(carouselItems).groupEvery(1, settings.groupWrapper, settings.groupClass);
+			}
+
+			if (carouselItems.length === 1) {
+				var timeToStall;
+
+				hideCTA(carouselItems, carouselItemElements, carouselPrevious, carouselNext, settings);
+				window.addEventListener('resize', function (event) {
+					if (!timeToStall) {
+						timeToStall = setTimeout(function () {
+							timeToStall = null;
+
+							hideCTA(carouselItems, carouselItemElements, carouselPrevious, carouselNext, settings);
+						}, 66);
+					}
+				}, false);
 			}
 
 			observation(carousel, carouselItems);

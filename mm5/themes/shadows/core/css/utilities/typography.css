@@ -147,8 +147,16 @@
 /* Font style utilities
  * 1. This is a hold-over class for content output by Miva.
   =========================================== */
+.u-text-light {
+	font-weight: 200;
+}
+
 .u-text-regular {
 	font-weight: 400;
+}
+
+.u-text-medium {
+	font-weight: 600;
 }
 
 .required, /* [1] */

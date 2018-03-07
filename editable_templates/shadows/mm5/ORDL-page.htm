@@ -21,49 +21,43 @@
 			<mvt:item name="readytheme" param="contentsection( 'messages' )" />
 		</div>
 	</section>
+	<br>
 
 	<section class="o-layout o-layout--justify-around">
 		<div class="o-layout__item u-width-12 u-width-6--m u-width-4--l">
-			<p class="c-heading-delta u-text-uppercase">
-				Welcome Back<br>
-				<span class="c-heading--subheading u-text-revert">Returning guests, sign in using your email address and the password that you created with us.</span>
-			</p>
+			<p class="c-heading-charlie u-text-bold u-text-center u-text-uppercase">Log In or Register</p>
 			<form method="post" action="&mvte:urls:OCST:secure;" autocomplete="off">
 				<fieldset>
 					<legend>&mvt:page:name;</legend>
 					<input type="hidden" name="Action" value="LOGN" />
 					<ul class="c-form-list">
-						<li class="c-form-list__item">
-							<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required &mvt:global:invalid_credentials;" for="l-Customer_LoginEmail">Email Address</label>
-							<input id="l-Customer_LoginEmail" class="c-form-input" type="email" name="Customer_LoginEmail" value="&mvte:global:Customer_LoginEmail;" autocomplete="email" required>
+						<li class="c-form-list__item c-form-list__item--full">
+							<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required &mvt:global:invalid_credentials;" for="l-Customer_LoginEmail">Email Address</label>
+							<input id="l-Customer_LoginEmail" class="c-form-input c-form-input--large" type="email" name="Customer_LoginEmail" value="&mvte:global:Customer_LoginEmail;" autocomplete="email" required>
 						</li>
-						<li class="c-form-list__item">
-							<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required &mvt:global:invalid_credentials;" for="l-Customer_Password">Password:</label>
-							<input id="l-Customer_Password" class="c-form-input" type="password" name="Customer_Password" autocomplete="current-password" required>
+						<li class="c-form-list__item c-form-list__item--full">
+							<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required &mvt:global:invalid_credentials;" for="l-Customer_Password">Password:</label>
+							<input id="l-Customer_Password" class="c-form-input c-form-input--large" type="password" name="Customer_Password" autocomplete="current-password" required>
 						</li>
-						<li class="c-form-list__item u-text-right">
-							<mvt:item name="buttons" param="Login" file="cssui-buttonLogin-item.htm" />
+						<li class="c-form-list__item c-form-list__item--full">
+							<input class="c-button c-button--full c-button--huge u-bg-gray-50 u-font-small u-text-bold u-text-uppercase" type="submit" value="Log In">
+							<a class="c-button c-button--full c-button--large u-bg-gray-10 u-color-gray-50 u-font-small u-text-uppercase" href="&mvte:urls:ACAD:secure_sep;Order=1" title="Create Your Account">Register</a>
+							<span class="u-font-small">
+								<a class="c-button c-button--full c-button--huge u-bg-white u-color-gray-50 u-font-tiny u-text-uppercase" data-mini-modal data-mini-modal-type="inline" data-mini-modal-content="data-forgot-password" href="&mvte:urls:FPWD:secure;" title="Forgot Your Password?">Forgot Password?</a>
+							</span>
 						</li>
 					</ul>
 				</fieldset>
 			</form>
-			<p class="u-font-small"><a data-mini-modal data-mini-modal-type="inline" data-mini-modal-content="data-forgot-password" href="&mvte:urls:FPWD:secure;" title="Forgot Password">Forgot your password?</a></p>
 		</div>
-		<div class="o-layout__item u-width-12 u-width-6--m u-width-4--l">
-			<p class="c-heading-delta u-text-uppercase">
-				New Customers<br>
-				<span class="c-heading--subheading u-text-revert">For faster future checkouts and online access to your order history, create your personal account now.</span>
-			</p>
-			<p class="u-text-right"><a class="c-button c-button--large u-font-small u-text-bold u-text-uppercase" href="&mvte:urls:ACAD:secure_sep;Order=1" title="Create Your Account">Create Your Account</a></p>
-			<mvt:if expr="g.Basket:sub_count EQ 0">
-				<hr class="c-keyline">
-				<p class="c-heading-delta u-text-uppercase">
-					Guest Checkout<br>
-					<span class="c-heading--subheading u-text-revert">Finalize your order without creating an account.</span>
-				</p>
-				<p class="u-text-right"><a class="c-button c-button--large u-font-small u-text-bold u-text-uppercase" href="&mvte:urls:OCST:secure;" title="Continue As A Guest">Continue As A Guest</a></p>
-			</mvt:if>
-		</div>
+		<mvt:if expr="g.Basket:sub_count EQ 0">
+			<div class="o-layout__item u-width-12 u-width-6--m u-width-4--l u-text-center">
+				<p class="c-heading-charlie u-text-bold u-text-uppercase">Guest Checkout</p>
+				<p class="u-color-gray-40 u-font-small">Finalize your order without creating an account.</p>
+				<br>
+				<p class="u-text-right"><a class="c-button c-button--full c-button--huge u-bg-gray-50 u-font-small u-text-bold u-text-uppercase" href="&mvte:urls:OCST:secure;" title="Continue As A Guest">Continue As A Guest</a></p>
+			</div>
+		</mvt:if>
 	</section>
 	
 	<section class="o-layout">

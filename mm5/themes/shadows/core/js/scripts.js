@@ -399,7 +399,6 @@ var elementsUI = {
 							cardInput.classList.remove('has-error');
 							$.hook('payment-method-display').text(paymentDetected.display);
 							$.hook('payment-method').val(supportedPaymentMethods.findPaymentMethod(paymentDetected.name));
-							$.hook('submit-form').removeAttr('disabled');
 						}
 					});
 				});

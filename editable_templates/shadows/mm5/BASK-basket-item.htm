@@ -15,14 +15,13 @@
 </mvt:if>
 <mvt:if expr="l.settings:basket:empty">
 	<div class="x-messages x-messages--info">
-		<strong>Your shopping cart is currently empty.</strong><br>
-		<a class="c-button c-button--hollow" href="&mvt:global:continue_url;">Start Shopping</a>
+		<strong>Your shopping cart is currently empty.</strong> <a href="&mvt:global:continue_url;">Start Shopping</a>
 	</div>
 	<mvt:exit />
 </mvt:if>
 
 <section class="o-layout o-layout--wide t-basket" data-hook="basket" data-item-count="&mvt:global_minibasket:basket_count;" data-subtotal="&mvt:global_minibasket:formatted_total;">
-	<div class="o-layout__item u-width-12 u-width-9--l">
+	<div class="o-layout__item u-width-12 u-width-8--l">
 		<table class="c-table-responsive t-basket__product-summary">
 			<caption class="u-text-left">
 				<h1 class="c-heading-delta u-text-bold u-text-uppercase">
@@ -51,13 +50,11 @@
 								<div class="o-layout__item u-width-12 u-width-4--m u-width-3--l u-text-center">
 									<p><img src="&mvte:group:imagetypes:main;" alt="&mvt:group:name;" title="&mvt:group:name;"></p>
 								</div>
-								<div class="o-layout__item u-width-12 u-width-8--m u-width-9--l">
-									<div class="c-heading-echo">
-										<a class="u-text-bold u-color-black" href="&mvte:group:link;" title="&mvt:group:name;" rel="nofollow">&mvt:group:name;</a>
-										<mvt:if expr="l.settings:group:upsold">
-											<br><br><span class="c-heading--subheading">(Special Offer)</span>
-										</mvt:if>
-									</div>
+								<div class="o-layout__item u-width-12 u-width-8--m u-width-9--l t-basket__product-details">
+									<a class="u-text-bold u-color-black" href="&mvte:group:link;" title="&mvt:group:name;" rel="nofollow">&mvt:group:name;</a><br>
+									<mvt:if expr="l.settings:group:upsold">
+										<br><span class="c-heading--subheading">(Special Offer)</span><br>
+									</mvt:if>
 									<p class="u-color-gray-30">
 										<span class="u-font-small">SKU: &mvt:group:code;</span><br>
 										<mvt:foreach iterator="discount" array="group:discounts">
@@ -79,18 +76,26 @@
 												<mvt:if expr="l.settings:option:option_id">
 													<mvt:assign name="l.settings:group:restore:link" value="l.settings:group:restore:link $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:code=' $ l.settings:option:attr_code $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:value=' $ l.settings:option:opt_code" />
 													<span class="o-layout--grow">&mvt:option:attr_prompt;: &mvt:option:opt_prompt;</span>
-													<span>&mvt:option:formatted_subtotal;</span>
+													<mvt:if expr="l.settings:option:subtotal GT 0">
+														<span>&mvt:option:formatted_subtotal;</span>
+													</mvt:if>
 												<mvt:elseif expr="NOT ISNULL l.settings:option:data">
 													<mvt:assign name="l.settings:group:restore:link" value="l.settings:group:restore:link $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:code=' $ l.settings:option:attr_code $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:value=' $ l.settings:option:data" />
 													<span class="o-layout--grow">&mvt:option:attr_prompt;: &mvt:option:data;</span>
-													<span>&mvt:option:formatted_subtotal;</span>
+													<mvt:if expr="l.settings:option:subtotal GT 0">
+														<span>&mvt:option:formatted_subtotal;</span>
+													</mvt:if>
 												<mvt:elseif expr="NOT ISNULL l.settings:option:data_long">
 													<mvt:assign name="l.settings:group:restore:link" value="l.settings:group:restore:link $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:code=' $ l.settings:option:attr_code $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:value=' $ l.settings:option:data_long" />
 													<span class="o-layout--grow">&mvt:option:attr_prompt;: &mvt:option:data_long;</span>
-													<span>&mvt:option:formatted_subtotal;</span>
+													<mvt:if expr="l.settings:option:subtotal GT 0">
+														<span>&mvt:option:formatted_subtotal;</span>
+													</mvt:if>
 												<mvt:else>
 													<span class="o-layout--grow">&mvt:option:attr_prompt;</span>
-													<span>&mvt:option:formatted_subtotal;</span>
+													<mvt:if expr="l.settings:option:subtotal GT 0">
+														<span>&mvt:option:formatted_subtotal;</span>
+													</mvt:if>
 												</mvt:if>
 											</span>
 											<mvt:foreach iterator="discount" array="option:discounts">
@@ -105,7 +110,7 @@
 										<p>Subscription: &mvte:group:productsubscriptionterm:descrip;</p>
 									</mvt:if>
 									<mvt:if expr="l.settings:group:product:id AND (NOT l.settings:group:product:productsubscriptionsettings:enabled OR NOT l.settings:group:product:productsubscriptionsettings:mandatory)">
-										<p><a class="u-font-small u-text-bold u-color-gray-50" href="&mvte:urls:WISH:secure_sep;Action=MPWL&Group_ID=&mvta:group:group_id;">&#8942; Save Item For Later</a></p>
+										<p><a class="u-color-gray-50 u-font-small u-text-bold u-text-uppercase" href="&mvte:urls:WISH:secure_sep;Action=MPWL&Group_ID=&mvta:group:group_id;">&#8942; Save to Wish List</a></p>
 									</mvt:if>
 								</div>
 							</div>
@@ -132,9 +137,9 @@
 											<li class="c-form-list__item">
 												<label class="u-hide-visually" for="l-quantity-&mvte:group:group_id;">Quantity</label>
 												<div class="x-quantify c-control-group" data-hook="quantify">
-													<button class="c-button c-control-group__button u-bg-white u-color-black u-icon-subtract" data-action="decrement"></button>
-													<input id="l-quantity-&mvte:group:group_id;" class="c-form-input c-control-group__field u-text-center" data-group="group-&mvte:group:group_id;" data-hook="group-quantity" type="tel" name="Quantity" value="&mvt:group:quantity;" required>
-													<button class="c-button c-control-group__button u-bg-white u-color-black u-icon-add" data-action="increment"></button>
+													<button class="c-button c-control-group__button u-bg-white u-color-gray-30 u-icon-subtract" data-action="decrement"></button>
+													<input id="l-quantity-&mvte:group:group_id;" class="c-form-input c-control-group__field u-text-bold u-text-center" data-group="group-&mvte:group:group_id;" data-hook="group-quantity" type="tel" name="Quantity" value="&mvt:group:quantity;" required>
+													<button class="c-button c-control-group__button u-bg-white u-color-gray-30 u-icon-add" data-action="increment"></button>
 												</div>
 											</li>
 										</ul>
@@ -156,10 +161,10 @@
 							</p>
 						</td>
 						
-						<td class="c-table-responsive__cell u-text-right">
+						<td class="c-table-responsive__cell u-font-small u-text-right">
 							<p>
-								<a class="c-button c-button--hollow c-button--small u-bg-white u-color-gray-30" href="&mvte:urls:BASK:auto_sep;Action=RGRP&Basket_Group=&mvta:group:group_id;&Restore_Name=&mvta:group:name;&Restore_Link=&mvta:group:restore:link;">
-									<span class="u-color-gray-40 u-icon-cross"></span>
+								<a class="c-button c-button--hollow c-button--small u-bg-white u-color-gray-20 t-basket__product-remove" href="&mvte:urls:BASK:auto_sep;Action=RGRP&Basket_Group=&mvta:group:group_id;&Restore_Name=&mvta:group:name;&Restore_Link=&mvta:group:restore:link;">
+									<span class="u-color-gray-30 u-icon-cross"></span>
 								</a>
 							</p>
 						</td>
@@ -168,23 +173,24 @@
 			</tbody>
 		</table>
 		
-		<ul class="o-list-inline u-font-small u-text-uppercase">
+		<ul class="o-list-inline u-text-bold u-text-uppercase">
 			<li class="o-list-inline__item">
-				<a class="u-color-gray-30" href="&mvte:urls:WISH:secure_sep;Action=MAWL" title="Save Cart for Later"><span class="u-icon-history"></span>&nbsp;Save Cart for Later</a>
+				<a class="u-color-gray-30" href="&mvte:urls:WISH:secure_sep;Action=MAWL" title="Save Cart for Later"><span class="u-font-small u-icon-history"></span>&nbsp;<span class="u-font-tiny">Save Cart for Later</span></a>
 			</li>
 			<li class="o-list-inline__item">
-				<a class="u-color-gray-30" href="&mvte:urls:BASK:auto_sep;Clear_Cart=1" title="Delete Entire Cart"><span class="u-icon-remove"></span>&nbsp;Delete Entire Cart</a>
+				<a class="u-color-gray-30" href="&mvte:urls:BASK:auto_sep;Clear_Cart=1" title="Delete Entire Cart"><span class="u-font-small u-icon-remove"></span>&nbsp;<span class="u-font-tiny">Delete Entire Cart</span></a>
 			</li>
 		</ul>
+		<br>
 
-		<p class="u-font-small u-text-uppercase">
-			<a class="u-text-bold u-color-black" href="&mvt:global:continue_url;" title="Continue Shopping"><span class="u-icon-arrow-left"></span>&nbsp;Continue Shopping</a>
+		<p class="u-text-bold u-font-small u-text-uppercase">
+			<a class="u-color-black" href="&mvt:global:continue_url;" title="Continue Shopping"><span class="u-icon-arrow-left"></span>&nbsp;Continue Shopping</a>
 		</p>
 		
 		<hr class="c-keyline">
 	</div>
 	
-	<aside class="o-layout__item u-width-12 u-width-3--l">
+	<aside class="o-layout__item u-width-12 u-width-4--l">
 		<mvt:do file="g.Module_Store_Module_Currency" name="l.settings:basket:formatted_subtotal" value="CurrencyModule_AddFormatting(g.Store:currncy_mod, g.basket_subtotal)" />
 		<table class="c-table-simple t-basket__order-summary">
 			<thead>
@@ -253,7 +259,7 @@
 						<input id="basket-coupon-form-toggle" class="u-hidden t-basket_basket-coupon-form-toggle" type="checkbox">
 						<label class="u-flex o-layout--justify-between o-layout--align-center u-text-bold u-text-uppercase" for="basket-coupon-form-toggle">
 							<span>Add Promo Code</span>
-							<span class="u-icon-add"></span>
+							<span class="u-icon-add u-font-tiny"></span>
 						</label>
 						<form class="t-basket_coupon-form" method="post" action="&mvte:urls:_self:auto;">
 							<fieldset>
@@ -263,7 +269,7 @@
 									<li class="c-form-list__item c-form-list__item--full c-control-group u-flex">
 										<label class="u-hide-visually" for="Coupon_Code">Add Promo Code</label>
 										<input id="Coupon_Code" class="c-form-input c-control-group__field u-text-regular" type="text" name="Coupon_Code" placeholder="Enter Promo Code" required>
-										<input class="c-button c-control-group__button u-border-none u-text-uppercase" type="submit" value="Apply">
+										<input class="c-button c-control-group__button c-button--large u-border-none u-text-uppercase" type="submit" value="Apply">
 									</li>
 								</ul>
 							</fieldset>
@@ -274,8 +280,8 @@
 				<tr>
 					<td class="c-table-simple__cell">
 						<br>
-						<div class="u-flex o-layout--justify-between c-heading-delta u-text-bold">
-							<span>Total</span>
+						<div class="u-flex o-layout--align-center o-layout--justify-between c-heading-delta u-text-bold u-text-uppercase">
+							<span class="u-font-tiny">Current Total</span>
 							<span>&mvt:basket:formatted_total;</span>
 						</div>
 					</td>
@@ -284,7 +290,7 @@
 				<tr>
 					<td>
 						<br>
-						<a class="c-button c-button--full c-button--huge u-bg-black u-color-white" href="&mvte:urls:OINF:auto;">Secure Checkout</a>
+						<a class="c-button c-button--full c-button--huge u-bg-black u-color-white u-text-bold" href="&mvte:urls:OINF:auto;">Secure Checkout</a>
 						<br>
 						<hr class="c-keyline">
 					</td>

@@ -29,7 +29,7 @@
 
 	.x-mini-basket__content {
 		display: flex;
-		flex: 1;
+		flex: 1 1 100%;
 		flex-direction: column;
 		width: 100vw;
 		max-width: 30rem;
@@ -62,7 +62,7 @@
 
 			.x-mini-basket__item {
 				display: flex;
-				flex: 1;
+				flex: 1 1 auto;
 				flex-direction: column;
 				justify-content: space-between;
 				text-decoration: none;

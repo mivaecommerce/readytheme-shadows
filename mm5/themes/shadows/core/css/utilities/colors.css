@@ -163,6 +163,78 @@
 
 
 
+.u-border-red {
+	border-color: #c8102e;
+}
+
+.u-border-yellow {
+	border-color: #f9ed1f;
+}
+
+.u-border-blue {
+	border-color: #003b6f;
+}
+
+.u-border-green {
+	border-color: #009a44;
+}
+
+.u-border-black {
+	border-color: #0f0f0f;
+}
+
+.u-border-gray-50 {
+	border-color: #222;
+}
+
+.u-border-gray-40 {
+	border-color: #707070;
+}
+
+.u-border-gray-30 {
+	border-color: #9f9f9f;
+}
+
+.u-border-gray-20 {
+	border-color: #c0c0c0;
+}
+
+.u-border-gray-10 {
+	border-color: #eaeaea;
+}
+
+.u-border-white {
+	border-color: #fff;
+}
+
+.u-border-transparent {
+	border-color: rgba(0, 0, 0, 0);
+}
+
+.u-border-primary {
+	border-color: #3d70b2;
+}
+
+.u-border-secondary {
+	border-color: #5aaafa;
+}
+
+.u-border-tertiary {
+	border-color: #008571;
+}
+
+.u-border-highlight {
+	border-color: #f9ed1f;
+}
+
+.u-border-accent {
+	border-color: #3cc;
+}
+
+
+
+
+
 .u-color-red {
 	color: #c8102e;
 }

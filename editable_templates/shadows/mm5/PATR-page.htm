@@ -24,8 +24,8 @@
 	</section>
 
 	<section class="o-layout o-layout--justify-center">
+		<p class="o-layout__item u-width-12 c-heading-echo u-text-center">There are some required attributes you need to select to continue adding &mvt:product:name; to your cart.</p>
 		<div class="o-layout__item u-width-12 u-width-6--m u-width-4--l">
-			<p class="c-heading-delta">There are some required attributes you need to select to continue adding &mvt:product:name; to your cart.</p>
 			<form method="post" action="&mvte:urls:_self:rr;">
 				<fieldset>
 					<legend>Missing Required Attributes for &mvt:product:name;</legend>
@@ -39,11 +39,11 @@
 					<input type="hidden" name="Offset" value="&mvte:global:Offset;" />
 					<input type="hidden" name="Search" value="&mvte:global:Search;" />
 					<ul class="c-form-list">
-						<li class="c-form-list__item x-product-layout-purchase__options">
+						<li class="c-form-list__item o-layout--column x-product-layout-purchase__options">
 							<mvt:item name="product_attributes" param="product:id" file="PATR-product_attributes-item.htm" />
 						</li>
-						<li class="c-form-list__item u-text-right">
-							<mvt:item name="buttons" param="Continue" file="cssui-buttonContinue-item.htm" />
+						<li class="c-form-list__item c-form-list__item--full u-text-center">
+							<input class="c-button c-button--huge u-font-small u-text-bold u-text-uppercase" type="submit" value="Continue">
 						</li>
 					</ul>
 				</fieldset>

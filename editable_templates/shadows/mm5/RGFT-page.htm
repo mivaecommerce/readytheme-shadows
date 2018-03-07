@@ -31,11 +31,11 @@
 					<p class="c-heading-delta u-text-bold">Current Balance: <span class="u-color-green">&mvt:customer:formatted_credit;</span></p>
 					<ul class="c-form-list">
 						<li class="c-form-list__item c-form-list__item--full">
-							<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required" for="l-GiftCertificate_Code">Enter Gift Certificate Code</label>
-							<input id="l-GiftCertificate_Code" class="c-form-input" type="text" name="GiftCertificate_Code" value="&mvte:global:GiftCertificate_Code;" required>
-						</li>
-						<li class="c-form-list__item c-form-list__item--full u-text-right">
-							<mvt:item name="buttons" param="ApplyGiftCert" file="cssui-buttonApplyGiftCert-item.htm" />
+							<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required" for="l-GiftCertificate_Code">Enter Gift Certificate Code</label>
+							<div class="c-control-group">
+								<input id="l-GiftCertificate_Code" class="c-form-input c-form-input--large c-control-group__field" type="text" name="GiftCertificate_Code" value="&mvte:global:GiftCertificate_Code;" required>
+								<input class="c-button c-button--large c-control-group__button u-bg-gray-40 u-color-white u-font-small u-text-uppercase" type="submit" value="Redeem" title="Click here to redeem your certificate code">
+							</div>
 						</li>
 					</ul>
 				</fieldset>

@@ -8,28 +8,27 @@
 			</mvt:if>
 		</mvt:foreach>
 	</mvt:foreach>
-	<section class="u-flex o-layout--align-center o-layout--justify-between o-layout--wrap">
+	<section class="u-hidden u-flex--l o-layout--align-center o-layout--justify-between o-layout--wrap">
 		<h1 class="c-heading-delta u-text-bold u-text-uppercase">&mvte:page:name;</h1>
 		<div class="x-display-list-filtering t-display-list-filtering">
 			<form class="x-display-list-filtering__per-page" method="get" action="&mvte:urls:_self:auto_noparams;">
 				<fieldset>
 					<legend>Number of Products to Show</legend>
-					<form method="get" action="&mvte:urls:_self:auto_noparams;">
-						<mvt:if expr="tolower( l.settings:category_listing:mode ) EQ 'ctgy' AND toupper( g.Screen ) NE 'CTGY'">
-							<input type="hidden" name="Category_Code" value="&mvte:global:Category_Code;" />
-						<mvt:elseif expr="tolower( l.settings:category_listing:mode ) EQ 'relp' AND toupper( g.Screen ) NE 'PROD'">
-							<input type="hidden" name="Product_Code" value="&mvte:global:Product_Code;" />
-						</mvt:if>
-						<mvt:item name="urls" param="hidden_params:_self:auto" />
-						<input type="hidden" name="Search" value="&mvte:global:Search;" />
-						<input type="hidden" name="Sort_By" value="&mvte:global:Sort_By;" />
-						<mvt:foreach iterator="facet" array="facets:facets">
-							<mvt:foreach iterator="facet_value" array="facet:values">
-								<mvt:if expr="l.settings:facet_value:selected">
-									<input type="hidden" name="&mvte:facet:code;" value="&mvte:facet_value:value;" />
-								</mvt:if>
-							</mvt:foreach>
+					<mvt:if expr="tolower( l.settings:category_listing:mode ) EQ 'ctgy' AND toupper( g.Screen ) NE 'CTGY'">
+						<input type="hidden" name="Category_Code" value="&mvte:global:Category_Code;" />
+					<mvt:elseif expr="tolower( l.settings:category_listing:mode ) EQ 'relp' AND toupper( g.Screen ) NE 'PROD'">
+						<input type="hidden" name="Product_Code" value="&mvte:global:Product_Code;" />
+					</mvt:if>
+					<mvt:item name="urls" param="hidden_params:_self:auto" />
+					<input type="hidden" name="Search" value="&mvte:global:Search;" />
+					<input type="hidden" name="Sort_By" value="&mvte:global:Sort_By;" />
+					<mvt:foreach iterator="facet" array="facets:facets">
+						<mvt:foreach iterator="facet_value" array="facet:values">
+							<mvt:if expr="l.settings:facet_value:selected">
+								<input type="hidden" name="&mvte:facet:code;" value="&mvte:facet_value:value;" />
+							</mvt:if>
 						</mvt:foreach>
+					</mvt:foreach>
 					<ul class="c-form-list">
 						<li class="c-form-list__item">
 							<label class="c-form-label u-font-tiny u-text-uppercase u-text-normal" for="l-per_page">View</label>
@@ -120,10 +119,10 @@
 		</div>
 		<!-- end .x-display-list-filtering -->
 	</section>
-	<hr class="c-keyline">
+	<hr class="c-keyline u-hidden u-shown--l">
 </mvt:if>
 
-<section class="o-layout u-grids-1 u-grids-2--s u-grids-4--l x-product-list">
+<section class="o-layout u-grids-2 u-grids-3--l x-product-list">
 	<mvt:foreach iterator="product" array="search_results:products">
 		<div class="o-layout__item u-text-center x-product-list__item">
 			<a class="u-block x-product-list__link" href="&mvte:product:link;" title="&mvte:product:name;">
@@ -132,8 +131,8 @@
 					<figcaption>
 						<strong class="x-product-list__name">&mvte:product:name;</strong>
 						<mvt:if expr="l.settings:product:base_price GT l.settings:product:price">
-							<span class="x-product-list__price u-color-gray-30">Was: <s>&mvt:product:formatted_base_price;</s></span>
-							<span class="x-product-list__price u-text-bold u-color-red">Now: &mvt:product:formatted_price;</span>
+							<span class="x-product-list__price u-color-gray-30"><s>&mvt:product:formatted_base_price;</s></span>
+							<span class="x-product-list__price u-color-red">&mvt:product:formatted_price;</span>
 						<mvt:else>
 							<span class="x-product-list__price">&mvt:product:formatted_price;</span>
 						</mvt:if>

@@ -18,14 +18,15 @@
 	<section class="o-layout">
 		<div class="o-layout__item">
 			<mvt:item name="hdft" param="header" file="OSEL-header-item.htm" />
-			<mvt:item name="readytheme" param="contentsection( 'messages' )" />
 			<mvt:item name="customfields" param="Write_Basket('basket', g.basket)" />
 		</div>
 	</section>
 
 	<section class="o-layout o-layout--wide">
-		<div class="o-layout__item u-width-12 u-width-8--l">
+		<div class="o-layout__item u-width-12 u-width-8--l u-width-5--w u-offset-2--w">
 			<mvt:item name="readytheme" param="contentsection( 'checkout_steps' )" />
+			<mvt:item name="readytheme" param="contentsection( 'messages' )" />
+
 			<form method="post" action="&mvte:urls:OPAY:secure;">
 				<fieldset>
 					<legend>&mvt:page:name;</legend>
@@ -132,14 +133,16 @@
 								</li>
 							</mvt:if>
 						</mvt:foreach>
-						<li class="c-form-list__item c-form-list__item--full u-font-small">
-							<span class="o-layout o-layout--align-baseline">
-								<strong class="o-layout__item o-layout--no-grow">Or</strong>
-								<span class="o-layout__item">
-									<span class="c-keyline c-keyline--small u-block"></span>
+						<mvt:if expr="g.Basket:cust_id NE 0">
+							<li class="c-form-list__item c-form-list__item--full u-font-small">
+								<span class="o-layout o-layout--align-baseline">
+									<strong class="o-layout__item o-layout--no-grow">Or</strong>
+									<span class="o-layout__item">
+										<span class="c-keyline c-keyline--small u-block"></span>
+									</span>
 								</span>
-							</span>
-						</li>
+							</li>
+						</mvt:if>
 						<mvt:foreach array="paymentmethods" iterator="method">
 							<mvt:if expr="l.settings:method:module EQ 'customercredit'">
 								<li class="c-form-list__item c-form-list__item--full u-font-small">
@@ -160,13 +163,13 @@
 					</ul>
 					<ul class="c-form-list">
 						<li class="c-form-list__item c-form-list__item--full u-text-right">
-							<input class="c-button c-button--huge u-bg-gray-50 u-text-uppercase" type="submit" value="Continue to Payment">
+							<input class="c-button c-button--huge u-bg-gray-50 u-font-small u-text-medium u-text-uppercase" type="submit" value="Continue to Payment">
 						</li>
 					</ul>
 				</fieldset>
 			</form>
 		</div>
-		<aside class="o-layout__item u-width-12 u-width-4--l">
+		<aside class="o-layout__item u-width-12 u-width-4--l u-width-5--w">
 			<mvt:item name="basket" file="OSEL-basket-item.htm" />
 		</aside>
 	</section>

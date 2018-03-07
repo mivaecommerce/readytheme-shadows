@@ -32,6 +32,11 @@
 }
 
 
+.x-messages--borderless {
+	border: 0 none;
+}
+
+
 .x-messages--error {
 	background-color: #fee8eb;
 	color: #c8102e;
@@ -53,6 +58,18 @@
 }
 
 
+/**
+ * These classes will help format the message if you are adding an icon.
+ */
+.x-messages--with-icon {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.x-messages__icon {
+	font-size: 3rem;
+}
 
 
 .x-messages__close {

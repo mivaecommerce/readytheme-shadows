@@ -1,6 +1,6 @@
 ![Shadows ReadyTheme Logo](https://raw.githubusercontent.com/mivaecommerce/readytheme-shadows/master/logo.png?sanitize=true)
 
-> Shadows is a lightly styled, development ReadyTheme based on the [Elements Framework](https://apps.miva.com/elements-framework.html).
+> Shadows is a lightly styled, development ReadyTheme based on the [Elements Framework](https://apps.miva.com/elements-framework.html).  Shadows introduces the Fasten Header, Transfigure Navigation, and Collapsing Breadcrumbs extensions.
 
 ## Installing / Getting started
 
@@ -15,11 +15,11 @@ You can also download Shadows from the [Miva AppStore](https://apps.miva.com/sha
 #### Demonstration
 [http://shadows.mivareadythemes.com/](http://shadows.mivareadythemes.com/)
 
-#### Documentation
-[https://docs.miva.com/elements/index.html](https://docs.miva.com/elements/index.html)
+<!-- #### Documentation
+[https://docs.miva.com/elements/index.html](https://docs.miva.com/elements/index.html) -->
 
-#### Style Guide
-[https://mivaecommerce.github.io/readytheme-shadows/index.html](https://mivaecommerce.github.io/readytheme-shadows/index.html)
+<!-- #### Style Guide
+[https://mivaecommerce.github.io/readytheme-shadows/index.html](https://mivaecommerce.github.io/readytheme-shadows/index.html) -->
 
 ## Features
 
@@ -38,6 +38,19 @@ recent orders, wish list items, saved credit cards, and much more.
 
 Shadows has a narrower content section that Elements which can make a store feel 
 a little less cramped on smaller screens.
+
+#### Fasten Header Extension
+
+Adds functionality for a "sticky" header on the site for larger screens.
+
+#### Collapsing Breadcrumbs Extension
+
+Automatically shorten/collapses breadcrumbs on smaller screens so save space.
+
+#### Transfigure Navigation Extension
+
+Allows the standard drop-down menu on larger screens to "transfigure" to an 
+off-canvas menu on smaller screens.
 
 ## Browser Support
 

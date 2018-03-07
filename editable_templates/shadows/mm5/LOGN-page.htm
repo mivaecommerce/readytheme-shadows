@@ -24,10 +24,7 @@
 
 	<section class="o-layout o-layout--justify-around">
 		<div class="o-layout__item u-width-12 u-width-6--m u-width-4--l">
-			<p class="c-heading-delta u-text-uppercase">
-				Welcome Back<br>
-				<span class="c-heading--subheading u-text-revert">Returning guests, sign in using your email address and the password that you created with us.</span>
-			</p>
+			<p class="c-heading-charlie u-text-bold u-text-center u-text-uppercase">Welcome Back</p>
 			<mvt:if expr="g.Customer_Temporary_Password">
 				<mvt:assign name="l.settings:url" value="l.settings:urls:CPWD:secure" />
 			<mvt:elseif expr="g.Order">
@@ -41,17 +38,17 @@
 					<input type="hidden" name="Action" value="LOGN" />
 					<ul class="c-form-list">
 						<li class="c-form-list__item">
-							<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required &mvt:global:invalid_credentials;" for="l-Customer_LoginEmail">Email Address</label>
-							<input id="l-Customer_LoginEmail" class="c-form-input" type="email" name="Customer_LoginEmail" value="&mvte:global:Customer_LoginEmail;" autocomplete="email" required>
+							<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required &mvt:global:invalid_credentials;" for="l-Customer_LoginEmail">Email Address</label>
+							<input id="l-Customer_LoginEmail" class="c-form-input c-form-input--large" type="email" name="Customer_LoginEmail" value="&mvte:global:Customer_LoginEmail;" autocomplete="email" required>
 						</li>
 						<li class="c-form-list__item">
-							<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required &mvt:global:invalid_credentials;" for="l-Customer_Password">Password:</label>
+							<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required &mvt:global:invalid_credentials;" for="l-Customer_Password">Password:</label>
 							<mvt:if expr="g.Customer_Temporary_Password">
 								<input type="hidden" name="Customer_Temporary_Password" value="&mvte:global:Customer_Temporary_Password;" autocomplete="off">
 								<input type="hidden" name="Customer_Password" value="&mvte:global:Customer_Temporary_Password;" autocomplete="off">
-								<input id="l-Customer_Password" class="c-form-input" type="text" value="&mvte:global:Customer_Temporary_Password;" autocomplete="off" disabled readonly>
+								<input id="l-Customer_Password" class="c-form-input c-form-input--large" type="text" value="&mvte:global:Customer_Temporary_Password;" autocomplete="off" disabled readonly>
 							<mvt:else>
-								<input id="l-Customer_Password" class="c-form-input" type="password" name="Customer_Password" autocomplete="current-password" required>
+								<input id="l-Customer_Password" class="c-form-input c-form-input--large" type="password" name="Customer_Password" autocomplete="current-password" required>
 							</mvt:if>
 						</li>
 						<li class="c-form-list__item u-text-right">
@@ -62,19 +59,9 @@
 			</form>
 			<p class="u-font-small"><a data-mini-modal data-mini-modal-type="inline" data-mini-modal-content="data-forgot-password" href="&mvte:urls:FPWD:secure;" title="Forgot Password">Forgot your password?</a></p>
 		</div>
-		<div class="o-layout__item u-width-12 u-width-6--m">
-			<p class="c-heading-delta u-text-uppercase">
-				New Customers<br>
-				<span class="c-heading--subheading u-text-revert">Creating an account with &mvt:global:store:name; is optional and gives you the following benefits:</span>
-			</p>
+		<div class="o-layout__item u-width-12 u-width-6--m u-width-4--l">
+			<p class="c-heading-charlie u-text-bold u-text-center u-text-uppercase">New Customers</p>
 			<form class="o-layout" method="post" action="&mvte:urls:CACT:secure;">
-				<ul class="o-layout__item">
-					<li>Express Checkout</li>
-					<li>Access Your Order History/Order Status</li>
-					<li>Easy One Click Re-Ordering</li>
-					<li>Create Wish Lists</li>
-					<li>Redeem Gift Certificates</li>
-				</ul>
 				<fieldset class="o-layout__item">
 					<legend>Customer Log In</legend>
 					<mvt:if expr="g.Order">
@@ -91,27 +78,28 @@
 					</mvt:if>
 					<ul class="c-form-list">
 						<li class="c-form-list__item">
-							<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required" for="l-register_fname">First Name</label>
-							<input id="l-register_fname" class="c-form-input" type="text" name="register_fname" value="" autocomplete="name given-name" required>
+							<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required" for="l-register_fname">First Name</label>
+							<input id="l-register_fname" class="c-form-input c-form-input--large" type="text" name="register_fname" value="" autocomplete="name given-name" required>
 						</li>
 						<li class="c-form-list__item">
-							<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required" for="l-register_lname">Last Name</label>
-							<input id="l-register_lname" class="c-form-input" type="text" name="register_lname" autocomplete="name family-name" required>
+							<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required" for="l-register_lname">Last Name</label>
+							<input id="l-register_lname" class="c-form-input c-form-input--large" type="text" name="register_lname" autocomplete="name family-name" required>
 						</li>
 						<li class="c-form-list__item">
-							<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required" for="l-register_email">Email Address</label>
-							<input id="l-register_email" class="c-form-input" type="email" name="register_email" value="&mvte:global:register_email;" autocomplete="email" required>
+							<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required" for="l-register_email">Email Address</label>
+							<input id="l-register_email" class="c-form-input c-form-input--large" type="email" name="register_email" value="&mvte:global:register_email;" autocomplete="email" required>
 						</li>
 						<li class="c-form-list__item">
-							<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required" for="l-register_password">Password</label>
-							<input id="l-register_password" class="c-form-input" type="password" name="register_password" autocomplete="new-password" required>
+							<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required" for="l-register_password">Password</label>
+							<input id="l-register_password" class="c-form-input c-form-input--large" type="password" name="register_password" autocomplete="new-password" required>
 						</li>
 						<li class="c-form-list__item u-text-right">
-							<input class="c-button c-button--large u-font-small u-text-bold u-text-uppercase" type="submit" value="Create My Account">
+							<input class="c-button c-button--full c-button--hollow c-button--huge u-bg-white u-color-gray-50 u-font-small u-text-bold u-text-uppercase" type="submit" value="Create My Account">
 						</li>
 					</ul>
 				</fieldset>
 			</form>
+			<br>
 		</div>
 	</section>
 	

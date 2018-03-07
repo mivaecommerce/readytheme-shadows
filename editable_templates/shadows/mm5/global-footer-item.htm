@@ -4,7 +4,7 @@
 <mvt:if expr="l.settings:page:code NE 'ORDL' AND l.settings:page:code NE 'OCST' AND l.settings:page:code NE 'OUS1' AND l.settings:page:code NE 'OUSM' AND l.settings:page:code NE 'UATM' AND l.settings:page:code NE 'UATR' AND l.settings:page:code NE 'OSEL' AND l.settings:page:code NE 'OPAY'">
 	<footer class="o-wrapper o-wrapper--full u-bg-gray-10 t-site-footer">
 		<div class="o-wrapper">
-			<div class="o-layout t-site-footer__content">
+			<div class="o-layout o-layout--column o-layout--row--m t-site-footer__content">
 				<section class="o-layout__item">
 					<mvt:item name="readytheme" param="navigationset( 'footer_categories' )" />
 				</section>
@@ -13,7 +13,9 @@
 				</section>
 				<section class="o-layout__item">
 					<mvt:if expr="l.settings:readytheme:social_active">
-						<nav class="c-menu t-global-footer-social-links">
+						<nav class="c-menu c-collapsible-menu t-global-footer-social-links">
+							<input id="social_active" class="c-collapsible-menu__trigger" type="checkbox">
+							<label class="c-collapsible-menu__label u-text-uppercase" for="social_active">Connect With Us</label>
 							<h5 class="c-menu__title u-text-uppercase">Connect With Us</h5>
 							<ul class="c-menu__list o-list-inline--narrow u-text-uppercase u-width-9--l" itemscope itemtype="http://schema.org/Organization">
 								<link itemprop="url" href="//&mvt:global:domain:name;/">
@@ -87,4 +89,3 @@
 
 <mvt:item name="head" param="footer_js" />
 <mvt:item name="readytheme" param="contentsection('elements-core')" />
-<mvt:item name="ga_tracking" />

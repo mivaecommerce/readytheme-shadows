@@ -94,26 +94,26 @@
 
 <section class="o-layout">
 	<div class="o-layout__item">
-		<table class="o-table c-table-simple">
-			<thead>
-				<tr class="c-table-simple__row u-color-gray-30 u-font-small u-text-uppercase">
-					<th class="c-table-simple__cell" scope="col">Title</th>
+		<table class="c-table-responsive t-basket__product-summary">
+			<thead class="c-table-responsive_thead u-text-left">
+				<tr class="c-table-responsive__row u-text-uppercase u-font-tiny u-color-gray-30">
+					<th class="c-table-responsive__cell" scope="col">Title</th>
 					<mvt:if expr="NOT ISNULL g.WishListSearch">
-						<th class="c-table-simple__cell" scope="col">Name</th>
+						<th class="c-table-responsive__cell" scope="col">Name</th>
 					</mvt:if>
-					<th class="c-table-simple__cell" scope="col">Notes</th>
+					<th class="c-table-responsive__cell" scope="col">Notes</th>
 				</tr>
 			</thead>
 			<tbody>
 				<mvt:foreach iterator="wishlist" array="wishlists:items">
-					<tr class="c-table-simple__row">
-						<td class="c-table-simple__cell" data-label="Title" scope="row">
-							<a href="&mvte:urls:WISH:rr_sep;WishList_ID=&mvta:wishlist:id;">&mvte:wishlist:title;</a>
+					<tr class="c-table-responsive__row t-basket__product-details">
+						<td class="c-table-responsive__cell" data-label="Title" scope="row">
+							<a class="u-text-bold u-color-black" href="&mvte:urls:WISH:rr_sep;WishList_ID=&mvta:wishlist:id;">&mvte:wishlist:title;</a>
 						</td>
 						<mvt:if expr="NOT ISNULL g.WishListSearch">
-							<td class="c-table-simple__cell" data-label="Name">&mvte:wishlist:bill_fname; &mvte:wishlist:bill_lname;</td>
+							<td class="c-table-responsive__cell" data-label="Name">&mvte:wishlist:bill_fname; &mvte:wishlist:bill_lname;</td>
 						</mvt:if>
-						<td class="c-table-simple__cell" data-label="Notes">&mvte:wishlist:notes;</td>
+						<td class="c-table-responsive__cell" data-label="Notes">&mvte:wishlist:notes;</td>
 					</tr>
 				</mvt:foreach>
 			</tbody>

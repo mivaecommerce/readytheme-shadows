@@ -27,15 +27,15 @@
 			<div class="o-layout">
 				<div class="o-layout__item u-width-12 u-width-6--m">
 					<section class="t-account-landing-section">
-						<div class="o-layout__item u-width-12 u-bg-gray-50 u-color-white u-text-bold u-text-uppercase">
+						<div class="o-layout__item u-width-12 u-bg-gray-10 u-text-bold u-text-uppercase">
 							<div class="o-layout o-layout--align-center o-layout--justify-between">
 								<span class="o-layout__item c-heading-echo">Personal Information</span>
 								<span class="o-layout__item u-text-right">
-									<a class="c-button c-button--huge u-bg-gray-40 u-color-white u-font-small" href="&mvte:urls:ACED:auto;" title="Update Your Information">Edit</a>
+									<a class="c-button c-button--huge u-bg-gray-20 u-color-white u-font-small" href="&mvte:urls:ACED:auto;" title="Update Your Information">Edit</a>
 								</span>
 							</div>
 						</div>
-						<div class="o-layout__item u-width-12 u-bg-gray-10 t-account-landing-section__content">
+						<div class="o-layout__item u-width-12 t-account-landing-section__content">
 							<table class="o-table c-table-simple u-font-small u-text-bold">
 								<tr>
 									<td class="c-table-simple__cell u-color-gray-30 u-text-uppercase">Name</td>
@@ -59,15 +59,15 @@
 				<mvt:if expr="l.settings:paymentsettings:mivapay:enabled">
 					<div class="o-layout__item u-width-12 u-width-6--m">
 						<section class="t-account-landing-section">
-							<div class="o-layout__item u-width-12 u-bg-gray-50 u-color-white u-text-bold u-text-uppercase">
+							<div class="o-layout__item u-width-12 u-bg-gray-10 u-text-bold u-text-uppercase">
 								<div class="o-layout o-layout--align-center o-layout--justify-between">
 									<span class="o-layout__item c-heading-echo">Payment Options</span>
 									<span class="o-layout__item u-text-right">
-										<a class="c-button c-button--huge u-bg-gray-40 u-color-white u-font-small" href="&mvte:urls:CPCD:auto;" title="Manage Saved Cards">View All</a>
+										<a class="c-button c-button--huge u-bg-gray-20 u-color-white u-font-small" href="&mvte:urls:CPCD:auto;" title="Manage Saved Cards">View All</a>
 									</span>
 								</div>
 							</div>
-							<div class="o-layout__item u-width-12 u-bg-gray-10 t-account-landing-section__content">
+							<div class="o-layout__item u-width-12 t-account-landing-section__content">
 								<mvt:item name="paymentcards" file="ACLN-paymentcards-item.htm" />
 							</div>
 						</section>
@@ -76,29 +76,29 @@
 			</div>
 			
 			<section class="t-account-landing-section">
-				<div class="o-layout__item u-width-12 u-bg-gray-50 u-color-white u-text-bold u-text-uppercase">
+				<div class="o-layout__item u-width-12 u-bg-gray-10 u-text-bold u-text-uppercase">
 					<div class="o-layout o-layout--align-center o-layout--justify-between">
 						<span class="o-layout__item c-heading-echo">Order History</span>
 						<span class="o-layout__item u-text-right">
-							<a class="c-button c-button--huge u-bg-gray-40 u-color-white u-font-small" href="&mvte:urls:ORDH:auto;" title="View All Orders">View All</a>
+							<a class="c-button c-button--huge u-bg-gray-20 u-color-white u-font-small" href="&mvte:urls:ORDH:auto;" title="View All Orders">View All</a>
 						</span>
 					</div>
 				</div>
-				<div class="o-layout__item u-width-12 u-bg-gray-10 t-account-landing-section__content">
+				<div class="o-layout__item u-width-12 t-account-landing-section__content">
 					<mvt:item name="orderhistory_list" />
 				</div>
 			</section>
 			
 			<section class="t-account-landing-section">
-				<div class="o-layout__item u-width-12 u-bg-gray-50 u-color-white u-text-bold u-text-uppercase">
+				<div class="o-layout__item u-width-12 u-bg-gray-10 u-text-bold u-text-uppercase">
 					<div class="o-layout o-layout--align-center o-layout--justify-between">
 						<span class="o-layout__item c-heading-echo">Customer Credit</span>
 						<span class="o-layout__item u-text-right">
-							<a class="c-button c-button--huge u-bg-gray-40 u-color-white u-font-small" href="&mvte:urls:ABAL:auto;" title="Manage Account Balance">Manage</a>
+							<a class="c-button c-button--huge u-bg-gray-20 u-color-white u-font-small" href="&mvte:urls:ABAL:auto;" title="Manage Account Balance">Manage</a>
 						</span>
 					</div>
 				</div>
-				<div class="o-layout__item u-width-12 u-bg-gray-10 t-account-landing-section__content">
+				<div class="o-layout__item u-width-12 t-account-landing-section__content">
 					<form method="post" action="&mvte:urls:_self:secure;" autocomplete="off">
 						<fieldset>
 							<legend>&mvt:page:name;</legend>
@@ -106,11 +106,11 @@
 							<div class="o-layout o-layout--align-bottom o-layout--justify-around">
 								<div class="o-layout__item u-width-12 u-width-3--l">
 									<ul class="c-form-list">
-										<li class="c-form-list__item">
+										<li class="c-form-list__item u-text-center">
 											<span class="u-color-gray-30 u-font-tiny u-text-bold u-text-uppercase">Current Credit Amount</span><br>
 										</li>
 										<li class="c-form-list__item c-control-group u-flex">
-											<a class="c-button c-button--full c-button--small u-bg-gray-20 u-color-gray-50 u-font-large u-text-bold" href="&mvte:urls:ABAL:auto;" title="Manage Account Balance">&mvt:customer:formatted_credit;</a>
+											<a class="c-button c-button--full c-button--small u-bg-gray-10 u-color-gray-50 u-font-large u-text-bold" href="&mvte:urls:ABAL:auto;" title="Manage Account Balance">&mvt:customer:formatted_credit;</a>
 										</li>
 									</ul>
 								</div>
@@ -120,7 +120,7 @@
 											<label class="c-form-label u-color-gray-30 u-font-small u-invisible u-text-bold u-text-uppercase" for="l-GiftCertificate_Code">Enter Gift Certificate Code</label>
 										</li>
 										<li class="c-form-list__item c-form-list__item--full c-control-group u-flex">
-											<input id="l-GiftCertificate_Code" class="c-form-input c-control-group__field u-bg-gray-20 u-font-small" type="text" name="GiftCertificate_Code" placeholder="Enter Code Here" value="&mvte:global:GiftCertificate_Code;" required>
+											<input id="l-GiftCertificate_Code" class="c-form-input c-form-input--large c-control-group__field u-bg-gray-10 u-border-none" type="text" name="GiftCertificate_Code" placeholder="Enter Code Here" value="&mvte:global:GiftCertificate_Code;" required>
 											<input class="c-button c-button--large c-control-group__button u-bg-gray-50 u-border-none u-font-small u-text-uppercase" type="submit" value="Apply">
 										</li>
 									</ul>
@@ -132,51 +132,55 @@
 			</section>
 			
 			<section class="t-account-landing-section">
-				<div class="o-layout__item u-width-12 u-bg-gray-50 u-color-white u-text-bold u-text-uppercase">
+				<div class="o-layout__item u-width-12 u-bg-gray-10 u-text-bold u-text-uppercase">
 					<div class="o-layout o-layout--align-center o-layout--justify-between">
 						<span class="o-layout__item c-heading-echo">Address Book</span>
 						<span class="o-layout__item u-text-right">
-							<a class="c-button c-button--huge u-bg-gray-40 u-color-white u-font-small" href="&mvte:urls:CABK:auto;" title="View All Addresses">View All</a>
+							<a class="c-button c-button--huge u-bg-gray-20 u-color-white u-font-small" href="&mvte:urls:CABK:auto;" title="View All Addresses">View All</a>
 						</span>
 					</div>
 				</div>
-				<div class="o-layout__item u-width-12 u-bg-gray-10 t-account-landing-section__content">
+				<div class="o-layout__item u-width-12 t-account-landing-section__content">
 					<mvt:item name="addressbook" file="ACLN-addressbook-item.htm" />
 				</div>
 			</section>
 			
 			<section class="t-account-landing-section">
-				<div class="o-layout__item u-width-12 u-bg-gray-50 u-color-white u-text-bold u-text-uppercase">
+				<div class="o-layout__item u-width-12 u-bg-gray-10 u-text-bold u-text-uppercase">
 					<div class="o-layout o-layout--align-center o-layout--justify-between">
 						<span class="o-layout__item c-heading-echo">Wish Lists</span>
 						<span class="o-layout__item u-text-right">
-							<a class="c-button c-button--huge u-bg-gray-40 u-color-white u-font-small" href="&mvte:urls:WLST:auto;" title="View All Wish Lists">View All</a>
+							<a class="c-button c-button--huge u-bg-gray-20 u-color-white u-font-small" href="&mvte:urls:WLST:auto;" title="View All Wish Lists">View All</a>
 						</span>
 					</div>
 				</div>
-				<div class="o-layout__item u-width-12 u-bg-gray-10 t-account-landing-section__content">
-					<table class="o-table o-table-borderless c-table-simple">
-						<tbody>
-							<mvt:assign name="l.settings:wishlist_count" value="0" />
-							<mvt:foreach iterator="wishlist" array="customerwishlists:wishlists">
-								<mvt:assign name="l.settings:wishlist_count" value="l.settings:wishlist_count + 1" />
-								<mvt:if expr="l.settings:wishlist_count GT 4">
-									<tr class="c-table-simple__row">
-										<td class="c-table-simple__cell" colspan="2">
-											<a class="u-color-gray-50 u-font-tiny u-text-uppercase" href="&mvte:urls:WLST:auto;" title="View All Wish Lists">more &hellip;</a>
+				<div class="o-layout__item u-width-12 t-account-landing-section__content">
+					<mvt:if expr="NOT l.settings:customerwishlists:wishlist_count GT 0">
+						<p class="x-messages x-messages--info">No wish lists found.</p>
+					<mvt:else>
+						<table class="o-table o-table-borderless c-table-simple">
+							<tbody>
+								<mvt:assign name="l.settings:wishlist_count" value="0" />
+								<mvt:foreach iterator="wishlist" array="customerwishlists:wishlists">
+									<mvt:assign name="l.settings:wishlist_count" value="l.settings:wishlist_count + 1" />
+									<mvt:if expr="l.settings:wishlist_count GT 4">
+										<tr class="c-table-simple__row">
+											<td class="c-table-simple__cell" colspan="2">
+												<a class="u-color-gray-50 u-font-tiny u-text-uppercase" href="&mvte:urls:WLST:auto;" title="View All Wish Lists">more &hellip;</a>
+											</td>
+										</tr>
+										<mvt:foreachstop />
+									</mvt:if>
+									<tr class="c-table-simple__row u-font-small">
+										<td class="c-table-simple__cell">
+											<a class="u-color-gray-50 u-text-underline" href="&mvte:urls:WISH:rr_sep;WishList_ID=&mvta:wishlist:id;">&mvte:wishlist:title;</a>
 										</td>
+										<td class="c-table-simple__cell">&mvte:wishlist:notes;</td>
 									</tr>
-									<mvt:foreachstop />
-								</mvt:if>
-								<tr class="c-table-simple__row u-font-small">
-									<td class="c-table-simple__cell">
-										<a class="u-color-gray-50 u-text-underline" href="&mvte:urls:WISH:rr_sep;WishList_ID=&mvta:wishlist:id;">&mvte:wishlist:title;</a>
-									</td>
-									<td class="c-table-simple__cell">&mvte:wishlist:notes;</td>
-								</tr>
-							</mvt:foreach>
-						</tbody>
-					</table>
+								</mvt:foreach>
+							</tbody>
+						</table>
+					</mvt:if>
 				</div>
 			</section>
 			

@@ -23,19 +23,23 @@
 	</section>
 
 	<section class="o-layout o-layout--justify-center">
-		<div class="o-layout__item u-width-12 u-width-6--m u-width-4--l">
-			<p>Enter the email address associated with your account. If you no longer use the email address associated with your account, please contact customer support.</p>
-			<form method="post" action=&mvte:urls:ACLN:secure;" autocomplete="off">
+		<div class="o-layout__item u-width-12 u-width-6--m">
+			<p class="x-messages x-messages--borderless x-messages--with-icon">
+				<span class="x-messages__icon u-icon-info u-color-gray-30">&nbsp;</span>
+				<span>Enter the email address associated with your account.<br><br>If you no longer use the email address associated with your account, please contact customer support.</span>
+			</p>
+			<br>
+			<form method="post" action="&mvte:urls:ACLN:secure;" autocomplete="off">
 				<fieldset>
 					<legend>&mvt:page:name;</legend>
 					<input type="hidden" name="Action" value="EMPW">
 					<ul class="c-form-list">
-						<li class="c-form-list__item">
-							<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required &mvt:global:invalid_credentials;" for="l-Customer_LoginEmail">Email Address</label>
-							<input id="l-Customer_LoginEmail" class="c-form-input" type="email" name="Customer_LoginEmail" value="" autocomplete="email" required>
-						</li>
-						<li class="c-form-list__item u-text-right">
-							<input class="c-button c-button--large u-font-small u-text-bold u-text-uppercase" type="submit" value="Submit" title="Submit">
+						<li class="c-form-list__item c-form-list__item--full">
+							<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required &mvt:global:invalid_credentials;" for="l-Customer_LoginEmail">Email Address</label>
+							<div class="c-control-group">
+								<input id="l-Customer_LoginEmail" class="c-form-input c-form-input--large c-control-group__field" type="email" name="Customer_LoginEmail" value="&mvte:global:Customer_LoginEmail;" autocomplete="email" required>
+								<input class="c-button c-button--large c-control-group__button u-bg-gray-40 u-color-white u-font-small u-text-uppercase" type="submit" value="Continue" title="Click Here to Log In and Change Your Password">
+							</div>
 						</li>
 					</ul>
 				</fieldset>

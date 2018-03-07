@@ -1,3 +1,8 @@
+<mvt:if expr="NOT l.settings:customer:address_count GT 0">
+	<p class="x-messages x-messages--info">No additional addresses found.</p>
+	<mvt:exit />
+</mvt:if>
+
 <mvt:assign name="l.settings:address_count" value="0" />
 <mvt:foreach iterator="address" array="addressbook:addresses">
 	<mvt:assign name="l.settings:address_count" value="l.settings:address_count + 1" />

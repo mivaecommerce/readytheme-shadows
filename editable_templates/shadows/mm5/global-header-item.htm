@@ -1,10 +1,15 @@
 <mvt:item name="readytheme" param="contentsection( 'mini_basket' )" />
-<header class="o-wrapper o-wrapper--full o-wrapper--flush t-site-header">
+<header class="o-wrapper o-wrapper--full o-wrapper--flush t-site-header" data-hook="site-header">
+	<mvt:item name="readytheme" param="contentsection( 'fasten_header' )" />
 	<mvt:item name="navbar" file="cssui-navbar-item.htm" />
 	<section class="o-wrapper t-site-header__masthead">
 		<div class="o-layout o-layout--align-center">
+			<div class="o-layout__item u-width-2 u-width-1--m u-hidden--l &mvt:global:checkout_hidden;">
+				<button class="c-button c-button--flush c-button--full c-button--hollow u-bg-transparent u-border-none u-color-gray-50 u-font-huge u-icon-menu" data-hook="open-main-menu"></button>
+			</div>
+			
 			<mvt:if expr="l.settings:page:code EQ 'SFNT'">
-				<h1 class="o-layout__item u-width-12 u-width-2--m u-text-center u-text-left--m t-site-header__logo">
+				<h1 class="o-layout__item u-width-8 u-width-10--m u-width-4--l u-width-5--w u-text-center u-text-left--l t-site-header__logo">
 					<a href="&mvte:urls:SFNT:auto;" title="&mvt:global:store:name;" rel="nofollow">
 						<mvt:if expr="l.settings:readytheme:logo_type EQ 'text'">
 							<div class="t-site-header__store-name">&mvt:readytheme:logo_name;</div>
@@ -15,7 +20,7 @@
 					</a>
 				</h1>
 			<mvt:else>
-				<div class="o-layout__item u-width-12 u-width-2--m u-text-center u-text-left--m t-site-header__logo">
+				<div class="o-layout__item u-width-8 u-width-10--m u-width-4--l u-width-5--w u-text-center u-text-left--l t-site-header__logo">
 					<a href="&mvte:urls:SFNT:auto;" title="&mvt:global:store:name;" rel="nofollow">
 						<mvt:if expr="l.settings:readytheme:logo_type EQ 'text'">
 							<div class="t-site-header__store-name">&mvt:readytheme:logo_name;</div>
@@ -26,42 +31,99 @@
 					</a>
 				</div>
 			</mvt:if>
+
+			<div class="o-layout__item u-width-2 u-width-1--m u-hidden--l &mvt:global:checkout_hidden;">
+				<a class="u-icon-cart-empty u-color-gray-50 t-site-header__basket-link--mobile" data-hook="open-mini-basket" href="&mvte:urls:BASK:auto;">
+					<span class="u-bg-gray-50 u-color-gray-10 u-font-primary t-site-header__basket-link-quantity--mobile" data-hook="mini-basket-count ">&mvte:global_minibasket:basket_count;</span>
+				</a>
+			</div>
 			
-			<mvt:item name="readytheme" param="navigationset( 'primary_navigation' )" />
-			
-			<div class="o-layout__item u-width-12 u-width-3--m &mvt:global:checkout_hidden;" itemscope itemtype="http://schema.org/WebSite">
+			<div class="o-layout__item u-width-12 u-width-4--l &mvt:global:checkout_hidden;" itemscope itemtype="http://schema.org/WebSite">
 				<meta itemprop="url" content="//&mvt:global:domain:name;/"/>
 				<form class="t-site-header__search-form" method="post" action="&mvte:urls:SRCH:rr;" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
 					<fieldset>
 						<legend>Product Search</legend>
 						<ul class="c-form-list">
-							<li class="c-form-list__item c-control-group u-flex u-bg-gray-10">
+							<li class="c-form-list__item c-form-list__item--full c-control-group u-flex">
 								<meta itemprop="target" content="&mvte:urls:SRCH:auto;?q={Search}"/>
 								<input class="c-form-input c-control-group__field u-bg-transparent u-border-none" data-mm_searchfield="Yes" data-mm_searchfield_id="x-search-preview" type="search" name="Search" value="&mvte:global:Search;" placeholder="Search" autocomplete="off" required itemprop="query-input">
 								<button class="c-button c-button--large c-control-group__button u-bg-transparent u-color-gray-50 u-icon-search u-border-none" type="submit"></button>
 							</li>
 						</ul>
-						<span class="x-search-preview" data-mm_searchfield_menu="Yes" data-mm_searchfield_id="x-search-preview"></span>
 					</fieldset>
+
+					<span class="x-search-preview" data-mm_searchfield_menu="Yes" data-mm_searchfield_id="x-search-preview"></span>
 				</form>
 			</div>
+
+			<div class="o-layout__item u-hidden u-flex--l u-width-4--l u-width-3--w t-site-header__masthead-links &mvt:global:checkout_hidden;">
+				<mvt:item name="customerlink" file="cssui-custlinklogin-item.htm,cssui-custlinkedit-item.htm" />
+
+				<a class="u-color-gray-50 u-text-uppercase t-site-header__basket-link" data-hook="open-mini-basket" href="&mvte:urls:BASK:auto;">
+					<span class="u-icon-cart-empty" data-hook="open-mini-basket"></span> Cart
+					<span class="u-bg-gray-50 u-color-white t-site-header__basket-link-quantity" data-hook="open-mini-basket mini-basket-count">&mvte:global_minibasket:basket_count;</span>
+				</a>
+			</div>
 			
-			<div class="o-layout__item u-width-12 u-width-3--m u-hidden &mvt:global:checkout_shown;">
+			<mvt:if expr="g.Basket:cust_id EQ 0">
+				<div class="u-over-everything t-global-account" data-hook="global-account">
+					<form class="t-global-account__form" method="post" action="&mvte:urls:_self:secure;" autocomplete="off">
+						<fieldset>
+							<legend>Global Account Log In</legend>
+							<input type="hidden" name="Action" value="LOGN" />
+							<input type="hidden" name="Category_Code" value="&mvte:global:Category_Code;" />
+							<input type="hidden" name="Product_Code" value="&mvte:global:Product_Code;" />
+							<input type="hidden" name="Search" value="&mvte:global:Search;" />
+							<input type="hidden" name="Per_Page" value="&mvte:global:Per_Page;" />
+							<input type="hidden" name="Sort_By" value="&mvte:global:Sort_By;" />
+							<ul class="c-form-list">
+								<li class="c-form-list__item c-form-list__item--full">
+									<label class="u-hide-visually">Email Adress</label>
+									<input class="c-form-input c-form-input--large" type="email" name="Customer_LoginEmail" value="&mvte:global:Customer_LoginEmail;" autocomplete="email" placeholder="Email" required>
+								</li>
+								<li class="c-form-list__item c-form-list__item--full">
+									<label class="u-hide-visually">Password</label>
+									<input class="c-form-input c-form-input--large" type="password" name="Customer_Password" autocomplete="current-password" placeholder="Password">
+								</li>
+								<li class="c-form-list__item c-form-list__item--full">
+									<input class="c-button c-button--full c-button--huge u-bg-gray-50 u-color-white u-text-bold u-text-uppercase" type="submit" value="Sign In">
+								</li>
+								<li class="c-form-list__item c-form-list__item--full">
+									<a class="c-button c-button--full c-button--hollow c-button--huge u-bg-white u-color-gray-50 u-text-bold u-text-uppercase" href="&mvte:urls:LOGN:secure;">Register</a>
+								</li>
+								<li class="c-form-list__item c-form-list__item--full u-text-center">
+									<a class="u-color-gray-30 u-text-bold u-font-small u-text-uppercase" href="&mvte:urls:FPWD:secure;">Forgot Password?</a>
+								</li>
+							</ul>
+						</fieldset>
+					</form>
+				</div>
+			</mvt:if>
+			
+			<div class="o-layout__item u-width-12 u-width-8--l u-width-7--w u-hidden &mvt:global:checkout_shown;">
 				<br class="u-hidden--m">
-				<span class="c-heading-echo u-block u-text-bold u-text-center u-text-right--m u-text-uppercase u-color-gray-20"><span class="u-icon-secure"></span> Secure Checkout</span>
+				<span class="c-heading-echo u-block u-text-bold u-text-center u-text-right--l u-text-uppercase u-color-gray-20"><span class="u-icon-secure"></span> Secure Checkout</span>
 			</div>
 		</div>
+
 	</section>
-	
-	<mvt:if expr="l.settings:page:code NE 'SFNT' AND l.settings:page:code NE 'ACLN' AND l.settings:page:code NE 'BASK' AND l.settings:page:code NE 'ORDL' AND l.settings:page:code NE 'OCST' AND l.settings:page:code NE 'OUS1' AND l.settings:page:code NE 'OUSM' AND l.settings:page:code NE 'UATM' AND l.settings:page:code NE 'UATR' AND l.settings:page:code NE 'OSEL' AND l.settings:page:code NE 'OPAY'">
-		<mvt:item name="breadcrumbs" />
-	</mvt:if>
 </header>
 <!-- end t-site-header -->
 
+<div class="o-wrapper o-wrapper--full o-wrapper--flush t-site-navigation &mvt:global:checkout_hidden;">
+	<div class="o-layout o-layout--align-center o-layout--flush o-layout--justify-center t-site-navigation__wrap">
+		<mvt:item name="readytheme" param="navigationset( 'primary_navigation' )" />
+	</div>
+</div>
+<!-- end t-site-navigation -->
+
+<mvt:if expr="(l.settings:page:code NE 'SFNT' AND l.settings:page:code NE 'ACLN' AND l.settings:page:code NE 'BASK' AND l.settings:page:code NE 'ORDL' AND l.settings:page:code NE 'OCST' AND l.settings:page:code NE 'OUS1' AND l.settings:page:code NE 'OUSM' AND l.settings:page:code NE 'UATM' AND l.settings:page:code NE 'UATR' AND l.settings:page:code NE 'OSEL' AND l.settings:page:code NE 'OPAY') AND (ISNULL g.Customer_Temporary_Password)">
+	<mvt:item name="breadcrumbs" />
+</mvt:if>
+
 <main class="o-wrapper t-main-content-element">
 	<mvt:if expr="l.settings:page:code NE 'SFNT' AND l.settings:page:code NE 'BASK'">
-		<mvt:if expr="l.settings:page:code EQ 'OCST' OR l.settings:page:code EQ 'OUS1' OR l.settings:page:code EQ 'OUSM' OR l.settings:page:code EQ 'UATM' OR l.settings:page:code EQ 'UATR' OR l.settings:page:code EQ 'OSEL' OR l.settings:page:code EQ 'OPAY'">
+		<mvt:if expr="l.settings:page:code EQ 'ORDL' OR l.settings:page:code EQ 'OCST' OR l.settings:page:code EQ 'OUS1' OR l.settings:page:code EQ 'OUSM' OR l.settings:page:code EQ 'UATM' OR l.settings:page:code EQ 'UATR' OR l.settings:page:code EQ 'OSEL' OR l.settings:page:code EQ 'OPAY'">
 		<mvt:elseif expr="l.settings:page:code EQ 'ORDS' OR l.settings:page:code EQ 'INVC'">
 			<section class="o-layout u-bg-gray-50 u-color-white">
 				<div class="o-layout__item">
@@ -70,24 +132,31 @@
 					<div class="o-layout__item u-color-gray-20">Thank you for your order, &mvte:order:ship_fname;!</div>
 					<p class="o-layout__item c-heading-delta u-text-uppercase u-text-bold">Confirmation #&mvt:order:id;</p>
 					<p class="o-layout__item u-font-small">
-						<button class="c-button c-button--clear c-button--flush u-text-uppercase u-color-white" data-hook="print-invoice"><span class="u-icon-print u-color-gray-20"></span> Print Receipt</button>
+						<button class="c-button c-button--clear c-button--flush u-bg-transparent u-color-white u-text-uppercase" data-hook="print-invoice"><span class="u-icon-print u-color-gray-20"></span> Print Receipt</button>
 					</p>
 					<br>
 				</div>
 			</section>
 		<mvt:elseif expr="l.settings:page:code EQ 'ACLN'">
-			<section class="o-layout u-bg-gray-50 u-color-white">
+			<section class="o-layout u-bg-gray-10">
 				<div class="o-layout__item">
 					<br>
 					<br>
-					<h1 class="c-heading-delta o-layout__item u-text-bold u-text-center u-text-uppercase">&mvt:page:name;</h1>
+					<h1 class="c-heading-delta o-layout__item u-text-bold u-text-center u-text-uppercase">
+						&mvt:page:name;<br><br>
+						<a class="c-button c-button--hollow c-button--large c-heading--subheading u-bg-transparent u-color-gray-40 u-text-uppercase" href="&mvte:urls:SFNT:secure_sep;Action=LOGO" title="Log Me Out">Log Me Out</a>
+					</h1>
 					<br>
 				</div>
 			</section>
 			<br>
+		<mvt:elseif expr="g.Customer_Temporary_Password">
 		<mvt:elseif expr="'CTGY' CIN l.settings:page:code">
-		<mvt:elseif expr="'PLST' CIN l.settings:page:code">
-		<mvt:elseif expr="'SRCH' CIN l.settings:page:code">
+		<mvt:elseif expr="l.settings:page:code EQ 'LOGN'">
+		<mvt:elseif expr="l.settings:page:code EQ 'PLST'">
+		<mvt:elseif expr="l.settings:page:code EQ 'SRCH'">
+		<mvt:elseif expr="l.settings:page:code EQ 'FPWD'">
+		<mvt:elseif expr="l.settings:page:code EQ 'CLTG'">
 		<mvt:elseif expr="l.settings:page:code EQ 'PROD'">
 		<mvt:elseif expr="l.settings:page:code EQ 'CSBE'">
 			<section class="o-layout">

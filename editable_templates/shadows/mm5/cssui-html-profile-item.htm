@@ -11,7 +11,8 @@
 	<mvt:item name="customfields" param="Write_Basket('continue_url', l.settings:breadcrumbs:current_item:link)" />
 </mvt:if>
 <mvt:comment>This will set classes for use on checkout pages to clean up the header.</mvt:comment>
-<mvt:if expr="l.settings:page:code CIN 'ORDL,OCST,OUS1,OUSM,UATM,UATR,OSEL,OPAY,INVC'">
-	<mvt:assign name="g.checkout_hidden" value="'u-hidden'"/>
+<mvt:if expr="l.settings:page:code CIN 'ORDL,OCST,OUS1,OUSM,UATM,UATR,OSEL,OPAY,INVC' OR (g.Customer_Temporary_Password)">
+	<mvt:assign name="g.checkout_hidden" value="'u-hidden u-hide-visually'"/>
 	<mvt:assign name="g.checkout_shown" value="'u-shown'"/>
+	<mvt:assign name="g.checkout_full" value="'u-width-12'"/>
 </mvt:if>

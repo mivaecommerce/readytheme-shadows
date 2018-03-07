@@ -108,6 +108,10 @@
 
 
 	@media screen and (min-width: 48em) {
+		.o-layout--row--m {
+			flex-direction: row;
+		}
+
 		.o-layout--row-reverse--m {
 			flex-direction: row-reverse;
 		}
@@ -123,6 +127,10 @@
 	
 	
 	@media screen and (min-width: 60em) {
+		.o-layout--row--l {
+			flex-direction: row;
+		}
+
 		.o-layout--row-reverse--l {
 			flex-direction: row-reverse;
 		}
@@ -138,6 +146,10 @@
 	
 	
 	@media screen and (min-width: 90em) {
+		.o-layout--row--w {
+			flex-direction: row;
+		}
+
 		.o-layout--row-reverse--w {
 			flex-direction: row-reverse;
 		}

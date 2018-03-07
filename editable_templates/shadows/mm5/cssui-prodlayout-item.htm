@@ -39,21 +39,17 @@
 					</h1>
 				</li>
 				<li class="c-form-list__item c-form-list__item--full">
-					<p class="u-flex x-product-layout-purchase__pricing">
+					<p class="u-flex x-product-layout-purchase__pricing u-color-gray-40">
 						<mvt:if expr="l.settings:product:base_price GT l.settings:product:price">
 							<span class="c-heading-delta x-product-layout-purchase__pricing-original">
-								<span class="c-heading--subheading">Was:</span><br>
 								<s id="price-value-additional">&mvt:product:formatted_base_price;</s>
 							</span>
 						</mvt:if>
 						<span class="c-heading-delta x-product-layout-purchase__pricing-current">
-							<mvt:if expr="l.settings:product:base_price GT l.settings:product:price">
-								<span class="c-heading--subheading">Now:</span><br>
-							</mvt:if>
-							<strong id="price-value" itemprop="price" content="&mvt:product:price;">&mvt:product:formatted_price;</strong>
+							<span id="price-value" itemprop="price" content="&mvt:product:price;">&mvt:product:formatted_price;</span>
 						</span>
 					</p>
-					<div id="product-discounts" class="x-product-layout-purchase__product-discounts">
+					<div id="product-discounts" class="x-product-layout-purchase__product-discounts u-font-small">
 						<mvt:foreach iterator="discount" array="product:discounts">
 							<p class="x-product-layout-purchase__product-discounts">
 								&mvt:discount:descrip;: <strong>&mvt:discount:formatted_discount;</strong>
@@ -61,7 +57,7 @@
 						</mvt:foreach>
 					</div>
 					<mvt:if expr="l.settings:product:weight NE 0">
-						<p class="x-product-layout-purchase__product-weight">
+						<p class="x-product-layout-purchase__product-weight u-font-small">
 							Shipping Weight: <strong>&mvt:product:weight;</strong> &mvt:store:wtunits;
 						</p>
 					</mvt:if>
@@ -81,7 +77,7 @@
 					</p>
 				</li>
 				<mvt:item name="discount_volume" param="product:id" />
-				<li class="o-layout c-form-list__item u-grids-1 u-grids-2--m x-product-layout-purchase__options">
+				<li class="o-layout c-form-list__item u-grids-1 u-grids-2--m x-product-layout-purchase__options u-color-gray-40">
 					<mvt:item name="product_attributes" param="product:id" file="PROD-product_attributes-item.htm" />
 				</li>
 				<li class="c-form-list__item c-form-list__item--full x-product-layout-purchase__cta">
@@ -90,11 +86,11 @@
 						<mvt:if expr="l.settings:subscription:enabled AND l.settings:subscription:mandatory">
 							<mvt:if expr="l.settings:product:inv_level NE 'out'">
 								<div class="o-layout__item u-width-12 u-width-4--m x-product-layout-purchase__options-quantity">
-									<label class="c-form-label u-text-bold u-font-small is-required" for="l-quantity">Qty</label>
+									<label class="c-form-label u-text-bold u-font-small u-color-gray-40 is-required" for="l-quantity">Qty</label>
 									<div class="x-quantify c-control-group t-quantify u-font-small" data-hook="quantify">
-										<button class="c-button c-control-group__button u-bg-white u-color-black u-icon-subtract" data-action="decrement"></button>
-										<input class="c-form-input c-control-group__field u-text-center" type="tel" name="Quantity" value="1">
-										<button class="c-button c-control-group__button u-bg-white u-color-black u-icon-add" data-action="increment"></button>
+										<button class="c-button c-control-group__button u-bg-white u-color-gray-40 u-icon-subtract" data-action="decrement"></button>
+										<input class="c-form-input c-control-group__field u-text-center u-color-gray-40" type="tel" name="Quantity" value="1">
+										<button class="c-button c-control-group__button u-bg-white u-color-gray-40 u-icon-add" data-action="increment"></button>
 									</div>
 								</div>
 								<p class="o-layout__item u-width-12 u-width-8--m">
@@ -104,26 +100,26 @@
 							</mvt:if>
 						<mvt:else>
 							<div class="o-layout__item u-width-12 u-width-4--m x-product-layout-purchase__options-quantity">
-								<label class="c-form-label u-text-bold u-font-small is-required" for="l-quantity">Qty</label>
+								<label class="c-form-label u-text-bold u-font-small u-color-gray-40 is-required" for="l-quantity">Qty</label>
 								<div class="x-quantify c-control-group t-quantify u-font-small" data-hook="quantify">
-									<button class="c-button c-control-group__button u-bg-white u-color-black u-icon-subtract" data-action="decrement"></button>
-									<input class="c-form-input c-control-group__field u-text-center" type="tel" name="Quantity" value="1">
-									<button class="c-button c-control-group__button u-bg-white u-color-black u-icon-add" data-action="increment"></button>
+									<button class="c-button c-control-group__button u-bg-white u-color-gray-40 u-icon-subtract" data-action="decrement"></button>
+									<input class="c-form-input c-control-group__field u-text-center u-color-gray-40" type="tel" name="Quantity" value="1">
+									<button class="c-button c-control-group__button u-bg-white u-color-gray-40 u-icon-add" data-action="increment"></button>
 								</div>
 							</div>
 							<p class="o-layout__item u-width-12 u-width-8--m">
-								<br>
+								<span class="c-form-label u-font-small">&nbsp;</span>
 								<mvt:if expr="l.settings:product:inv_level NE 'out'">
 									<span onclick="document.forms.add.action = '&mvtj:urls:BASK:auto;'; document.forms.add.elements.Action.value = 'ADPR';">
 										<mvt:item name="buttons" param="AddToBasket" file="cssui-buttonAddToBasket-item.htm" />
 									</span>
 									<br>
 								</mvt:if>
-								<span class="o-layout u-grids-2--l" data-mmnodisable="true">
+								<span class="o-layout" data-mmnodisable="true">
 									<span class="o-layout__item" onclick="document.forms.add.action = '&mvtj:urls:WISH:secure;'; document.forms.add.elements.Action.value = 'ATWL';">
 										<mvt:item name="buttons" param="AddToWishList" file="cssui-buttonAddToWishList-item.htm" />
+										<mvt:item name="readytheme" param="thirdpartysharing" />
 									</span>
-									<mvt:item name="readytheme" param="thirdpartysharing" />
 								</span>
 							</p>
 						</mvt:if>
@@ -146,11 +142,13 @@
 			</div>
 			<mvt:item name="customfields" param="Read_Product_ID(l.settings:product:id, '', l.settings:product:tabs)" />
 			<mvt:foreach iterator="tab" array="product:tabs">
-				<input id="tab-&mvte:tab:code;" data-flex-tab type="radio" name="flex-tab">
-				<label class="x-flex-tabs__tab u-text-uppercase" for="tab-&mvte:tab:code;">&mvte:tab:name;</label>
-				<div class="x-flex-tabs__content">
-					&mvt:tab:value;
-				</div>
+				<mvt:if expr="'tabs_' CIN l.settings:tab:code">
+					<input id="tab-&mvte:tab:code;" data-flex-tab type="radio" name="flex-tab">
+					<label class="x-flex-tabs__tab u-text-uppercase" for="tab-&mvte:tab:code;">&mvte:tab:name;</label>
+					<div class="x-flex-tabs__content">
+						&mvt:tab:value;
+					</div>
+				</mvt:if>
 			</mvt:foreach>
 		</div>
 	</div>

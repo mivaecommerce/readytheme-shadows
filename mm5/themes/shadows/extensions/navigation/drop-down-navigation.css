@@ -25,6 +25,11 @@
 	z-index: 100;
 }
 
+	.c-navigation__trigger:checked ~ .x-drop-down-navigation__row .c-navigation__row {
+		display: block;
+		position: relative;
+	}
+
 	.x-drop-down-navigation__row .c-navigation__row:nth-child(2) .c-navigation__list {
 		text-align: left;
 	}

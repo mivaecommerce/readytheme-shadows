@@ -31,13 +31,16 @@
 					<input type="hidden" name="CSRF_Token" value="&mvte:global:Basket:csrf_token;">
 					<ul class="c-form-list">
 						<li class="c-form-list__item c-form-list__item--full">
-							<p class="u-text-bold">For security purposes, please enter your current password.</p>
+							<p class="x-messages x-messages--borderless x-messages--with-icon">
+								<span class="x-messages__icon u-icon-info u-color-gray-30">&nbsp;</span>
+								<span>For security purposes, please enter your current password.</span>
+							</p>
 							<mvt:if expr="g.Customer_CurrentPassword_Invalid">
-								<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required u-color-red" for="l-Customer_CurrentPassword">Current Password</label>
+								<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required u-color-red" for="l-Customer_CurrentPassword">Current Password</label>
 							<mvt:else>
-								<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required" for="l-Customer_CurrentPassword">Current Password</label>
+								<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required" for="l-Customer_CurrentPassword">Current Password</label>
 							</mvt:if>
-							<input id="l-Customer_CurrentPassword" class="c-form-input" type="password" name="Customer_CurrentPassword" required>
+							<input id="l-Customer_CurrentPassword" class="c-form-input c-form-input--large" type="password" name="Customer_CurrentPassword" required>
 						</li>
 						<li class="c-form-list__item c-form-list__item--full">
 							<hr class="c-divider">
@@ -48,19 +51,19 @@
 								<span class="u-font-small">Old Email Address: &mvte:global:Customer:pw_email;</span>
 							</p>
 							<mvt:if expr="g.Customer_LoginEmail_Invalid">
-								<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required u-color-red" for="l-Customer_LoginEmail">New Email Address</label>
+								<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required u-color-red" for="l-Customer_LoginEmail">New Email Address</label>
 							<mvt:else>
-								<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required" for="l-Customer_LoginEmail">New Email Address</label>
+								<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required" for="l-Customer_LoginEmail">New Email Address</label>
 							</mvt:if>
-							<input id="l-Customer_LoginEmail" class="c-form-input" type="email" name="Customer_LoginEmail" required>
+							<input id="l-Customer_LoginEmail" class="c-form-input c-form-input--large" type="email" name="Customer_LoginEmail" required>
 						</li>
 						<li class="c-form-list__item c-form-list__item--full">
 							<mvt:if expr="g.Customer_VerifyLoginEmail_Invalid">
-								<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required u-color-red" for="l-Customer_VerifyLoginEmail">Confirm Email Address</label>
+								<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required u-color-red" for="l-Customer_VerifyLoginEmail">Confirm Email Address</label>
 							<mvt:else>
-								<label class="c-form-label u-font-small u-text-bold u-text-uppercase is-required" for="l-Customer_VerifyLoginEmail">Confirm Email Address</label>
+								<label class="c-form-label u-font-tiny u-text-bold u-text-uppercase is-required" for="l-Customer_VerifyLoginEmail">Confirm Email Address</label>
 							</mvt:if>
-							<input id="l-Customer_VerifyLoginEmail" class="c-form-input" type="email" name="Customer_VerifyLoginEmail" required>
+							<input id="l-Customer_VerifyLoginEmail" class="c-form-input c-form-input--large" type="email" name="Customer_VerifyLoginEmail" required>
 						</li>
 						<li class="c-form-list__item c-form-list__item--full u-text-right">
 							<mvt:item name="buttons" param="Save" file="cssui-buttonSave-item.htm" />

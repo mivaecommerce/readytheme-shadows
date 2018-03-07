@@ -11,7 +11,7 @@ var miniBasket = (function (document) {
 	'use strict';
 
 	var menuElement = document.querySelector('[data-hook="mini-basket"]');
-	var openMenuElement = document.querySelector('[data-hook="open-mini-basket"]');
+	var openMenuElement = document.querySelectorAll('[data-hook="open-mini-basket"]');
 	var closeMenuElements = document.querySelectorAll('[data-hook="close-mini-basket"]');
 	var publicMethods = {}; // Placeholder for public methods
 	var defaults = {
@@ -94,18 +94,21 @@ var miniBasket = (function (document) {
 		// Merge user options with defaults
 		var settings = extend(defaults, options || {});
 
-		// Open the mini-basket when clicking the trigger
-		openMenuElement.addEventListener('click', function (event) {
-			toggleMenu(event);
-		});
-
-		// Close the mini-basket when clicking any 'close' triggers
+		// Element.matches() Polyfill
 		if (!Element.prototype.matches) {
 			Element.prototype.matches = Element.prototype.msMatchesSelector;
 		}
 
+		// Open the mini-basket when clicking the trigger
 		document.addEventListener('click', function (event) {
-			if (event.target.matches('[data-hook="close-mini-basket"]')) {
+			if (event.target.matches('[data-hook~="open-mini-basket"]')) {
+				toggleMenu(event);
+			}
+		});
+
+		// Close the mini-basket when clicking any 'close' triggers
+		document.addEventListener('click', function (event) {
+			if (event.target.matches('[data-hook~="close-mini-basket"]')) {
 				toggleMenu(event);
 			}
 		});
