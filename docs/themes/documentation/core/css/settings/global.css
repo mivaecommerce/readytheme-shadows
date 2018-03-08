@@ -1,0 +1,61 @@
+/* ==========================================================================
+   SETTINGS / GLOBAL
+   ========================================================================== */
+
+/**
+ * Set all your global CSS variables in this file. Variables can, and should be,
+ * overridden in the 'theme.css' file.
+ */
+
+:root {
+	/* root settings
+	   =========================================== */
+	--base-measure: 16;
+	
+	
+	
+	
+	
+	/* width constraints
+	   =========================================== */
+	--site-max-width: 100rem;
+	--wrapper-max-width: 90rem;
+	
+	
+	
+	
+	
+	/* typography settings
+	   =========================================== */
+	--global-font-size: 16px;
+	--primary-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	--secondary-font-family: "Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", "Times", "Source Serif Pro", serif;
+
+
+
+
+
+	/* border settings
+	   =========================================== */
+	--global-border-width: 1px;
+	--global-border-radius: 0.125em;
+
+
+
+
+
+	/* breakpoints
+	   =========================================== */
+	--breakpoint-small: 640;
+	--breakpoint-medium: 768;
+	--breakpoint-large: 960;
+	--breakpoint-wide: 1440;
+
+
+
+
+
+	/* miscellaneous
+	   =========================================== */
+	--global-spacing-unit: 16px;
+}

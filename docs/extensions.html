@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Shadows ReadyTheme: Extensions</title>
+	<link href="themes/documentation/site-styles.css" rel="stylesheet">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#efefef">
+	<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+	<header class="x-site-header" data-cms-block data-cms-content="global/global-header.html"></header>
+	<!-- /.x-site-header -->
+	
+	<main>
+		<div class="o-wrapper">
+			<div class="o-layout o-layout--wide">
+				<section class="o-layout__item u-width-9--m  o-layout__last x-site-content">
+					<h1>
+						<span class="c-heading-bravo u-text-bold">Extensions</span><br>
+						<code class="x-inline-code u-font-small">THEME_NAME/extensions/</code>
+					</h1>
+					<hr class="c-keyline">
+
+					<h3 id="collapsing-breadcrumbs">
+						<span class="c-heading-charlie">Collapsing Breadcrumbs</span><br>
+						<code class="x-inline-code u-font-small">THEME_NAME/extensions/breadcrumbs/collapsing-breadcrumbs.css</code>
+					</h3>
+					<pre class="language-css">
+						<code><!--
+							.x-collapsing-breadcrumbs__group,
+							.x-collapsing-breadcrumbs__list {
+								padding-left: 1rem;
+								font-size: 0.875rem;
+								line-height: 3;
+							}
+							
+							.x-collapsing-breadcrumbs__group {
+								margin-bottom: 0;
+								border-bottom: 0 none;
+							}
+							
+							.x-collapsing-breadcrumbs__list {
+								border-bottom: 1px solid #c0c0c0;
+							}
+							
+								.x-collapsing-breadcrumbs__button {
+									padding-top: 0;
+									padding-bottom: 0;
+									font-size: 1rem;
+								}
+							
+								.x-collapsing-breadcrumbs__list .o-list-inline__item:not(:last-child) {
+									margin-right: 1em;
+								}
+							
+									.x-collapsing-breadcrumbs .o-list-inline__item:not(:last-of-type)::after {
+										display: inline-block;
+										position: relative;
+										right: -0.5em;
+										content: '/';
+									}
+						--></code>
+					</pre>
+					<p><code class="x-inline-code u-font-small">THEME_NAME/extensions/breadcrumbs/collapsing-breadcrumbs.html</code></p>
+					<pre class="language-markup">
+						<code><!--
+							<nav class="x-collapsing-breadcrumbs" data-hook="collapsing-breadcrumbs">
+								<ul class="o-list-inline x-collapsing-breadcrumbs__group u-hidden" data-hook="collapsing-breadcrumbs__group"></ul>
+								<ul class="o-list-inline x-collapsing-breadcrumbs__list" data-hook="collapsing-breadcrumbs__list" itemscope itemtype="http://schema.org/BreadcrumbList">
+									<li class="o-list-inline__item u-hidden" data-hook="collapsing-breadcrumbs__trigger-area">
+										<button class="c-button c-button--hollow u-border-none u-color-black u-bg-transparent x-collapsing-breadcrumbs__button" data-hook="collapsing-breadcrumbs__button">&hellip;</button>
+									</li>
+									<li class="o-list-inline__item" data-hook="collapsing-breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+										<a class="u-color-black" href="&mvt:breadcrumbs:homelink;" title="Home" itemprop="item">
+											<span itemprop="name">Home</span>
+										</a>
+										<meta itemprop="position" content="1" />
+									</li>
+									<mvt:assign name="l.settings:breadcrumb:position" value="1"/>
+									<mvt:foreach iterator="cats" array="breadcrumbs:links">
+										<mvt:assign name="l.settings:breadcrumb:position" value="l.settings:breadcrumb:position + 1"/>
+										<mvt:if expr="l.settings:cats:name EQ '...'">
+											<li class="o-list-inline__item" data-hook="collapsing-breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+												<a class="u-color-black" href="&mvt:cats:link;" title="&mvt:cats:name;" itemprop="item">
+													<span itemprop="name">&mvt:cats:name;</span>
+												</a>
+												<meta itemprop="position" content="&mvt:breadcrumb:position;" />
+											</li>
+										<mvt:elseif expr="l.settings:cats:code EQ l.settings:breadcrumbs:current_item:code">
+											<li class="o-list-inline__item u-text-bold" data-hook="collapsing-breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+												<a class="u-color-black" href="&mvt:cats:link;" title="&mvt:cats:name;" itemprop="item">
+													<span itemprop="name">&mvt:cats:name;</span>
+												</a>
+												<meta itemprop="position" content="&mvt:breadcrumb:position;" />
+											</li>
+										<mvt:else>
+											<li class="o-list-inline__item" data-hook="collapsing-breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+												<a class="u-color-black" href="&mvt:cats:link;" title="&mvt:cats:name;" itemprop="item">
+													<span itemprop="name">&mvt:cats:name;</span>
+												</a>
+												<meta itemprop="position" content="&mvt:breadcrumb:position;" />
+											</li>
+										</mvt:if>
+									</mvt:foreach>
+								</ul>
+							</nav>
+						--></code>
+					</pre>
+					<p><code class="x-inline-code u-font-small">THEME_NAME/extensions/breadcrumbs/collapsing-breadcrumbs.js</code></p>
+					<pre class="language-javascript">
+						<code><!--
+							/**
+							 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+							 |c|o|l|l|a|p|s|i|n|g| |b|r|e|a|d|c|r|u|m|b|s|
+							 +-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+-+-+
+							 *
+							 * This extension is a variation on the Priority + navigation pattern where extra links are
+							 * hidden behind a trigger when they do not fit into the allotted space. With breadcrumbs,
+							 * we are hiding the links at the start of the list, instead of at the end.
+							 */
+							
+							(function ($, window) {
+								'use strict';
+							
+								var $breadcrumbNavigation = $.hook('collapsing-breadcrumbs');
+								var $triggerArea = $.hook('collapsing-breadcrumbs__trigger-area');
+								var $displayButton = $.hook('collapsing-breadcrumbs__button');
+								var $visibleLinks = $.hook('collapsing-breadcrumbs__list');
+								var $hiddenLinks = $.hook('collapsing-breadcrumbs__group');
+								var numOfItems = 0;
+								var totalSpace = 64;
+								var breakWidths = [];
+								var availableSpace;
+								var numOfVisibleItems;
+								var requiredSpace;
+							
+								/**
+								 * Check the total space required for the breadcrumb links and how many there are.
+								 */
+								$visibleLinks.children().each(function () {
+									totalSpace += $(this).outerWidth(true) + (parseInt($visibleLinks.css('padding-left')));
+									numOfItems += 1;
+									breakWidths.push(totalSpace);
+								});
+							
+								/**
+								 * Compare the needed space with the available space and move breadcrumbs accordingly.
+								 * @returns {jQuery}
+								 */
+								$.fn.checkNavigationOverflow = function () {
+									// Get instant state
+									availableSpace = $visibleLinks.outerWidth(true) - parseInt($visibleLinks.css('padding-right'));
+									numOfVisibleItems = $visibleLinks.children().length;
+									requiredSpace = breakWidths[numOfVisibleItems - 1];
+							
+									// There is not enough space
+									if (requiredSpace > availableSpace) {
+										$visibleLinks.children('[data-hook="collapsing-breadcrumbs__item"]').first().appendTo($hiddenLinks);
+										numOfVisibleItems -= 1;
+										$breadcrumbNavigation.addClass('is-loaded');
+										this.checkNavigationOverflow();
+									}
+									// There is more than enough space
+									else if (availableSpace > breakWidths[numOfVisibleItems]) {
+										$hiddenLinks.children().last().prependTo($visibleLinks).insertAfter($triggerArea);
+										numOfVisibleItems += 1;
+										$breadcrumbNavigation.addClass('is-loaded');
+										this.checkNavigationOverflow();
+									}
+							
+									// Update the button accordingly
+									if (numOfVisibleItems === numOfItems) {
+										$triggerArea.addClass('u-hidden');
+									}
+									else {
+										$triggerArea.removeClass('u-hidden');
+									}
+							
+									return this;
+								};
+							
+							
+								/**
+								 * Check for rezise and control button click.
+								 */
+								$.fn.collapsingBreadcrumbs = function () {
+									var initElement = this;
+									var animationTimeout;
+							
+									window.addEventListener('resize', function () {
+										if (animationTimeout) {
+											window.cancelAnimationFrame(animationTimeout);
+										}
+							
+										animationTimeout = window.requestAnimationFrame(function () {
+											initElement.checkNavigationOverflow();
+										});
+									}, false);
+							
+									$displayButton.on('click', function () {
+										$hiddenLinks.toggleClass('u-hidden');
+									});
+							
+									initElement.checkNavigationOverflow();
+								};
+							
+								/**
+								 * Initialize the extension.
+								 */
+								if ($breadcrumbNavigation.length > 0) {
+									$breadcrumbNavigation.collapsingBreadcrumbs();
+								}
+							
+							})(jQuery, window);
+						--></code>
+					</pre>
+					<pre class="language-javascript">
+						<code><!--
+							/**
+							 * Load and initialize the Collapsing Breadcrumbs extension
+							 */
+							$.loadScript(theme_path + 'extensions/breadcrumbs/collapsing-breadcrumbs.js');
+						--></code>
+					</pre>
+					<hr class="c-keyline">
+
+					<h3 id="fasten-header">
+						<span class="c-heading-charlie">Fasten Header</span><br>
+						<code class="x-inline-code u-font-small">THEME_NAME/extensions/fasten-header/fasten-header.css</code>
+					</h3>
+					<pre class="language-css">
+						<code><!--
+							x-fasten-header {
+								display: none;
+							}
+							
+							@media screen and (min-width: 60em) {
+								.x-fasten-header {
+									display: flex;
+									width: 100vw;
+									max-width: none;
+									padding: 0.5rem 1rem;
+									position: fixed;
+									top: 0;
+									background-color: #222;
+									box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+									color: #fff;
+									opacity: 0;
+									-webkit-transform: scaleY(0);
+									transform: scaleY(0);
+									transform-origin: top;
+									transition: all ease-in-out 0.15s;
+									z-index: 300;
+								}
+							
+								.x-fasten-header--is-active .x-fasten-header {
+									opacity: 1;
+									-webkit-transform: scaleY(1);
+									transform: scaleY(1);
+								}
+							
+									.x-fasten-header__logo-image {
+										max-height: 4rem;
+									}
+							}
+						--></code>
+					</pre>
+					<p><code class="x-inline-code u-font-small">THEME_NAME/extensions/fasten-header/fasten-header.html</code></p>
+					<pre class="language-markup">
+						<code><!--
+							<mvt:item name="readytheme" param="Load_Image('fasten_header_logo', l.settings:fasten_header_logo)" />
+							<section class="o-layout o-layout--align-center x-fasten-header t-site-header__masthead &mvt:global:checkout_hidden;" data-hook="fasten-header">
+								<div class="o-layout__item u-width-2 u-width-1--w u-text-left t-site-header__logo">
+									<a href="&mvte:urls:SFNT:auto;" title="&mvt:global:store:name;" rel="nofollow">
+										<mvt:if expr="l.settings:readytheme:fasten_header_logo:active">
+											<img class="x-fasten-header__logo-image" src="&mvt:readytheme:fasten_header_logo:image;" alt="&mvt:readytheme:fasten_header_logo:image_alt;" title="&mvt:readytheme:fasten_header_logo:image_alt;">
+										<mvt:else>
+											<mvt:if expr="l.settings:readytheme:logo_type EQ 'text'">
+												<div class="t-site-header__store-name">&mvt:readytheme:logo_name;</div>
+												<small class="t-site-header__store-tagline">&mvt:readytheme:logo_tagline;</small>
+											<mvt:elseif expr="l.settings:readytheme:logo_type EQ 'image'">
+												<img class="x-fasten-header__logo-image" src="&mvte:readytheme:logo_image;" alt="&mvt:readytheme:logo_alt;" title="&mvt:readytheme:logo_alt;">
+											</mvt:if>
+										</mvt:if>
+									</a>
+								</div>
+								
+								<div class="o-layout__item u-width-2 u-width-4--w">
+									<a class="c-button c-button--clear c-button--flush u-bg-transparent u-color-gray-50 u-text-medium u-text-uppercase" href="&mvte:urls:CTLG:auto;">Shop Our Catalog <span class="u-font-tiny u-icon-chevron-right"></span></a>
+								</div>
+								
+								<div class="o-layout__item u-width-4">
+									<form class="t-site-header__search-form" method="post" action="&mvte:urls:SRCH:rr;">
+										<fieldset>
+											<legend>Product Search</legend>
+											<ul class="c-form-list">
+												<li class="c-form-list__item c-form-list__item--full c-control-group u-flex">
+													<input class="c-form-input c-control-group__field u-bg-transparent u-border-none" data-mm_searchfield="Yes" data-mm_searchfield_id="x-search-preview--fasten" type="search" name="Search" value="&mvte:global:Search;" placeholder="Search" autocomplete="off" required>
+													<button class="c-button c-button--large c-control-group__button u-bg-transparent u-color-gray-50 u-icon-search u-border-none" type="submit"></button>
+												</li>
+											</ul>
+										</fieldset>
+										<span class="x-search-preview u-color-gray-50" data-mm_searchfield_menu="Yes" data-mm_searchfield_id="x-search-preview--fasten"></span>
+									</form>
+								</div>
+							
+								<div class="o-layout__item u-flex u-width-4 u-width-3--w t-site-header__masthead-links">
+									<mvt:if expr="g.Basket:cust_id EQ 0">
+										<a class="u-color-gray-50 u-text-uppercase" href="&mvte:urls:LOGN:secure;">
+											<span class="u-icon-user"></span> Sign In
+										</a>
+									<mvt:else>
+										<a class="u-color-gray-50 u-text-uppercase" href="&mvte:urls:ACLN:secure;">
+											<span class="u-icon-user"></span> My Account
+										</a>
+									</mvt:if>
+									<a class="u-color-gray-50 u-text-uppercase t-site-header__basket-link" data-hook="open-mini-basket" href="&mvte:urls:BASK:auto;">
+										<span class="u-icon-cart-empty" data-hook="open-mini-basket"></span> Cart
+										<span class="u-bg-gray-50 u-color-white t-site-header__basket-link-quantity" data-hook="open-mini-basket mini-basket-count">&mvte:global_minibasket:basket_count;</span>
+									</a>
+								</div>
+							</section>
+						--></code>
+					</pre>
+					<p><code class="x-inline-code u-font-small">THEME_NAME/extensions/fasten-header/fasten-header.js</code></p>
+					<pre class="language-javascript">
+						<code><!--
+							/**
+							 +-+-+-+-+-+-+-+-+-+-+-+-+-+
+							 |f|a|s|t|e|n| |h|e|a|d|e|r|
+							 +-+-+-+-+-+-+-+-+-+-+-+-+-+
+							 *
+							 * This extension is a more refined version of a classic "sticky" header function.
+							 */
+							
+							function fastenHeader(position, siteHeader) {
+								var siteHeaderHeight = siteHeader.offsetHeight;
+							
+								if (position > siteHeaderHeight) {
+									document.body.classList.add('x-fasten-header--is-active');
+								}
+								else {
+									document.body.classList.remove('x-fasten-header--is-active');
+								}
+							}
+							
+							if (sessionStorage.getItem('USER_CAN_HOVER') === 'true' && document.querySelector('[data-hook="fasten-header"]')) {
+								var animationTimeout;
+								var siteHeader = document.querySelector('[data-hook="site-header"]');
+							
+								fastenHeader(window.pageYOffset || document.documentElement.scrollTop, siteHeader);
+							
+								window.addEventListener('scroll', function () {
+									if (animationTimeout) {
+										window.cancelAnimationFrame(animationTimeout);
+									}
+							
+									animationTimeout = window.requestAnimationFrame(function () {
+										fastenHeader(window.pageYOffset || document.documentElement.scrollTop, siteHeader);
+									});
+								}, false);
+							}
+						--></code>
+					</pre>
+					<pre class="language-javascript">
+						<code><!--
+							/**
+							 * Load and initialize the Fasten Header extension
+							 */
+							$.loadScript(theme_path + 'extensions/fasten-header/fasten-header.js');
+						--></code>
+					</pre>
+					<hr class="c-keyline">
+					
+					<h3 id="quantify">
+						<span class="c-heading-charlie">Quantity Increment Adjuster</span><br>
+						<code class="x-inline-code u-font-small">THEME_NAME/extensions/quantify/quantify.css</code>
+					</h3>
+					<pre class="language-css">
+						<code><!--
+							.x-quantify {}
+							
+								.x-quantify .c-control-group__button {
+									border-color: #c0c0c0;
+									-webkit-user-select: none;
+									-moz-user-select: none;
+									-ms-user-select: none;
+									user-select: none;
+								}
+								
+								.x-quantify .c-control-group__field {
+									height: auto;
+									border-left-width: 0;
+								}
+						--></code>
+					</pre>
+					<p><code class="x-inline-code u-font-small">THEME_NAME/extensions/quantify/quantify.html</code></p>
+					<pre class="language-markup">
+						<code><!--
+							**
+							 * Product Page
+							 */
+							<div class="x-quantify c-control-group" data-hook="quantify">
+								<button class="c-button c-control-group__button u-icon-subtract" data-action="decrement"></button>
+								<input class="c-form-input c-control-group__field u-text-center" type="tel" name="Quantity" value="1">
+								<button class="c-button c-control-group__button u-icon-add" data-action="increment"></button>
+							</div>
+							
+							**
+							 * Basket Page
+							 */
+							<div class="x-quantify c-control-group" data-hook="quantify">
+								<button class="c-button c-control-group__button u-icon-subtract" data-action="decrement" data-hook="remove-item" data-remove="&mvte:urls:BASK:auto_sep;Action=RGRP&Basket_Group=&mvta:group:group_id;&Restore_Name=&mvta:group:name;&Restore_Link=&mvta:group:restore:link;"></button>
+								<input class="c-form-input c-control-group__field u-text-center" data-group="group-&mvte:group:group_id;" data-hook="group-quantity" type="tel" name="Quantity" value="&mvt:group:quantity;">
+								<button class="c-button c-control-group__button u-icon-add" data-action="increment"></button>
+							</div>
+						--></code>
+					</pre>
+					<p><code class="x-inline-code u-font-small">THEME_NAME/extensions/quantify/quantify.js</code></p>
+					<pre class="language-javascript">
+						<code><!--
+							/**
+							 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+							 |q|u|a|n|t|i|f|y|
+							 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+							 *
+							 * This extension allows for the use of buttons to increase/decrease item
+							 * quantities on the product and basket pages. When used on the basket page,
+							 * the decrease button becomes a remove button if the quantity is 1.
+							 */
+							
+							(function () {
+								'use strict';
+							
+								var adjusters = document.querySelectorAll('[data-hook="quantify"]');
+							
+								for (var id = 0; id < adjusters.length; id++) {
+									adjusters[id].addEventListener('click', function (event) {
+										if (event.target.matches('button')) {
+											var button = event.target;
+											var inputs = [].filter.call(this.children, function (sibling) {
+												return sibling !== button && sibling.matches('input');
+											});
+											var input = inputs[0];
+											var value = parseInt(input.value);
+											var action = button.getAttribute('data-action');
+											var changed = document.createEvent('HTMLEvents');
+							
+											changed.initEvent('change', true, false);
+											event.stopPropagation();
+											event.preventDefault();
+							
+											if (action === 'decrement') {
+												/**
+												 * THIS CAN BE USED TO SET A MINIMUM QUANTITY
+												 * value = value > 5 ? value - 1 : 5;
+												 */
+												value = value > 1 ? value - 1 : 1;
+							
+												input.value = value;
+												input.dispatchEvent(changed);
+												allowRemoveUpdate();
+											}
+											else if (action === 'increment') {
+												/**
+												 * THIS CAN BE USED TO SET A MAXIMUM QUANTITY
+												 * value = value < 100 ? value + 1 : 100;
+												 */
+												value = value + 1;
+							
+												input.value = value;
+												input.dispatchEvent(changed);
+												allowRemoveUpdate();
+											}
+											else {
+												window.location = button.getAttribute('data-remove');
+											}
+										}
+									});
+								}
+							
+								function allowRemoveUpdate() {
+									var quantities = document.querySelectorAll('[data-hook="group-quantity"]');
+							
+									if (quantities) {
+										for (var id = 0; id < quantities.length; id++) {
+											var quantityLine = quantities[id];
+											var removeToggle = quantityLine.previousElementSibling;
+							
+											if (removeToggle.dataset.hook === 'remove') {
+												if (quantityLine.value > 1) {
+													removeToggle.classList.remove('u-icon-remove');
+													removeToggle.classList.add('u-icon-subtract');
+													removeToggle.setAttribute('data-action', 'decrement');
+												}
+												else {
+													removeToggle.classList.remove('u-icon-subtract');
+													removeToggle.classList.add('u-icon-remove');
+													removeToggle.setAttribute('data-action', 'remove');
+												}
+											}
+							
+											quantityLine.addEventListener('change', function (event) {
+												groupSubmit(event);
+											});
+											quantityLine.addEventListener('input', function (event) {
+												groupSubmit(event);
+											});
+										}
+									}
+								}
+							
+								allowRemoveUpdate();
+							
+								function groupSubmit(event) {
+									if (event.which !== 8 && event.which !== 37 && event.which !== 38 && event.which !== 39 && event.which !== 40 && event.which !== 46) {
+										document.querySelector('[data-hook="' + event.target.getAttribute('data-group') + '"]').submit();
+									}
+								}
+							})();
+						--></code>
+					</pre>
+					<pre class="language-javascript">
+						<code><!--
+							/**
+							 * Load and initialize the Quantify extension
+							 */
+							$.loadScript(theme_path + 'extensions/quantify/quantify.js');
+						--></code>
+					</pre>
+					<hr class="c-keyline">
+
+					<h3 id="flex-tabs">
+						<span class="c-heading-charlie">Tabbed Product Details</span><br>
+						<code class="x-inline-code u-font-small">THEME_NAME/extensions/tabs/flex-tabs.css</code>
+					</h3>
+					<pre class="language-css">
+						<code><!--
+							/**
+							 * This extension allows for creating tabbed content which converts to an
+							 * accordion layout on smaller devices/screens.
+							 */
+							
+							.x-flex-tabs {
+								display: flex;
+								flex-wrap: wrap;
+								margin-bottom: 1rem;
+							}
+							
+								input[data-flex-tab] {
+									display: none;
+									visibility: hidden;
+								}
+							
+								.x-flex-tabs__tab {
+									width: 100%;
+									border-bottom: 0.125rem solid transparent;
+									cursor: pointer;
+								}
+							
+								@media (min-width: 64em) {
+									.x-flex-tabs:not(.x-flex-tabs--accordion) .x-flex-tabs__tab {
+										/* let tabs scale to fit multiple on each row */
+										width: auto;
+										/* shift all tabs to appear before content */
+										order: -1;
+									}
+									.x-flex-tabs:not(.x-flex-tabs--accordion) .x-flex-tabs__tab:not(:first-of-type) {
+										margin-left: 2em;
+									}
+							
+								}
+							
+							
+								.x-flex-tabs__content {
+									width: 100%;
+									height: 0;
+									overflow: hidden;
+									opacity: 0;
+									-webkit-transform: scaleY(0);
+									-ms-transform: scaleY(0);
+									transform: scaleY(0);
+									transform-origin: top;
+									transition: opacity 0.3s ease-out;
+								}
+							
+								input[data-flex-tab]:checked + .x-flex-tabs__tab {
+									font-weight: 700;
+									border-color: currentColor;
+								}
+							
+								input[data-flex-tab]:checked + .x-flex-tabs__tab + .x-flex-tabs__content {
+									height: auto;
+									padding-top: 1em;
+									padding-bottom: 1em;
+									overflow-y: auto;
+									opacity: 1;
+									-webkit-transform: scaleY(1);
+									-ms-transform: scaleY(1);
+									transform: scaleY(1);
+									transition: opacity 0.3s ease-in;
+								}
+						--></code>
+					</pre>
+					<p><code class="x-inline-code u-font-small">THEME_NAME/extensions/tabs/flex-tabs.html</code></p>
+					<pre class="language-markup">
+						<code><!--
+							<section class="o-layout x-product-description">
+								<div class="o-layout__item">
+									<div class="x-flex-tabs o-layout--justify-center">
+										<input id="tab-description" data-flex-tab type="radio" name="flex-tab" checked>
+										<label class="x-flex-tabs__tab u-text-uppercase" for="tab-description">Description</label>
+										<div class="x-flex-tabs__content" itemprop="description">
+											&mvt:product:descrip;
+										</div>
+										<mvt:item name="customfields" param="Read_Product_ID(l.settings:product:id, '', l.settings:product:tabs)" />
+										<mvt:foreach iterator="tab" array="product:tabs">
+											<mvt:if expr="'tabs_' CIN l.settings:tab:code">
+												<input id="tab-&mvte:tab:code;" data-flex-tab type="radio" name="flex-tab">
+												<label class="x-flex-tabs__tab u-text-uppercase" for="tab-&mvte:tab:code;">&mvte:tab:name;</label>
+												<div class="x-flex-tabs__content">
+													&mvt:tab:value;
+												</div>
+											</mvt:if>
+										</mvt:foreach>
+									</div>
+								</div>
+							</section>
+						--></code>
+					</pre>
+					<hr class="c-keyline">
+
+					<h3 id="transfigure-navigation">
+						<span class="c-heading-charlie">Transfigure Navigation</span><br>
+						<code class="x-inline-code u-font-small">THEME_NAME/extensions/navigation/transfigure-navigation.css</code>
+					</h3>
+					<pre class="language-css">
+						<code><!--
+							@media screen and (max-width: 59.9em) {
+								.has-open-main-menu,
+								.has-open-main-menu body {
+									overflow: hidden;
+								}
+								
+								.x-transfigure-navigation {
+									padding: 0;
+									position: fixed;
+									top: 0;
+									right: 0;
+									bottom: 0;
+									left: 0;
+									-webkit-backface-visibility: hidden;
+									backface-visibility: hidden;
+									background-color: rgba(0, 0, 0, 0);
+									opacity: 0;
+									overflow: hidden;
+									transition: all ease-out 0.2s;
+									-webkit-transform: scaleX(0);
+									-ms-transform: scaleX(0);
+									transform: scaleX(0);
+									transform-origin: left;
+									z-index: -1;
+								}
+								
+									.x-transfigure-navigation.is-open {
+										background: rgba(0, 0, 0, 0.65);
+										opacity: 1;
+										transition: all ease-in 0.2s;
+										-webkit-transform: scaleX(1);
+										-ms-transform: scaleX(1);
+										transform: scaleX(1);
+										z-index: 2;
+									}
+								
+									.x-transfigure-navigation__wrap {
+										max-width: 22.5rem;
+										min-height: 100%;
+										background-color: #fff;
+									}
+									
+										.x-transfigure-navigation__header {}
+									
+											.x-transfigure-navigation__header .c-button {
+												padding: calc(1em - 1px);
+											}
+									
+										.x-transfigure-navigation__content {
+											position: relative;
+										}
+										
+											.x-transfigure-navigation__row,
+											.x-transfigure-navigation__row .c-navigation__row,
+											.x-transfigure-navigation__row .c-navigation__row:nth-child(2) .c-navigation__row:last-of-type {
+												display: block;
+												position: absolute;
+												top: 0;
+												left: 0;
+												width: 100%;
+												min-height: 100%;
+												list-style: none;
+												-webkit-overflow-scrolling: touch;
+												overflow-x: hidden;
+												overflow-y: auto;
+												transition: transform 0.3s;
+											}
+											
+												.x-transfigure-navigation .c-navigation__list {
+													position: static;
+												}
+											
+													.x-transfigure-navigation .c-navigation__list:hover > .c-navigation__row {
+														display: block;
+														box-shadow: none;
+													}
+										
+													.x-transfigure-navigation .c-navigation__link {
+														display: flex;
+														height: 3.75rem;
+														padding: 0 0 0 1rem;
+														align-items: center;
+														justify-content: space-between;
+														-webkit-backface-visibility: hidden;
+														backface-visibility: hidden;
+														border: 0 solid #d3d3d3;
+														border-top-width: 1px;
+														overflow: hidden;
+														text-overflow: ellipsis;
+														-webkit-transform: translateZ(0);
+														-ms-transform: translateZ(0);
+														transform: translateZ(0);
+														transition: all 0.3s;
+														white-space: nowrap;
+													}
+													
+													.x-transfigure-navigation .c-navigation__row:nth-child(2) .c-navigation__link,
+													.x-transfigure-navigation .c-navigation__row:nth-child(2) .c-navigation__row:last-of-type .c-navigation__link {
+														padding-left: 1rem;
+													}
+													
+													.x-transfigure-navigation__row .c-navigation__list:first-of-type > .c-navigation__link,
+													.x-transfigure-navigation__row .c-navigation__row .c-navigation__list:first-of-type > .c-navigation__link {
+														/*border-top-width: 0;*/
+													}
+													
+													.x-transfigure-navigation__row .c-navigation__list:last-of-type > .c-navigation__link,
+													.x-transfigure-navigation__row .c-navigation__row .c-navigation__list:last-of-type > .c-navigation__link {
+														border-bottom-width: 1px;
+													}
+													
+											.x-transfigure-navigation__row.is-hidden,
+											.x-transfigure-navigation__row .c-navigation__row.is-hidden {
+												-webkit-transform: translateX(100%);
+												-ms-transform: translateX(100%);
+												transform: translateX(100%);
+											}
+											
+											.x-transfigure-navigation__row.is-hidden > .cmp-primary-navigation__title,
+											.x-transfigure-navigation__row.show-next > .cmp-primary-navigation__title,
+											.x-transfigure-navigation__row.is-hidden > .c-navigation__list > .c-navigation__link,
+											.x-transfigure-navigation__row.show-next > .c-navigation__list > .c-navigation__link,
+											.x-transfigure-navigation__row .c-navigation__row.is-hidden > .c-navigation__list > .c-navigation__link,
+											.x-transfigure-navigation__row .c-navigation__row.show-next > .c-navigation__list > .c-navigation__link {
+												opacity: 0;
+											}
+											
+											.x-transfigure-navigation__row.show-next > .c-navigation__list > .c-navigation__link,
+											.x-transfigure-navigation__row .c-navigation__row.show-next > .c-navigation__list > .c-navigation__link {
+												-webkit-transform: translateX(-100%);
+												-ms-transform: translateX(-100%);
+												transform: translateX(-100%);
+											}
+											
+											.x-transfigure-navigation .c-navigation__link-carat {
+												display: none;
+											}
+											
+												.x-transfigure-navigation .has-child-menu .c-navigation__link-carat {
+													display: inline-flex;
+													align-self: stretch;
+												}
+												
+													.x-transfigure-navigation .c-navigation__link-carat > * {
+														display: flex;
+														width: 4rem;
+														align-items: center;
+														justify-content: center;
+														font-size: 0.75rem;
+													}
+							
+							
+											.x-transfigure-navigation__footer {
+												padding: 1rem;
+												font-size: 0.75rem;
+												list-style: none;
+												border-top: 1px solid #d3d3d3;
+											}
+							
+												.x-transfigure-navigation__footer-link {
+													display: block;
+													padding-top: 1em;
+													padding-bottom: 1em;
+													font-weight: 500;
+													line-height: 2;
+												}
+							}
+							
+							
+							@media screen and (min-width: 60em) {
+								.x-transfigure-navigation__row .c-navigation__row {
+									display: none;
+									width: auto;
+									position: absolute;
+									white-space: nowrap;
+									z-index: 100;
+								}
+							
+								.x-transfigure-navigation > .c-navigation__row {
+									display: flex;
+								}
+								
+									.x-transfigure-navigation .c-navigation__link {
+										display: flex;
+										align-items: center;
+										justify-content: space-around;
+									}
+								
+									.x-transfigure-navigation__row .c-navigation__row:nth-child(2) .c-navigation__list {
+										text-align: left;
+									}
+								
+									.x-transfigure-navigation__row .c-navigation__row:nth-child(2) .c-navigation__row:last-of-type {
+										top: 0;
+										left: 100%;
+										z-index: 200;
+									}
+									
+									.x-transfigure-navigation .c-navigation__row:nth-child(2) .c-navigation__link,
+									.x-transfigure-navigation .c-navigation__row:nth-child(2) .c-navigation__row:last-of-type .c-navigation__link {
+										justify-content: space-between;
+									}
+									
+									.x-transfigure-navigation .c-navigation__list:hover > .c-navigation__row {
+										display: table;
+										box-shadow: 1px 1px 0.25em 0 rgba(15, 15, 15, 0.5);
+									}
+									
+										.x-transfigure-navigation__row .is-off-screen .c-navigation__row:nth-child(2) .c-navigation__row {
+											left: auto;
+											right: 100%;
+											box-shadow: -1px 1px 0.25em 0 rgba(15, 15, 15, 0.5);
+										}
+									
+										.x-transfigure-navigation__row .c-navigation__row:nth-child(2) .c-navigation__row .c-navigation__link,
+										.x-transfigure-navigation__row .c-navigation__row:nth-child(2) .c-navigation__row:last-of-type .c-navigation__link {
+											padding-left: 1em;
+										}
+									
+									.x-transfigure-navigation .c-navigation__link-carat {
+										font-size: 0.5em;
+										-webkit-transform: rotate(90deg);
+										-ms-transform: rotate(90deg);
+										transform: rotate(90deg);
+									}
+								
+									.x-transfigure-navigation .c-navigation__row:nth-child(2) .c-navigation__link-carat {
+										-webkit-transform: rotate(0deg);
+										-ms-transform: rotate(0deg);
+										transform: rotate(0deg);
+									}
+							}
+						--></code>
+					</pre>
+					<p><code class="x-inline-code u-font-small">THEME_NAME/extensions/navigation/transfigure-navigation.html</code></p>
+					<pre class="language-markup">
+						<code><!--
+							<nav class="o-layout__item u-width-12 u-text-bold u-text-uppercase c-navigation x-transfigure-navigation &mvt:global:checkout_hidden;" data-hook="transfigure-navigation">
+								<div class="x-transfigure-navigation__wrap" data-layout="&mvte:readytheme:layout;">
+									<header class="x-transfigure-navigation__header u-hidden--l c-control-group">
+										<mvt:if expr="g.Basket:cust_id EQ 0">
+											<a class="c-button c-button--full c-button--large c-control-group__button u-bg-gray-10 u-color-gray-50 u-text-bold u-text-uppercase" href="&mvte:urls:LOGN:secure;"><span class="u-icon-user"></span> Sign In or Register</a>
+										<mvt:else>
+											<a class="c-button c-button--full c-button--large c-control-group__button u-bg-gray-10 u-color-gray-50 u-text-bold u-text-uppercase" href="&mvte:urls:ACLN:secure;"><span class="u-icon-user"></span> My Account</a>
+										</mvt:if>
+										<button class="c-button u-bg-gray-40 u-color-gray-10 u-icon-cross c-control-group__button" data-hook="close-main-menu"></button>
+									</header>
+									<div class="x-transfigure-navigation__content">
+										<ul class="c-navigation__row x-transfigure-navigation__row">
+											<mvt:foreach iterator="navigationitem" array="readytheme:navigationitems">
+												<mvt:if expr="NOT ISNULL l.settings:navigationitem:items">
+													<mvt:assign name="l.settings:has:children" value="'has-child-menu' $ asciichar(34) $ ' data-hook=' $ asciichar(34) $ 'has-drop-down has-child-menu'"/>
+													<mvt:assign name="l.settings:show:child" value="'<span class=' $ asciichar(34) $ 'c-navigation__link-carat' $ asciichar(34) $ '><span class=' $ asciichar(34) $ 'u-icon-chevron-right' $ asciichar(34) $ '></span></span>'"/>
+												<mvt:else>
+													<mvt:assign name="l.settings:has:children" value="''"/>
+													<mvt:assign name="l.settings:show:child" value="''"/>
+												</mvt:if>
+												<li class="c-navigation__list &mvt:has:children;">
+													<a class="c-navigation__link" href="&mvte:navigationitem:url;" target="&mvt:navigationitem:link_targ;">&mvt:navigationitem:name;&mvt:show:child;</a>
+													<mvt:if expr="NOT ISNULL l.settings:navigationitem:items">
+														<ul class="c-navigation__row is-hidden">
+															<mvt:assign name="l.settings:has:children" value="''"/>
+															<li class="c-navigation__list u-hidden--l" data-hook="show-previous-menu">
+																<span class="c-navigation__link"><span class="u-icon-chevron-left">&nbsp;</span><span class="o-layout--grow">Main Menu</span></span>
+															</li>
+															<mvt:foreach iterator="navigationitem_level2" array="navigationitem:items">
+																<mvt:if expr="NOT ISNULL l.settings:navigationitem_level2:items">
+																	<mvt:assign name="l.settings:has:children" value="'has-child-menu' $ asciichar(34) $ ' data-hook=' $ asciichar(34) $ 'has-child-menu'"/>
+																	<mvt:assign name="l.settings:show:child" value="'<span class=' $ asciichar(34) $ 'c-navigation__link-carat' $ asciichar(34) $ '><span class=' $ asciichar(34) $ 'u-icon-chevron-right' $ asciichar(34) $ '></span></span>'"/>
+																<mvt:else>
+																	<mvt:assign name="l.settings:has:children" value="''"/>
+																	<mvt:assign name="l.settings:show:child" value="''"/>
+																</mvt:if>
+																<li class="c-navigation__list &mvt:has:children;">
+																	<a class="c-navigation__link" href="&mvte:navigationitem_level2:url;" target="&mvt:navigationitem_level2:link_targ;">&mvt:navigationitem_level2:name;&mvt:show:child;</a>
+																	<mvt:if expr="NOT ISNULL l.settings:navigationitem_level2:items">
+																		<ul class="c-navigation__row is-hidden">
+																			<li class="c-navigation__list u-hidden--l" data-hook="show-previous-menu">
+																				<span class="c-navigation__link"><span class="u-icon-chevron-left">&nbsp;</span><span class="o-layout--grow">Main Menu</span></span>
+																			</li>
+																			<mvt:foreach iterator="navigationitem_level3" array="navigationitem_level2:items">
+																				<li class="c-navigation__list">
+																					<a class="c-navigation__link" href="&mvte:navigationitem_level3:url;" target="&mvt:navigationitem_level3:link_targ;">&mvt:navigationitem_level3:name;</a>
+																				</li>
+																			</mvt:foreach>
+																			<li class="c-navigation__list u-hidden--l">
+																				<a class="c-navigation__link" href="&mvte:navigationitem_level2:url;" target="&mvt:navigationitem_level2:link_targ;">View All &mvt:navigationitem_level2:name;</a>
+																			</li>
+																		</ul>
+																	</mvt:if>
+																</li>
+															</mvt:foreach>
+															<li class="c-navigation__list u-hidden--l">
+																<a class="c-navigation__link" href="&mvte:navigationitem:url;" target="&mvt:navigationitem:link_targ;">View All &mvt:navigationitem:name;</a>
+															</li>
+														</ul>
+													</mvt:if>
+												</li>
+											</mvt:foreach>
+											<li class="c-navigation__list u-hidden--l u-text-left">
+												<mvt:item name="readytheme" param="navigationset( 'support_navigation' )" />
+											</li>
+										</ul>
+									</div>
+								</div>
+							</nav>
+						--></code>
+					</pre>
+					<p><code class="x-inline-code u-font-small">THEME_NAME/extensions/navigation/transfigure-navigation.js</code></p>
+					<pre class="language-javascript">
+						<code><!--
+							(function ($, window, document) {
+								'use strict';
+							
+								/**
+								 * Double Tap To Go [http://osvaldas.info/drop-down-navigation-responsive-and-touch-friendly]
+								 * By: Osvaldas Valutis [http://www.osvaldas.info]
+								 * License: MIT
+								 */
+								$.fn.doubleTapToGo = function () {
+									if ('ontouchstart' in window) {
+										this.each(function () {
+											var curItem = false;
+							
+											$(this).on('click', function (event) {
+												var item = $(this);
+							
+												if (item[0] !== curItem[0]) {
+													event.preventDefault();
+													curItem = item;
+												}
+											});
+							
+											$(document).on('click', function (event) {
+												var resetItem = true,
+													parents = $(event.target).parents();
+							
+												for (var i = 0; i < parents.length; i++) {
+													if (parents[i] === curItem[0]) {
+														resetItem = false;
+													}
+												}
+												if (resetItem) {
+													curItem = false;
+												}
+											});
+										});
+									}
+							
+									return this;
+								};
+							
+							
+								/**
+								 * This function works if the element, or its parent, have been hidden via JavaScript, and can either
+								 * retrieve inner or outer dimensions as well as returning the offset values. The function is called
+								 * directly on the object and will insert a clone just after the original element making it possible
+								 * for the clone to maintain inherited dimensions.
+								 *
+								 * @param outer
+								 * @returns {*}
+								 *
+								 * element width: $(ELEMENT).getRealDimensions().width;
+								 * element outerWidth: $(ELEMENT).getRealDimensions(true).width;
+								 * element height: $(ELEMENT).getRealDimensions().height;
+								 * element outerHeight: $(ELEMENT).getRealDimensions(true).height;
+								 * element offsetTop: $(ELEMENT).getRealDimensions().offsetTop;
+								 * element offsetLeft: $(ELEMENT).getRealDimensions().offsetLeft;
+								 */
+								$.fn.getRealDimensions = function (outer) {
+									var $this = $(this);
+							
+									if ($this.length === 0) {
+										return false;
+									}
+							
+									var $clone = $this.clone().css(
+										{
+											'display': 'block',
+											'visibility': 'hidden'
+										}
+									).insertAfter($this);
+							
+									var result = {
+										width: (outer) ? $clone.outerWidth() : $clone.innerWidth(),
+										height: (outer) ? $clone.outerHeight() : $clone.innerHeight(),
+										offsetTop: $clone.offset().top,
+										offsetLeft: $clone.offset().left
+									};
+							
+									$clone.remove();
+									return result;
+								};
+							
+							
+								/**
+								 * This function will check if navigation elements will be rendered outside
+								 * of the visible area. If they will be, a class is added to the parent
+								 * element which will change the render direction. You can pass a jQuery
+								 * object as the `container` parameter to have the visible area set to
+								 * something other than the documentElement.
+								 *
+								 * @param container
+								 */
+								$.fn.setOffsetDirection = function (container) {
+									var triggerElement = $(this);
+							
+									triggerElement.on('mouseenter', function (e) {
+										var parentElement = $(this),
+											childElement = parentElement.find('ul').first(),
+											grandchildElement = childElement.find('ul').first(),
+											childOffsetWidth = childElement.offset().left + childElement.width(),
+											documentWidth = container ? container.outerWidth() : document.documentElement.clientWidth;
+							
+										if (grandchildElement) {
+											childOffsetWidth = childOffsetWidth + grandchildElement.getRealDimensions().width;
+										}
+							
+										var isEntirelyVisible = (childOffsetWidth <= documentWidth);
+							
+										if (!isEntirelyVisible) {
+											//console.log('NOT In the viewport!');
+											parentElement.addClass('is-off-screen');
+										}
+										else {
+											//console.log('In the viewport!');
+											parentElement.removeClass('is-off-screen');
+										}
+									});
+									return this;
+								};
+							
+							
+								/**
+								 * This function is the compiled call for all the functions contained in this extension. You can pass a jQuery
+								 * object as the `container` parameter to have the visible area set to something other than the documentElement.
+								 *
+								 * Example: $(ELEMENT).transfigureNavigation();
+								 *          $(ELEMENT).transfigureNavigation($(CONTAINER_ELEMENT));
+								 *
+								 * @param container
+								 */
+								$.fn.transfigureNavigation = function (container) {
+									var clientPort = document.documentElement.clientWidth;
+									var waitForIt;
+							
+									window.addEventListener('resize', function (event) {
+										if (!waitForIt) {
+											waitForIt = setTimeout(function () {
+												waitForIt = null;
+												clientPort = document.documentElement.clientWidth;
+							
+												if (clientPort < 960) {
+													showSubnavigation();
+												}
+											}, 66);
+										}
+									}, false);
+							
+									function showSubnavigation() {
+										$.hook('has-child-menu').children('a').on('click', function (event) {
+											var selected = $(this);
+							
+											event.preventDefault();
+											selected.next('ul').removeClass('is-hidden');
+											selected.parent('.has-child-menu').closest('ul').addClass('show-next');
+										});
+							
+										$.hook('show-previous-menu').on('click', function (event) {
+											var selected = $(this);
+							
+											event.preventDefault();
+											selected.parent('ul').addClass('is-hidden').parent('.has-children').closest('ul').removeClass('show-next');
+										});
+									}
+							
+									document.querySelector('[data-hook="open-main-menu"]').addEventListener('click', function (event) {
+										event.preventDefault();
+										document.documentElement.classList.add('has-open-main-menu');
+										document.querySelector('[data-hook="transfigure-navigation"]').classList.add('is-open');
+									});
+							
+									document.querySelector('[data-hook="close-main-menu"]').addEventListener('click', function (event) {
+										event.preventDefault();
+										document.documentElement.classList.remove('has-open-main-menu');
+										document.querySelector('[data-hook="transfigure-navigation"]').classList.remove('is-open');
+									});
+							
+									if (clientPort < 960) {
+										showSubnavigation();
+									}
+									else {
+										return this.doubleTapToGo().setOffsetDirection(container);
+									}
+								};
+							})(jQuery, window, document);
+						--></code>
+					</pre>
+					<pre class="language-javascript">
+						<code><!--
+							/**
+							 * Load and initialize the Transfigure Navigation extension
+							 */
+							$.loadScript(theme_path + 'extensions/navigation/transfigure-navigation.js', function () {
+								$.hook('has-drop-down').transfigureNavigation();
+							});
+						--></code>
+					</pre>
+					<hr class="c-keyline">
+					
+					
+				</section>
+				<!-- /.x-site-content -->
+				<nav class="o-layout__item u-width-3--m o-layout__first x-site-navigation" data-cms-block data-cms-content="global/global-navigation.html"></nav>
+				<!-- /.x-site-navigation -->
+			</div>
+		</div>
+	</main>
+	<!-- /.x-site-content -->
+	
+	<footer class="u-bg-gray-50 u-color-white u-font-small x-site-footer" data-cms-block data-cms-content="global/global-footer.html"></footer>
+	<!-- /.x-site-footer -->
+	
+	<script src="themes/documentation/ui/js/scripts.js"></script>
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-20016-16', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- Scripts -->
+</body>
+</html>

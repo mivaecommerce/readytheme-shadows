@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Shadows ReadyTheme: Notes</title>
+	<link href="themes/documentation/site-styles.css" rel="stylesheet">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#efefef">
+	<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+	<header class="x-site-header" data-cms-block data-cms-content="global/global-header.html"></header>
+	<!-- /.x-site-header -->
+	
+	<main>
+		<div class="o-wrapper">
+			<div class="o-layout o-layout--wide">
+				<section class="o-layout__item u-width-9--m  o-layout__last x-site-content">
+					<h1 class="c-heading-bravo u-text-bold">Additional Notes</h1>
+					<hr class="c-keyline">
+					<p>
+						While every effort has been made to make sure this ReadyTheme performs across a variety of
+						devices, we know that the current use of <span class="x-inline-code">@import</span> in the CSS
+						files can cause some site speed services to rank the site slower. If you would prefer to
+						combine all the CSS files into one, you can use the following steps. This code is included in
+						the default installation of this ReadyTheme.
+					</p>
+					<ol>
+						<li>
+							Navigate to ReadyTheme -> Content Sections and activate
+							<span class="x-inline-code">ReadyTheme Styles</span>.
+						</li>
+						<li>
+							Navigate to User Interface -> CSS Resources and deactivate
+							<span class="x-inline-code">site-styles</span>.
+						</li>
+					</ol>
+					<p>
+						If you add more style sheets or extension to your site, you will need to update the list of
+						files to be concatenated in <span class="x-inline-code">ReadyTheme Styles</span>.
+					</p>
+					<pre class="language-markup">
+						<code><!--
+							<mvt:assign name="l.settings:minify:css:enabled" value="1" />
+							
+							<mvt:comment> CSS Files </mvt:comment>
+							<mvt:comment>Set your theme file path here.</mvt:comment>
+							<mvt:assign name="g.theme_path" value="'/mm5/themes/shadows'" />
+							
+							<mvt:comment>Set the core files.</mvt:comment>
+							<mvt:assign name="l.settings:css:files[1]" value="g.theme_path $ '/core/css/base/normalize.css'" />
+							<mvt:assign name="l.settings:css:files[2]" value="g.theme_path $ '/core/css/base/resets.css'" />
+							<mvt:assign name="l.settings:css:files[3]" value="g.theme_path $ '/core/css/elements/forms.css'" />
+							<mvt:assign name="l.settings:css:files[4]" value="g.theme_path $ '/core/css/elements/links.css'" />
+							<mvt:assign name="l.settings:css:files[5]" value="g.theme_path $ '/core/css/elements/media.css'" />
+							<mvt:assign name="l.settings:css:files[6]" value="g.theme_path $ '/core/css/elements/page.css'" />
+							<mvt:assign name="l.settings:css:files[7]" value="g.theme_path $ '/core/css/elements/tables.css'" />
+							<mvt:assign name="l.settings:css:files[8]" value="g.theme_path $ '/core/css/elements/typography.css'" />
+							<mvt:assign name="l.settings:css:files[9]" value="g.theme_path $ '/core/css/objects/layout.css'" />
+							<mvt:assign name="l.settings:css:files[10]" value="g.theme_path $ '/core/css/objects/lists.css'" />
+							<mvt:assign name="l.settings:css:files[11]" value="g.theme_path $ '/core/css/objects/tables.css'" />
+							<mvt:assign name="l.settings:css:files[12]" value="g.theme_path $ '/core/css/objects/wrapper.css'" />
+							<mvt:assign name="l.settings:css:files[13]" value="g.theme_path $ '/core/css/components/buttons.css'" />
+							<mvt:assign name="l.settings:css:files[14]" value="g.theme_path $ '/core/css/components/control-groups.css'" />
+							<mvt:assign name="l.settings:css:files[15]" value="g.theme_path $ '/core/css/components/divider.css'" />
+							<mvt:assign name="l.settings:css:files[16]" value="g.theme_path $ '/core/css/components/forms.css'" />
+							<mvt:assign name="l.settings:css:files[17]" value="g.theme_path $ '/core/css/components/keyline.css'" />
+							<mvt:assign name="l.settings:css:files[18]" value="g.theme_path $ '/core/css/components/menu.css'" />
+							<mvt:assign name="l.settings:css:files[19]" value="g.theme_path $ '/core/css/components/mini-modal.css'" />
+							<mvt:assign name="l.settings:css:files[20]" value="g.theme_path $ '/core/css/components/navigation.css'" />
+							<mvt:assign name="l.settings:css:files[21]" value="g.theme_path $ '/core/css/components/tables.css'" />
+							<mvt:assign name="l.settings:css:files[22]" value="g.theme_path $ '/core/css/components/typography.css'" />
+							<mvt:assign name="l.settings:css:files[23]" value="g.theme_path $ '/core/css/utilities/borders.css'" />
+							<mvt:assign name="l.settings:css:files[24]" value="g.theme_path $ '/core/css/utilities/clear-fix.css'" />
+							<mvt:assign name="l.settings:css:files[25]" value="g.theme_path $ '/core/css/utilities/colors.css'" />
+							<mvt:assign name="l.settings:css:files[26]" value="g.theme_path $ '/core/css/utilities/display.css'" />
+							<mvt:assign name="l.settings:css:files[27]" value="g.theme_path $ '/core/css/utilities/grids.css'" />
+							<mvt:assign name="l.settings:css:files[28]" value="g.theme_path $ '/core/css/utilities/icons.css'" />
+							<mvt:assign name="l.settings:css:files[29]" value="g.theme_path $ '/core/css/utilities/print.css'" />
+							<mvt:assign name="l.settings:css:files[30]" value="g.theme_path $ '/core/css/utilities/typography.css'" />
+							<mvt:assign name="l.settings:css:files[31]" value="g.theme_path $ '/core/css/utilities/vertical-align.css'" />
+							<mvt:assign name="l.settings:css:files[32]" value="g.theme_path $ '/core/css/utilities/widths.css'" />
+							<mvt:assign name="l.settings:css:files[33]" value="g.theme_path $ '/core/css/utilities/z-index.css'" />
+							
+							<mvt:comment>Set the extension files.</mvt:comment>
+							<mvt:assign name="l.settings:css:files[34]" value="g.theme_path $ '/extensions/breadcrumbs/collapsing-breadcrumbs.css'" />
+							<mvt:assign name="l.settings:css:files[35]" value="g.theme_path $ '/extensions/category-tree/category-tree.css'" />
+							<mvt:assign name="l.settings:css:files[36]" value="g.theme_path $ '/extensions/display-list-filtering/display-list-filtering.css'" />
+							<mvt:assign name="l.settings:css:files[37]" value="g.theme_path $ '/extensions/hero/hero.css'" />
+							<mvt:assign name="l.settings:css:files[38]" value="g.theme_path $ '/extensions/messages/messages.css'" />
+							<mvt:assign name="l.settings:css:files[39]" value="g.theme_path $ '/extensions/pagination/pagination.css'" />
+							<mvt:assign name="l.settings:css:files[40]" value="g.theme_path $ '/extensions/product-layout/product-layout.css'" />
+							<mvt:assign name="l.settings:css:files[41]" value="g.theme_path $ '/extensions/product-lists/product-lists.css'" />
+							<mvt:assign name="l.settings:css:files[42]" value="g.theme_path $ '/extensions/search-preview/search-preview.css'" />
+							<mvt:assign name="l.settings:css:files[43]" value="g.theme_path $ '/extensions/subscriptions/subscriptions.css'" />
+							<mvt:assign name="l.settings:css:files[44]" value="g.theme_path $ '/extensions/mini-basket/mini-basket.css'" />
+							<mvt:assign name="l.settings:css:files[45]" value="g.theme_path $ '/extensions/quantify/quantify.css'" />
+							<mvt:assign name="l.settings:css:files[46]" value="g.theme_path $ '/extensions/tabs/flex-tabs.css'" />
+							<mvt:assign name="l.settings:css:files[47]" value="g.theme_path $ '/extensions/navigation/transfigure-navigation.css'" />
+							<mvt:assign name="l.settings:css:files[48]" value="g.theme_path $ '/extensions/carousel/roundabout.css'" />
+							<mvt:assign name="l.settings:css:files[49]" value="g.theme_path $ '/extensions/facets/facets.css'" />
+							<mvt:assign name="l.settings:css:files[50]" value="g.theme_path $ '/extensions/fasten-header/fasten-header.css'" />
+							
+							<mvt:comment>Set the theme files.</mvt:comment>
+							<mvt:assign name="l.settings:css:files[51]" value="g.theme_path $ '/ui/css/theme-styles.css'" />
+							
+							<mvt:if expr="NOT l.settings:minify:css:enabled">
+								<mvt:foreach iterator="file" array="css:files">
+									<mvt:assign name="l.settings:file" value="l.settings:file $ '?v=' $ stime(l.settings:file)" />
+									<link rel="stylesheet" href="//&mvte:global:domain:name;&mvt:file;">
+								</mvt:foreach>
+							<mvt:else>
+								<mvt:comment> Concatinate Styles </mvt:comment>
+								<mvt:foreach iterator="file" array="css:files">
+									<mvt:assign name="l.settings:this_file:length" value="file_read(l.settings:file, 'script', l.settings:this_file:contents)"/>
+									<mvt:assign name="l.settings:minify:css:output_file:contents" value="l.settings:minify:css:output_file:contents $ g.newline $ l.settings:this_file:contents" />
+								</mvt:foreach>
+							
+								<mvt:comment> Minified Output File Variables </mvt:comment>
+								<mvt:assign name="l.settings:minify:css:output_file:directory" value="g.theme_path $ '/'"/>
+								<mvt:assign name="l.settings:minify:css:output_file:name" value="'readytheme-styles.css'"/>
+								<mvt:assign name="l.settings:minify:css:output_file:path" value="l.settings:minify:css:output_file:directory $ l.settings:minify:css:output_file:name"/>
+							
+								<mvt:comment> Determine time of last modified file </mvt:comment>
+								<mvt:assign name="l.settings:minify:css:most_recent_stime" value="0" />
+								<mvt:foreach iterator="file" array="css:files">
+									<mvt:comment>
+										Miva creates new files and sets their File Modified time in GMT.
+										Therefore, if your FTP program sets the File Modified time in your local time,
+										then you need to update this accordingly
+									</mvt:comment>
+									<mvt:assign name="l.settings:minify:timezone_offset" value="60 * 60 * 8" />
+									<mvt:assign name="l.settings:minify:css:current_stime" value="stime(l.settings:file) + l.settings:minify:timezone_offset" />
+									<mvt:assign name="l.settings:file" value="l.settings:file $ '?v=' $ l.settings:minify:css:current_stime" />
+									<mvt:if expr="l.settings:minify:css:current_stime GT l.settings:minify:css:most_recent_stime">
+										<mvt:assign name="l.settings:minify:css:most_recent_stime" value="l.settings:minify:css:current_stime" />
+									</mvt:if>
+								</mvt:foreach>
+								<mvt:assign name="l.settings:minify:css:output_file:stime" value="stime(l.settings:minify:css:output_file:path)" />
+							
+								<mvt:comment>< Minified Output File CRUD ></mvt:comment>
+								<mvt:if expr="l.settings:minify:css:most_recent_stime GT l.settings:minify:css:output_file:stime">
+									<mvt:assign name="l.settings:minify:css:output_file:stime" value="l.settings:minify:css:most_recent_stime" />
+									<mvt:assign name="l.settings:minify:css:output_file:exists" value="sexists(l.settings:minify:css:output_file:path)"/>
+									<mvt:if expr="l.settings:minify:css:output_file:exists EQ 1">
+										<mvt:assign name="l.settings:minify:css:output_file:deleted" value="sdelete(l.settings:minify:css:output_file:path)"/>
+										<mvt:if expr="l.settings:minify:css:output_file:deleted EQ 1">
+											<mvt:assign name="l.settings:minify:css:file_created" value="file_create(l.settings:minify:css:output_file:path, 'script', l.settings:minify:css:output_file:contents)"/>
+										</mvt:if>
+									<mvt:else>
+										<mvt:assign name="l.settings:minify:css:file_created" value="file_create(l.settings:minify:css:output_file:path, 'script', l.settings:minify:css:output_file:contents)"/>
+									</mvt:if>
+								</mvt:if>
+							
+								<link rel="stylesheet" href="&mvt:minify:css:output_file:path;">
+							</mvt:if>
+						--></code>
+					</pre>
+
+				</section>
+				<!-- /.x-site-content -->
+				<nav class="o-layout__item u-width-3--m o-layout__first x-site-navigation" data-cms-block data-cms-content="global/global-navigation.html"></nav>
+				<!-- /.x-site-navigation -->
+			</div>
+		</div>
+	</main>
+	<!-- /.x-site-content -->
+	
+	<footer class="u-bg-gray-50 u-color-white u-font-small x-site-footer" data-cms-block data-cms-content="global/global-footer.html"></footer>
+	<!-- /.x-site-footer -->
+	
+	<script src="themes/documentation/ui/js/scripts.js"></script>
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-20016-16', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- Scripts -->
+</body>
+</html>

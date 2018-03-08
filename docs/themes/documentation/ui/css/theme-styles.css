@@ -1,0 +1,558 @@
+/* ==========================================================================
+   THEME STYLE MODIFICATIONS
+   ========================================================================== */
+
+/**
+ * Set all your THEME styles in this file.
+ *
+ * Adding a Theme to a design is very straightforward as every component works
+ * like an extensible class. This allows you to add theme specific classes
+ * and/or override existing classes.
+ *
+ * NOTE: Any new classes created should follow the established coding
+ * standards for the framework. Theme specific classes should be prefixed by
+ * `.t-`.
+ *
+ * Why do it this way?
+ * By decoupling the theme styling from the default framework, you get the
+ * following benefits:
+ *		Keep the framework core library up-to-date
+ *		Updates to the core styles of the framework do not get overwritten when
+ *		extending the component.
+ *
+ *		End-user entry points remain untouched
+ *		End-users do not need to use any custom name that belongs only to the
+ *		theme.
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+html,
+.u-font-primary {
+	font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/**
+ * Shadows Specific Font Pack
+ */
+@font-face {
+	font-family: 'ReadyTheme Icons';
+	font-style: normal;
+	font-weight: normal;
+	src: url('ShadowsFontPack.woff') format('woff');
+}
+
+
+/**
+ * Shadows Color Overrides
+ */
+.u-bg-red::before,
+.u-bg-red {
+	background-color: #f02;
+}
+
+.u-bg-yellow::before,
+.u-bg-yellow {
+	background-color: #deded4;
+}
+
+.u-bg-blue::before,
+.u-bg-blue {
+	background-color: #003b6f;
+}
+
+.u-bg-green::before,
+.u-bg-green {
+	background-color: #13c4a3;
+}
+
+.u-bg-black::before,
+.u-bg-black {
+	background-color: #000;
+}
+
+.u-border-red {
+	border-color: #f02;
+}
+
+.u-border-yellow {
+	border-color: #deded4;
+}
+
+.u-border-blue {
+	border-color: #003b6f;
+}
+
+.u-border-green {
+	border-color: #13c4a3;
+}
+
+.u-border-black {
+	border-color: #000;
+}
+
+.u-color-red {
+	color: #f02;
+}
+
+.u-color-yellow {
+	color: #deded4;
+}
+
+.u-color-blue {
+	color: #003b6f;
+}
+
+.u-color-green {
+	color: #13c4a3;
+}
+
+.u-color-black {
+	color: #000;
+}
+
+
+
+.x-site-header,
+.x-site-footer {
+	padding-top: 1rem;
+}
+
+.x-site-header {
+	border-bottom: 1px solid #eaeaea;
+}
+
+
+
+
+
+.x-site-navigation {
+	padding-top: 3rem;
+}
+
+
+
+
+
+.x-site-content {
+	padding-bottom: 2rem;
+}
+
+
+
+
+
+.x-site-navigation__container {
+	max-height: 0;
+	opacity: 0;
+	overflow: hidden;
+}
+
+	.x-site-navigation__toggle:checked ~ .x-site-navigation__container {
+		height: auto;
+		max-height: 1000vh;
+		padding-bottom: 2rem;
+		opacity: 1;
+		transition: 0.2s ease-in;
+	}
+
+	.x-site-navigation__toggle:checked ~ .x-site-navigation__toggle-buttons .x-site-navigation__toggle--shown {
+		display: block;
+	}
+
+	.x-site-navigation__toggle:checked ~ .x-site-navigation__toggle-buttons .x-site-navigation__toggle--hidden {
+		display: none;
+	}
+
+
+	.x-site-navigation .o-list-bare {}
+
+		.x-site-navigation__title:not(:only-child) {
+			margin-bottom: 0;
+		}
+
+
+@media screen and (min-width: 40em) {
+	.x-site-navigation {
+		padding-bottom: 2rem;
+	}
+
+		.x-site-navigation__container {
+			max-height: none;
+			opacity: 1;
+		}
+
+			.x-site-navigation__toggle-buttons {
+				display: none;
+			}
+
+	.x-site-content {
+		padding-top: 3rem;
+	}
+}
+
+
+
+
+
+.x-inline-code {
+	display: inline-block;
+	padding: 0 0.5em;
+	overflow-wrap: break-word;
+	word-break: break-all;
+	word-wrap: break-word;
+	background-color: #eee;
+}
+
+
+
+
+
+.x-border-example {}
+
+
+
+
+
+.sg-color-swatch {
+	display: block;
+	width: 100%;
+	height: 3rem;
+	margin-bottom: 0.5rem;
+}
+
+
+
+
+
+/**
+ * PRISM STYLES
+ */
+
+.glyph {
+	font-size: 16px;
+	width: 15em;
+	padding-bottom: 1em;
+	margin-right: 4em;
+	margin-bottom: 1em;
+	float: left;
+	overflow: hidden;
+}
+
+.liga {
+	width: calc(100% - 2.5em);
+}
+
+.talign-right {
+	text-align: right;
+}
+
+.talign-center {
+	text-align: center;
+}
+
+.bgc1 {
+	background: #f1f1f1;
+}
+
+.fgc1 {
+	color: #999;
+}
+
+.fgc0 {
+	color: #000;
+}
+
+.mvm {
+	margin-top: .75em;
+	margin-bottom: .75em;
+}
+
+.mtn {
+	margin-top: 0;
+}
+
+.mtl, .mal {
+	margin-top: 1.5em;
+}
+
+.mbl, .mal {
+	margin-bottom: 1.5em;
+}
+
+.mal, .mhl {
+	margin-left: 1.5em;
+	margin-right: 1.5em;
+}
+
+.mhmm {
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+.mls {
+	margin-left: .25em;
+}
+
+.ptl {
+	padding-top: 1.5em;
+}
+
+.pbs, .pvs {
+	padding-bottom: .25em;
+}
+
+.pvs, .pts {
+	padding-top: .25em;
+}
+
+.unit {
+	float: left;
+}
+
+.unitRight {
+	float: right;
+}
+
+.size1of2 {
+	width: 50%;
+}
+
+.size1of1 {
+	width: 100%;
+}
+
+.clearfix:before, .clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.hidden-true {
+	display: none;
+}
+
+.textbox0 {
+	width: 3em;
+	background: #f1f1f1;
+	padding: .25em .5em;
+	line-height: 1.5;
+	height: 1.5em;
+}
+
+#testDrive {
+	display: block;
+	padding-top: 24px;
+	line-height: 1.5;
+}
+
+.fs0 {
+	font-size: 16px;
+}
+
+.fs1 {
+	font-size: 32px;
+}
+
+
+
+
+
+
+/* PrismJS 1.12.0
+http://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+markdown&plugins=toolbar+unescaped-markup+normalize-whitespace */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0 1em;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+div.code-toolbar {
+	position: relative;
+}
+
+div.code-toolbar > .toolbar {
+	position: absolute;
+	top: .3em;
+	right: .2em;
+	transition: opacity 0.3s ease-in-out;
+	opacity: 0;
+}
+
+div.code-toolbar:hover > .toolbar {
+	opacity: 1;
+}
+
+div.code-toolbar > .toolbar .toolbar-item {
+	display: inline-block;
+}
+
+div.code-toolbar > .toolbar a {
+	cursor: pointer;
+}
+
+div.code-toolbar > .toolbar button {
+	background: none;
+	border: 0;
+	color: inherit;
+	font: inherit;
+	line-height: normal;
+	overflow: visible;
+	padding: 0;
+	-webkit-user-select: none; /* for button */
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+	color: #bbb;
+	font-size: .8em;
+	padding: 0 .5em;
+	background: #f5f2f0;
+	background: rgba(224, 224, 224, 0.2);
+	box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+	border-radius: .5em;
+}
+
+div.code-toolbar > .toolbar a:hover,
+div.code-toolbar > .toolbar a:focus,
+div.code-toolbar > .toolbar button:hover,
+div.code-toolbar > .toolbar button:focus,
+div.code-toolbar > .toolbar span:hover,
+div.code-toolbar > .toolbar span:focus {
+	color: inherit;
+	text-decoration: none;
+}
+
+/* Fallback, in case JS does not run, to ensure the code is at least visible */
+[class*='lang-'] script[type='text/plain'],
+[class*='language-'] script[type='text/plain'],
+script[type='text/plain'][class*='lang-'],
+script[type='text/plain'][class*='language-'] {
+	display: block;
+	font: 100% Consolas, Monaco, monospace;
+	white-space: pre;
+	overflow: auto;
+}
+
