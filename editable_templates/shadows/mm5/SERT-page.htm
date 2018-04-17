@@ -2,11 +2,6 @@
 	<div class="x-messages x-messages--warning">Unable to estimate shipping rates, please check your address and try again.</div>
 <mvt:else>
 	<table class="c-table-stripped">
-		<mvt:if expr="l.settings:shipestimate_rates:mode EQ 'product'">
-			<caption>Calculate Shipping: &mvt:product:name;</caption>
-		<mvt:else>
-			<caption>Calculate Shipping: Basket</caption>
-		</mvt:if>
 		<thead>
 			<tr>
 				<th>Shipping Method</th>

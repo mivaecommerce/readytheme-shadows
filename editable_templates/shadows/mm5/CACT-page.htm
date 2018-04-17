@@ -36,12 +36,12 @@
 		<mvt:assign name="g.Customer_LoginEmail" value="l.settings:new_customer:pw_email" />
 		<mvt:do file="g.Module_Feature_CUS_RT" name="l.settings:login_success" value="Action_Customer_Login()" />
 		&mvt:global:MvDO_Error;
-		<meta http-equiv="refresh" content="0;url=&mvt:global:return_link;registration=1&NewAccount=1&Customer_ShipFirstName=&mvt:global:register_fname;" />
+		<meta http-equiv="refresh" content="0;url=&mvte:global:return_link;registration=1&NewAccount=1&Customer_ShipFirstName=&mvte:global:register_fname;" />
 	<mvt:elseif expr="g.is_valid_email EQ 0 AND g.is_valid_pw EQ 1">
-		<meta http-equiv="refresh" content="0;url=&mvt:global:return_link;registration=0&iem=&mvt:global:invalidEmailMessage;" />
+		<meta http-equiv="refresh" content="0;url=&mvte:global:return_link;registration=0&iem=&mvte:global:invalidEmailMessage;" />
 	<mvt:elseif expr="g.is_valid_email EQ 1 AND g.is_valid_pw EQ 0">
-		<meta http-equiv="refresh" content="0;url=&mvt:global:return_link;registration=0&ipm=&mvt:global:invalidPasswordMessage;" />
+		<meta http-equiv="refresh" content="0;url=&mvte:global:return_link;registration=0&ipm=&mvte:global:invalidPasswordMessage;" />
 	<mvt:else>
-		<meta http-equiv="refresh" content="0;url=&mvt:global:return_link;registration=0&iem=&mvt:global:invalidEmailMessage;&ipm=&mvt:global:invalidPasswordMessage;" />
+		<meta http-equiv="refresh" content="0;url=&mvte:global:return_link;registration=0&iem=&mvte:global:invalidEmailMessage;&ipm=&mvte:global:invalidPasswordMessage;" />
 	</mvt:if>
 </mvt:if>

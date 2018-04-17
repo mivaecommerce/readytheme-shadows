@@ -1,9 +1,15 @@
 
-.idea/codeStyles/codeStyleConfig.xml
 .idea/deployment.xml
-.idea/modules.xml
-.idea/workspace.xml
-.idea/vcs.xml
-.idea/readytheme-shadows.iml
+.idea/dictionaries/mzimmermann.xml
+.idea/Elements.iml
 .idea/encodings.xml
+.idea/jsLibraryMappings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/vagrant.xml
+.idea/webServers.xml
+.idea/codeStyles/codeStyleConfig.xml
 .idea/codeStyles/Project.xml
+.idea/readytheme-shadows.iml

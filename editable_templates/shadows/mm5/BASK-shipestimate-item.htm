@@ -1,7 +1,7 @@
 <div class="u-hidden" data-shipping-estimator>
 	<section class="c-mini-modal__element-subject u-width-12 u-width-6--m u-width-4--l u-bg-white">
 		<p class="c-heading-delta u-text-uppercase">Estimate Shipping</p>
-		<form data-hook="shipping-estimate-form" method="get" name="shipestimate_form" action="&mvte:urls:SERT:auto;">
+		<form data-hook="shipping-estimate-form" method="get" name="shipestimate_form" action="&mvte:urls:SERT:auto;" target="calculate-shipping">
 			<fieldset>
 				<legend>Estimate Shipping</legend>
 				<ul class="c-form-list" data-hook="shipping-estimate-fields">
@@ -1579,7 +1579,7 @@
 						</div>
 					</li>
 					<li class="c-form-list__item c-form-list__item--full u-text-center">
-						<input class="c-button c-button--large" type="submit" value="Calculate" title="Calculate Shipping">
+						<input class="c-button c-button--large" data-hook="calculate-shipping-estimate" type="submit" value="Calculate" title="Calculate Shipping">
 					</li>
 				</ul>
 				<div data-hook="shipping-estimate-results"></div>

@@ -82,7 +82,7 @@
 			<mvt:item name="readytheme" param="contentsection( 'checkout_steps' )" />
 			<mvt:item name="readytheme" param="contentsection( 'messages' )" />
 			
-			<form id="opay_form" data-hook="opay-form" method="post" action="&mvt:payment:url;">
+			<form data-hook="opay-form" method="post" action="&mvt:payment:url;">
 				<fieldset>
 					<legend>&mvt:page:name;</legend>
 					<input type="hidden" name="Action" value="AUTH" />
@@ -294,17 +294,13 @@
 									<span onclick="onclick_submit(); return false;">
 										<input class="c-button c-button--huge c-button--full u-bg-gray-50 u-font-small u-text-medium u-text-uppercase" type="submit" value="Complete Order">
 									</span>
-								<mvt:elseif expr="'brain' CIN g.PaymentMethod">
+								<mvt:elseif expr="'brain' CIN g.PaymentMethod OR 'square' CIN g.PaymentMethod">
 									<input class="c-button c-button--huge c-button--full u-bg-gray-50 u-font-small u-text-medium u-text-uppercase" type="submit" value="Complete Order">
 								<mvt:else>
 									<mvt:if expr="g.cc_payment EQ 1">
-										<mvt:if expr="l.settings:payment:capabilities:split">
-											<input class="c-button c-button--huge c-button--full u-bg-gray-50 u-font-small u-text-medium u-text-uppercase" data-hook="submit-form" type="submit" value="Complete Order">
-										<mvt:else>
-											<input class="c-button c-button--huge c-button--full u-bg-gray-50 u-font-small u-text-medium u-text-uppercase" data-hook="submit-form" type="submit" value="Complete Order">
-										</mvt:if>
-									<mvt:else>
 										<input class="c-button c-button--huge c-button--full u-bg-gray-50 u-font-small u-text-medium u-text-uppercase" data-hook="submit-form" type="submit" value="Complete Order">
+									<mvt:else>
+										<input class="c-button c-button--huge c-button--full u-bg-gray-50 u-font-small u-text-medium u-text-uppercase" type="submit" value="Complete Order">
 									</mvt:if>
 								</mvt:if>
 							</div>

@@ -319,56 +319,45 @@ var elementsUI = {
 			mivaJS.estimateShipping = function (element) {
 				'use strict';
 
-				var currentModal = document.querySelector('[data-hook="' + element + '"]'),
-					formElement = currentModal.querySelector('[data-hook="shipping-estimate-form"]');
+				var currentModal = document.querySelector('[data-hook="' + element + '"]');
+				var formElement = currentModal.querySelector('[data-hook="shipping-estimate-form"]');
+				var formButton = formElement.querySelector('[data-hook="calculate-shipping-estimate"]');
 
-				formElement.addEventListener('submit', function (e) {
-					e.preventDefault();
+				function createCalculation () {
+					var processor = document.createElement('iframe');
 
-					var form = e.target,
-						data = new FormData(form),
-						request = new XMLHttpRequest(); // Set up our HTTP request
+					processor.id = 'calculate-shipping';
+					processor.name = 'calculate-shipping';
+					processor.style.display = 'none';
+					formElement.before(processor);
+					processor.addEventListener('load', function () {
+						displayResults(processor);
+					});
+					formElement.submit();
+				}
 
-					form.setAttribute('data-status', 'idle');
+				function displayResults (source) {
+					var content = source.contentWindow.document.body.innerHTML;
 
-					if (form.getAttribute('data-status') !== 'submitting') {
-						form.setAttribute('data-status', 'submitting');
+					formElement.querySelector('[data-hook="shipping-estimate-fields"]').classList.add('u-hidden');
+					formElement.querySelector('[data-hook="shipping-estimate-results"]').innerHTML = content;
+					formElement.setAttribute('data-status', 'idle');
 
-						// Setup our listener to process completed requests
-						request.onreadystatechange = function () {
-							// Only run if the request is complete
-							if (request.readyState !== 4) return;
+					formElement.querySelector('[data-hook="shipping-estimate-recalculate"]').addEventListener('click', function () {
+						formElement.querySelector('[data-hook="shipping-estimate-results"]').innerHTML = '';
+						formElement.querySelector('[data-hook="shipping-estimate-fields"]').classList.remove('u-hidden');
+					});
 
-							// Process our return data
-							if (request.status === 200) {
-								// What do when the request is successful
-								form.querySelector('[data-hook="shipping-estimate-fields"]').classList.add('u-hidden');
-								form.querySelector('[data-hook="shipping-estimate-results"]').innerHTML = request.responseText;
-								form.setAttribute('data-status', 'idle');
+					setTimeout(
+						function () {
+							source.parentNode.removeChild(source);
+						}, 1
+					);
+				}
 
-								form.querySelector('[data-hook="shipping-estimate-recalculate"]').addEventListener('click', function () {
-									form.querySelector('[data-hook="shipping-estimate-results"]').innerHTML = '';
-									form.querySelector('[data-hook="shipping-estimate-fields"]').classList.remove('u-hidden');
-								});
-							}
-							else {
-								// What do when the request fails
-								console.log('The request failed!');
-								form.setAttribute('data-status', 'idle');
-							}
-
-							// Code that should run regardless of the request status
-							//console.log('This always runs...');
-						};
-
-						/**
-						 * Create and send a request
-						 * The first argument is the post type (GET, POST, PUT, DELETE, etc.)
-						 * The second argument is the endpoint URL
-						 */
-						request.open(form.method, form.action);
-						request.send(data);
-					}
+				formButton.addEventListener('click', function (event) {
+					event.preventDefault();
+					createCalculation();
 				}, false);
 			};
 
