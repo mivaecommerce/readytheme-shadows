@@ -16,8 +16,8 @@
 	var purchaseForm = document.querySelector('[data-hook="purchase"]');
 	var purchaseFormActionInput = purchaseForm.querySelector('input[name="Action"]');
 	var responseMessage = document.querySelector('[data-hook="purchase-message"]');
-	var miniBasketCount = document.querySelector('[data-hook="mini-basket-count"]');
-	var miniBasketAmount = document.querySelector('[data-hook="mini-basket-amount"]');
+	var miniBasketCount = document.querySelectorAll('[data-hook~="mini-basket-count"]');
+	var miniBasketAmount = document.querySelectorAll('[data-hook~="mini-basket-amount"]');
 
 	purchaseButton.addEventListener('click', function (evt) {
 		evt.preventDefault();
@@ -55,11 +55,15 @@
 						var basketSubtotal = basketData.getAttribute('data-subtotal');
 
 						if (miniBasketCount) {
-							miniBasketCount.textContent = basketCount; // Update mini-basket quantity (display only)
+							for (var mbcID = 0; mbcID < miniBasketCount.length; mbcID++) {
+								miniBasketCount[mbcID].textContent = basketCount; // Update mini-basket quantity (display only)
+							}
 						}
 
 						if (miniBasketAmount) {
-							miniBasketAmount.textContent = basketSubtotal; // Update mini-basket subtotal (display only)
+							for (var mbaID = 0; mbaID < miniBasketCount.length; mbaID++) {
+								miniBasketAmount[mbaID].textContent = basketSubtotal; // Update mini-basket subtotal (display only)
+							}
 						}
 
 						if (typeof miniBasket !== 'undefined') {

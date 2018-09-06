@@ -159,7 +159,7 @@
 				var selected = $(this);
 
 				event.preventDefault();
-				selected.parent('ul').addClass('is-hidden').parent('.has-children').closest('ul').removeClass('show-next');
+				selected.parent('ul').addClass('is-hidden').parent('.has-child-menu').closest('ul').removeClass('show-next');
 			});
 		}
 

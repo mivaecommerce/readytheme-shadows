@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+[1.0.2]: https://github.com/mivaecommerce/readytheme-shadows/compare/v1.0.1...v1.0.2
+## [1.0.2] - 2018-09-06
+#### Added
+- [Contact Form](https://github.com/mivaecommerce/Extensions/tree/master/contact) Extension
+
+#### Fixed
+- Issue #28 - [Shadows Body Scroll iPhone Issue](https://github.com/mivaecommerce/readytheme-shadows/issues/28)
+- Issue #27 - [Square Payment Fields](https://github.com/mivaecommerce/readytheme-shadows/issues/27)
+- Issue #26 - [Problem with quantity input on BASK](https://github.com/mivaecommerce/readytheme-shadows/issues/26)
+- Issue #25 - [Internet Explorer 11 lacks support for NodeList.forEach()](https://github.com/mivaecommerce/readytheme-shadows/issues/25)
+- Issue #24 - [Off canvas sub navigation fix](https://github.com/mivaecommerce/readytheme-shadows/issues/24)
+- Issue #23 - [Inactive categories showing up on catalog page](https://github.com/mivaecommerce/readytheme-shadows/issues/23)
+- Issue #22 - [Inactivated hero image section but it stays](https://github.com/mivaecommerce/readytheme-shadows/issues/22)
+
 [1.0.1]: https://github.com/mivaecommerce/readytheme-shadows/compare/v1.0.0...v1.0.1
 ## [1.0.1] - 2018-04-17
 #### Added

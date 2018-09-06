@@ -264,6 +264,23 @@ var elementsUI = {
 			}
 		});
 
+
+		/**
+		 * Although NodeList is not an Array, it is possible to iterate on it using forEach().
+		 * It can also be converted to an Array using Array.from().
+		 * However some older browsers have not yet implemented NodeList.forEach() nor Array.from().
+		 * But those limitations can be circumvented by using Array.prototype.forEach().
+		 * This polyfill adds compatibility to browsers which do not support NodeList.forEach(). [IE11]
+		 */
+		if (window.NodeList && !NodeList.prototype.forEach) {
+			NodeList.prototype.forEach = function (callback, thisArg) {
+				thisArg = thisArg || window;
+				for (var i = 0; i < this.length; i++) {
+					callback.call(thisArg, this[i], i, this);
+				}
+			};
+		}
+
 	},
 
 	pages: {
@@ -275,20 +292,31 @@ var elementsUI = {
 			 * Add `ID` and `CLASS` attributes to `INPUT` and `SELECT` elements
 			 * dynamically created by Miva.
 			 */
-			$.hook('mvt-input').each(function () {
-				var classlist = $(this).attr('data-classlist'),
-					id = $(this).attr('data-id');
+			var mvtInputWraps = document.querySelectorAll('[data-hook~="mvt-input"]');
+			var mvtSelectWraps = document.querySelectorAll('[data-hook~="mvt-select"]');
 
-				$(this).find('input').addClass(classlist);
-				$(this).find('input').attr('id', id);
+			mvtInputWraps.forEach(function (element) {
+				var classes = element.getAttribute('data-classlist');
+				var id = element.getAttribute('data-id');
+				var mvtInputs = element.querySelectorAll('input');
+
+				mvtInputs.forEach(function (mvtInput) {
+					if (mvtInput.getAttribute('type') !== 'hidden') {
+						mvtInput.setAttribute('class', classes);
+						mvtInput.setAttribute('id', id);
+					}
+				});
 			});
 
-			$.hook('mvt-select').each(function () {
-				var classlist = $(this).attr('data-classlist'),
-					id = $(this).attr('data-id');
+			mvtSelectWraps.forEach(function (element) {
+				var classes = element.getAttribute('data-classlist');
+				var id = element.getAttribute('data-id');
+				var mvtSelects = element.querySelectorAll('select');
 
-				$(this).find('select').addClass(classlist);
-				$(this).find('select').attr('id', id);
+				mvtSelects.forEach(function (mvtSelect) {
+					mvtSelect.setAttribute('class', classes);
+					mvtSelect.setAttribute('id', id);
+				});
 			});
 
 		},

@@ -242,40 +242,40 @@
 	
 
 
-/* Vertical alignment modifiers.
- * The align-items property vertically aligns the flexible container's items
- * when the items do not use all available space on the cross-axis.
+/* Align-Items modifiers.
+ * The align-items property controls how flex items are positioned
+ * when the items do not use all available space along the container's cross-axis.
    =========================================== */
 /**
- * Items are positioned at the top of the container.
+ * Items are positioned at the start of the container's cross-axis.
  */
 .o-layout--align-top {
 	align-items: flex-start;
 }
 
 /**
- * Items are positioned at the center of the container (vertically).
+ * Items are positioned along the center of the container's cross-axis.
  */
 .o-layout--align-center {
 	align-items: center;
 }
 
 /**
- * Items are positioned at the bottom of the container.
+ * Items are positioned at the end of the container's cross-axis.
  */
 .o-layout--align-bottom {
 	align-items: flex-end;
 }
 
 /**
- * Items are positioned at the baseline of the container.
+ * Items are positioned at along the container's cross-axis so that their baselines align.
  */
 .o-layout--align-baseline {
 	align-items: baseline;
 }
 
 /**
- * Default value. Items are stretched to fit the container.
+ * Default value. Items are stretched to fit the container's cross-axis.
  */
 .o-layout--align-stretch {
 	align-items: stretch;
@@ -285,40 +285,124 @@
 
 
 
-/* Horizontal alignment modifiers.
- * The justify-content property horizontally aligns the flexible container's 
- * items when the items do not use all available space on the main-axis.
+/* Align-Content modifiers.
+ * The align-content property controls how lines are positioned in multi-line containers.
    =========================================== */
 /**
- * Default value. Items are positioned at the beginning of the container.
+ * Default value. Lines are packed at the start of the container's cross-axis.
+ */
+.o-layout--align-content-start {
+	align-content: flex-start;
+}
+
+/**
+ * Lines are packed along the center of the container's cross-axis.
+ */
+.o-layout--align-content-center {
+	align-content: center;
+}
+
+/**
+ * Lines are packed at the end of the container's cross-axis.
+ */
+.o-layout--align-content-end {
+	align-content: flex-end;
+}
+
+/**
+ * Lines are distributed along the container's cross-axis with equal spacing around each line.
+ */
+.o-layout--align-content-around {
+	align-content: space-around;
+}
+
+/**
+ * Lines are distributed along the container's cross-axis with equal spacing between each line.
+ */
+.o-layout--align-content-between {
+	align-content: space-between;
+}
+
+
+
+
+
+/* Align-Self modifiers.
+ * The align-self property controls how individual flex items are positioned along the container's cross-axis.
+   =========================================== */
+/**
+ * Default value. Items are aligned based on the flex container's `align-items` value.
+ */
+.o-layout--align-self-auto {
+	align-self: auto;
+}
+
+/**
+ * Items are aligned to the start of the flex container's cross-axis, despite the container's `align-items` value.
+ */
+.o-layout--align-self-start {
+	align-self: flex-start;
+}
+
+/**
+ * Items are aligned along the center of the flex container's cross-axis, despite the container's `align-items` value.
+ */
+.o-layout--align-self-center {
+	align-self: center;
+}
+
+/**
+ * Items are aligned to the end of the flex container's cross-axis, despite the container's `align-items` value.
+ */
+.o-layout--align-self-end {
+	align-self: flex-end;
+}
+
+/**
+ * Items are stretched to fill the flex container's cross-axis, despite the container's `align-items` value.
+ */
+.o-layout--align-self-stretch {
+	align-self: stretch;
+}
+
+
+
+
+
+/* Justify-Content modifiers.
+ * The justify-content property controls how flex items are positioned
+ * when the items do not use all available space along the container's main-axis.
+   =========================================== */
+/**
+ * Default value. Items are justified at the start of the container's main-axis.
  */
 .o-layout--justify-start {
 	justify-content: flex-start;
 }
 
 /**
- * Items are positioned at the center of the container.
+ * Items are justified along the center of the container's main-axis.
  */
 .o-layout--justify-center {
 	justify-content: center;
 }
 
 /**
- * Items are positioned at the end of the container.
+ * Items are justified at the end of the container's main-axis.
  */
 .o-layout--justify-end {
 	justify-content: flex-end;
 }
 
 /**
- * Items are positioned with space before, between, and after the lines.
+ * Items are justified along the container's main-axis with equal spacing around each item.
  */
 .o-layout--justify-around {
 	justify-content: space-around;
 }
 
 /**
- * Items are positioned with space between the lines.
+ * Items are justified along the container's main-axis with equal spacing between each item.
  */
 .o-layout--justify-between {
 	justify-content: space-between;

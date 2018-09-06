@@ -21,7 +21,7 @@
 	</section>
 
 	<mvt:item name="readytheme" param="Load_Image('storefront_hero_image', g.storefront_hero_image)" />
-	<mvt:if expr="g.storefront_hero_image:image">
+	<mvt:if expr="g.storefront_hero_image:active">
 		<mvt:if expr="g.storefront_hero_image:link_type NE 'N'">
 			<mvt:if expr="g.storefront_hero_image:link_type EQ 'G'">
 				<mvt:do file="g.Module_Feature_TUI_DB" name="l.success" value="Page_Load_Code( g.storefront_hero_image:link_dest, l.settings:rt_g )" />

@@ -431,6 +431,7 @@
 			 */
 			if (settings.group) {
 				var waitForIt;
+				var cachedWidth = document.documentElement.clientWidth;
 
 				setGrouping(carouselItems, settings);
 				window.addEventListener('resize', function (event) {
@@ -438,16 +439,20 @@
 
 					if (!waitForIt) {
 						waitForIt = setTimeout(function () {
-							waitForIt = null;
+							var window_changed = document.documentElement.clientWidth !== cachedWidth;
 
-							/**
-							 * "unwrap" all the carousel groups and rebuild them based on screen size
-							 */
-							for (var i = 0, c = itemElements.length; i < c; i++) {
-								itemElements[i].outerHTML = itemElements[i].innerHTML;
+							if (window_changed) {
+								waitForIt = null;
+
+								/**
+								 * "unwrap" all the carousel groups and rebuild them based on screen size
+								 */
+								for (var i = 0, c = itemElements.length; i < c; i++) {
+									itemElements[i].outerHTML = itemElements[i].innerHTML;
+								}
+
+								setGrouping(carouselItems, settings);
 							}
-
-							setGrouping(carouselItems, settings);
 						}, 66);
 					}
 				}, false);
@@ -497,12 +502,12 @@
 
 			if (carouselItems.length > 1) {
 				new Glide(carouselContainer, function (event, direction) {
-					event.preventDefault();
-
 					switch (direction) {
 						case 'up':
+							navigationClicked = false;
 							break;
 						case 'down':
+							navigationClicked = false;
 							break;
 						case 'left':
 							navigationClicked = true;

@@ -52,7 +52,8 @@
 					allowRemoveUpdate();
 				}
 				else {
-					window.location = button.getAttribute('data-remove');
+					input.value = 0;
+					input.dispatchEvent(changed);
 				}
 			}
 		});
@@ -66,8 +67,8 @@
 				var quantityLine = quantities[id];
 				var removeToggle = quantityLine.previousElementSibling;
 
-				if (removeToggle.dataset.hook === 'remove') {
-					if (quantityLine.value > 1) {
+				if (removeToggle.dataset.hook !== 'remove') {
+					if (quantityLine.value > '1') {
 						removeToggle.classList.remove('u-icon-remove');
 						removeToggle.classList.add('u-icon-subtract');
 						removeToggle.setAttribute('data-action', 'decrement');
@@ -80,10 +81,11 @@
 				}
 
 				quantityLine.addEventListener('change', function (event) {
-					groupSubmit(event);
+					groupSubmit(event, this);
 				});
+
 				quantityLine.addEventListener('input', function (event) {
-					groupSubmit(event);
+					groupSubmit(event, this);
 				});
 			}
 		}
@@ -91,8 +93,8 @@
 
 	allowRemoveUpdate();
 
-	function groupSubmit(event) {
-		if (event.which !== 8 && event.which !== 37 && event.which !== 38 && event.which !== 39 && event.which !== 40 && event.which !== 46) {
+	function groupSubmit(event, quantity) {
+		if (event.key !== 8 && event.key !== 37 && event.key !== 38 && event.key !== 39 && event.key !== 40 && event.key !== 46 && quantity.value !== '') {
 			document.querySelector('[data-hook="' + event.target.getAttribute('data-group') + '"]').submit();
 		}
 	}
