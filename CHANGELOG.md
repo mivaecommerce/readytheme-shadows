@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.0.2] - 2018-09-06
 #### Added
 - [Contact Form](https://github.com/mivaecommerce/Extensions/tree/master/contact) Extension
+- `align-content` and `align-self` classes to `core/css/objects/layout.css` for better item control.
 
 #### Fixed
 - Issue #28 - [Shadows Body Scroll iPhone Issue](https://github.com/mivaecommerce/readytheme-shadows/issues/28)
