@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+[1.0.3]: https://github.com/mivaecommerce/readytheme-shadows/compare/v1.0.2...v1.0.3
+## [1.0.3] - 2018-09-07
+#### Fixed
+- Issue #29 - [Shadows ajax add to cart on PROD code fix](https://github.com/mivaecommerce/readytheme-shadows/issues/29)
+
+#### Removed
+- Due to popular demand, the product weight and count of products currently in the basket, on the product page, 
+have been commented out of the code.
+
 [1.0.2]: https://github.com/mivaecommerce/readytheme-shadows/compare/v1.0.1...v1.0.2
 ## [1.0.2] - 2018-09-06
 #### Added

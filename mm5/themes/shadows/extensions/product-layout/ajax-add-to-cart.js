@@ -12,7 +12,7 @@
 	'use strict';
 
 	var purchaseButton = document.querySelector('[data-hook="add-to-cart"]');
-	var purchaseButtonText = purchaseButton.textContent;
+	var purchaseButtonText = (purchaseButton.nodeName.toLowerCase() === 'input') ? purchaseButton.value : purchaseButton.textContent;
 	var purchaseForm = document.querySelector('[data-hook="purchase"]');
 	var purchaseFormActionInput = purchaseForm.querySelector('input[name="Action"]');
 	var responseMessage = document.querySelector('[data-hook="purchase-message"]');
@@ -34,7 +34,14 @@
 		if (purchaseForm.getAttribute('data-status') !== 'submitting') {
 			purchaseForm.setAttribute('data-status', 'submitting');
 			purchaseButton.setAttribute('disabled', 'disabled');
-			purchaseButton.textContent = 'Processing...';
+
+			if (purchaseButton.nodeName.toLowerCase() === 'input') {
+				purchaseButton.value = 'Processing...';
+			}
+			else{
+				purchaseButton.textContent = 'Processing...';
+			}
+
 			responseMessage.innerHTML = '';
 
 			// Setup our listener to process completed requests
@@ -61,7 +68,7 @@
 						}
 
 						if (miniBasketAmount) {
-							for (var mbaID = 0; mbaID < miniBasketCount.length; mbaID++) {
+							for (var mbaID = 0; mbaID < miniBasketAmount.length; mbaID++) {
 								miniBasketAmount[mbaID].textContent = basketSubtotal; // Update mini-basket subtotal (display only)
 							}
 						}
@@ -104,7 +111,14 @@
 
 					// Reset button text and form status
 					purchaseButton.removeAttribute('disabled');
-					purchaseButton.textContent = purchaseButtonText;
+
+					if (purchaseButton.nodeName.toLowerCase() === 'input') {
+						purchaseButton.value = purchaseButtonText;
+					}
+					else{
+						purchaseButton.textContent = purchaseButtonText;
+					}
+
 					purchaseForm.setAttribute('data-status', 'idle');
 				}
 				else {
