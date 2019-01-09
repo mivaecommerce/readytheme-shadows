@@ -70,28 +70,36 @@
 												</span>
 											</mvt:if>
 										</mvt:foreach>
+										<mvt:assign name="l.settings:attr_ref" value="''" />
 										<mvt:foreach iterator="option" array="group:options">
 											<mvt:assign name="l.settings:group:option_counter" value="l.settings:group:option_counter + 1" />
 											<span class="u-font-small u-flex">
+												<mvt:if expr="l.settings:option:attmpat_id">
+													<mvt:assign name="l.settings:group:restore:link" value="l.settings:group:restore:link $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:template_code=' $ l.settings:option:attr_code" />
+													<mvt:assign name="l.settings:attr_ref" value="l.settings:option:attr_prompt" />
+												<mvt:else>
+													<mvt:assign name="l.settings:attr_ref" value="l.settings:option:attr_code" />
+												</mvt:if>
 												<mvt:if expr="l.settings:option:option_id">
-													<mvt:assign name="l.settings:group:restore:link" value="l.settings:group:restore:link $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:code=' $ l.settings:option:attr_code $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:value=' $ l.settings:option:opt_code" />
+													<mvt:assign name="l.settings:group:restore:link" value="l.settings:group:restore:link $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:code=' $ l.settings:attr_ref $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:value=' $ l.settings:option:opt_code" />
 													<span class="o-layout--grow">&mvt:option:attr_prompt;: &mvt:option:opt_prompt;</span>
 													<mvt:if expr="l.settings:option:subtotal GT 0">
 														<span>&mvt:option:formatted_subtotal;</span>
 													</mvt:if>
 												<mvt:elseif expr="NOT ISNULL l.settings:option:data">
-													<mvt:assign name="l.settings:group:restore:link" value="l.settings:group:restore:link $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:code=' $ l.settings:option:attr_code $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:value=' $ l.settings:option:data" />
+													<mvt:assign name="l.settings:group:restore:link" value="l.settings:group:restore:link $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:code=' $ l.settings:attr_ref $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:value=' $ l.settings:option:data" />
 													<span class="o-layout--grow">&mvt:option:attr_prompt;: &mvt:option:data;</span>
 													<mvt:if expr="l.settings:option:subtotal GT 0">
 														<span>&mvt:option:formatted_subtotal;</span>
 													</mvt:if>
 												<mvt:elseif expr="NOT ISNULL l.settings:option:data_long">
-													<mvt:assign name="l.settings:group:restore:link" value="l.settings:group:restore:link $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:code=' $ l.settings:option:attr_code $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:value=' $ l.settings:option:data_long" />
+													<mvt:assign name="l.settings:group:restore:link" value="l.settings:group:restore:link $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:code=' $ l.settings:attr_ref $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:value=' $ l.settings:option:data_long" />
 													<span class="o-layout--grow">&mvt:option:attr_prompt;: &mvt:option:data_long;</span>
 													<mvt:if expr="l.settings:option:subtotal GT 0">
 														<span>&mvt:option:formatted_subtotal;</span>
 													</mvt:if>
 												<mvt:else>
+													<mvt:assign name="l.settings:group:restore:link" value="l.settings:group:restore:link $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:code=' $ l.settings:attr_ref $ '&Product_Attributes[' $ l.settings:group:option_counter $ ']:value=' $ l.settings:option:attr_prompt" />
 													<span class="o-layout--grow">&mvt:option:attr_prompt;</span>
 													<mvt:if expr="l.settings:option:subtotal GT 0">
 														<span>&mvt:option:formatted_subtotal;</span>
@@ -242,7 +250,7 @@
 										<li class="c-form-list__item c-form-list__item--full">
 											<input type="hidden" name="Action" value="RCPN"/>
 											<input type="hidden" name="Coupon_Code" value="&mvte:coupon:code;"/>
-											<button class="c-button c-button--clear" type="submit">&mvt:coupon:code; <span class="u-color-red u-icon-remove"></span></button>
+											<button class="c-button c-button--clear u-bg-transparent u-color-red" type="submit">&mvt:coupon:code; <span class="u-icon-remove"></span></button>
 										</li>
 									</ul>
 								</fieldset>
@@ -291,6 +299,19 @@
 					<td>
 						<br>
 						<a class="c-button c-button--full c-button--huge u-bg-black u-color-white u-text-bold" href="&mvte:urls:OINF:auto;">Secure Checkout</a>
+						<br>
+						<hr class="c-keyline">
+						<mvt:comment>
+							<!-- If you are using PayPal Express, this is where the `PaypalExButton` item goes. -->
+						</mvt:comment>
+						<mvt:item name="PaypalExButton"/>
+						<br>
+						<hr class="c-keyline">
+						<mvt:comment>
+							<!-- If you are using Amazon Pay, this is where the `"amazonpay_button" param="body"` item goes. -->
+						</mvt:comment>
+						<p class="u-text-bold">Have an Amazon account?</p>
+						<mvt:item name="amazonpay_button" param="body" />
 						<br>
 						<hr class="c-keyline">
 					</td>

@@ -53,9 +53,8 @@
 	</section>
 	
 	<!-- Start: Google Rich Snippets -->
-	<mvt:comment>This section strips any HTML from the product description.</mvt:comment>
-	<mvt:assign name="g.allowed_tags" value="''" />
-	<mvt:assign name="l.settings:product:stripped_descrip" value="miva_html_strip(l.settings:product:descrip, g.allowed_tags)"/>
+	<mvt:comment>Strip any HTML from the product description.</mvt:comment>
+	<mvt:assign name="l.settings:product:stripped_descrip" value="miva_html_strip(l.settings:product:descrip, '')"/>
 
 	<div itemscope itemtype="http://schema.org/Product">
 		<meta itemprop="name" content="&mvte:product:name;" />

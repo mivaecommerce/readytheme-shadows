@@ -6,12 +6,37 @@
 			<mvt:assign name="l.settings:billing_required" value="'required'" />
 		</mvt:if>
 		
-		<form method="post" action="&mvte:urls:ACED:secure;">
-			<input type="hidden" name="Action" value="UCST" />
-			<input type="hidden" name="updated" value="1" />
-			<input type="hidden" name="Customer_Login" value="&mvte:global:Customer:login;">
-			<input type="hidden" name="Customer_PasswordEmail" value="&mvte:global:Customer:pw_email;">
+		<mvt:if expr="g.Order">
+			<mvt:assign name="l.settings:url" value="l.settings:urls:OINF:secure" />
+		<mvt:elseif expr="g.Redeem">
+			<mvt:assign name="l.settings:url" value="l.settings:urls:RGFT:secure" />
+		<mvt:elseif expr="g.WishList">
+			<mvt:assign name="l.settings:url" value="l.settings:urls:WISH:secure" />
+		<mvt:else>
+			<mvt:assign name="l.settings:url" value="l.settings:urls:ACLN:secure" />
+		</mvt:if>
+		<form method="post" action="&mvte:url;">
+			<input type="hidden" name="Action" value="ICST" />
+			<input type="hidden" name="Order" value="&mvte:global:Order;" />
+			<input type="hidden" name="NewAccount" value="1" />
 			<input type="hidden" name="CSRF_Token" value="&mvte:global:Basket:csrf_token;">
+			
+			<ul class="c-form-list o-layout u-text-uppercase">
+				<li class="c-form-list__item c-form-list__item--full o-layout__item c-heading-echo u-text-bold u-text-uppercase">Log In Information</li>
+				<li class="c-form-list__item o-layout__item u-width-12 &mvte:global:LoginEmail_Row;">
+					<label class="c-form-label u-font-small u-text-bold is-required" for="l-Customer_LoginEmail">Email Address</label>
+					<input id="l-Customer_LoginEmail" class="c-form-input c-form-input--large" data-hook="Customer_LoginEmail" data-primary="&mvt:customer:primaddr" type="email" name="Customer_LoginEmail" value="&mvte:global:Customer_LoginEmail;" autocomplete="email" required>
+				</li>
+				<li class="c-form-list__item o-layout__item u-width-6--m &mvte:global:Password_Row;">
+					<label class="c-form-label u-font-small u-text-bold is-required" for="l-Customer_Password">Password</label>
+					<input id="l-Customer_Password" class="c-form-input c-form-input--large" type="password" name="Customer_Password" value="&mvte:global:Customer_Password;" autocomplete="new-password" required>
+				</li>
+				<li class="c-form-list__item o-layout__item u-width-6--m &mvte:global:VerifyPassword_Row;">
+					<label class="c-form-label u-font-small u-text-bold is-required" for="l-Customer_VerifyPassword">Confirm Password</label>
+					<input id="l-Customer_VerifyPassword" class="c-form-input c-form-input--large" type="password" name="Customer_VerifyPassword" value="&mvte:global:Customer_VerifyPassword;" autocomplete="new-password" required>
+				</li>
+			</ul>
+			<hr class="c-keyline">
 			
 			<ul class="c-form-list o-layout">
 				<li class="c-form-list__item c-form-list__item--full o-layout__item c-heading-echo u-text-bold u-text-uppercase">Shipping Information</li>
@@ -28,23 +53,6 @@
 						</label>
 					</mvt:if>
 				</li>
-				<mvt:if expr="g.Basket:cust_id AND g.Customer_Session_Verified">
-					<li class="c-form-list__item o-layout__item u-width-4--m &mvte:global:ShipID_Row;">
-						<label class="c-form-label u-font-tiny u-text-bold is-required" for="shipping_selector">Saved Address</label>
-						<div class="c-form-select">
-							<select id="shipping_selector" class="c-form-select__dropdown c-form-input--large" name="ShipID">
-								<option value="-1">&lt;New&gt;</option>
-								<mvt:foreach iterator="address" array="customer:addresses">
-									<mvt:if expr="toupper( l.settings:address:fname ) EQ toupper( g.ShipFirstName ) AND toupper( l.settings:address:lname ) EQ toupper( g.ShipLastName ) AND toupper( l.settings:address:email ) EQ toupper( g.ShipEmail ) AND toupper( l.settings:address:comp ) EQ toupper( g.ShipCompany ) AND toupper( l.settings:address:phone ) EQ toupper( g.ShipPhone ) AND toupper( l.settings:address:fax ) EQ toupper( g.ShipFax ) AND toupper( l.settings:address:addr1 ) EQ toupper( g.ShipAddress1 ) AND toupper( l.settings:address:addr2 ) EQ toupper( g.ShipAddress2 ) AND toupper( l.settings:address:city ) EQ toupper( g.ShipCity ) AND ( ( ( NOT ISNULL g.ShipStateSelect ) AND ( toupper( l.settings:address:state ) EQ toupper( g.ShipStateSelect ) ) ) OR ( ( ISNULL g.ShipStateSelect ) AND ( toupper( l.settings:address:state ) EQ toupper( g.ShipState ) ) ) ) AND toupper( l.settings:address:zip ) EQ toupper( g.ShipZip ) AND toupper( l.settings:address:cntry ) EQ toupper( g.ShipCountry )">
-										<option value="&mvte:address:id;" selected>&mvte:address:descrip;</option>
-									<mvt:else>
-										<option value="&mvte:address:id;">&mvte:address:descrip;</option>
-									</mvt:if>
-								</mvt:foreach>
-							</select>
-						</div>
-					</li>
-				</mvt:if>
 			</ul>
 			
 			<section id="shipping_fields">
@@ -139,25 +147,6 @@
 			</ul>
 	
 			<section id="billing_fields">
-				<mvt:if expr="g.Basket:cust_id AND g.Customer_Session_Verified">
-					<ul class="c-form-list o-layout o-layout--wide u-text-uppercase">
-						<li class="c-form-list__item o-layout__item u-width-4--m &mvte:global:BillID_Row;">
-						<label class="c-form-label u-font-tiny u-text-bold is-required" for="billing_selector">Saved Address</label>
-							<div class="c-form-select">
-							<select id="billing_selector" class="c-form-select__dropdown c-form-input--large" name="BillID">
-								<option value="-1">&lt;New&gt;</option>
-								<mvt:foreach iterator="address" array="customer:addresses">
-									<mvt:if expr="toupper( l.settings:address:fname ) EQ toupper( g.BillFirstName ) AND toupper( l.settings:address:lname ) EQ toupper( g.BillLastName ) AND toupper( l.settings:address:email ) EQ toupper( g.BillEmail ) AND toupper( l.settings:address:comp ) EQ toupper( g.BillCompany ) AND toupper( l.settings:address:phone ) EQ toupper( g.BillPhone ) AND toupper( l.settings:address:fax ) EQ toupper( g.BillFax ) AND toupper( l.settings:address:addr1 ) EQ toupper( g.BillAddress1 ) AND toupper( l.settings:address:addr2 ) EQ toupper( g.BillAddress2 ) AND toupper( l.settings:address:city ) EQ toupper( g.BillCity ) AND ( ( ( NOT ISNULL g.BillStateSelect ) AND ( toupper( l.settings:address:state ) EQ toupper( g.BillStateSelect ) ) ) OR ( ( ISNULL g.BillStateSelect ) AND ( toupper( l.settings:address:state ) EQ toupper( g.BillState ) ) ) ) AND toupper( l.settings:address:zip ) EQ toupper( g.BillZip ) AND toupper( l.settings:address:cntry ) EQ toupper( g.BillCountry )">
-										<option value="&mvte:address:id;" selected>&mvte:address:descrip;</option>
-									<mvt:else>
-										<option value="&mvte:address:id;">&mvte:address:descrip;</option>
-									</mvt:if>
-								</mvt:foreach>
-								</select>
-							</div>
-						</li>
-					</ul>
-				</mvt:if>
 				<ul class="c-form-list o-layout">
 					<li class="c-form-list__item o-layout__item u-width-4--m &mvte:global:BillFirstName_Row;">
 						<label class="c-form-label u-font-small u-text-bold is-required" for="l-Customer_BillFirstName">First Name</label>

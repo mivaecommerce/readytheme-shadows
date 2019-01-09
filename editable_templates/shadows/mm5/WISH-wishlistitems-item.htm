@@ -115,6 +115,17 @@
 															<label class="c-form-label" for="Notes">Notes</label>
 															<textarea id="Notes" class="c-form-input c-form-input--long" name="Notes">&mvte:wishlistitem:notes;</textarea>
 														</li>
+														<li class="c-form-list__item c-form-list__item--full">
+															<label class="c-form-label" for="Move">Move to&hellip;</label>
+															<div class="c-form-select">
+																<select id="Move" class="c-form-select__dropdown" onchange="document.forms.edit_wish.elements.Action.value='MPWL'; document.forms.edit_wish.elements.WishList_ID.value=this.value; document.forms.edit_wish.submit();">
+																	<option value="">Select Wish List</option>
+																	<mvt:foreach iterator="wishlist" array="customerwishlists:wishlists">
+																		<option value="&mvte:wishlist:id;">&mvte:wishlist:title;</option>
+																	</mvt:foreach>
+																</select>
+															</div>
+														</li>
 													</ul>
 												<mvt:elseif expr="NOT ISNULL l.settings:wishlistitem:notes">
 													<p>Notes: &mvte:wishlistitem:notes;</p>

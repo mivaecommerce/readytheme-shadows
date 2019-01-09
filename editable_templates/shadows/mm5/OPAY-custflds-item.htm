@@ -37,7 +37,11 @@
 		<p class="c-heading-echo u-text-uppercase u-text-bold">Shipping Method</p>
 		<hr class="c-keyline">
 		<p class="u-font-small u-color-gray-40">
-			&mvt:global:basket:ship_data;<br>
+			<mvt:foreach iterator="charge" array="basket:charges">
+				<mvt:if expr="l.settings:charge:type EQ 'SHIPPING'">
+					<mvt:eval expr="glosub(l.settings:charge:descrip, 'Shipping:', '')"/><br>
+				</mvt:if>
+			</mvt:foreach>
 			<a class="u-text-uppercase u-font-tiny u-color-black" href="&mvte:urls:OSEL:secure;">Edit</a>
 		</p>
 	</div>

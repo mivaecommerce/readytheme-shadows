@@ -1,31 +1,41 @@
 <mvt:item name="readytheme" param="contentsection( 'checkout_steps' )" />
 
-<mvt:if expr="g.Basket:cust_id EQ 0">
-	<div class="x-messages t-ocst-account-message">
-		<input id="checkoutLogIn" class="u-hidden t-checkout-log-in__trigger" type="checkbox">
-		Already have an account? <label class="t-checkout-log-in__label u-color-black u-text-bold" for="checkoutLogIn" title="Click Here to Log Into Your Account">Click here to log in</label> or you can continue as a guest.
-
-		<form class="t-checkout-log-in__form" method="post" action="&mvte:urls:CACT:secure;" autocomplete="off">
-			<fieldset>
-				<legend>&mvt:page:name;</legend>
-				<input type="hidden" name="current_location" value="&mvte:urls:OINF:secure_sep;">
-				<input type="hidden" name="Order" value="&mvte:global:Order;">
-				<div class="o-layout o-layout--wide">
-					<div class="o-layout__item">
-						<input class="c-form-input c-form-input--large c-control-group__field" type="email" name="register_email" value="&mvte:global:register_email;" autocomplete="email" placeholder="Email" required>
-					</div>
-					<div class="o-layout__item">
-						<div class="c-control-group">
-							<input class="c-form-input c-form-input--large c-control-group__field" type="password" name="register_password" autocomplete="current-password" placeholder="Password" required>
-							<input class="c-button c-button--huge c-control-group__button u-bg-gray-50 u-font-small u-text-bold u-text-uppercase" type="submit" value="Log In">
+<mvt:if expr="l.settings:PaypalExButton:ExpressCheckoutToken">
+	<mvt:comment>
+		<!-- If you are using PayPal Express Checkout, having the log in will disrupt this process! -->
+	</mvt:comment>
+	<p class="x-messages x-messages--info">To continue with your PayPal checkout, enter any required information below and click on "Continue to Shipping".</p>
+<mvt:else>
+	<mvt:if expr="g.Basket:cust_id EQ 0">
+		<div class="x-messages t-ocst-account-message">
+			<input id="checkoutLogIn" class="u-hidden t-checkout-log-in__trigger" type="checkbox">
+			Already have an account? <label class="t-checkout-log-in__label u-color-black u-text-bold" for="checkoutLogIn" title="Click Here to Log Into Your Account">Click here to log in</label> or you can continue as a guest.
+	
+			<form class="t-checkout-log-in__form" method="post" action="&mvte:urls:CACT:secure;" autocomplete="off">
+				<fieldset>
+					<legend>&mvt:page:name;</legend>
+					<input type="hidden" name="current_location" value="&mvte:urls:OINF:secure_sep;">
+					<input type="hidden" name="Order" value="&mvte:global:Order;">
+					<div class="o-layout u-grids-1 u-grids-3--s">
+						<div class="o-layout__item">
+							<input class="c-form-input c-form-input--large c-control-group__field" type="email" name="register_email" value="&mvte:global:register_email;" autocomplete="email" placeholder="Email" required>
+						</div>
+						<div class="o-layout__item">
+							<input class="c-form-input c-form-input--large" type="password" name="register_password" autocomplete="current-password" placeholder="Password" required>
+						</div>
+						<div class="o-layout__item">
+							<input class="c-button c-button--full c-button--huge u-bg-gray-50 u-font-small u-text-bold u-text-uppercase" type="submit" value="Log In">
 						</div>
 					</div>
-				</div>
-			</fieldset>
-		</form>
-
-	</div>
-	<hr class="c-keyline">
+				</fieldset>
+			</form>
+	
+		</div>
+		<hr class="c-keyline">
+	<mvt:else>
+		<p class="u-text-center"><span class="c-heading-echo u-text-bold">Welcome! You're logged in as &mvt:global:customer:ship_fname; &mvt:global:customer:ship_lname;.</span> Not you? <a href="&mvte:urls:OCST:secure_sep;Action=LOGO">Logout</a>.</p>
+		<hr class="c-keyline">
+	</mvt:if>
 </mvt:if>
 
 <mvt:item name="customfields" param="Read_Basket('basket', g.saved_fields)" />

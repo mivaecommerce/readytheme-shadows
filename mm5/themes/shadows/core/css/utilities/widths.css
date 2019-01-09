@@ -460,6 +460,119 @@
 }
 
 
+/* Extra-Large Breakpoint [75em = 1200px]
+   =========================================== */
+@media screen and (min-width: 75em) {
+	.u-width-1--xl {
+		flex-basis: calc(100% / 12 * 1);
+		max-width: calc(100% / 12 * 1);
+	}
+	
+	.u-width-2--xl {
+		flex-basis: calc(100% / 12 * 2);
+		max-width: calc(100% / 12 * 2);
+	}
+	
+	.u-width-3--xl {
+		flex-basis: calc(100% / 12 * 3);
+		max-width: calc(100% / 12 * 3);
+	}
+	
+	.u-width-4--xl {
+		flex-basis: calc(100% / 12 * 4);
+		max-width: calc(100% / 12 * 4);
+	}
+	
+	.u-width-5--xl {
+		flex-basis: calc(100% / 12 * 5);
+		max-width: calc(100% / 12 * 5);
+	}
+	
+	.u-width-6--xl {
+		flex-basis: calc(100% / 12 * 6);
+		max-width: calc(100% / 12 * 6);
+	}
+	
+	.u-width-7--xl {
+		flex-basis: calc(100% / 12 * 7);
+		max-width: calc(100% / 12 * 7);
+	}
+	
+	.u-width-8--xl {
+		flex-basis: calc(100% / 12 * 8);
+		max-width: calc(100% / 12 * 8);
+	}
+	
+	.u-width-9--xl {
+		flex-basis: calc(100% / 12 * 9);
+		max-width: calc(100% / 12 * 9);
+	}
+	
+	.u-width-10--xl {
+		flex-basis: calc(100% / 12 * 10);
+		max-width: calc(100% / 12 * 10);
+	}
+	
+	.u-width-11--xl {
+		flex-basis: calc(100% / 12 * 11);
+		max-width: calc(100% / 12 * 11);
+	}
+	
+	.u-width-12--xl {
+		flex-basis: calc(100% / 12 * 12);
+		max-width: calc(100% / 12 * 12);
+	}
+	
+	
+	/**
+	 * Offset size modifiers.
+	 */
+	.u-offset-1--xl {
+		margin-left: calc(100% / 12 * 1);
+	}
+	
+	.u-offset-2--xl {
+		margin-left: calc(100% / 12 * 2);
+	}
+	
+	.u-offset-3--xl {
+		margin-left: calc(100% / 12 * 3);
+	}
+	
+	.u-offset-4--xl {
+		margin-left: calc(100% / 12 * 4);
+	}
+	
+	.u-offset-5--xl {
+		margin-left: calc(100% / 12 * 5);
+	}
+	
+	.u-offset-6--xl {
+		margin-left: calc(100% / 12 * 6);
+	}
+	
+	.u-offset-7--xl {
+		margin-left: calc(100% / 12 * 7);
+	}
+	
+	.u-offset-8--xl {
+		margin-left: calc(100% / 12 * 8);
+	}
+	
+	.u-offset-9--xl {
+		margin-left: calc(100% / 12 * 9);
+	}
+	
+	.u-offset-10--xl {
+		margin-left: calc(100% / 12 * 10);
+	}
+	
+	.u-offset-11--xl {
+		margin-left: calc(100% / 12 * 11);
+	}
+}
+
+
 /* Wide-Screen Breakpoint [90em = 1440px]
    =========================================== */
 @media screen and (min-width: 90em) {

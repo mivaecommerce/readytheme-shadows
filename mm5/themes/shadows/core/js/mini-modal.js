@@ -53,6 +53,8 @@
 		option('statusTimeout', 300);
 		option('removeTimeout', 300);
 		option('closeTimeout', 300);
+		option('onLoaded', function () {});
+		option('onClosed', function () {});
 		option('googleMapsAPIKey', '');
 
 		_.node = function (html) {
@@ -62,9 +64,9 @@
 			return div.firstChild;
 		};
 
-		_.setup = function () {
-			_.current = target;
-			_.minimodal = _.node('<div class="c-mini-modal" tabindex="0">');
+		_.setup = function (setTarget) {
+			_.current = setTarget ? setTarget : target;
+			_.minimodal = _.node('<div id="active-' + _.current.id + '" class="c-mini-modal" tabindex="0" role="dialog">');
 			_.overlay = _.node('<div class="c-mini-modal__overlay">');
 			_.viewport = _.node('<div class="c-mini-modal__viewport">');
 			_.closeButton = _.node('<button class="c-mini-modal__close">' + _.options.closeButtonHTML + '</button>');
@@ -89,8 +91,11 @@
 				}
 			}, _.options.closeTimeout);
 			document.documentElement.classList.remove('has-active-mini-modal');
-			document.removeEventListener('keydown', _.keydown);
-			target.focus();
+			document.removeEventListener('keyup', _.keypress);
+			if (target) {
+				target.focus();
+			}
+			_.options.onClosed(_.type());
 		};
 
 		_.focusTrap = function (e) {
@@ -108,19 +113,25 @@
 			}
 		};
 
-		_.keydown = function (e) {
-			if (e.keyCode === 9) {
-				_.focusTrap(e);
+		_.keypress = function (event) {
+			var key = event.key || event.keyCode;
+
+			/* Tab Key */
+			if (key === 'Tab' || key === 9) {
+				_.focusTrap(event);
 			}
-			else if (e.keyCode === 27) {
+			/* Esc Key */
+			else if (key === 'Escape' || key === 27) {
 				_.close();
 			}
-			else if (e.keyCode === 37) {
+			/* Right Arrow */
+			else if (key === 'ArrowRight' || key === 37) {
 				if (_.index > -1) {
 					_.previous();
 				}
 			}
-			else if (e.keyCode === 39) {
+			/* Left Arrow */
+			else if (key === 'ArrowLeft' || key === 39) {
 				if (_.index > -1) {
 					_.next();
 				}
@@ -130,7 +141,7 @@
 		_.listen = function () {
 			_.overlay.addEventListener('click', _.close);
 			_.closeButton.addEventListener('click', _.close);
-			document.addEventListener('keydown', _.keydown);
+			document.addEventListener('keyup', _.keypress);
 		};
 
 		_.reflow = function () {
@@ -162,6 +173,7 @@
 			_.reflow();
 			_.item.classList.add('c-mini-modal__item--loaded');
 			_.openCallback();
+			_.options.onLoaded(_.type());
 		};
 
 		_.openCallback = function () {
@@ -171,9 +183,6 @@
 				//console.log('this is a function');
 				_.item.setAttribute('data-hook', openCallback);
 				mivaJS[openCallback](_.item.getAttribute('data-hook'));
-			}
-			else {
-				//console.warn('oops');
 			}
 		};
 
@@ -198,6 +207,7 @@
 				if (url === _.url) {
 					if (request.status >= 200 && request.status < 400) {
 						var response = request.responseText;
+
 						_.content = _.node('<div class="c-mini-modal__content"><div class="c-mini-modal__element">' + response);
 						_.loaded();
 					}
@@ -225,7 +235,9 @@
 			}
 			else {
 				var coords = _.url.match('(?:/maps/@)([^z]+)')[1];
+
 				coords = coords.split(',');
+
 				var lat = coords[0];
 				var long = coords[1];
 				var zoom = coords[2];
@@ -276,10 +288,11 @@
 					if (inlineContent.nodeName.toLowerCase() === 'img') {
 						var img = document.createElement('img');
 						var imgSrc = inlineContent.getAttribute('src');
+						var imgAlt = inlineContent.getAttribute('alt');
 
 						img.onload = function () {
 							if (url === _.url) {
-								_.content = _.node('<div class="c-mini-modal__content"><img class="c-mini-modal__element" src="' + imgSrc + '">');
+								_.content = _.node('<div class="c-mini-modal__content"><img class="c-mini-modal__element" src="' + imgSrc + '" alt="' + imgAlt + '">');
 								_.loaded();
 							}
 						};
@@ -354,6 +367,7 @@
 
 		_.remove = function (change) {
 			var item = _.item;
+
 			item.classList.add('c-mini-modal__item--removed');
 			item.classList.add('c-mini-modal__item--removed--' + change);
 			setTimeout(function () {
@@ -417,6 +431,26 @@
 			_.listen();
 			_.load();
 			_.group();
+		};
+
+		_.openModal = function (setTarget) {
+			_.setup(setTarget);
+			_.build();
+			_.listen();
+			_.load();
+			_.group();
+		};
+
+		_.closeModal = function (activeModal) {
+			activeModal.classList.remove('c-mini-modal--active');
+			setTimeout(function () {
+				if (activeModal.parentNode) {
+					activeModal.parentNode.removeChild(activeModal);
+				}
+			}, _.options.closeTimeout);
+			document.documentElement.classList.remove('has-active-mini-modal');
+			document.removeEventListener('keyup', _.keypress);
+			_.options.onClosed();
 		};
 
 		_.init = function () {

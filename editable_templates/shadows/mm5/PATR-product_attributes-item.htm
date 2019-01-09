@@ -147,7 +147,7 @@
 		<mvt:if expr="l.settings:subscription:mandatory">
 			<label class="c-form-label &mvt:required_attribute_classes;" for="l-subscription" title="Subscribe">Select Subscription</label>
 			<div class="c-form-select">
-				<select id="l-subscription" class="c-form-select__dropdown" name="Product_Subscription_Term_ID" &mvt:required_attribute;>
+				<select id="l-subscription" class="c-form-select__dropdown c-form-input--large" name="Product_Subscription_Term_ID" &mvt:required_attribute;>
 					<mvt:foreach iterator="term" array="subscription:terms">
 						<option value="&mvte:term:id;">&mvte:term:descrip;</option>
 					</mvt:foreach>
@@ -156,7 +156,7 @@
 		<mvt:else>
 			<label class="c-form-label" for="l-subscription" title="Subscribe">Select Subscription</label>
 			<div class="c-form-select">
-				<select id="l-subscription" class="c-form-select__dropdown" name="Product_Subscription_Term_ID">
+				<select id="l-subscription" class="c-form-select__dropdown c-form-input--large" name="Product_Subscription_Term_ID">
 					<option value="0">One Time Purchase</option>
 					<mvt:foreach iterator="term" array="subscription:terms">
 						<option value="&mvte:term:id;">&mvte:term:descrip;</option>
