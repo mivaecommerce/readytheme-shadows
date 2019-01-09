@@ -24,6 +24,7 @@
 				var value = parseInt(input.value);
 				var action = button.getAttribute('data-action');
 				var changed = document.createEvent('HTMLEvents');
+				var groupForm = document.querySelector('[data-hook="' + input.getAttribute('data-group') + '"]');
 
 				changed.initEvent('change', true, false);
 				event.stopPropagation();
@@ -48,6 +49,9 @@
 					value = value + 1;
 
 					input.value = value;
+					if (groupForm) {
+						groupForm.elements['Action'].value = 'QTYG';
+					}
 					input.dispatchEvent(changed);
 					allowRemoveUpdate();
 				}
@@ -66,14 +70,21 @@
 			for (var id = 0; id < quantities.length; id++) {
 				var quantityLine = quantities[id];
 				var removeToggle = quantityLine.previousElementSibling;
+				var groupForm = document.querySelector('[data-hook="' + quantityLine.getAttribute('data-group') + '"]');
 
 				if (removeToggle.dataset.hook !== 'remove') {
 					if (quantityLine.value > '1') {
+						if (groupForm) {
+							groupForm.elements['Action'].value = 'QTYG';
+						}
 						removeToggle.classList.remove('u-icon-remove');
 						removeToggle.classList.add('u-icon-subtract');
 						removeToggle.setAttribute('data-action', 'decrement');
 					}
 					else {
+						if (groupForm) {
+							groupForm.elements['Action'].value = 'RGRP';
+						}
 						removeToggle.classList.remove('u-icon-subtract');
 						removeToggle.classList.add('u-icon-remove');
 						removeToggle.setAttribute('data-action', 'remove');

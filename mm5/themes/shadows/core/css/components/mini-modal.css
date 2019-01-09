@@ -99,6 +99,7 @@
 		margin: auto;
 		position: relative;
 		top: 50%;
+		overflow: auto;
 		transform: translateY(-50%);
 		pointer-events: auto;
 	}

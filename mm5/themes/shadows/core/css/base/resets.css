@@ -118,3 +118,48 @@ img::-moz-selection {
 *[disabled] {
 	cursor: not-allowed;
 }
+
+
+
+
+
+/**
+ * Breakpoints
+ * These values will not show up in content, but can be queried by JavaScript
+ * to know which breakpoint is active.
+ */
+body::before {
+	display: none;
+	content: "xsmall";
+	visibility: hidden;
+}
+
+@media (min-width: 40em) {
+	body::before {
+		content: "small";
+	}
+}
+
+@media (min-width: 48em) {
+	body::before {
+		content: "medium";
+	}
+}
+
+@media (min-width: 60em) {
+	body::before {
+		content: "large";
+	}
+}
+
+@media (min-width: 75em) {
+	body::before {
+		content: "xlarge";
+	}
+}
+
+@media (min-width: 90em) {
+	body::before {
+		content: "wide";
+	}
+}

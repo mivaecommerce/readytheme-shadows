@@ -215,7 +215,8 @@
 	}
 	
 	.c-form-checkbox__caption {
-		display: block;
+		display: flex;
+		align-items: center;
 		position: relative;
 		margin-left: calc(1em + 1em);
 		user-select: none;
@@ -224,7 +225,6 @@
 	.c-form-checkbox__caption::before {
 		display: inline-block;
 		position: relative;
-		top: calc(1em / 8);
 		width: 1em;
 		height: 1em;
 		margin-right: 1em;
@@ -250,7 +250,6 @@
 	
 	.c-form-checkbox__input:checked + .c-form-checkbox__caption::after {
 		position: absolute;
-		top: calc(1em / 8 + 1px * 2);
 		left: calc(0px - (1em + 1em));
 		width: calc(1em + 1px);
 		height: calc(1em + 1px);

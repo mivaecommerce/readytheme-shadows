@@ -1,4 +1,4 @@
-<section class="o-layout o-layout--wide u-grids-1 u-grids-2--m x-product-layout" xmlns:mvt="http://www.w3.org/1999/html">
+<section class="o-layout o-layout--wide u-grids-1 u-grids-2--m x-product-layout">
 	<figure class="o-layout__item u-text-center x-product-layout-images">
 		<a data-mini-modal data-mini-modal-type="inline" href="#closeup_image" title="&mvte:product:name;">
 			<img id="main_image" class="x-product-layout-images__image" src="graphics/en-US/cssui/blank.gif" alt="&mvte:product:name;" title="&mvte:product:name;">
@@ -56,25 +56,35 @@
 							</p>
 						</mvt:foreach>
 					</div>
-					<mvt:if expr="l.settings:product:weight NE 0">
-						<p class="x-product-layout-purchase__product-weight u-font-small">
-							Shipping Weight: <strong>&mvt:product:weight;</strong> &mvt:store:wtunits;
-						</p>
-					</mvt:if>
+					
+					<mvt:comment>
+						<!-- If you would like to display the product weight, uncomment this section. -->
+						<mvt:if expr="l.settings:product:weight NE 0">
+							<p class="x-product-layout-purchase__product-weight u-font-small">
+								Shipping Weight: <strong>&mvt:product:weight;</strong> &mvt:store:wtunits;
+							</p>
+						</mvt:if>
+					</mvt:comment>
+					
 					<mvt:if expr="l.settings:product:inv_active OR l.settings:attributemachine:product:inv_active">
 						<div id="inventory-message" class="x-product-layout-purchase__inventory-message">
 							<link itemprop="availability" href="http://schema.org/&mvt:product:inv_short;">
 							<div class="x-messages x-messages--info">&mvt:product:inv_long;</div>
 						</div>
 					</mvt:if>
-					<p class="x-product-layout-purchase__product-quantity u-font-tiny">
-						Quantity in Basket:&nbsp;
-						<mvt:if expr="l.settings:product:quantity EQ 0">
-							<em>None</em>
-						<mvt:else>
-							<strong>&mvt:product:quantity;</strong>
-						</mvt:if>
-					</p>
+					
+					<mvt:comment>
+						<!-- If you would like to display the product quantity in basket, uncomment this section. -->
+						<p class="x-product-layout-purchase__product-quantity u-font-tiny">
+							Quantity in Basket:&nbsp;
+							<mvt:if expr="l.settings:product:quantity EQ 0">
+								<em>None</em>
+							<mvt:else>
+								<strong>&mvt:product:quantity;</strong>
+							</mvt:if>
+						</p>
+					</mvt:comment>
+					
 				</li>
 				<mvt:item name="discount_volume" param="product:id" />
 				<li class="o-layout c-form-list__item u-grids-1 u-grids-2--m x-product-layout-purchase__options u-color-gray-40">

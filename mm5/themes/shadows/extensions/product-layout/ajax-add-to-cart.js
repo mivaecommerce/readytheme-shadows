@@ -57,7 +57,7 @@
 					var response = request.response;
 
 					if (response.body.id === 'js-BASK') {
-						var basketData = response.querySelector('[data-hook="basket"]');
+						var basketData = response.querySelector('[data-hook="mini-basket"]');
 						var basketCount = basketData.getAttribute('data-item-count');
 						var basketSubtotal = basketData.getAttribute('data-subtotal');
 
@@ -133,7 +133,7 @@
 			 * The first argument is the post type (GET, POST, PUT, DELETE, etc.)
 			 * The second argument is the endpoint URL
 			 */
-			request.open(purchaseForm.method, purchaseForm.action);
+			request.open(purchaseForm.method, purchaseForm.action, true);
 			request.responseType = 'document';
 			request.send(data);
 		}

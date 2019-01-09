@@ -69,17 +69,6 @@ textarea {
 }
 
 
-/**
- * Shadows Specific Font Pack
- */
-@font-face {
-	font-family: 'ReadyTheme Icons';
-	font-style: normal;
-	font-weight: normal;
-	src: url('ShadowsFontPack.woff') format('woff');
-}
-
-
 .x-messages {
 	margin-bottom: 1rem;
 	padding: 0.75em 1.25em;
@@ -914,8 +903,8 @@ textarea {
 /* Checkout Pages
     =========================================== */
 .t-ocst-account-message {
-	display: inline-block;
-	padding: 1em 2em;
+	display: block;
+	padding: 2em;
 	font-size: 0.75rem;
 }
 
@@ -928,9 +917,13 @@ textarea {
 		transition-delay: 0.15s, 0s, 0s;
 	}
 
+	.t-checkout-log-in__label {
+		cursor: pointer;
+	}
+
 	.t-checkout-log-in__trigger:checked ~ .t-checkout-log-in__form {
 		display: block;
-		max-height: 4rem;
+		max-height: 9rem;
 		padding-top: 1em;
 		opacity: 1;
 		overflow: hidden;

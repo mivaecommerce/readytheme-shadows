@@ -178,6 +178,40 @@
 }
 
 
+/* Extra-Large Breakpoint [75em = 1200px]
+   =========================================== */
+@media screen and (min-width: 75em) {
+	.u-hidden--xl {
+		display: none;
+	}
+	
+	.u-invisible--xl {
+		visibility: hidden;
+	}
+	
+	.u-flex--xl {
+		display: flex;
+	}
+	
+	.u-block--xl,
+	.u-shown--xl {
+		display: block;
+	}
+	
+	.u-inline--xl {
+		display: inline;
+	}
+	
+	.u-inline-block--xl {
+		display: inline-block;
+	}
+	
+	.u-visible--xl {
+		visibility: visible;
+	}
+}
+
+
 /* Wide-Screen Breakpoint [90em = 1440px]
    =========================================== */
 @media screen and (min-width: 90em) {

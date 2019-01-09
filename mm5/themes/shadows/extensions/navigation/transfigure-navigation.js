@@ -7,35 +7,36 @@
 	 * License: MIT
 	 */
 	$.fn.doubleTapToGo = function () {
-		if ('ontouchstart' in window) {
-			this.each(function () {
-				var curItem = false;
-
-				$(this).on('click', function (event) {
-					var item = $(this);
-
-					if (item[0] !== curItem[0]) {
-						event.preventDefault();
-						curItem = item;
-					}
-				});
-
-				$(document).on('click', function (event) {
-					var resetItem = true,
-						parents = $(event.target).parents();
-
-					for (var i = 0; i < parents.length; i++) {
-						if (parents[i] === curItem[0]) {
-							resetItem = false;
-						}
-					}
-					if (resetItem) {
-						curItem = false;
-					}
-				});
-			});
+		if (!('ontouchstart' in window) && window.DocumentTouch && document instanceof DocumentTouch) {
+			return false;
 		}
 
+		this.each(function () {
+			var curItem = false;
+
+			$(this).on('click', function (event) {
+				var item = $(this);
+
+				if (item[0] !== curItem[0]) {
+					event.preventDefault();
+					curItem = item;
+				}
+			});
+
+			$(document).on('click touchstart MSPointerDown', function (event) {
+				var resetItem = true,
+					parents = $(event.target).parents();
+
+				for (var i = 0; i < parents.length; i++) {
+					if (parents[i] === curItem[0]) {
+						resetItem = false;
+					}
+				}
+				if (resetItem) {
+					curItem = false;
+				}
+			});
+		});
 		return this;
 	};
 

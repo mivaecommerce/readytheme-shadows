@@ -68,8 +68,8 @@ $.extend({
 		 * 		DO SOMETHING...
 		 * });
 		 */
-		var head = document.getElementsByTagName('head')[0],
-			scriptCalled = document.createElement('script');
+		var head = document.getElementsByTagName('head')[0];
+		var scriptCalled = document.createElement('script');
 
 		scriptCalled.async = true;
 		scriptCalled.src = url;
@@ -115,6 +115,8 @@ $.extend({
 		html.setAttribute('data-touch', '');
 		window.USER_IS_TOUCHING = true;
 		sessionStorage.setItem('USER_IS_TOUCHING', true);
+		window.USER_CAN_HOVER = false;
+		sessionStorage.setItem('USER_CAN_HOVER', false);
 		window.removeEventListener('touchstart', onFirstTouch, false);
 	}, false);
 
@@ -124,9 +126,53 @@ $.extend({
 	window.addEventListener('mouseover', function onFirstHover() {
 		window.USER_CAN_HOVER = true;
 		sessionStorage.setItem('USER_CAN_HOVER', true);
+		html.classList.remove('touch');
+		html.removeAttribute('data-touch');
+		window.USER_IS_TOUCHING = false;
+		sessionStorage.setItem('USER_IS_TOUCHING', false);
 		window.removeEventListener('mouseover', onFirstHover, false);
 	}, false);
 }());
+
+
+/**
+ * Breakpoints
+ * This function will retrieve the breakpoint value set via CSS. You can use
+ * this to trigger a function based on the predefined breakpoints rather than
+ * a randomly chosen one.
+ *
+ * Usage:
+ * if (breakpoint === 'medium') {
+ *     yourFunctionCall();
+ * }
+ */
+// Setup the breakpoint variable
+var breakpoint;
+
+// Get the current breakpoint
+var getBreakpoint = function () {
+	return window.getComputedStyle(document.body, '::before').content.replace(/\"/g, '');
+};
+
+// Setup a timer
+var timeout;
+
+// Calculate breakpoint on page load
+breakpoint = getBreakpoint();
+
+// Listen for resize events
+window.addEventListener('resize', function (event) {
+	// If there's a timer, cancel it
+	if (timeout) {
+		window.cancelAnimationFrame(timeout);
+	}
+
+	// Setup the new requestAnimationFrame()
+	timeout = window.requestAnimationFrame(function () {
+		breakpoint = getBreakpoint();
+	});
+
+}, false);
 
 
 /**
@@ -248,21 +294,30 @@ var elementsUI = {
 
 
 		/**
-		 * Load the `mini-modal.js` file and initialize functions.
+		 * Load the `mini-modal.js` file and initialize functions if modal elements exist.
 		 * This is the default set of modal/light box functionality supplied with the framework.
 		 */
-		$.loadScript(theme_path + 'core/js/mini-modal.js', function () {
-			var targets = document.querySelectorAll('[data-mini-modal]');
+		var targets = document.querySelectorAll('[data-mini-modal]');
 
-			for (var i = 0; i < targets.length; i += 1) {
-				var modal = minimodal(targets[i], {
-					// If you are using, and have, a Google Maps API Key, enter it here.
-					googleMapsAPIKey: ''
-				});
+		if (targets.length) {
+			$.loadScript(theme_path + 'core/js/mini-modal.js', function () {
+				for (var i = 0; i < targets.length; i += 1) {
+					var modal = minimodal(targets[i], {
+						// If you would like a global onLoaded callback, add your function here
+						//onLoaded: function () {},
+						// If you would like a global onClosed callback, add your function here
+						//onClosed: function () {},
+						// If you are using, and have, a Google Maps API Key, enter it here.
+						googleMapsAPIKey: ''
+					});
 
-				modal.init();
-			}
-		});
+					if (!targets[i].id) {
+						targets[i].id = 'miniModal_' + i;
+					}
+					modal.init();
+				}
+			});
+		}
 
 
 		/**
@@ -395,6 +450,91 @@ var elementsUI = {
 		},
 
 		jsOCST: function () {
+			/**
+			 * Use AJAX for coupon form to prevent page refresh.
+			 * https://github.com/mivaecommerce/readytheme-shadows/issues/54
+			 */
+			(function (document) {
+				'use strict';
+
+				document.addEventListener('click', function (evt) {
+					var submitButton = document.querySelector('[data-hook="basket__coupon-form-submit"]');
+					var submitButtonText = ((submitButton.nodeName.toLowerCase() === 'input') ? submitButton.value : submitButton.textContent);
+					var ajaxForm = document.querySelector('[data-hook="basket__coupon-form"]');
+
+					if (evt.target.matches('[data-hook="basket__coupon-form-submit"]')) {
+						evt.preventDefault();
+						evt.stopImmediatePropagation();
+
+						var data = new FormData(ajaxForm);
+						var request = new XMLHttpRequest(); // Set up our HTTP request
+
+						ajaxForm.setAttribute('data-status', 'idle');
+
+						if (ajaxForm.getAttribute('data-status') !== 'submitting') {
+							ajaxForm.setAttribute('data-status', 'submitting');
+							submitButton.setAttribute('disabled', 'disabled');
+
+							if (submitButton.nodeName.toLowerCase() === 'input') {
+								submitButton.value = 'Processing...';
+							}
+							else {
+								submitButton.textContent = 'Processing...';
+							}
+
+							document.querySelector('#messages').parentNode.removeChild(document.querySelector('#messages'));
+
+							// Setup our listener to process completed requests
+							request.onreadystatechange = function () {
+								// Only run if the request is complete
+								if (request.readyState !== 4) {
+									return;
+								}
+
+								// Process our return data
+								if (request.status === 200) {
+									// What do when the request is successful
+									var response = request.response;
+									var basketSummary = response.querySelector('#checkout_basket_summary');
+									var responseMessage = response.querySelector('#messages');
+
+									response.querySelector('[data-hook="basket__coupon-form"]').parentElement.prepend(responseMessage);
+									document.querySelector('#checkout_basket_summary').innerHTML = basketSummary.innerHTML;
+
+
+									// Reset button text and form status
+									submitButton.removeAttribute('disabled');
+
+									if (submitButton.nodeName.toLowerCase() === 'input') {
+										submitButton.value = submitButtonText;
+									}
+									else {
+										submitButton.textContent = submitButtonText;
+									}
+
+									ajaxForm.setAttribute('data-status', 'idle');
+								}
+								else {
+									// What do when the request fails
+									console.warn('The request failed!');
+									ajaxForm.setAttribute('data-status', 'idle');
+								}
+							};
+
+							/**
+							 * Create and send a request
+							 * The first argument is the post type (GET, POST, PUT, DELETE, etc.)
+							 * The second argument is the endpoint URL
+							 */
+							request.open(ajaxForm.method, ajaxForm.action, true);
+							request.responseType = 'document';
+							request.send(data);
+						}
+					}
+				}, false);
+
+			}(document));
+
 		},
 
 		jsOSEL: function () {
@@ -405,7 +545,7 @@ var elementsUI = {
 			 * Credit Card Detection
 			 */
 			$.loadScript(theme_path + 'core/js/payment-method.js', function () {
-				$.hook('detect-card').on('input', function () {
+				$.hook('detect-card').on('input paste', function () {
 					var cardInput = this;
 
 					if (isNaN(this.value)) {

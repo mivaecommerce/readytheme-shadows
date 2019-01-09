@@ -194,9 +194,30 @@
 				self.touchHandler(e);
 			}
 
-			elem.addEventListener('touchstart', handleEvent, false);
-			elem.addEventListener('touchmove', handleEvent, false);
-			elem.addEventListener('touchend', handleEvent, false);
+			/**
+			 * Because older browsers will interpret any object in the 3rd
+			 * argument as a true value for the capture argument, we are using
+			 * feature detection for the passive EventListenerOption.
+			 */
+			var passiveSupported = false;
+
+			try {
+				var options = {
+					get passive() {
+						passiveSupported = true;
+					}
+				};
+
+				window.addEventListener('test', options, options);
+				window.removeEventListener('test', options, options);
+			}
+			catch (err) {
+				passiveSupported = false;
+			}
+
+			elem.addEventListener('touchstart', handleEvent, passiveSupported ? {passive: true} : false);
+			elem.addEventListener('touchmove', handleEvent, passiveSupported ? {passive: true} : false);
+			elem.addEventListener('touchend', handleEvent, passiveSupported ? {passive: true} : false);
 		}
 
 		Glide.prototype.touches = {
@@ -371,7 +392,31 @@
 		};
 
 		var hideCTA = function (carouselItems, carouselItemElements, carouselPrevious, carouselNext, settings) {
-			if (window.matchMedia('(min-width: 768px) and (max-width: 959px)').matches) {
+			if (window.matchMedia('(max-width: 639px)').matches) {
+				if (carouselItemElements < settings.groupTiny) {
+					carouselItems[0].style.justifyContent = 'center';
+					carouselPrevious.style.display = 'none';
+					carouselNext.style.display = 'none';
+				}
+				else {
+					carouselItems.style.justifyContent = 'flex-start';
+					carouselPrevious.style.display = 'inline-block';
+					carouselNext.style.display = 'inline-block';
+				}
+			}
+			else if (window.matchMedia('(min-width: 640px) and (max-width: 767px)').matches) {
+				if (carouselItemElements < settings.groupSmall) {
+					carouselItems[0].style.justifyContent = 'center';
+					carouselPrevious.style.display = 'none';
+					carouselNext.style.display = 'none';
+				}
+				else {
+					carouselItems.style.justifyContent = 'flex-start';
+					carouselPrevious.style.display = 'inline-block';
+					carouselNext.style.display = 'inline-block';
+				}
+			}
+			else if (window.matchMedia('(min-width: 768px) and (max-width: 959px)').matches) {
 				if (carouselItemElements < settings.groupMedium) {
 					carouselItems[0].style.justifyContent = 'center';
 					carouselPrevious.style.display = 'none';
