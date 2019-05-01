@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 There have been a few housekeeping items taken care of in this update. Most notably, the addition of subdirectories for 
 some of the extensions. This is to facilitate better organization and documentation for future extensions.
 
+The extensions affected, at this time, are the breadcrumbs and navigation.
+- The collapsing breadcrumbs extension has been moved to a subdirectory of breadcrumbs called collapsing.
+- The drop-down, overflow, and overlay navigation extensions have been moved to their respective directories under navigation.
+
 #### Added
 - Support for the new [Customer Password Reset](https://docs.miva.com/how-to-guide/customer-password-reset) functionality introduced in 9.13.
 - Support for the new [Combined Resource](https://docs.miva.com/how-to-guides/javascript-asset-management#combined-resources) and [Deferred JavaScript](https://docs.miva.com/how-to-guides/deferred-javascript) functionality introduced in 9.13.
