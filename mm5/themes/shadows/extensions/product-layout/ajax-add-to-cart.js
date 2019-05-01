@@ -19,7 +19,11 @@
 	var miniBasketCount = document.querySelectorAll('[data-hook~="mini-basket-count"]');
 	var miniBasketAmount = document.querySelectorAll('[data-hook~="mini-basket-amount"]');
 
-	purchaseButton.addEventListener('click', function (evt) {
+	purchaseForm.addEventListener('submit', function (evt) {
+		if (purchaseFormActionInput.value !== 'ADPR') {
+			return;
+		}
+
 		evt.preventDefault();
 		evt.stopImmediatePropagation();
 

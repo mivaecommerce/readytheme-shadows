@@ -54,12 +54,12 @@ off-canvas menu on smaller screens.
 
 ## Browser Support
 
-- Chrome v49+ (or last two)
-- Firefox v31+ (or last two)
-- Safari v9.1+ (or last two)
-- iOS Safari v9.3+ (or last two)
-- Opera v36+ (or last two)
-- Edge (or last two)
+- Chrome (_latest 2_)
+- Firefox (_latest 2_)
+- Safari (_latest 2_)
+- iOS Safari (_latest 2_)
+- Opera (_latest 2_)
+- Edge (_latest 2_)
 	- Internet Explorer 11 has minimal support.
 
 ## Contributing

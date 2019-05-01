@@ -1,42 +1,43 @@
 (function ($, window, document) {
 	'use strict';
 
+	var touchCapable = 'ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+
 	/**
 	 * Double Tap To Go [http://osvaldas.info/drop-down-navigation-responsive-and-touch-friendly]
 	 * By: Osvaldas Valutis [http://www.osvaldas.info]
 	 * License: MIT
 	 */
 	$.fn.doubleTapToGo = function () {
-		if (!('ontouchstart' in window) && window.DocumentTouch && document instanceof DocumentTouch) {
-			return false;
+		if (touchCapable) {
+			this.each(function () {
+				var curItem = false;
+
+				$(this).on('click', function (event) {
+					var item = $(this);
+
+					if (item[0] !== curItem[0]) {
+						event.preventDefault();
+						curItem = item;
+					}
+				});
+
+				$(document).on('click touchstart MSPointerDown', function (event) {
+					var resetItem = true,
+						parents = $(event.target).parents();
+
+					for (var i = 0; i < parents.length; i++) {
+						if (parents[i] === curItem[0]) {
+							resetItem = false;
+						}
+					}
+					if (resetItem) {
+						curItem = false;
+					}
+				});
+			});
 		}
 
-		this.each(function () {
-			var curItem = false;
-
-			$(this).on('click', function (event) {
-				var item = $(this);
-
-				if (item[0] !== curItem[0]) {
-					event.preventDefault();
-					curItem = item;
-				}
-			});
-
-			$(document).on('click touchstart MSPointerDown', function (event) {
-				var resetItem = true,
-					parents = $(event.target).parents();
-
-				for (var i = 0; i < parents.length; i++) {
-					if (parents[i] === curItem[0]) {
-						resetItem = false;
-					}
-				}
-				if (resetItem) {
-					curItem = false;
-				}
-			});
-		});
 		return this;
 	};
 

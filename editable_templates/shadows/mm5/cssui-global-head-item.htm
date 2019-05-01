@@ -6,9 +6,3 @@
 	<link rel="canonical" href="&mvte:urls:_self:auto;" itemprop="url">
 </mvt:if>
 <mvt:item name="prodctgy_meta" param="combined" />
-
-<mvt:item name="readytheme" param="Load_ContentSection('readytheme_styles')" />
-<mvt:if expr="l.settings:readytheme:loaded:active">
-	<mvt:do name="l.return" file="g.Module_Feature_TUI_DB" value="ManagedTemplate_Load_ID( l.settings:readytheme:loaded:templ_id, l.loaded_template )" />
-	<mvt:do name="l.null" file="g.Store_Template_Path $ l.loaded_template:filename" value="Template_Render( l.null, l.all_settings )" />
-</mvt:if>

@@ -331,6 +331,11 @@ FileETag None
     ExpiresByType text/javascript                       "access plus 1 year"
     ExpiresByType text/x-javascript                     "access plus 1 year"
 
+    # If the site is using a service worker, do not cache it.
+    <FilesMatch "service-worker.js">
+    	ExpiresDefault "access plus 0 seconds"
+    </FilesMatch>
+
 
   # Manifest files
 

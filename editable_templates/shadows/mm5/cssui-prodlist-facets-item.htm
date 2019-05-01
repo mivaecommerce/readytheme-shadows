@@ -199,6 +199,29 @@
 									<mvt:elseif expr="l.settings:facet:type EQ 'rangeslider'">
 										<mvt:assign name="l.settings:mm_facet_rangeslider_present" value="1" />
 										<span class="mm_facet_rangeslider mm_facet_rangeslider_mini" data-mm-facet-code="&mvte:facet:code;" data-mm-facet-module-code="&mvte:facet:module:code;" data-mm-facet-rangeslider-name="&mvte:facet:code;" data-mm-facet-rangeslider-range-low="&mvte:facet:value_low;" data-mm-facet-rangeslider-range-high="&mvte:facet:value_high;" data-mm-facet-rangeslider-selected-range-low="&mvte:facet:selected_value_low;"	data-mm-facet-rangeslider-selected-range-high="&mvte:facet:selected_value_high;"></span>
+									
+										<script>
+											/**
+											 * This function will reinitialize the Range Sliders when the page resizes.
+											 */
+											var animationTimeout;
+											var rangeSliders = document.querySelectorAll('[data-mm-facet-rangeslider-name]');
+											
+											window.addEventListener('resize', function () {
+												'use strict';
+										
+												if (animationTimeout) {
+													window.cancelAnimationFrame(animationTimeout);
+												}
+										
+												animationTimeout = window.requestAnimationFrame(function () {
+													if (rangeSliders.length > 0) {
+														MMFacet_RangeSlider_Initialize();
+													}
+												});
+											}, false);
+										</script>
+										
 									<mvt:elseif expr="l.settings:facet:type EQ 'nested'">
 										<mvt:assign name="l.settings:nested_facet:level" value="1" />
 										<mvt:foreach iterator="applied_value" array="facet:applied_values">

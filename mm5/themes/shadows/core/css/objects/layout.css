@@ -96,13 +96,20 @@
  * Use o-layout--column to set the flex items vertically.
  */
 .o-layout--column {
+	align-items: flex-start;
 	flex-direction: column;
 }
+
+	.o-layout--column > .o-layout__item[class*='u-width-12'],
+	.o-layout--column-reverse > .o-layout__item[class*='u-width-12'] {
+		width: 100%;
+	}
 
 /**
  * Same as column, but reversed.
  */
 .o-layout--column-reverse {
+	align-items: flex-start;
 	flex-direction: column-reverse;
 }
 

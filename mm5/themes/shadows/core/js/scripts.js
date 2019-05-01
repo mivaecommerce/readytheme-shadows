@@ -386,8 +386,12 @@ var elementsUI = {
 			/**
 			 * This removes the default Miva `closeup_backing` container.
 			 */
+			var closeupBacking = document.querySelector('div.closeup_backing');
+
 			window.addEventListener('load', function () {
-				document.querySelector('div.closeup_backing').parentNode.removeChild(document.querySelector('div.closeup_backing'));
+				if (closeupBacking) {
+					closeupBacking.parentNode.removeChild(document.querySelector('div.closeup_backing'));
+				}
 			});
 
 		},
