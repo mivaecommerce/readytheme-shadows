@@ -62,10 +62,13 @@ textarea {
 
 
 .c-form-checkbox__input:checked + .c-form-checkbox__caption::after {
-	background: none;
-	background-color: #0f0f0f;
+	top: 50%;
+	background: #0f0f0f none;
 	border: 1px solid currentColor;
 	box-shadow: inset 0 0 0 2px #fff;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
 
 
@@ -335,9 +338,9 @@ textarea {
 			}
 
 			.t-site-header__masthead-links a:first-of-type {
-				margin-right: 1.5em;
+				margin-right: 1em;
 				padding-top: 0.5em;
-				padding-right: calc(1.5em + 1px);
+				padding-right: calc(1em + 1px);
 				padding-bottom: 0.5em;
 				border-right: 1px solid #eaeaea;
 			}

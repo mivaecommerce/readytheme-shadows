@@ -13,7 +13,9 @@
 	
 	.x-category-tree__trigger:checked ~ .x-category-tree__row,
 	.x-category-tree__trigger:checked ~ .x-category-tree__row .x-category-tree__row {
-		display: block;
+		max-height: 100%;
+		opacity: 1;
+		visibility: visible;
 	}
 	
 	.x-category-tree__label {
@@ -63,11 +65,14 @@
 	
 	
 	.x-category-tree__row {
-		display: none;
 		width: 100%;
+		max-height: 0;
 		margin: 0;
 		padding: 0;
 		list-style: none;
+		opacity: 0;
+		visibility: hidden;
+		transition: 0.2s ease-in-out;
 	}
 	
 		.x-category-tree__link {
@@ -109,7 +114,9 @@
 		.x-category-tree__row,
 		.x-category-tree__trigger:checked ~ .x-category-tree__row,
 		.x-category-tree__trigger:checked ~ .x-category-tree__row .x-category-tree__row {
-			display: block;
+			max-height: 100%;
+			opacity: 1;
+			visibility: visible;
 		}
 		
 		.x-category-tree__link:not(.x-category-tree__link--current):hover {

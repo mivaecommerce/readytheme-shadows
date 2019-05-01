@@ -66,7 +66,7 @@
 
 		_.setup = function (setTarget) {
 			_.current = setTarget ? setTarget : target;
-			_.minimodal = _.node('<div id="active-' + _.current.id + '" class="c-mini-modal" tabindex="0" role="dialog">');
+			_.minimodal = _.node('<div id="active-' + _.current.id + '" class="c-mini-modal" data-hook="active-' + _.current.id + '" tabindex="0" role="dialog">');
 			_.overlay = _.node('<div class="c-mini-modal__overlay">');
 			_.viewport = _.node('<div class="c-mini-modal__viewport">');
 			_.closeButton = _.node('<button class="c-mini-modal__close">' + _.options.closeButtonHTML + '</button>');
@@ -208,7 +208,7 @@
 					if (request.status >= 200 && request.status < 400) {
 						var response = request.responseText;
 
-						_.content = _.node('<div class="c-mini-modal__content"><div class="c-mini-modal__element">' + response);
+						_.content = _.node('<div class="c-mini-modal__content"><div class="c-mini-modal__element active-' + _.current.id + '">' + response);
 						_.loaded();
 					}
 					else {
@@ -244,21 +244,21 @@
 
 				src += 'view?key=' + apiKey + '&center=' + lat + ',' + long + '&zoom=' + zoom + 'z';
 			}
-			_.content = _.node('<div class="c-mini-modal__content"><iframe class="c-mini-modal__element c-mini-modal__element--map" src="' + src + '" frameborder="0">');
+			_.content = _.node('<div class="c-mini-modal__content"><iframe class="c-mini-modal__element c-mini-modal__element--map active-' + _.current.id + '" src="' + src + '" frameborder="0">');
 			_.loaded();
 		};
 
 		_.youtube = function () {
 			var id = _.url.split('v=')[1];
 
-			_.content = _.node('<div class="c-mini-modal__content"><div class="c-mini-modal__element c-mini-modal__element--video"><iframe class="c-mini-modal__video" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen>');
+			_.content = _.node('<div class="c-mini-modal__content"><div class="c-mini-modal__element c-mini-modal__element--video active-' + _.current.id + '"><iframe class="c-mini-modal__video" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen>');
 			_.loaded();
 		};
 
 		_.vimeo = function () {
 			var id = _.url.split('vimeo.com/')[1];
 
-			_.content = _.node('<div class="c-mini-modal__content"><div class="c-mini-modal__element c-mini-modal__element--video"><iframe class="c-mini-modal__video" src="https://player.vimeo.com/video/' + id + '" frameborder="0" allowfullscreen>');
+			_.content = _.node('<div class="c-mini-modal__content"><div class="c-mini-modal__element c-mini-modal__element--video active-' + _.current.id + '"><iframe class="c-mini-modal__video" src="https://player.vimeo.com/video/' + id + '" frameborder="0" allowfullscreen>');
 			_.loaded();
 		};
 
@@ -266,7 +266,7 @@
 			var url = _.url;
 
 			if (url === _.url) {
-				_.content = _.node('<div class="c-mini-modal__content"><div class="c-mini-modal__element c-mini-modal__element--iframe"><iframe class="c-mini-modal__iframe" src="' + url + '" frameborder="0" allowfullscreen>');
+				_.content = _.node('<div class="c-mini-modal__content"><div class="c-mini-modal__element c-mini-modal__element--iframe active-' + _.current.id + '"><iframe class="c-mini-modal__iframe" src="' + url + '" frameborder="0" allowfullscreen>');
 				_.loaded();
 			}
 		};
@@ -292,7 +292,7 @@
 
 						img.onload = function () {
 							if (url === _.url) {
-								_.content = _.node('<div class="c-mini-modal__content"><img class="c-mini-modal__element" src="' + imgSrc + '" alt="' + imgAlt + '">');
+								_.content = _.node('<div class="c-mini-modal__content"><img class="c-mini-modal__element active-' + _.current.id + '" src="' + imgSrc + '" alt="' + imgAlt + '">');
 								_.loaded();
 							}
 						};
@@ -304,7 +304,7 @@
 						img.src = imgSrc;
 					}
 					else {
-						_.content = _.node('<div class="c-mini-modal__content"><div class="c-mini-modal__element">' + inlineContent.innerHTML);
+						_.content = _.node('<div class="c-mini-modal__content"><div class="c-mini-modal__element active-' + _.current.id + '">' + inlineContent.innerHTML);
 						_.loaded();
 					}
 				}
@@ -320,7 +320,7 @@
 
 			img.onload = function () {
 				if (url === _.url) {
-					_.content = _.node('<div class="c-mini-modal__content"><img class="c-mini-modal__element" src="' + _.url + '">');
+					_.content = _.node('<div class="c-mini-modal__content"><img class="c-mini-modal__element active-' + _.current.id + '" src="' + _.url + '" alt="' + _.current.getAttribute('title') + '">');
 					_.loaded();
 				}
 			};

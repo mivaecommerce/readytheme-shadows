@@ -1,0 +1,314 @@
+<CSSResource_Add>
+	<Code>stylesheet</Code>
+	<Type>CombinedResource</Type>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+	<Attributes>
+		<Attribute>
+			<Name><![CDATA[media]]></Name>
+			<Value><![CDATA[all]]></Value>
+		</Attribute>
+		<Attribute>
+			<Name><![CDATA[rel]]></Name>
+			<Value><![CDATA[stylesheet]]></Value>
+		</Attribute>
+		<Attribute>
+			<Name><![CDATA[type]]></Name>
+			<Value><![CDATA[text/css]]></Value>
+		</Attribute>
+	</Attributes>
+</CSSResource_Add>
+<CSSResourceXGroup_Assign code="stylesheet" group_code="css_list" />
+<CSSResource_Add>
+	<Code>normalize</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/base/normalize.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>resets</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/base/resets.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>forms</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/elements/forms.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>links</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/elements/links.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>media</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/elements/media.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>page</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/elements/page.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>tables</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/elements/tables.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>typography</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/elements/typography.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>o-layout</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/objects/layout.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>o-lists</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/objects/lists.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>o-tables</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/objects/tables.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>o-wrapper</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/objects/wrapper.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>c-buttons</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/components/buttons.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>c-control-groups</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/components/control-groups.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>c-divider</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/components/divider.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>c-forms</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/components/forms.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>c-keyline</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/components/keyline.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>c-menu</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/components/menu.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>c-mini-modal</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/components/mini-modal.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>c-navigation</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/components/navigation.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>c-tables</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/components/tables.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>c-typography</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/components/typography.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>u-borders</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/utilities/borders.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>u-clear-fix</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/utilities/clear-fix.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>u-colors</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/utilities/colors.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>u-display</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/utilities/display.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>u-grids</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/utilities/grids.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>u-icons</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/utilities/icons.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>u-print</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/utilities/print.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>u-typography</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/utilities/typography.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>u-vertical-align</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/utilities/vertical-align.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>u-widths</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/utilities/widths.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSResource_Add>
+	<Code>u-z-index</Code>
+	<Type>LocalFile</Type>
+	<File_Path>themes/shadows/core/css/utilities/z-index.css</File_Path>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+</CSSResource_Add>
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="normalize" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="resets" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="forms" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="links" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="media" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="page" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="tables" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="typography" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="o-layout" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="o-lists" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="o-tables" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="o-wrapper" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="c-buttons" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="c-control-groups" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="c-divider" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="c-forms" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="c-keyline" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="c-menu" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="c-mini-modal" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="c-navigation" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="c-tables" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="c-typography" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="u-borders" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="u-clear-fix" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="u-colors" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="u-display" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="u-grids" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="u-icons" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="u-print" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="u-typography" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="u-vertical-align" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="u-widths" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="u-z-index" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-collapsing-breadcrumbs" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-category-tree" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-display-list-filtering" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-facets" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-fasten-header" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-flex-tabs" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-hero" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-messages" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-mini-basket" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-pagination" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-product-layout" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-product-lists" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-quantify" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-roundabout" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-search-preview" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-subscriptions" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="x-transfigure-navigation" />
+<CSSCombinedResourceXResource_Assign combined_code="stylesheet" resource_code="theme-styles" />
+
+<JavaScriptResource_Add>
+	<Code>site-scripts</Code>
+	<Type>CombinedResource</Type>
+	<Global>Yes</Global>
+	<Active>Yes</Active>
+	<Attributes></Attributes>
+</JavaScriptResource_Add>
+<JavaScriptResourceXGroup_Assign code="site-scripts" group_code="footer_js" />
+<JavaScriptCombinedResourceXResource_Assign combined_code="site-scripts" resource_code="dom" />
+<JavaScriptCombinedResourceXResource_Assign combined_code="site-scripts" resource_code="scripts" />

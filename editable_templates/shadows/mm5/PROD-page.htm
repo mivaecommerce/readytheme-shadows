@@ -13,8 +13,8 @@
 	</mvt:if>
 	<mvt:item name="head" param="css_list" />
 	<mvt:item name="head" param="head_tag" file="cssui-global-head-item.htm" />
-	<mvt:item name="attributemachine" param="head" />
-	<mvt:item name="product_display_imagemachine" param="head" />
+	<mvt:item name="attributemachine" param="head_deferred" />
+	<mvt:item name="product_display_imagemachine" param="head_deferred" />
 	<mvt:assign name="g.socialURL" value="l.settings:product:link" />
 	<mvt:assign name="g.socialText" value="'Check out the deal on ' $ l.settings:product:name $ ' at ' $ g.store:name" />
 	<mvt:do file="g.Module_Library_DB" name="l.success" value="ImageType_Load_Code('main', l.settings:imagetype)" />
@@ -71,7 +71,7 @@
 				<meta itemprop="sku" content="&mvte:product:code;" />
 			</mvt:if>
 			<mvt:item name="product_display" file="cssui-prodlayout-item.htm" />
-			<mvt:item name="attributemachine" param="body" />
+			<mvt:item name="attributemachine" param="body_deferred" />
 			<script>
 				if (typeof am&mvt:product:id; !== 'undefined') {
 					var attrMachCall = am&mvt:product:id;,

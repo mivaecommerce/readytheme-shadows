@@ -73,7 +73,7 @@ var themeFunctionality = {
 		/**
 		 * Load and initialize the Collapsing Breadcrumbs extension
 		 */
-		$.loadScript(theme_path + 'extensions/breadcrumbs/collapsing-breadcrumbs.js');
+		$.loadScript(theme_path + 'extensions/breadcrumbs/collapsing/collapsing-breadcrumbs.js');
 
 	},
 	jsSFNT: function() {

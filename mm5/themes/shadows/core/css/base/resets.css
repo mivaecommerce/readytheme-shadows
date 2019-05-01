@@ -19,6 +19,19 @@ html {
 }
 
 
+/**
+ * Implementing a reduced-motion mode if the user has selected this system option.
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+ * https://css-tricks.com/introduction-reduced-motion-media-query/
+ */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation: none !important;
+		transition: none !important;
+	}
+}
+
+
 
 
 

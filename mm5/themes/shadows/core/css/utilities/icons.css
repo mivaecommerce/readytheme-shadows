@@ -12,7 +12,7 @@
 	font-family: 'ReadyTheme Icons';
 	font-style: normal;
 	font-weight: normal;
-	src: url('../../ui/css/ReadyThemeIcons.woff') format('woff');
+	src: url('themes/shadows/ui/css/ReadyThemeIcons.woff') format('woff');
 }
 
 [class^="u-icon-"],

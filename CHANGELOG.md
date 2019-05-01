@@ -4,8 +4,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+[1.0.5]: https://github.com/mivaecommerce/readytheme-shadows/compare/master...v1.0.5
+## [1.0.5] - 2019-05-01
+There have been a few housekeeping items taken care of in this update. Most notably, the addition of subdirectories for 
+some of the extensions. This is to facilitate better organization and documentation for future extensions.
+
+#### Added
+- Support for the new [Customer Password Reset](https://docs.miva.com/how-to-guide/customer-password-reset) functionality introduced in 9.13.
+- Support for the new [Combined Resource](https://docs.miva.com/how-to-guides/javascript-asset-management#combined-resources) and [Deferred JavaScript](https://docs.miva.com/how-to-guides/deferred-javascript) functionality introduced in 9.13.
+	- You can use the [css_javascript+resources.xml](css_javascript_resources.xml) file to update your site to use this functionality.
+
+#### Fixed
+This maintenance release addresses all issues contained in the v1.0.5 milestone.
+- [Milestone v1.0.5](https://github.com/mivaecommerce/readytheme-shadows/milestone/5?closed=1)
+
+#### Removed
+- Native CSS concatenation introduced in [v1.0.04 Issue #40](https://github.com/mivaecommerce/readytheme-shadows/issues/40). 
+
 [1.0.4]: https://github.com/mivaecommerce/readytheme-shadows/compare/master...v1.0.4
 ## [1.0.4] - 2019-01-09
+#### Fixed
 This maintenance release addresses all issues contained in the v1.0.4 milestone.
 - [Milestone v1.0.4](https://github.com/mivaecommerce/readytheme-shadows/milestone/4?closed=1)
 
