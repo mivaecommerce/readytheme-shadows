@@ -23,15 +23,16 @@
 
 	<section class="o-layout">
 		<div class="o-layout__item">
-			<mvt:item name="customfields" param="Read_Basket('continue_url', l.settings:continue_url)" />
-			<mvt:if expr="l.settings:continue_url">
-				<mvt:assign name="g.continue_url" value="l.settings:continue_url" />
-			<mvt:else>
-				<mvt:assign name="g.continue_url" value="l.settings:urls:SFNT:auto" />
-			</mvt:if>
+			<script>
+				function continueShopping(link) {
+					if (sessionStorage.getItem('continue_url')) {
+						link.href = sessionStorage.getItem('continue_url');
+					}
+				}
+			</script>
 			<div class="x-messages x-messages--info">
 				<strong>Your shopping cart is currently empty.</strong><br>
-				<a class="c-button c-button--hollow" href="&mvt:global:continue_url;">Start Shopping</a>
+				<a class="c-button c-button--hollow" href="&mvte:urls:SFNT:auto;" onclick="continueShopping(this);">Start Shopping</a>
 			</div>
 		</div>
 	</section>

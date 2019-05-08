@@ -18,6 +18,8 @@
 	<section class="o-layout">
 		<div class="o-layout__item">
 			<mvt:item name="hdft" param="header" file="OUS1-header-item.htm" />
+			<br>
+			<h1 class="c-heading-charlie u-text-bold u-text-uppercase u-text-center">Special Offer</h1>
 			<h2 class="c-heading-bravo u-text-center">
 				Save &mvt:upsale:formatted_upsell_savings;<br>
 				<span class="c-heading--subheading">Offer valid for this order only</span>
@@ -25,16 +27,17 @@
 		</div>
 	</section>
 
-	<section class="o-layout o-layout--justify-around">
-		<div class="o-layout__item u-width-12 u-width-6--m u-width-4--l">
+	<section class="o-layout o-layout--wide">
+		<div class="o-layout__item u-width-12 u-width-6--m">
 			<mvt:do name="l.success" file="g.Module_Library_DB" value="ProductImage_Load_Type(l.settings:upsale:id, 1, l.settings:imagetype)" />
 			<mvt:do name="l.success" file="g.Module_Library_DB" value="Image_Load_ID(l.settings:imagetype:image_id, l.settings:imagedata)" />
 			<mvt:assign name="g.socialImage" value="g.baseurl $ l.settings:imagedata:image" />
 			<mvt:if expr="NOT ISNULL l.settings:imagedata:image">
-				<div class="o-layout">
-					<figure class="o-layout__item u-width-6--m">
-						<img src="&mvte:imagedata:image;" alt="&mvte:upsale:name;" title="&mvte:upsale:name;">
-					</figure>
+				<div class="o-layout o-layout--wide">
+					<picture class="o-layout__item u-width-6--m">
+						<img class="u-block" src="&mvte:imagedata:image;" alt="&mvte:upsale:name;">
+						<br>
+					</picture>
 					<div class="o-layout__item u-width-6--m">
 						<h4 class="c-heading-delta">&mvt:upsale:name;</h4>
 						<p>
@@ -45,6 +48,7 @@
 							Shipping Weight: &mvt:upsale:weight; &mvt:store:wtunits;
 						</p>
 						<div>&mvt:upsale:desc;</div>
+						<br>
 					</div>
 				</div>
 			<mvt:else>
@@ -57,9 +61,10 @@
 					Shipping Weight: &mvt:upsale:weight; &mvt:store:wtunits;
 				</p>
 				<div>&mvt:upsale:desc;</div>
+				<br>
 			</mvt:if>
 		</div>
-		<div class="o-layout__item u-width-12 u-width-6--m u-width-4--l">
+		<div class="o-layout__item u-width-12 u-width-6--m">
 			<form method="post" action="&mvte:urls:OSEL:secure;">
 				<fieldset>
 					<legend>&mvt:page:name;</legend>
@@ -73,7 +78,7 @@
 						<li class="c-form-list__item x-product-layout-purchase__options">
 							<mvt:item name="product_attributes" param="upsale:id" file="OUS1-product_attributes-item.htm" />
 						</li>
-						<li class="c-form-list__item u-text-right">
+						<li class="c-form-list__item c-form-list__item--full u-text-center">
 							<mvt:item name="buttons" param="AddToOrder" file="cssui-buttonAddToOrder-item.htm" />
 						</li>
 					</ul>
@@ -88,7 +93,7 @@
 					</mvt:if>
 					<mvt:item name="tax" />
 					<ul class="c-form-list">
-						<li class="c-form-list__item u-text-right">
+						<li class="c-form-list__item c-form-list__item--full u-text-center">
 							<mvt:item name="buttons" param="DoNotAddToOrder" file="cssui-buttonDoNotAddToOrder-item.htm" />
 						</li>
 					</ul>

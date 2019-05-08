@@ -102,6 +102,7 @@
 		overflow: auto;
 		transform: translateY(-50%);
 		pointer-events: auto;
+		-webkit-overflow-scrolling: touch;
 	}
 
 		.c-mini-modal__element--iframe,
