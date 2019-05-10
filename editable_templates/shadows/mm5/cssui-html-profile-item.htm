@@ -12,7 +12,7 @@
 <mvt:if expr="l.settings:page:code EQ 'CLST' OR 'CTGY' CIN l.settings:page:code OR l.settings:page:code EQ 'PLST' OR l.settings:page:code EQ 'PROD' OR l.settings:page:code EQ 'SRCH'">
 	<script>
 		window.addEventListener('DOMContentLoaded', function () {
-			sessionStorage.setItem('continue_url', '&mvte:breadcrumbs:current_item:link;');
+			sessionStorage.setItem('continue_url', '&mvt:breadcrumbs:current_item:link;');
 		});
 	</script>
 </mvt:if>
