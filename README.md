@@ -1,4 +1,4 @@
-![Shadows ReadyTheme Logo](https://raw.githubusercontent.com/mivaecommerce/readytheme-shadows/master/logo.png?sanitize=true)
+![Shadows ReadyTheme Logo](https://raw.githubusercontent.com/mivaecommerce/readytheme-shadows/master/logo.png)
 
 > Shadows is a lightly styled, development ReadyTheme based on the [Elements Framework](https://apps.miva.com/elements-framework.html).  Shadows introduces the Collapsing Breadcrumbs, Fasten Header, Quantity Increment Adjuster, Tabbed Product Details, and Transfigure Navigation extensions.
 
