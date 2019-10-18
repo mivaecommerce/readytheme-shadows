@@ -817,7 +817,7 @@ textarea {
 				content: '+';
 			}
 			
-			.x-product-description input[data-flex-tab]:checked + .x-flex-tabs__tab ~ .x-flex-tabs__tab::after {
+			.x-product-description input[data-flex-tab]:checked + .x-flex-tabs__tab::after {
 				content: '-';
 			}
 	}
@@ -1043,10 +1043,13 @@ textarea {
 			}
 			
 				.t-payment-form .c-form-input--cvv {
-					max-width: 25%;
-					margin-right: 0.5rem;
+					max-width: none;
 				}
-			
+
+				.t-payment-form .t-data-cvv {
+					margin-left: 0.5rem;
+				}
+
 			.t-payment-form .c-control-group {
 				max-width: 50%;
 				flex-grow: 1;

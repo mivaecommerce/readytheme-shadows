@@ -1,1 +1,2 @@
+RewriteEngine on
 DirectoryIndex index.html

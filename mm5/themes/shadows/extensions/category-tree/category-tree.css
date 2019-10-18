@@ -15,6 +15,7 @@
 	.x-category-tree__trigger:checked ~ .x-category-tree__row .x-category-tree__row {
 		max-height: 100%;
 		opacity: 1;
+		overflow: visible;
 		visibility: visible;
 	}
 	
@@ -71,6 +72,7 @@
 		padding: 0;
 		list-style: none;
 		opacity: 0;
+		overflow: hidden;
 		visibility: hidden;
 		transition: 0.2s ease-in-out;
 	}
