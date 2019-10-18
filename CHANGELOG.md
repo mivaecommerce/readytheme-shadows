@@ -4,14 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-[1.0.5.1]: https://github.com/mivaecommerce/readytheme-shadows/compare/master...v1.0.5.1
+[1.0.6]: https://github.com/mivaecommerce/readytheme-shadows/compare/v1.0.5.1...v1.0.6
+## [1.0.6] - 2019-10-18
+
+#### Fixed
+This maintenance release addresses all issues contained in the v1.0.6 milestone.
+- [Milestone v1.0.6](https://github.com/mivaecommerce/readytheme-shadows/milestone/7?closed=1)
+
+[1.0.5.1]: https://github.com/mivaecommerce/readytheme-shadows/compare/v1.0.5...v1.0.5.1
 ## [1.0.5.1] - 2019-05-08
 
 #### Fixed
 This maintenance release addresses all issues contained in the v1.0.5.1 milestone.
 - [Milestone v1.0.5.1](https://github.com/mivaecommerce/readytheme-shadows/milestone/6?closed=1)
 
-[1.0.5]: https://github.com/mivaecommerce/readytheme-shadows/compare/master...v1.0.5
+[1.0.5]: https://github.com/mivaecommerce/readytheme-shadows/compare/v1.0.4...v1.0.5
 ## [1.0.5] - 2019-05-01
 There have been a few housekeeping items taken care of in this update. Most notably, the addition of subdirectories for 
 some of the extensions. This is to facilitate better organization and documentation for future extensions.
@@ -32,7 +39,7 @@ This maintenance release addresses all issues contained in the v1.0.5 milestone.
 #### Removed
 - Native CSS concatenation introduced in [v1.0.04 Issue #40](https://github.com/mivaecommerce/readytheme-shadows/issues/40). 
 
-[1.0.4]: https://github.com/mivaecommerce/readytheme-shadows/compare/master...v1.0.4
+[1.0.4]: https://github.com/mivaecommerce/readytheme-shadows/compare/v1.0.3...v1.0.4
 ## [1.0.4] - 2019-01-09
 #### Fixed
 This maintenance release addresses all issues contained in the v1.0.4 milestone.
@@ -92,4 +99,3 @@ have been commented out of the code.
 - Initial Framework `mm5/frameworks/00000001/shadows.pkg`
 - Initial Theme Files `mm5/themes/shadows/*`
 - Initial template export from Miva `editable_templates/shadows/mm5/*`
-

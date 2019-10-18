@@ -157,30 +157,30 @@
 
 <section class="o-layout">
 	<div class="o-layout__item">
-		<table class="o-table c-table-simple">
-			<thead>
-				<tr class="c-table-simple__row">
-					<th class="c-table-simple__cell" scope="col">Order #</th>
-					<th class="c-table-simple__cell" scope="col">Transaction Reference</th>
-					<th class="c-table-simple__cell" scope="col">Description</th>
-					<th class="c-table-simple__cell" scope="col">Date</th>
-					<th class="c-table-simple__cell" scope="col">Amount</th>
+		<table class="c-table-responsivee">
+			<thead class="c-table-responsive_thead">
+			<tr class="c-table-responsive__row u-color-gray-30 u-font-small u-text-bold u-text-uppercase">
+					<th class="c-table-responsive__cell" scope="col">Order #</th>
+					<th class="c-table-responsive__cell" scope="col">Transaction Reference</th>
+					<th class="c-table-responsive__cell" scope="col">Description</th>
+					<th class="c-table-responsive__cell" scope="col">Date</th>
+					<th class="c-table-responsive__cell" scope="col">Amount</th>
 				</tr>
 			</thead>
 			<tbody>
 				<mvt:foreach iterator="credit_entry" array="customercredithistory:items">
-					<tr class="c-table-simple__row">
-						<td class="c-table-simple__cell" data-label="Order #" scope="row">
+					<tr class="c-table-responsive__row">
+						<td class="c-table-responsive__cell c-table-responsive__cell--flex" data-label="Order #">
 							<mvt:if expr="l.settings:credit_entry:order_id EQ 0">
 								N/A
 							<mvt:else>
 								&mvte:credit_entry:order_id;
 							</mvt:if>
 						</td>
-						<td class="c-table-simple__cell" data-label="Transaction">&mvte:credit_entry:txref;</td>
-						<td class="c-table-simple__cell" data-label="Description">&mvte:credit_entry:descrip;</td>
-						<td class="c-table-simple__cell" data-label="Date">&mvt:credit_entry:formatted_dtstamp;</td>
-						<td class="c-table-simple__cell" data-label="Amount">&mvt:credit_entry:formatted_amount;</td>
+						<td class="c-table-responsive__cell c-table-responsive__cell--flex" data-label="Transaction">&mvte:credit_entry:txref;</td>
+						<td class="c-table-responsive__cell c-table-responsive__cell--flex" data-label="Description">&mvte:credit_entry:descrip;</td>
+						<td class="c-table-responsive__cell c-table-responsive__cell--flex" data-label="Date">&mvt:credit_entry:formatted_dtstamp;</td>
+						<td class="c-table-responsive__cell c-table-responsive__cell--flex" data-label="Amount">&mvt:credit_entry:formatted_amount;</td>
 					</tr>
 				</mvt:foreach>
 			</tbody>

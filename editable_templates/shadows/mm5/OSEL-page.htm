@@ -133,7 +133,7 @@
 								</li>
 							</mvt:if>
 						</mvt:foreach>
-						<mvt:if expr="g.Basket:cust_id NE 0">
+						<mvt:if expr="g.Basket:cust_id NE 0 AND l.setting:customer:credit GT 0">
 							<li class="c-form-list__item c-form-list__item--full u-font-small">
 								<span class="o-layout o-layout--align-baseline">
 									<strong class="o-layout__item o-layout--no-grow">Or</strong>
@@ -145,6 +145,14 @@
 						</mvt:if>
 						<mvt:foreach array="paymentmethods" iterator="method">
 							<mvt:if expr="l.settings:method:module EQ 'customercredit'">
+								<li class="c-form-list__item c-form-list__item--full u-font-small">
+									<span class="o-layout o-layout--align-baseline">
+										<strong class="o-layout__item o-layout--no-grow">Or</strong>
+										<span class="o-layout__item">
+											<span class="c-keyline c-keyline--small u-block"></span>
+										</span>
+									</span>
+								</li>
 								<li class="c-form-list__item c-form-list__item--full u-font-small">
 									<label class="c-form-checkbox c-form-checkbox--radio">
 										<mvt:if expr="l.settings:method:paymentcard:id">

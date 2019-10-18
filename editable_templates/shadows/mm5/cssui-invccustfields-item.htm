@@ -71,8 +71,9 @@
 			</p>
 			<br>
 		</li>
-		<mvt:item name="customfields" param="Read_Order(l.settings:order:id, 'order_instructions')" />
-		<mvt:if expr="NOT ISNULL l.settings:customfields:order_instructions">
+		<mvt:item name="customfields" param="Read_Basket('order_instructions', l.settings:order_instructions)" />
+		<mvt:item name="customfields" param="Write_Order(l.settings:order:id, 'order_instructions', l.settings:order_instructions)" />
+		<mvt:if expr="l.settings:order_instructions">
 			<li class="o-list-block__item">
 				<p class="c-heading-echo u-text-bold u-text-uppercase">Delivery Notes</p>
 				<hr class="c-keyline">

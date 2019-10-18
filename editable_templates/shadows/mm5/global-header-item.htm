@@ -4,7 +4,7 @@
 	<mvt:item name="navbar" file="cssui-navbar-item.htm" />
 	<section class="o-wrapper t-site-header__masthead">
 		<div class="o-layout o-layout--align-center">
-			<div class="o-layout__item u-width-2 u-width-1--m u-hidden--l &mvt:global:checkout_hidden;">
+			<div class="o-layout__item u-width-2 u-width-1--m u-hidden--l &mvte:global:checkout_hidden;">
 				<button class="c-button c-button--flush c-button--full c-button--hollow u-bg-transparent u-border-none u-color-gray-50 u-font-huge u-icon-menu" data-hook="open-main-menu"></button>
 			</div>
 			
@@ -32,13 +32,13 @@
 				</div>
 			</mvt:if>
 
-			<div class="o-layout__item u-width-2 u-width-1--m u-hidden--l &mvt:global:checkout_hidden;">
+			<div class="o-layout__item u-width-2 u-width-1--m u-hidden--l &mvte:global:checkout_hidden;">
 				<a class="u-icon-cart-empty u-color-gray-50 t-site-header__basket-link--mobile" data-hook="open-mini-basket" href="&mvte:urls:BASK:auto;">
 					<span class="u-bg-gray-50 u-color-gray-10 u-font-primary t-site-header__basket-link-quantity--mobile" data-hook="mini-basket-count ">&mvte:global_minibasket:basket_count;</span>
 				</a>
 			</div>
 			
-			<div class="o-layout__item u-width-12 u-width-4--l &mvt:global:checkout_hidden;" itemscope itemtype="http://schema.org/WebSite">
+			<div class="o-layout__item u-width-12 u-width-4--l &mvte:global:checkout_hidden;" itemscope itemtype="http://schema.org/WebSite">
 				<meta itemprop="url" content="//&mvt:global:domain:name;/"/>
 				<form class="t-site-header__search-form" method="post" action="&mvte:urls:SRCH:rr;" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
 					<fieldset>
@@ -56,7 +56,7 @@
 				</form>
 			</div>
 
-			<div class="o-layout__item u-hidden u-flex--l u-width-4--l u-width-3--w t-site-header__masthead-links &mvt:global:checkout_hidden;">
+			<div class="o-layout__item u-hidden u-flex--l u-width-4--l u-width-3--w t-site-header__masthead-links &mvte:global:checkout_hidden;">
 				<mvt:item name="customerlink" file="cssui-custlinklogin-item.htm,cssui-custlinkedit-item.htm" />
 
 				<a class="u-color-gray-50 u-text-uppercase t-site-header__basket-link" data-hook="open-mini-basket" href="&mvte:urls:BASK:auto;">
@@ -100,7 +100,7 @@
 				</div>
 			</mvt:if>
 			
-			<div class="o-layout__item u-width-12 u-width-8--l u-width-7--w u-hidden &mvt:global:checkout_shown;">
+			<div class="o-layout__item u-width-12 u-width-8--l u-width-7--w u-hidden &mvte:global:checkout_shown;">
 				<br class="u-hidden--m">
 				<span class="c-heading-echo u-block u-text-bold u-text-center u-text-right--l u-text-uppercase u-color-gray-20"><span class="u-icon-secure"></span> Secure Checkout</span>
 			</div>
@@ -110,7 +110,7 @@
 </header>
 <!-- end t-site-header -->
 
-<div class="o-wrapper o-wrapper--full o-wrapper--flush t-site-navigation &mvt:global:checkout_hidden;">
+<div class="o-wrapper o-wrapper--full o-wrapper--flush t-site-navigation &mvte:global:checkout_hidden;">
 	<div class="o-layout o-layout--align-center o-layout--flush o-layout--justify-center t-site-navigation__wrap">
 		<mvt:item name="readytheme" param="navigationset( 'primary_navigation' )" />
 	</div>

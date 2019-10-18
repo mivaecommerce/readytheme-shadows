@@ -19,9 +19,15 @@
 	var miniBasketCount = document.querySelectorAll('[data-hook~="mini-basket-count"]');
 	var miniBasketAmount = document.querySelectorAll('[data-hook~="mini-basket-amount"]');
 
-	purchaseForm.addEventListener('submit', function (evt) {
+	purchaseButton.addEventListener('click', function (evt) {
 		if (purchaseFormActionInput.value !== 'ADPR') {
 			return;
+		}
+
+		for (var i = 0; i < purchaseForm.elements.length; i++) {
+			if (purchaseForm.elements[i].value === '' && purchaseForm.elements[i].hasAttribute('required')) {
+				return false;
+			}
 		}
 
 		evt.preventDefault();

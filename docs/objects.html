@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Shadows Developer ReadyTheme :: CSS - Objects</title>
+	<link href="themes/documentation/site-styles.css" rel="stylesheet">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#efefef">
+	<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+	<header class="x-site-header" data-cms-block data-cms-content="global/global-header.html"></header>
+	<!-- /.x-site-header -->
+	
+	<main>
+		<div class="o-wrapper">
+			<div class="o-layout">
+				<section class="o-layout__item u-width-9--m  o-layout__last x-site-content">
+					<h1>
+						<span class="c-heading-bravo u-text-bold">Objects</span>
+						<code class="x-inline-code u-font-small">THEME_NAME/core/css/objects</code>
+					</h1>
+					<p>
+						These are class-based selectors that define undecorated design patterns. They are vital for
+						layout and structure.
+					</p>
+					<hr class="c-keyline">
+					<h3 id="layout">
+						<span class="c-heading-charlie">Layout</span>
+						<code class="x-inline-code u-font-small">THEME_NAME/core/css/objects/layout.css</code>
+					</h3>
+					<p>
+						Grid-like layout mechanism for arranging components. When you combine this with our grid or
+						width utility classes, you can create fluid and responsive page layouts.
+					</p>
+					<ul>
+						<li>
+							<code class="x-inline-code">.o-layout</code> is the outer block class which adds offsets to
+							counter the outer gutters, used similarly to the row classes found in other frameworks.
+						</li>
+						<li>
+							<code class="x-inline-code">.o-layout__item</code> is the element used for layout items
+							which sets gutter spacing and essential styling. This can be augmented using the grid or
+							width utilities in <code class="x-inline-code">THEME_NAME/core/css/utilities</code> in
+							order to create layout structures sized accordingly. The
+							<code class="x-inline-code">.o-layout__item</code> class is used similarly to
+							<code class="x-inline-code">.col</code> classes in other frameworks.
+						</li>
+					</ul>
+					<p>
+						All direct child elements of <code class="x-inline-code">.o-layout</code> must be
+						<code class="x-inline-code">.o-layout__item</code> elements.
+					</p>
+					<pre class="language-markup">
+						<code><!--
+							<div class="o-layout">
+								<div class="o-layout__item">
+									<div>Some Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Some More Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Still More Content</div>
+								</div>
+							</div>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<div class="o-layout u-text-center">
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some More Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Still More Content</div>
+						</div>
+					</div>
+					<hr class="c-divider">
+					<p>To reverse the layout direction, use <code class="x-inline-code">.o-layout--row-reverse</code>.</p>
+					<pre class="language-markup">
+						<code><!--
+							<div class="o-layout o-layout--row-reverse">
+								<div class="o-layout__item">
+									<div>Some Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Some More Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Still More Content</div>
+								</div>
+							</div>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<div class="o-layout o-layout--row-reverse u-text-center">
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some More Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Still More Content</div>
+						</div>
+					</div>
+					<hr class="c-divider">
+					<p>Use <code class="x-inline-code">.o-layout--column</code> to set the flex items vertically.</p>
+					<pre class="language-markup">
+						<code><!--
+							<div class="o-layout o-layout--column">
+								<div class="o-layout__item">
+									<div>Some Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Some More Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Still More Content</div>
+								</div>
+							</div>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<div class="o-layout o-layout--column u-text-center">
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some More Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Still More Content</div>
+						</div>
+					</div>
+					<hr class="c-divider">
+					<p>To reverse the column direction, use <code class="x-inline-code">.o-layout--column-reverse</code>.</p>
+					<pre class="language-markup">
+						<code><!--
+							<div class="o-layout o-layout--column-reverse">
+								<div class="o-layout__item">
+									<div>Some Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Some More Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Still More Content</div>
+								</div>
+							</div>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<div class="o-layout o-layout--column-reverse u-text-center">
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some More Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Still More Content</div>
+						</div>
+					</div>
+					<hr class="c-divider">
+					<p>Have smaller gutters between items.</p>
+					<pre class="language-markup">
+						<code><!--
+							<div class="o-layout o-layout--narrow">
+								<div class="o-layout__item">
+									<div>Some Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Some More Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Still More Content</div>
+								</div>
+							</div>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<div class="o-layout o-layout--narrow u-text-center">
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some More Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Still More Content</div>
+						</div>
+					</div>
+					<hr class="c-divider">
+					<p>Have larger gutters between items.</p>
+					<pre class="language-markup">
+						<code><!--
+							<div class="o-layout o-layout--wide">
+								<div class="o-layout__item">
+									<div>Some Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Some More Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Still More Content</div>
+								</div>
+							</div>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<div class="o-layout o-layout--wide u-text-center">
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some More Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Still More Content</div>
+						</div>
+					</div>
+					<hr class="c-divider">
+					<p>Have no gutters between items.</p>
+					<pre class="language-markup">
+						<code><!--
+							<div class="o-layout o-layout--flush">
+								<div class="o-layout__item">
+									<div>Some Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Some More Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Still More Content</div>
+								</div>
+							</div>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<div class="o-layout o-layout--flush u-text-center">
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some More Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Still More Content</div>
+						</div>
+					</div>
+					<hr class="c-divider">
+					<p>
+						Include vertical gutters on layout items.<br>
+						<span class="u-font-small">
+							If we've chosen to change the size of the horizontal gutters, the vertical gutters will
+							change accordingly.
+						</span>
+					</p>
+					<pre class="language-markup">
+						<code><!--
+							<div class="o-layout o-layout--spaced">
+								<div class="o-layout__item">
+									<div>Some Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Some More Content</div>
+								</div>
+								<div class="o-layout__item">
+									<div>Still More Content</div>
+								</div>
+							</div>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<div class="o-layout o-layout--spaced u-text-center">
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Some More Content</div>
+						</div>
+						<div class="o-layout__item">
+							<div class="u-bg-gray-10">Still More Content</div>
+						</div>
+					</div>
+					<hr class="c-divider">
+					<p>
+						There are additional layout object modifiers you can use to adjust the horizontal and
+						vertical alignments of the layout items as well as specifying if an item should be the first or
+						last in the order.
+					</p>
+					<pre class="language-markup">
+						<code><!--
+							/* Vertical alignment modifiers.
+							 * The align-items property vertically aligns the flexible container's items
+							 * when the items do not use all available space on the cross-axis.
+							   =========================================== */
+							/**
+							 * Items are positioned at the top of the container.
+							 */
+							.o-layout--align-top {
+								align-items: flex-start;
+							}
+							
+							/**
+							 * Items are positioned at the center of the container (vertically).
+							 */
+							.o-layout--align-center {
+								align-items: center;
+							}
+							
+							/**
+							 * Items are positioned at the bottom of the container.
+							 */
+							.o-layout--align-bottom {
+								align-items: flex-end;
+							}
+							
+							/**
+							 * Items are positioned at the baseline of the container.
+							 */
+							.o-layout--align-baseline {
+								align-items: baseline;
+							}
+							
+							/**
+							 * Default value. Items are stretched to fit the container.
+							 */
+							.o-layout--align-stretch {
+								align-items: stretch;
+							}
+							
+							
+							
+							
+							
+							/* Horizontal alignment modifiers.
+							 * The justify-content property horizontally aligns the flexible container's
+							 * items when the items do not use all available space on the main-axis.
+							   =========================================== */
+							/**
+							 * Default value. Items are positioned at the beginning of the container.
+							 */
+							.o-layout--justify-start {
+								justify-content: flex-start;
+							}
+							
+							/**
+							 * Items are positioned at the center of the container.
+							 */
+							.o-layout--justify-center {
+								justify-content: center;
+							}
+							
+							/**
+							 * Items are positioned at the end of the container.
+							 */
+							.o-layout--justify-end {
+								justify-content: flex-end;
+							}
+							
+							/**
+							 * Items are positioned with space before, between, and after the lines.
+							 */
+							.o-layout--justify-around {
+								justify-content: space-around;
+							}
+							
+							/**
+							 * Items are positioned with space between the lines.
+							 */
+							.o-layout--justify-between {
+								justify-content: space-between;
+							}
+							
+							
+							
+							
+							
+							/* Flex ordering modifiers.
+							 * Set an item to be first or last in grid.
+							   =========================================== */
+							.o-layout__first {
+								order: -1;
+							}
+							
+							.o-layout__last {
+								order: 1;
+							}
+								
+								
+								@media screen and (min-width: 40em) {
+									.o-layout__first--m {
+										order: -1;
+									}
+									
+									.o-layout__last--m {
+										order: 1;
+									}
+								}
+								
+								
+								@media screen and (min-width: 60em) {
+									.o-layout__first--l {
+										order: -1;
+									}
+									
+									.o-layout__last--l {
+										order: 1;
+									}
+								}
+								
+								
+								@media screen and (min-width: 90em) {
+									.o-layout__first--w {
+										order: -1;
+									}
+									
+									.o-layout__last--w {
+										order: 1;
+									}
+								}
+						--></code>
+					</pre>
+					<hr class="c-keyline">
+					<h3 id="lists">
+						<span class="c-heading-charlie">Lists</span>
+						<code class="x-inline-code u-font-small">THEME_NAME/core/css/objects/lists.css</code>
+					</h3>
+					<p>Default list element.</p>
+					<pre class="language-markup">
+						<code><!--
+							<ul>
+								<li>List Item 1</li>
+								<li>List Item 2</li>
+								<li>List Item 3</li>
+							</ul>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<ul>
+						<li>List Item 1</li>
+						<li>List Item 2</li>
+						<li>List Item 3</li>
+					</ul>
+					<p>
+						The <code class="x-inline-code">o-list-bare</code> object strips list-like appearance from lists
+						by removing their bullets, and any indentation.
+					</p>
+					<pre class="language-markup">
+						<code><!--
+							<ul class="o-list-bare">
+								<li>List Item 1</li>
+								<li>List Item 2</li>
+								<li>List Item 3</li>
+							</ul>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<ul class="o-list-bare">
+						<li>List Item 1</li>
+						<li>List Item 2</li>
+						<li>List Item 3</li>
+					</ul>
+					<p>The <code class="x-inline-code">o-list-block</code> displays any list of items into stacked blocks.</p>
+					<pre class="language-markup">
+						<code><!--
+							<ul class="o-list-block">
+								<li class="o-list-block__item">List Item 1</li>
+								<li class="o-list-block__item">List Item 2</li>
+								<li class="o-list-block__item">List Item 3</li>
+							</ul>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<ul class="o-list-block">
+						<li class="o-list-block__item">List Item 1</li>
+						<li class="o-list-block__item">List Item 2</li>
+						<li class="o-list-block__item">List Item 3</li>
+					</ul>
+					<p>
+						The <code class="x-inline-code">o-list-inline</code> object simply displays a list of items in
+						one line.
+					</p>
+					<pre class="language-markup">
+						<code><!--
+							<ul class="o-list-inline">
+								<li class="o-list-inline__item">List Item 1</li>
+								<li class="o-list-inline__item">List Item 2</li>
+								<li class="o-list-inline__item">List Item 3</li>
+							</ul>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<ul class="o-list-inline">
+						<li class="o-list-inline__item">List Item 1</li>
+						<li class="o-list-inline__item">List Item 2</li>
+						<li class="o-list-inline__item">List Item 3</li>
+					</ul>
+					<p>Inline list items can have smaller margins.</p>
+					<pre class="language-markup">
+						<code><!--
+							<ul class="o-list-inline o-list-inline--narrow">
+								<li class="o-list-inline__item">List Item 1</li>
+								<li class="o-list-inline__item">List Item 2</li>
+								<li class="o-list-inline__item">List Item 3</li>
+							</ul>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<ul class="o-list-inline o-list-inline--narrow">
+						<li class="o-list-inline__item">List Item 1</li>
+						<li class="o-list-inline__item">List Item 2</li>
+						<li class="o-list-inline__item">List Item 3</li>
+					</ul>
+
+					<p>Inline list items can have larger margins.</p>
+					<pre class="language-markup">
+						<code><!--
+							<ul class="o-list-inline o-list-inline--wide">
+								<li class="o-list-inline__item">List Item 1</li>
+								<li class="o-list-inline__item">List Item 2</li>
+								<li class="o-list-inline__item">List Item 3</li>
+							</ul>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<ul class="o-list-inline o-list-inline--wide">
+						<li class="o-list-inline__item">List Item 1</li>
+						<li class="o-list-inline__item">List Item 2</li>
+						<li class="o-list-inline__item">List Item 3</li>
+					</ul>
+					
+					<hr class="c-keyline">
+					<h3 id="tables">
+						<span class="c-heading-charlie">Tables</span>
+						<code class="x-inline-code u-font-small">THEME_NAME/core/css/objects/tables.css</code>
+					</h3>
+					<p>Slightly more opinionated and structural styles for <code class="x-inline-code">table</code> elements.</p>
+					<pre class="language-markup">
+						<code><!--
+							<table class="o-table">
+								<thead>
+									<tr>
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>Age</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Roger</td>
+										<td>Waters</td>
+										<td>73</td>
+									</tr>
+									<tr>
+										<td>Nick</td>
+										<td>Mason</td>
+										<td>73</td>
+									</tr>
+									<tr>
+										<td>David</td>
+										<td>Gilmour</td>
+										<td>71</td>
+									</tr>
+								</tbody>
+							</table>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<table class="o-table">
+						<thead>
+							<tr>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Age</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Roger</td>
+								<td>Waters</td>
+								<td>73</td>
+							</tr>
+							<tr>
+								<td>Nick</td>
+								<td>Mason</td>
+								<td>73</td>
+							</tr>
+							<tr>
+								<td>David</td>
+								<td>Gilmour</td>
+								<td>71</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>The table cell widths can be fixed using <code class="x-inline-code">o-table--fixed</code>.</p>
+					<pre class="language-markup">
+						<code><!--
+							<table class="o-table o-table--fixed">
+								<thead>
+									<tr>
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>Age</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Roger</td>
+										<td>Waters</td>
+										<td>73</td>
+									</tr>
+									<tr>
+										<td>Nick</td>
+										<td>Mason</td>
+										<td>73</td>
+									</tr>
+									<tr>
+										<td>David</td>
+										<td>Gilmour</td>
+										<td>71</td>
+									</tr>
+								</tbody>
+							</table>
+						--></code>
+					</pre>
+					<p class="u-font-small u-text-uppercase x-inline-code">Example</p>
+					<table class="o-table o-table--fixed">
+						<thead>
+							<tr>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Age</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Roger</td>
+								<td>Waters</td>
+								<td>73</td>
+							</tr>
+							<tr>
+								<td>Nick</td>
+								<td>Mason</td>
+								<td>73</td>
+							</tr>
+							<tr>
+								<td>David</td>
+								<td>Gilmour</td>
+								<td>71</td>
+							</tr>
+						</tbody>
+					</table>
+					<hr class="c-keyline">
+					<h3 id="wrapper">
+						<span class="c-heading-charlie">Wrapper</span>
+						<code class="x-inline-code u-font-small">THEME_NAME/core/css/objects/wrapper.css</code>
+					</h3>
+					<p>These are large class selectors that can hold many other structures and components.</p>
+					<p>
+						<code class="x-inline-code">.o-wrapper</code> can be used to constrain the container
+						to the maximum site width variable while including the right and left padding.
+					</p>
+					<p>
+						<code class="x-inline-code">.o-wrapper--full</code> to <code class="x-inline-code">.o-wrapper</code>
+						will set the container to 100vw.
+					</p>
+					<hr class="c-keyline">
+				</section>
+				<!-- /.x-site-content -->
+				<nav class="o-layout__item u-width-3--m o-layout__first x-site-navigation" data-cms-block data-cms-content="global/global-navigation.html"></nav>
+				<!-- /.x-site-navigation -->
+			</div>
+		</div>
+	</main>
+	<!-- /.x-site-content -->
+	
+	<footer class="u-bg-gray-50 u-color-white u-font-small x-site-footer" data-cms-block data-cms-content="global/global-footer.html"></footer>
+	<!-- /.x-site-footer -->
+	
+	<script src="themes/documentation/ui/js/scripts.js"></script>
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-20016-16', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- Scripts -->
+</body>
+</html>
