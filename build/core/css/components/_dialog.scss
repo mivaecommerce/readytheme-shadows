@@ -1,0 +1,140 @@
+/* ==========================================================================
+   COMPONENTS / MINI-MODAL
+   ========================================================================== */
+
+.is-inert {
+	pointer-events: none;
+	user-select: none;
+}
+
+.has-dialog {
+	height: 100vh;
+	overflow: hidden;
+}
+
+
+.c-dialog {}
+
+.c-dialog[aria-hidden="true"] {
+	display: none;
+}
+
+.c-dialog[aria-hidden="false"] {
+	display: block;
+	position: relative;
+	z-index: 500;
+}
+
+	.c-dialog__overlay {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba($color-black, 0.6);
+	}
+
+	.c-dialog__overlay,
+	.c-dialog__container {
+		will-change: transform;
+	}
+
+		.c-dialog__container {
+			width: 90vw;
+			max-width: 40rem;
+			min-width: 20rem;
+			max-height: 90vh;
+			padding: 2rem;
+			background-color: $color-white;
+			border-radius: 0.25rem;
+			overflow-y: auto;
+		}
+
+			.c-dialog__header {
+				display: flex;
+				align-items: flex-start;
+				justify-content: space-between;
+			}
+
+				.c-dialog__title {
+					margin: 0;
+					font-size: 1.25rem;
+					font-weight: 700;
+				}
+
+				.c-dialog__close {
+					background-color: transparent;
+					border: 0 none;
+					line-height: normal;
+				}
+
+				.c-dialog__close::before {
+					content: "\2715";
+				}
+
+			.c-dialog__content {
+				margin-top: 2rem;
+			}
+
+				.c-dialog__content > *:last-child {
+					margin-bottom: 0;
+				}
+
+
+/**************************\
+  Animation Style
+\**************************/
+@keyframes dialogFadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes dialogFadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes dialogSlideIn {
+	from {
+		transform: translateY(15%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes dialogSlideOut {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-10%);
+	}
+}
+
+.c-dialog[aria-hidden="false"] .c-dialog__overlay {
+	animation: dialogFadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.c-dialog[aria-hidden="false"] .c-dialog__container {
+	animation: dialogSlideIn .3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.c-dialog[aria-hidden="true"] .c-dialog__overlay {
+	animation: dialogFadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.c-dialog[aria-hidden="true"] .c-dialog__container {
+	animation: dialogSlideOut .3s cubic-bezier(0, 0, 0.2, 1);
+}

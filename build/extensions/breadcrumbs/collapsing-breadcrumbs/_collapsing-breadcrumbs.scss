@@ -1,0 +1,53 @@
+/* ==========================================================================
+   EXTENSIONS / BREADCRUMBS / COLLAPSING / COLLAPSING BREADCRUMBS
+   ========================================================================== */
+
+.x-collapsing-breadcrumbs {
+	margin-bottom: 1rem;
+	text-transform: uppercase;
+}
+
+	.x-collapsing-breadcrumbs__group,
+	.x-collapsing-breadcrumbs__list {
+		max-width: 80rem;
+		margin-right: auto;
+		margin-bottom: 0;
+		margin-left: auto;
+		padding-top: 1em;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		font-size: 0.6875rem;
+		line-height: inherit;
+		border-bottom: 0 none;
+	}
+	
+	.x-collapsing-breadcrumbs__group {
+		margin-bottom: 0;
+		border-bottom: 0 none;
+	}
+	
+	.x-collapsing-breadcrumbs__list {
+		padding-bottom: 2em;
+		border-bottom: $global-border-width solid $color-gray-20;
+	}
+	
+		.x-collapsing-breadcrumbs__button {
+			padding-top: 0;
+			padding-bottom: 0;
+			font-size:  $global-font-size;
+		}
+	
+		.x-collapsing-breadcrumbs__list .o-list-inline__item:not(:last-child) {
+			margin-right: 1em;
+		}
+	
+			.x-collapsing-breadcrumbs .o-list-inline__item:not(:last-of-type)::after {
+				display: inline-block;
+				height: 1.75ch;
+				position: relative;
+				top: 0.25ch;
+				right: -0.5em;
+				border-right: 0.2ch solid currentColor;
+				content: '';
+				transform: rotate(15deg);
+			}

@@ -1,0 +1,48 @@
+/* ==========================================================================
+   ELEMENTS / MEDIA
+   ========================================================================== */
+
+/**
+* 1. Fluid media for responsive purposes.
+* 2. Setting 'vertical-align' removes the whitespace that appears under 'img'
+*    elements when they are dropped into a page as-is. Safer alternative to
+*    using 'display: block;'.
+* 3. Progressive enhancement for better loading and CLS reduction:
+*		https://web.dev/optimize-cls/
+*		https://drafts.csswg.org/css-sizing-4/#ratios
+*/
+
+audio,
+video {
+	width: 100%;
+}
+
+	audio:focus,
+	video:focus {
+		outline: 1px dotted currentColor;
+	}
+
+embed,
+img,
+object,
+video {
+	max-width: 100%; /* [1] */
+	height: auto; /* [1] */
+}
+
+iframe {
+	max-width: 100%; /* [1] */
+}
+
+embed,
+object {
+	height: 100%;
+}
+
+img {
+	vertical-align: middle; /* [2] */
+}
+
+img {
+	aspect-ratio: attr(width) / attr(height); /* [3] */
+}

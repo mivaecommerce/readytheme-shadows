@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+[2.0.0]: https://github.com/mivaecommerce/readytheme-shadows/compare/v1.0.6...v2.0.0
+## [2.0.0] - 2020-09-22
+
+#### Upgraded
+Shadows is now the default framework included with a Miva Merchant installation. Numerous changes and updates has been performed to make this happen. As such, v2.0.0 is not backwards compatible with v1.0.6 and there is no direct upgrade path. The best way to upgrade your site, is to create a development site within your administration portal and start from there.
+
 [1.0.6]: https://github.com/mivaecommerce/readytheme-shadows/compare/v1.0.5.1...v1.0.6
 ## [1.0.6] - 2019-10-18
 

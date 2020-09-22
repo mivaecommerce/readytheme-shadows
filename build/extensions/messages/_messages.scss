@@ -1,0 +1,90 @@
+/* ==========================================================================
+   EXTENSIONS / MESSAGES
+   ========================================================================== */
+
+
+/**
+ * Messages are block elements used to display information to the visitor about
+ * their current session. Typically these are informational or error messages
+ * such as you would see on a checkout page if there was an error with the
+ * credit card used.
+ */
+
+.x-messages {
+	margin-bottom: $global-spacing-unit;
+	padding: 0.75em 1.25em;
+	font-size: 0.875rem;
+	background-color: $color-gray-10;
+	border: $global-border-width solid currentColor;
+}
+
+
+.x-messages *:last-child {
+	margin-bottom: 0;
+}
+
+
+.x-messages--borderless {
+	border: 0 none;
+}
+
+
+.x-messages--error {
+	background-color: $color-white;
+	color: $color-error;
+}
+
+.x-messages--info {
+	background-color: $color-white;
+	color: $color-info;
+}
+
+.x-messages--success {
+	background-color: $color-white;
+	color: $color-success;
+}
+
+.x-messages--warning {
+	background-color: $color-gray-10;
+	border-color: $color-warning;
+}
+
+
+/**
+ * These classes will help format the message if you are adding an icon.
+ */
+.x-messages--with-icon {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.x-messages__icon {
+	font-size: 3rem;
+}
+
+
+.x-messages__close {
+	position: absolute;
+	top: 50%;
+	right: 0.25rem;
+	margin-top: -1rem;
+	color: $color-gray-50;
+	font-size: 2rem;
+	line-height: 1;
+	text-decoration: none;
+	opacity: 0.3;
+}
+
+
+
+
+/*
+	what??? they have an old browser?
+	This can be removed if you do not need to alert for IE < 9.
+*/
+.x-messages--update-browser {
+	width: 100%;
+	position: relative;
+	text-align: center;
+}

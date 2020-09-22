@@ -1,0 +1,35 @@
+/* ==========================================================================
+   OBJECTS / WRAPPER
+   ========================================================================== */
+
+/**
+ * Page-level constraining and wrapping elements.
+ */
+.o-site-wrapper {
+	width: 100%;
+	max-width: $site-max-width;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+
+
+
+.o-wrapper {
+	width: 100%;
+	max-width: $wrapper-max-width;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: $global-spacing-unit;
+	padding-left: $global-spacing-unit;
+}
+
+	.o-wrapper--full {
+		max-width: $site-max-width;
+	}
+	
+	.o-wrapper--flush {
+		padding-right: 0;
+		padding-left: 0;
+	}

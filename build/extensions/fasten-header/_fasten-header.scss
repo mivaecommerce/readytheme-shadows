@@ -1,0 +1,36 @@
+/* ==========================================================================
+   EXTENSIONS / FASTEN HEADER / FASTEN HEADER
+   ========================================================================== */
+
+.x-fasten-header {
+	display: none;
+}
+
+@media screen and (min-width: 60em) {
+	.x-fasten-header {
+		display: flex;
+		width: 100vw;
+		max-width: none;
+		padding: 0.5rem 1rem;
+		position: fixed;
+		top: 0;
+		font-size: 0.875rem;
+		background-color: $color-white;
+		box-shadow: 0 2px 4px rgba($color-black, 0.2);
+		color: $color-gray-50;
+		opacity: 0;
+		transform: scaleY(0);
+		transform-origin: top;
+		transition: all ease-in-out 0.15s;
+		z-index: 300;
+	}
+
+	.x-fasten-header--is-active .x-fasten-header {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+
+		.x-fasten-header__logo-image {
+			max-height: 4rem;
+		}
+}

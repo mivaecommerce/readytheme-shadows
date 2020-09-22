@@ -1,66 +1,66 @@
 ![Shadows ReadyTheme Logo](https://raw.githubusercontent.com/mivaecommerce/readytheme-shadows/master/logo.png)
 
-> Shadows is a lightly styled, development ReadyTheme based on the [Elements Framework](https://apps.miva.com/elements-framework.html).  Shadows introduces the Collapsing Breadcrumbs, Fasten Header, Quantity Increment Adjuster, Tabbed Product Details, and Transfigure Navigation extensions.
+> The framework is designed to be used as a foundation for building custom websites, or your own ReadyThemes. While the core of the framework is a tested, CSS base, we also include quality tested JavaScript functionality and extensions like tabs, accordions, carousels, and more.
 
 ## Installing / Getting started
 
-There are two different ways to get started with Shadows. Choose the method that is most appropriate to your project and environment.
+There are two ways to get started with Shadows. Choose the method that is most appropriate to your project and environment. You can [download the framework](https://apps.miva.com/shadows-readytheme.html) and install it directly into your store through the administration portal. Or, if you would like to use the developer edition, you can clone the repository from GitHub:
 
 ```shell
 git clone https://github.com/mivaecommerce/readytheme-shadows.git
 ```
 
-You can also download Shadows from the [Miva AppStore](https://apps.miva.com/shadows-readytheme.html).
-
 #### Demonstration
 [http://shadows.mivareadythemes.com/](http://shadows.mivareadythemes.com/)
 
 #### Documentation
-[https://docs.miva.com/readytheme-shadows/index.html](https://docs.miva.com/readytheme-shadows/index.html)
+[https://docs.miva.com/readytheme-shadows/](https://docs.miva.com/readytheme-shadows/)
 
 #### Style Guide
-[https://docs.miva.com/readytheme-shadows/style-guide.html](https://docs.miva.com/readytheme-shadows/style-guide.html)
+[https://docs.miva.com/readytheme-shadows/#overview-style-guide](https://docs.miva.com/readytheme-shadows/#overview-style-guide)
 
-## Features
+### What's New in Shadows v2.0.0
 
-#### Refined Checkout
+We examined the way ReadyThemes worked with the core software and wanted a tighter integration. To that end, Shadows is now the default Framework installed in any _new_ Miva store. While working on this, we made some improvements to the original version of Shadows.
 
-Building upon the streamlined checkout built into Elements, Shadows offers 
-a more styled approach to the checkout process..
+*   Cleaned and trimmed up the HTML, CSS, and JavaScript code.
+*   Improved accessibility for better user inclusivity.
+*   Compliant with Googles latest Web Vitals metrics.
+*   Improved overall Page Speed Metrics.
 
-#### Customer Dashboard
+Additionally, you now have the option to use a developer version of Shadows for your site builds.
 
-The account landing page has been rethought and restyled to give returning 
-customers more, 'at-a-glance', information. Customers will be able to see 
-recent orders, wish list items, saved credit cards, and much more.
+*   Native support of CSS custom properties (variables).
+*   Native support for SCSS.
+*   Gulp build process to output a single CSS file and a single JS file.
 
-#### Narrowed Content
+### Extensible
 
-Shadows has a narrower content section that Elements which can make a store feel 
-a little less cramped on smaller screens.
+Includes the necessary building blocks to create many of the common UX design patterns. Unique components can easily be created by extending the framework.
 
-#### Fasten Header Extension
+### BEM-IT-ECSS
 
-Adds functionality for a "sticky" header on the site for larger screens.
+Developed with the [BEMIT methodology](//csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) in mind. [BEM](//getbem.com/introduction/) promotes component modularity, [IT](//itcss.io/) helps control the architecture, and [ECSS](//ecss.io/) helps to make extending the framework more manageable.
 
-#### Collapsing Breadcrumbs Extension
+### Modern Layout
 
-Automatically shorten/collapses breadcrumbs on smaller screens so save space.
+Shadows is an evergreen-browser framework with a modern Flexbox layout system. No more having to remember to clear your floats or use conditional classes.
 
-#### Transfigure Navigation Extension
+### Accessibility/Inclusivity
 
-Allows the standard drop-down menu on larger screens to "transfigure" to an 
-off-canvas menu on smaller screens.
+With the importance of inclusivity in website layout in mind, Shadows ships with passing grades, as of August 2020, for [Web Content Accessibility Guidelines 2.1](https://www.w3.org/WAI/standards-guidelines/wcag/) Level A and Level AA as well as [Section 508](https://www.section508.gov/) standards for accessibility as tested through [ARC by The Paciello Group](https://www.paciellogroup.com/toolkit/), [Axe by Deque](https://www.deque.com/axe/), and [WAVE by WebAIM](https://wave.webaim.org/).
 
 ## Browser Support
 
+While every effort has been made to make sure Shadows performs across a variety of devices and browsers, there is only so much shimming that can be done without sacrificing performance. Shadows uses current coding structures and standards. This framework may not be best suited for you if you are looking to support legacy browsers. 
+
 - Chrome (_latest 2_)
 - Firefox (_latest 2_)
-- Safari (_latest 2_)
-- iOS Safari (_latest 2_)
+- Safari iOS/MacOS (_latest 2_)
+	- Versions of Safari lower than 11 have minimal support, this theme may not work in versions lower than 10. Generally, the site will operate, however there are layout inconsistencies due to the way the browsers supports flex-box and sizing calculations.
 - Opera (_latest 2_)
 - Edge (_latest 2_)
-	- Internet Explorer 11 has minimal support.
+	- Internet Explorer 11 has minimal support. It will operate, however there are layout inconsistencies due to the way the browser supports flex-box and sizing calculations.
 
 ## Contributing
 
