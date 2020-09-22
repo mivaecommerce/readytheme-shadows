@@ -1,0 +1,279 @@
+/* ==========================================================================
+   EXTENSIONS / NAVIGATION / TRANSFIGURE NAVIGATION
+   ========================================================================== */
+
+@media screen and (max-width: 59.9em) {
+	.has-open-main-menu,
+	.has-open-main-menu body {
+		overflow: hidden;
+	}
+	
+	.x-transfigure-navigation {
+		padding: 0;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: -100vw;
+		backface-visibility: hidden;
+		background-color: $color-transparent;
+		opacity: 0;
+		overflow: hidden;
+		transition: all ease-out 0.2s;
+		transform: scaleX(0);
+		transform-origin: left;
+		z-index: -1;
+	}
+	
+		.x-transfigure-navigation.is-open {
+			left: 0;
+			background: rgba($color-black, 0.65);
+			opacity: 1;
+			transition: all ease-in 0.2s;
+			transform: scaleX(1);
+			z-index: 2;
+		}
+	
+		.x-transfigure-navigation__wrap {
+			max-width: 22.5rem;
+			min-height: 100%;
+			-webkit-overflow-scrolling: touch;
+			overflow-x: hidden;
+			overflow-y: auto;
+			background-color: $color-white;
+		}
+		
+			.x-transfigure-navigation__header {}
+		
+				.x-transfigure-navigation__header .c-button {
+					padding: calc(1em - #{$global-border-width});
+				}
+		
+			.x-transfigure-navigation__content {
+				position: relative;
+			}
+			
+				.x-transfigure-navigation__row,
+				.x-transfigure-navigation__row .c-navigation__row,
+				.x-transfigure-navigation__row .c-navigation__row:nth-child(2) .c-navigation__row:last-of-type {
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					min-height: 100%;
+					background-color: $color-white;
+					list-style: none;
+					transition: transform 0.3s;
+				}
+				
+					.x-transfigure-navigation .c-navigation__list {
+						position: static;
+					}
+				
+						.x-transfigure-navigation .c-navigation__list:hover > .c-navigation__row,
+						.x-transfigure-navigation .c-navigation__list.focus-within > .c-navigation__row {
+							display: block;
+							box-shadow: none;
+						}
+						
+						@supports (will-change: auto) {
+							.x-transfigure-navigation .c-navigation__list:focus-within > .c-navigation__row {
+								display: block;
+								box-shadow: none;
+							}
+						}
+			
+						.x-transfigure-navigation .c-navigation__link {
+							display: flex;
+							height: 3.75rem;
+							padding: 0 0 0 1rem;
+							align-items: center;
+							justify-content: space-between;
+							backface-visibility: hidden;
+							border: 0 solid $color-gray-20--tinted;
+							border-top-width: $global-border-width;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							transform: translateZ(0);
+							transition: all 0.3s;
+							white-space: nowrap;
+						}
+						
+						.x-transfigure-navigation .c-navigation__row:nth-child(2) .c-navigation__link,
+						.x-transfigure-navigation .c-navigation__row:nth-child(2) .c-navigation__row:last-of-type .c-navigation__link {
+							padding-left: 1rem;
+						}
+						
+						.x-transfigure-navigation__row .c-navigation__list:first-of-type > .c-navigation__link,
+						.x-transfigure-navigation__row .c-navigation__row .c-navigation__list:first-of-type > .c-navigation__link {
+							/*border-top-width: 0;*/
+						}
+						
+						.x-transfigure-navigation__row .c-navigation__list:last-of-type > .c-navigation__link,
+						.x-transfigure-navigation__row .c-navigation__row .c-navigation__list:last-of-type > .c-navigation__link {
+							border-bottom-width: $global-border-width;
+						}
+						
+				.x-transfigure-navigation__row.is-hidden,
+				.x-transfigure-navigation__row .c-navigation__row.is-hidden {
+					transform: translateX(100%);
+				}
+				
+				.x-transfigure-navigation__row.is-hidden > .cmp-primary-navigation__title,
+				.x-transfigure-navigation__row.show-next > .cmp-primary-navigation__title,
+				.x-transfigure-navigation__row.is-hidden > .c-navigation__list > .c-navigation__link,
+				.x-transfigure-navigation__row.show-next > .c-navigation__list > .c-navigation__link,
+				.x-transfigure-navigation__row .c-navigation__row.is-hidden > .c-navigation__list > .c-navigation__link,
+				.x-transfigure-navigation__row .c-navigation__row.show-next > .c-navigation__list > .c-navigation__link {
+					opacity: 0;
+				}
+				
+				.x-transfigure-navigation__row.show-next > .c-navigation__list > .c-navigation__link,
+				.x-transfigure-navigation__row .c-navigation__row.show-next > .c-navigation__list > .c-navigation__link {
+					transform: translateX(-100%);
+				}
+				
+				.x-transfigure-navigation .c-navigation__link-carat {
+					display: none;
+				}
+				
+					.x-transfigure-navigation .has-child-menu .c-navigation__link-carat {
+						display: inline-flex;
+						align-self: stretch;
+					}
+					
+						.x-transfigure-navigation .c-navigation__link-carat > * {
+							display: flex;
+							width: 4rem;
+							align-items: center;
+							justify-content: center;
+							font-size: 0.75rem;
+						}
+
+
+				.x-transfigure-navigation__footer {
+					padding: 1rem;
+					font-size: 0.75rem;
+					list-style: none;
+					border-top: $global-border-width solid $color-gray-20--tinted;
+				}
+
+					.x-transfigure-navigation__footer-link {
+						display: block;
+						padding-top: 1em;
+						padding-bottom: 1em;
+						font-weight: 500;
+						line-height: 2;
+					}
+}
+
+
+@media screen and (min-width: 60em) {
+	.x-transfigure-navigation__row .c-navigation__row {
+		display: none;
+		width: auto;
+		position: absolute;
+		white-space: nowrap;
+		z-index: 100;
+	}
+
+	.x-transfigure-navigation > .c-navigation__row {
+		display: flex;
+	}
+
+	.x-transfigure-navigation:hover .c-navigation__list .c-navigation__link {
+		color: $color-gray-30;
+		transition: color ease-in 0.1s;
+	}
+	
+		.x-transfigure-navigation .c-navigation__link {
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+		}
+
+		.x-transfigure-navigation .c-navigation__link:focus,
+		.x-transfigure-navigation .c-navigation__link:hover {
+			text-decoration: none;
+		}
+	
+		.x-transfigure-navigation__row .c-navigation__row:nth-child(2) .c-navigation__list {
+			text-align: left;
+		}
+	
+		.x-transfigure-navigation__row .c-navigation__row:nth-child(2) .c-navigation__row:last-of-type {
+			top: 0;
+			left: 100%;
+			z-index: 200;
+		}
+		
+		.x-transfigure-navigation .c-navigation__row:nth-child(2) .c-navigation__link,
+		.x-transfigure-navigation .c-navigation__row:nth-child(2) .c-navigation__row:last-of-type .c-navigation__link {
+			justify-content: space-between;
+		}
+		
+		.x-transfigure-navigation .c-navigation__list:hover > .c-navigation__row,
+		.x-transfigure-navigation .c-navigation__list.focus-within > .c-navigation__row {
+			display: table;
+			box-shadow: 1px 1px 0.25em 0 rgba($color-black, 0.5);
+		}
+
+		.x-transfigure-navigation .c-navigation__row:nth-child(2) .c-navigation__list .c-navigation__link {
+			color: $color-gray-30;
+		}
+	
+		.x-transfigure-navigation .c-navigation__list:hover .c-navigation__link {
+			color: $color-black;
+			transition: color ease-out 0.1s;
+		}
+		
+		@supports (will-change: auto) {
+			.x-transfigure-navigation .c-navigation__list:focus-within > .c-navigation__row {
+				display: table;
+				box-shadow: 1px 1px 0.25em 0 rgba($color-black, 0.5);
+			}
+		}
+		
+		
+		
+			.x-transfigure-navigation__row .is-off-screen .c-navigation__row:nth-child(2) .c-navigation__row {
+				left: auto;
+				right: 100%;
+				box-shadow: -1px 1px 0.25em 0 rgba($color-black, 0.5);
+			}
+		
+			.x-transfigure-navigation__row .c-navigation__row:nth-child(2) .c-navigation__row .c-navigation__link,
+			.x-transfigure-navigation__row .c-navigation__row:nth-child(2) .c-navigation__row:last-of-type .c-navigation__link {
+				padding-left: 1em;
+			}
+		
+		.x-transfigure-navigation .c-navigation__link-carat {
+			font-size: 0.5em;
+			transform: rotate(90deg);
+		}
+	
+		.x-transfigure-navigation .c-navigation__row:nth-child(2) .c-navigation__link-carat {
+			transform: rotate(0deg);
+		}
+}
+
+.x-transfigure-navigation__content {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+	.x-transfigure-navigation .c-navigation__link {
+		font-weight: 600;
+		color: $color-gray-40--shaded;
+	}
+
+	.x-transfigure-navigation .c-navigation__link:hover {
+		box-shadow: none;
+	}
+
+	.x-transfigure-navigation .c-navigation__row:nth-child(2) .c-navigation__link:hover {
+		background-color: $color-white;
+		color: $color-black;
+		transition: color ease-out 0.1s;
+	}

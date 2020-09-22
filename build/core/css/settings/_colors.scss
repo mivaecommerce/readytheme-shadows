@@ -1,0 +1,102 @@
+/* ==========================================================================
+   SETTINGS / COLORS
+   This is where the global colors are set.
+   Overrides should be placed in the 'ui/css/theme.scss' file.
+   ========================================================================== */
+/**
+ * Convert a hex value to comma-delimited rgb values
+ * @param {Color} $color - hex color
+ * @return {Color} - RGB
+ * In: #000
+ * Out: 0, 0, 0
+ */
+@function hexToRGB($hex) {
+	@return red($hex), green($hex), blue($hex);
+}
+
+/**
+ * Slightly lighten a color
+ * @param {Color} $color - color to tint
+ * @param {Number} $percentage - percentage of `$color` in returned color
+ * @return {Color}
+ */
+@function tint($color, $percentage) {
+	@return mix(white, $color, $percentage);
+}
+
+/**
+ * Slightly darken  a color
+ * @param {Color} $color - color to shade
+ * @param {Number} $percentage - percentage of `$color` in returned color
+ * @return {Color}
+ */
+@function shade($color, $percentage) {
+	@return mix(black, $color, $percentage);
+}
+
+$color-red: #ee0020 !default;
+$color-yellow: #f9ed1f !default;
+$color-blue: #003b6f !default;
+$color-green: #0d8670 !default;
+$color-black: #000 !default;
+$color-gray-50: #222 !default;
+$color-gray-40: #595959 !default;
+$color-gray-30: #767676 !default;
+$color-gray-20: #c0c0c0 !default;
+$color-gray-10: #eaeaea !default;
+$color-white: #fff !default;
+$color-transparent: transparent !default;
+/**
+ * This section sets default theme for the project so the variables exist.
+ */
+$color-copy: #4a4a4a !default;
+$color-primary: #3d70b2 !default;
+$color-secondary: #5aaafa !default;
+$color-tertiary: #008571 !default;
+$color-highlight: #f9ed1f !default;
+$color-accent: #3cc !default;
+$color-error: #ee0020 !default;
+$color-info: #003b6f !default;
+$color-success: #0d8670 !default;
+$color-warning: #f9ed1f !default;
+$shade-tint-percent: 25% !default;
+$link-color: #2186ca !default;
+$link-underline-color: #8cc8ff !default;
+$link-visited-color: #556dc6 !default;
+$link-visited-underline-color: #a9b6e3 !default;
+$link-hover-underline-color: #006fc6 !default;
+/**
+ * This section sets shading and tinting variables to be used for events,
+ * like hover, for the project.
+ */
+$color-red--shaded: shade($color-red, $shade-tint-percent);
+$color-red--tinted: tint($color-red, $shade-tint-percent);
+$color-yellow--shaded: shade($color-yellow, $shade-tint-percent);
+$color-yellow--tinted: tint($color-yellow, $shade-tint-percent);
+$color-blue--shaded: shade($color-blue, $shade-tint-percent);
+$color-blue--tinted:  tint($color-blue, $shade-tint-percent);
+$color-green--shaded: shade($color-green, $shade-tint-percent);
+$color-green--tinted: tint($color-green, $shade-tint-percent);
+$color-black--tinted: tint($color-black, $shade-tint-percent);
+$color-gray-50--shaded: shade($color-gray-50, $shade-tint-percent);
+$color-gray-50--tinted: tint($color-gray-50, $shade-tint-percent);
+$color-gray-40--shaded: shade($color-gray-40, $shade-tint-percent);
+$color-gray-40--tinted: tint($color-gray-40, $shade-tint-percent);
+$color-gray-30--shaded: shade($color-gray-30, $shade-tint-percent);
+$color-gray-30--tinted: tint($color-gray-30, $shade-tint-percent);
+$color-gray-20--shaded: shade($color-gray-20, $shade-tint-percent);
+$color-gray-20--tinted: tint($color-gray-20, $shade-tint-percent);
+$color-gray-10--shaded: shade($color-gray-10, $shade-tint-percent);
+$color-gray-10--tinted: tint($color-gray-10, $shade-tint-percent);
+$color-white--shaded: shade($color-white, $shade-tint-percent);
+$color-primary--shaded: shade($color-primary, $shade-tint-percent);
+$color-primary--tinted: tint($color-primary, $shade-tint-percent);
+$color-secondary--shaded: shade($color-secondary, $shade-tint-percent);
+$color-secondary--tinted: tint($color-secondary, $shade-tint-percent);
+$color-tertiary--shaded: shade($color-tertiary, $shade-tint-percent);
+$color-tertiary--tinted: tint($color-tertiary, $shade-tint-percent);
+$color-highlight--shaded: shade($color-highlight, $shade-tint-percent);
+$color-highlight--tinted: tint($color-highlight, $shade-tint-percent);
+$color-accent--shaded: shade($color-accent, $shade-tint-percent);
+$color-accent--tinted: tint($color-accent, $shade-tint-percent);
+

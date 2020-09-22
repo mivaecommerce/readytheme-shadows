@@ -1,0 +1,241 @@
+/* ==========================================================================
+   EXTENSIONS / CATEGORY TREE / CATEGORY TREE
+   ========================================================================== */
+
+.x-category-tree {
+	margin-bottom: $global-spacing-unit;
+	position: relative;
+}
+
+	.x-category-tree__trigger {
+		display: none;
+	}
+
+	.x-category-tree__label.x-collapsible-content__toggle {
+		min-height: 2em;
+		margin: 0 0 1em;
+		padding: 1em 0;
+		font-size: 0.75rem;
+		border-bottom: $global-border-width solid $color-gray-10;
+	}
+
+	.x-category-tree .x-collapsible-content__item[aria-hidden='false'],
+	.x-category-tree .x-collapsible-content__item[aria-hidden='false'] .x-category-tree__row {
+		max-height: 100%;
+	}
+
+	
+	.x-category-tree__title {
+		display: none;
+	}
+
+		.x-category-tree__heading {
+			font-size: 15px;
+		}
+	
+	
+	.x-category-tree__row {
+		width: 100%;
+		max-height: 0;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		opacity: 0;
+		overflow: hidden;
+		visibility: hidden;
+		transition: 0.2s ease-in-out;
+	}
+	
+		.x-category-tree__link {
+			display: block;
+			padding: 0 0 1rem;
+			font-size: 14px;
+			font-weight: 600;
+			color: $color-black;
+			letter-spacing: 0;
+			transition: color ease-in-out 0.2s;
+		}
+		
+		.x-category-tree__link:hover {
+			text-decoration: none;
+		}
+		
+		.x-category-tree__list--level-2 .x-category-tree__link {
+			padding-left: 1.75em;
+			font-size: 13px;
+			color: $color-gray-40;
+		}
+		
+		.x-category-tree__list--level-3 .x-category-tree__link {
+			padding-left: 2.75em;
+			font-size: 12px;
+			color: $color-gray-40;
+		}
+
+			.x-category-tree__link--current,
+			.x-category-tree__list--level-2 .x-category-tree__link--current,
+			.x-category-tree__list--level-3 .x-category-tree__link--current {
+				font-weight: 700;
+				color: $color-black;
+			}
+
+			.x-category-tree__link:not(.x-category-tree__link--current):hover {
+				text-decoration: underline;
+				background-color: inherit;
+			}
+			
+
+	@media (min-width: 60em) {
+		.x-category-tree__label.x-collapsible-content__toggle {
+			display: none;
+		}
+		
+		.x-category-tree__title {
+			display: block;
+		}
+
+			.x-category-tree__heading {
+				padding-top: 0.25rem;
+			}
+
+		.x-category-tree__row,
+		.x-category-tree__row.x-collapsible-content__item {
+			max-height: none;
+			opacity: 1;
+			overflow: visible;
+			visibility: visible;
+		}
+
+		.x-category-tree__link:not(.x-category-tree__link--current):hover {
+			text-decoration: none;
+			background-color: $color-gray-10;
+			transition: background-color ease-in 0.3s 0.05s;
+		}
+	}
+
+
+
+
+
+/**
+ * This section contains the necessary styles when using the built-in search
+ * faceting ability of Miva. Since the functional code is generated at run-time,
+ * these styles do not conform to the tenants used in the rest of the framework.
+ */
+
+.mm_facet_rangeslider {
+	display: block;
+	height: 2em;
+	margin: 0.25em;
+	position: relative;
+}
+
+	.mm_facet_rangeslider_input_container_low,
+	.mm_facet_rangeslider_input_container_high {
+		width: 4em;
+		height: 2em;
+		position: absolute;
+		top: 0;
+		text-align: center;
+		border-bottom: $global-border-width solid $color-gray-20;
+	}
+	
+	.mm_facet_rangeslider_input_container_low {
+		left: 0;
+		border-radius: 0.25em 0 0 0.25em;
+	}
+	
+	.mm_facet_rangeslider_input_container_high {
+		right: 0;
+		border-radius: 0 0.25em 0.25em 0;
+	}
+	
+		.mm_facet_rangeslider_input_container_low.mm_facet_rangeslider_input_active,
+		.mm_facet_rangeslider_input_container_high.mm_facet_rangeslider_input_active {
+			border-color: $color-primary;
+		}
+	
+		.mm_facet_rangeslider_input {}
+	
+	.mm_facet_rangeslider_track_container {
+		height: 2em;
+		position: absolute;
+		top: 0;
+		right: 4em;
+		left: 4em;
+		border-top: $global-border-width solid $color-gray-20;
+		border-bottom: $global-border-width solid $color-gray-20;
+		box-sizing: border-box;
+		-webkit-touch-callout: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	
+		.mm_facet_rangeslider_track {
+			height: 0.25em;
+			position: absolute;
+			top: 50%;
+			right: 0.25em;
+			left: 0.25em;
+			transform: translateY(-50%);
+		}
+		
+			.mm_facet_rangeslider_track_background,
+			.mm_facet_rangeslider_track_selection {
+				position: absolute;
+				top: 0;
+				right: 0.5em;
+				bottom: 0;
+				left: 0.5em;
+				background: $color-gray-20;
+			}
+			
+			.mm_facet_rangeslider_track_selection {
+				background: $color-primary--tinted;
+			}
+			
+			.mm_facet_rangeslider_track_handle_low,
+			.mm_facet_rangeslider_track_handle_high {
+				width: 2em;
+				height: 2em;
+				position: absolute;
+				top: 50%;
+				left: -0.5em;
+				background: $color-white;
+				border: $global-border-width solid $color-gray-20;
+				border-radius: 50%;
+				cursor: pointer;
+				transform: translateY(-50%);
+			}
+		
+		.mm_facet_rangeslider.mm_facet_rangeslider_mini {
+			height: 6em;
+			margin: 0;
+		}
+		
+		.mm_facet_rangeslider.mm_facet_rangeslider_mini .mm_facet_rangeslider_input_container_low {
+			width: 50%;
+			border-radius: 0.25em 0 0 0;
+		}
+		
+		.mm_facet_rangeslider.mm_facet_rangeslider_mini .mm_facet_rangeslider_input_container_high {
+			width: 50%;
+			border-radius: 0 0.25em 0 0;
+			border-left: none;
+		}
+		
+		.mm_facet_rangeslider.mm_facet_rangeslider_mini .mm_facet_rangeslider_track_container {
+			height: 3em;
+			top: 2em;
+			right: 0;
+			left: 0;
+			border: $global-border-width solid $color-gray-20;
+			border-top: none;
+			border-radius: 0 0 0.25em 0.25em;
+		}
+		
+		.mm_facet_rangeslider.mm_facet_rangeslider_mini .mm_facet_rangeslider_input_container_low.mm_facet_rangeslider_input_active,
+		.mm_facet_rangeslider.mm_facet_rangeslider_mini .mm_facet_rangeslider_input_container_high.mm_facet_rangeslider_input_active {
+			border-color: $color-gray-10;
+			box-shadow: inset 2px 2px 5px rgba($color-black, 0.15);
+		}

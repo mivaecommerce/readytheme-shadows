@@ -1,0 +1,21 @@
+/* ==========================================================================
+   ELEMENTS / LINKS
+   ========================================================================== */
+
+/**
+ * Our basic A elements only need very minimal styling. Anything more
+ * opinionated (e.g. buttons, calls-to-action, etc.) will need a class defining
+ * in the Components layer.
+ */
+
+a {
+	color:  $link-color;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:active,
+a:focus,
+a:hover {
+	text-decoration: underline solid  $link-hover-underline-color;
+}

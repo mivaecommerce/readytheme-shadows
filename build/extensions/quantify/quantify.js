@@ -1,0 +1,149 @@
+/**
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |q|u|a|n|t|i|f|y|
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ *
+ * This extension allows for the use of buttons to increase/decrease item
+ * quantities on the product and basket pages. When used on the basket page,
+ * the decrease button becomes a remove button if the quantity is 1.
+ */
+
+(function () {
+	'use strict';
+	
+	const adjusters = document.querySelectorAll('[data-hook="quantify"]');
+	
+	for (let id = 0; id < adjusters.length; id++) {
+		/**
+		 * This listener prevents the `enter` key from adjusting the `input` value.
+		 */
+		adjusters[id].addEventListener('keydown', function (keyEvent) {
+			if (keyEvent.target.closest('input')) {
+				if (keyEvent.key === 'Enter') {
+					keyEvent.preventDefault();
+				}
+			}
+		});
+		
+		adjusters[id].addEventListener('click', function (event) {
+			if (event.target.closest('button')) {
+				let button = event.target;
+				let inputs = [].filter.call(this.children, function (sibling) {
+					return sibling !== button && sibling.closest('input');
+				});
+				let input = inputs[0];
+				let value = parseInt(input.value);
+				let action = button.getAttribute('data-action');
+				let changed = document.createEvent('HTMLEvents');
+				let groupForm = document.querySelector('[data-hook="' + input.getAttribute('data-group') + '"]');
+				
+				changed.initEvent('change', true, false);
+				event.stopPropagation();
+				event.preventDefault();
+				
+				if (action === 'decrement') {
+					/**
+					 * THIS CAN BE USED TO SET A MINIMUM QUANTITY
+					 * value = value > 5 ? value - 1 : 5;
+					 */
+					value = value > 1 ? value - 1 : 1;
+					
+					input.value = value;
+					input.dispatchEvent(changed);
+					allowRemoveUpdate();
+				}
+				else if (action === 'increment') {
+					/**
+					 * THIS CAN BE USED TO SET A MAXIMUM QUANTITY
+					 * value = value < 100 ? value + 1 : 100;
+					 */
+					value = value + 1;
+					
+					input.value = value;
+					if (groupForm) {
+						groupForm.elements['Action'].value = 'QTYG';
+					}
+					input.dispatchEvent(changed);
+					allowRemoveUpdate();
+				}
+				else {
+					input.value = 0;
+					input.dispatchEvent(changed);
+				}
+			}
+		});
+	}
+	
+	function allowRemoveUpdate() {
+		let quantities = document.querySelectorAll('[data-hook="group-quantity"]');
+		
+		function toggleRemove(row, qty) {
+			let removeToggle = row.previousElementSibling;
+			let groupForm = document.querySelector('[data-hook="' + row.getAttribute('data-group') + '"]');
+			
+			if (removeToggle.dataset.hook !== 'remove') {
+				if (qty > '1') {
+					if (groupForm) {
+						groupForm.elements['Action'].value = 'QTYG';
+					}
+					removeToggle.firstElementChild.classList.remove('u-icon-remove');
+					removeToggle.firstElementChild.classList.add('u-icon-subtract');
+					removeToggle.setAttribute('data-action', 'decrement');
+				}
+				else if (qty === '1') {
+					if (groupForm) {
+						groupForm.elements['Action'].value = 'QTYG';
+					}
+					removeToggle.firstElementChild.classList.remove('u-icon-subtract');
+					removeToggle.firstElementChild.classList.add('u-icon-remove');
+					removeToggle.setAttribute('data-action', 'remove');
+				}
+				else {
+					if (groupForm) {
+						groupForm.elements['Action'].value = 'RGRP';
+					}
+					removeToggle.firstElementChild.classList.remove('u-icon-subtract');
+					removeToggle.firstElementChild.classList.add('u-icon-remove');
+					removeToggle.setAttribute('data-action', 'remove');
+				}
+			}
+		}
+		
+		if (quantities) {
+			for (let id = 0; id < quantities.length; id++) {
+				let quantityLine = quantities[id];
+				let updateTimeout = null;
+				
+				toggleRemove(quantityLine, quantityLine.value);
+				
+				quantityLine.addEventListener('change', function (event) {
+					let input = this;
+					
+					clearTimeout(updateTimeout);
+					updateTimeout = setTimeout(function () {
+						toggleRemove(input, input.value);
+						groupSubmit(event, input);
+					}, 500);
+				});
+				
+				quantityLine.addEventListener('input', function (event) {
+					let input = this;
+					
+					clearTimeout(updateTimeout);
+					updateTimeout = setTimeout(function () {
+						toggleRemove(input, input.value);
+						groupSubmit(event, input);
+					}, 500);
+				});
+			}
+		}
+	}
+	
+	allowRemoveUpdate();
+	
+	function groupSubmit(event, quantity) {
+		if (event.key !== 8 && event.key !== 37 && event.key !== 38 && event.key !== 39 && event.key !== 40 && event.key !== 46 && quantity.value !== '') {
+			document.querySelector('[data-hook="' + event.target.getAttribute('data-group') + '"]').submit();
+		}
+	}
+})();

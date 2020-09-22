@@ -1,0 +1,88 @@
+/* ==========================================================================
+   EXTENSIONS / PRODUCT LAYOUT / PRODUCT LAYOUT
+   ========================================================================== */
+
+
+/**
+ * This is the default product layout for the product page.
+ */
+
+.x-product-layout {}
+
+@media (min-width: 60em) {
+	.x-product-layout {
+		padding-top: calc(#{$global-spacing-unit} * 2);
+	}
+}
+
+	.x-product-layout-images {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+		.x-product-layout-images__image {
+			display: inline-block;
+			margin-bottom: calc(#{$global-spacing-unit} * 2);
+		}
+
+		.x-product-layout-images__thumbnail-list {}
+
+		.x-product-layout-images__thumbnail-image {
+			margin-bottom: $global-spacing-unit;
+		}
+
+
+	.x-product-layout-purchase {}
+		
+		.x-product-layout-purchase__name {
+			margin-bottom: calc(#{$global-spacing-unit} * 2);
+		}
+		
+		.x-product-layout-purchase__pricing-original,
+		.x-product-layout-purchase__pricing-current {
+			font-size: 1.125rem;
+			font-weight: 500;
+		}
+		
+		.x-product-layout-purchase .is-required {
+			font-weight: 500;
+		}
+
+		.x-product-layout-purchase__pricing-original {
+			padding-right: calc(#{$global-spacing-unit} * 2);
+		}
+
+		.x-product-layout-purchase__options {
+			display: flex;
+			width: auto;
+			max-width: none;
+		}
+
+			.x-product-layout-purchase__options-attribute {
+				width: 100%;
+				margin-bottom: calc(#{$global-spacing-unit} / 2);
+			}
+
+				.x-product-layout-purchase__options-attribute .c-form-label {
+					font-size: 0.75rem;
+				}
+
+
+				.x-product-layout-purchase__swatches {
+					padding-top: 3px;
+				}
+					.x-product-layout-purchase__swatches button {
+						padding: 0;
+						border: 0 none;
+						background-color: transparent;
+					}
+
+					.x-product-layout-purchase__swatches--active {
+						box-shadow: 0 0 0 2px $color-gray-10, 0 0 3px 3px $color-gray-30;
+					}
+					
+					
+.x-product-description {
+	margin-bottom: calc(#{$global-spacing-unit} * 6);
+	padding-top: calc(#{$global-spacing-unit} * 6);
+}

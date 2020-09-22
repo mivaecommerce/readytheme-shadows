@@ -1,0 +1,34 @@
+.x-collapsible-content {
+
+}
+
+	.x-collapsible-content__toggle {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		padding: 0;
+		color: inherit;
+		font-weight: 700;
+		line-height: normal;
+		background-color: transparent;
+		border: 0 none;
+	}
+	
+		.x-collapsible-content__toggle[aria-expanded='true'] [class^="u-icon-"]::before {
+			content: attr(data-toggle);
+		}
+
+	.x-collapsible-content__item[aria-hidden='false'] {
+		max-height: 25vmax;
+		opacity: 1;
+		overflow: visible;
+		transition: visibility 0s ease, max-height 0.3s ease, opacity 0.3s ease;
+		visibility: visible;
+	}
+
+	.x-collapsible-content__item {
+		max-height: 0;
+		opacity: 0;
+		visibility: hidden;
+	}

@@ -1,0 +1,43 @@
+/* ==========================================================================
+   SETTINGS / TYPOGRAPHY
+   This is where the global typography measurements are set.
+   Overrides should be placed in the 'ui/css/theme.scss' file.
+   ========================================================================== */
+
+$min-font-scale: 1.2 !default; /* Minor Third Font Scale */
+$max-font-scale: 1.333 !default; /* Perfect Fourth Font Scale */
+$min-line-height: 1.5 !default;
+$max-line-height: 1.8 !default;
+$fluid-line-height: calc((#{$min-line-height} + #{$max-line-height}) / 2) !default;
+
+/* Editing below this point is not recommended */
+$base-line-height: 1.5 !default;
+$screen-compensation: calc((100vw - (#{$breakpoint-small} * 1px)) / (#{$breakpoint-large} - #{$breakpoint-small})) !default;
+$echo: $global-font-size !default;
+$foxtrot-min: round($echo / $min-font-scale) !default;
+$foxtrot-max: round($echo / $max-font-scale) !default;
+$delta-min: round($echo * $min-font-scale) !default;
+$delta-max: round($echo * $max-font-scale) !default;
+$charlie-min: round($delta-min * $min-font-scale) !default;
+$charlie-max: round($delta-max * $max-font-scale) !default;
+$bravo-min: round($charlie-min * $min-font-scale) !default;
+$bravo-max: round($charlie-max * $max-font-scale) !default;
+$alpha-min: round($bravo-min * $min-font-scale) !default;
+$alpha-max: round($bravo-max * $max-font-scale) !default;
+
+$heading-alpha-min: $alpha-min !default;
+$heading-alpha-max: $alpha-max !default;
+$heading-alpha-fluid: calc(#{$heading-alpha-min} + (#{$alpha-max} - #{$alpha-min}) * #{$screen-compensation}) !default;
+$heading-bravo-min: $bravo-min !default;
+$heading-bravo-max: $bravo-max !default;
+$heading-bravo-fluid: calc(#{$heading-bravo-min} + (#{$bravo-max} - #{$bravo-min}) * #{$screen-compensation}) !default;
+$heading-charlie-min: $charlie-min !default;
+$heading-charlie-max: $charlie-max !default;
+$heading-charlie-fluid: calc(#{$heading-charlie-min} + (#{$charlie-max} - #{$charlie-min}) * #{$screen-compensation}) !default;
+$heading-delta-min: $delta-min !default;
+$heading-delta-max: $delta-max !default;
+$heading-delta-fluid: calc(#{$heading-delta-min} + (#{$delta-max} - #{$delta-min}) * #{$screen-compensation}) !default;
+$heading-echo-fluid: calc(#{$echo} * #{$screen-compensation}) !default;
+$heading-foxtrot-min: $foxtrot-min !default;
+$heading-foxtrot-max: $foxtrot-max !default;
+$heading-foxtrot-fluid: calc(#{$heading-foxtrot-min} + (#{$foxtrot-max} - #{$foxtrot-min}) * #{$screen-compensation}) !default;

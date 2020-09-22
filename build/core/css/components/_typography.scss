@@ -1,0 +1,151 @@
+/* ==========================================================================
+   COMPONENTS / TYPOGRAPHY
+   ========================================================================== */
+
+/**
+ * In order to divorce our semantic decisions from our stylistic ones, we only
+ * define opinionated typographical styles against classes, NOT against
+ * typographic HTML elements.
+ *
+ * Further reading:
+ * http://csswizardry.com/2016/02/managing-typography-on-large-apps/
+ */
+
+/* Heading-level typography
+  =========================================== */
+.c-heading-alpha {
+	font-size: $heading-alpha-min;
+	line-height: calc(#{$min-line-height} * .84);
+}
+
+.c-heading-bravo {
+	font-size: $heading-bravo-min;
+	line-height: calc(#{$min-line-height} * .81);
+}
+
+.c-heading-charlie {
+	font-size: $heading-charlie-min;
+	line-height: calc(#{$min-line-height} * .78);
+}
+
+.c-heading-delta {
+	font-size: $heading-delta-min;
+	line-height: calc(#{$min-line-height} * .75);
+}
+
+.c-heading-echo {
+	font-size: $echo;
+	line-height: calc(#{$min-line-height} * .75);
+}
+
+.c-heading-foxtrot {
+	font-size: $heading-foxtrot-min;
+	line-height: calc(#{$min-line-height} * .75);
+}
+
+
+	@media (min-width: 40em) {
+		/**
+		 * Small Breakpoint [40em = 640px]
+		 * When in the small breakpoint, 'font-size' and 'line-height' are
+		 * dynamically adjusted.
+		 */
+		.c-heading-alpha {
+			font-size: $heading-alpha-fluid;
+			line-height: calc(((#{$min-line-height} + #{$max-line-height}) / 2) * .84);
+		}
+
+		.c-heading-bravo {
+			font-size: $heading-bravo-fluid;
+			line-height: calc(((#{$min-line-height} + #{$max-line-height}) / 2) * .81);
+		}
+
+		.c-heading-charlie {
+			font-size: $heading-charlie-fluid;
+			line-height: calc(((#{$min-line-height} + #{$max-line-height}) / 2) * .78);
+		}
+
+		.c-heading-delta {
+			font-size: $heading-delta-fluid;
+			line-height: calc(((#{$min-line-height} + #{$max-line-height}) / 2) * .75);
+		}
+
+		.c-heading-echo {
+			font-size: $heading-echo-fluid;
+			line-height: calc(((#{$min-line-height} + #{$max-line-height}) / 2) * .75);
+		}
+
+		.c-heading-foxtrot {
+			font-size: $heading-foxtrot-fluid;
+			line-height: calc(((#{$min-line-height} + #{$max-line-height}) / 2) * .75);
+		}
+	}
+	
+	@media (min-width: 60em) {
+		/**
+		 * Large Breakpoint [60em = 960px] and Greater
+		 */
+		.c-heading-alpha {
+			font-size: $heading-alpha-max;
+			line-height: calc(#{$max-line-height} * .60);
+		}
+		
+		.c-heading-bravo {
+			font-size: $heading-bravo-max;
+			line-height: calc(#{$max-line-height} * .68);
+		}
+		
+		.c-heading-charlie {
+			font-size: $heading-charlie-max;
+			line-height: calc(#{$max-line-height} * .76);
+		}
+		
+		.c-heading-delta {
+			font-size: $heading-delta-max;
+			line-height: calc(#{$max-line-height} * .84);
+		}
+		
+		.c-heading-echo {
+			font-size: $echo;
+			line-height: calc(#{$max-line-height} * .84);
+		}
+		
+		.c-heading-foxtrot {
+			font-size: $heading-foxtrot-max;
+			line-height: calc(#{$max-line-height} * .84);
+		}
+	}
+
+
+.c-heading--subheading {
+	font-size: 0.6em;
+	font-weight: 400;
+}
+
+
+.c-heading--keyline {
+	display: inline-block;
+	margin-bottom: 1em;
+	position: relative;
+}
+
+	.c-heading--keyline::after {
+		display: block;
+		width: 25%;
+		height: 2px;
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%, 0.5em);
+		background-color: $color-gray-20;
+		content: "";
+	}
+
+
+
+
+
+/* Text-level typography
+  =========================================== */
+.c-text-body {
+	font-size:  $global-font-size;
+}

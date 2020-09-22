@@ -1,0 +1,140 @@
+/* =====
+   EXTENSIONS / TABS / A11Y-TABS
+   ===== */
+
+/**
+ * This is an accessible tab solution extension based on guidelines documented
+ * by Heydon Pickering on the Inclusive Components Pattern Library.
+ * https://inclusive-components.design/tabbed-interfaces/
+ */
+
+/**
+ * This is a basic placeholder for the proposed CSS `:focus-visible`
+ * pseudo-selector [1] and is based on the WICG polyfill [2]. Once
+ * standardized, this will be updated.
+ *
+ * [1] https://drafts.csswg.org/selectors-4/#the-focus-visible-pseudo
+ * [2] https://github.com/WICG/focus-visible
+ *
+ * Add the `focus-visible` class to the given element.
+ * @param {Element} focusedElement
+ */
+[data-tab-component] *:focus:not(.focus-visible) {
+	box-shadow: inset 0 0 0 4px $color-transparent;
+	outline: none;
+	text-decoration: none;
+}
+
+[data-tab-component] *.focus-visible {
+	box-shadow: inset 0 0 0 4px lightBlue;
+	outline: none;
+	text-decoration: none;
+}
+
+
+[role="tablist"] {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+	[role="tablist"] li,
+	[role="tab"] {
+		display: inline-block;
+	}
+	
+		[role="tab"] {
+			padding: 0.5rem 1em calc(0.5rem + (#{$global-border-width} * 2));
+			position: relative;
+			top: calc(#{$global-border-width} * 2);
+			text-decoration: none;
+			border: calc(#{$global-border-width} * 2) solid $color-transparent;
+			border-bottom: 0 none;
+		}
+		
+		[role="tab"][aria-selected] {
+			background-color: #fff;
+			border-color: currentColor;
+		}
+	
+	[role="tabpanel"] {
+		padding: 1.5rem;
+		border: calc(#{$global-border-width} * 2) solid;
+	}
+	
+		[role="tabpanel"] * + * {
+			margin-top: 0.75rem;
+		}
+	
+@media (max-width: 40em) {
+	[data-tab-component]::before {
+		display: none;
+		content: "max";
+		visibility: hidden;
+	}
+	
+		[role="tablist"] li,
+		[role="tab"] {
+			display: block;
+			position: static;
+		}
+		
+			[role="tab"] {
+				border: calc(#{$global-border-width} * 2) solid currentColor;
+			}
+			
+			[role="tablist"] li + li a {
+				border-top: 0 !important;
+			}
+			
+			[role="tab"][aria-selected] {
+				position: static;
+			}
+			
+			[role="tab"][aria-selected]::after {
+				content: '\0020⬅';
+			}
+		
+		[role="tabpanel"] {
+			border-top: 0;
+		}
+}
+
+
+/**
+ * This is some basic styling to match that shipped with the flex-tabs extension.
+ */
+.x-a11y-tabs {
+	margin-bottom: 1rem;
+}
+	
+	.x-a11y-tabs__link {
+		border: 0 none;
+		border-bottom: $global-border-width solid $color-gray-20;
+		color: $color-gray-30;
+	}
+	
+	.x-a11y-tabs__panel {
+		border: 0 none;
+		border-bottom: $global-border-width solid $color-gray-20;
+	}
+
+@media (min-width: 40.1em) {
+	.x-a11y-tabs__list {
+		display: flex;
+		justify-content: center;
+	}
+		
+		.x-a11y-tabs__link {
+			top: auto;
+			border-bottom-color: $color-transparent;
+		}
+
+		.x-a11y-tabs__link:hover {
+			text-decoration: none;
+		}
+	
+	.x-a11y-tabs__panel {
+		border: 0 none;
+	}
+}

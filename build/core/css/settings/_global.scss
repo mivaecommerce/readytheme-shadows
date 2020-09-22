@@ -1,0 +1,46 @@
+/* ==========================================================================
+SETTINGS / GLOBAL
+Set all your global CSS variables in this file.
+Overrides should be placed in the 'ui/css/theme.scss' file.
+========================================================================== */
+
+/* theme settings
+   =========================================== */
+$theme-path: "themes/00000001/shadows" !default;
+
+/* root settings
+   =========================================== */
+$base-measure: 16 !default;
+
+
+/* width constraints
+   =========================================== */
+$site-max-width: 100vw !default;
+$wrapper-max-width: 80rem !default;
+
+
+/* typography settings
+   =========================================== */
+$global-font-size: 16px !default;
+$primary-font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji" !default;
+$secondary-font-family: "Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", "Times", "Source Serif Pro", serif !default;
+
+
+/* border settings
+   =========================================== */
+$global-border-width: 1px !default;
+$global-border-radius: 0.125em !default;
+
+
+/* breakpoints
+   =========================================== */
+$breakpoint-small: 640 !default;
+$breakpoint-medium: 768 !default;
+$breakpoint-large: 960 !default;
+$breakpoint-x-large: 1200 !default;
+$breakpoint-wide: 1440 !default;
+
+
+/* miscellaneous
+   =========================================== */
+$global-spacing-unit: 16px !default;

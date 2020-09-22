@@ -1,0 +1,344 @@
+/* ==========================================================================
+   UTILITIES / COLORS
+   ========================================================================== */
+
+/**
+ * Utility classes to adjust element colors inline.
+ * Both .u-bg-*** and .u-color-*** work for each color class.
+ */
+
+.u-bg-red::before,
+.u-bg-red {
+	background-color: $color-red;
+}
+
+.u-bg-yellow::before,
+.u-bg-yellow {
+	background-color: $color-yellow;
+}
+
+.u-bg-blue::before,
+.u-bg-blue {
+	background-color: $color-blue;
+}
+
+.u-bg-green::before,
+.u-bg-green {
+	background-color: $color-green;
+}
+
+.u-bg-black::before,
+.u-bg-black {
+	background-color: $color-black;
+}
+
+.u-bg-gray-50::before,
+.u-bg-gray-50 {
+	background-color: $color-gray-50;
+}
+
+.u-bg-gray-40::before,
+.u-bg-gray-40 {
+	background-color: $color-gray-40;
+}
+
+.u-bg-gray-30::before,
+.u-bg-gray-30 {
+	background-color: $color-gray-30;
+}
+
+.u-bg-gray-20::before,
+.u-bg-gray-20 {
+	background-color: $color-gray-20;
+}
+
+.u-bg-gray-10::before,
+.u-bg-gray-10 {
+	background-color: $color-gray-10;
+}
+
+.u-bg-white::before,
+.u-bg-white {
+	background-color: $color-white;
+}
+
+.u-bg-transparent {
+	background-color: $color-transparent;
+}
+
+.u-bg-primary::before,
+.u-bg-primary {
+	background-color: $color-primary;
+}
+
+.u-bg-secondary::before,
+.u-bg-secondary {
+	background-color: $color-secondary;
+}
+
+.u-bg-tertiary::before,
+.u-bg-tertiary {
+	background-color: $color-tertiary;
+}
+
+.u-bg-highlight::before,
+.u-bg-highlight {
+	background-color: $color-highlight;
+}
+
+.u-bg-accent::before,
+.u-bg-accent {
+	background-color: $color-accent;
+}
+
+
+
+
+
+.c-button:hover.u-bg-red {
+	background-color: $color-red--shaded;
+}
+
+.c-button:hover.u-bg-yellow {
+	background-color: $color-yellow--shaded;
+}
+
+.c-button:hover.u-bg-blue {
+	background-color: $color-blue--shaded;
+}
+
+.c-button:hover.u-bg-green {
+	background-color: $color-green--shaded;
+}
+
+.c-button:hover.u-bg-black {
+	background-color: $color-black--tinted;
+}
+
+.c-button:hover.u-bg-gray-50 {
+	background-color: $color-gray-50--tinted;
+}
+
+.c-button:hover.u-bg-gray-40 {
+	background-color: $color-gray-40--tinted;
+}
+
+.c-button:hover.u-bg-gray-30 {
+	background-color: $color-gray-30--shaded;
+}
+
+.c-button:hover.u-bg-gray-20 {
+	background-color: $color-gray-20--shaded;
+}
+
+.c-button:hover.u-bg-gray-10 {
+	background-color: $color-gray-10--shaded;
+}
+
+.c-button:hover.u-bg-white {
+	background-color: $color-white--shaded;
+}
+
+.c-button:hover.u-bg-primary {
+	background-color: $color-primary--shaded;
+}
+
+.c-button:hover.u-bg-secondary {
+	background-color: $color-secondary--shaded;
+}
+
+.c-button:hover.u-bg-tertiary {
+	background-color: $color-tertiary--shaded;
+}
+
+.c-button:hover.u-bg-highlight {
+	background-color: $color-highlight--shaded;
+}
+
+.c-button:hover.u-bg-accent {
+	background-color: $color-accent--shaded;
+}
+
+
+
+
+
+.u-border-red {
+	border-color: $color-red;
+}
+
+.u-border-yellow {
+	border-color: $color-yellow;
+}
+
+.u-border-blue {
+	border-color: $color-blue;
+}
+
+.u-border-green {
+	border-color: $color-green;
+}
+
+.u-border-black {
+	border-color: $color-black;
+}
+
+.u-border-gray-50 {
+	border-color: $color-gray-50;
+}
+
+.u-border-gray-40 {
+	border-color: $color-gray-40;
+}
+
+.u-border-gray-30 {
+	border-color: $color-gray-30;
+}
+
+.u-border-gray-20 {
+	border-color: $color-gray-20;
+}
+
+.u-border-gray-10 {
+	border-color: $color-gray-10;
+}
+
+.u-border-white {
+	border-color: $color-white;
+}
+
+.u-border-transparent {
+	border-color: $color-transparent;
+}
+
+.u-border-primary {
+	border-color: $color-primary;
+}
+
+.u-border-secondary {
+	border-color: $color-secondary;
+}
+
+.u-border-tertiary {
+	border-color: $color-tertiary;
+}
+
+.u-border-highlight {
+	border-color: $color-highlight;
+}
+
+.u-border-accent {
+	border-color: $color-accent;
+}
+
+
+
+
+
+.u-color-red {
+	color: $color-red;
+}
+
+.u-color-yellow {
+	color: $color-yellow;
+}
+
+.u-color-blue {
+	color: $color-blue;
+}
+
+.u-color-green {
+	color: $color-green;
+}
+
+.u-color-black {
+	color: $color-black;
+}
+
+.u-color-gray-50 {
+	color: $color-gray-50;
+}
+
+.u-color-gray-40 {
+	color: $color-gray-40;
+}
+
+.u-color-gray-30 {
+	color: $color-gray-30;
+}
+
+.u-color-gray-20 {
+	color: $color-gray-20;
+}
+
+.u-color-gray-10 {
+	color: $color-gray-10;
+}
+
+.u-color-white {
+	color: $color-white;
+}
+
+.u-color-transparent {
+	color: $color-transparent;
+}
+
+.u-color-primary {
+	color: $color-primary;
+}
+
+.u-color-secondary {
+	color: $color-secondary;
+}
+
+.u-color-tertiary {
+	color: $color-tertiary;
+}
+
+.u-color-highlight {
+	color: $color-highlight;
+}
+
+.u-color-accent {
+	color: $color-accent;
+}
+
+
+
+
+
+
+/**
+ * This will make sure the full background of a layout object is filled.
+ */
+.o-layout[class*="u-bg-"] {
+	position: relative;
+	background-color: $color-transparent;
+}
+
+	.o-layout[class*="u-bg-"]::before {
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 16px;
+		content: '';
+	}
+
+		.o-layout--narrow[class*="u-bg-"]::before {
+			left: calc(#{$global-spacing-unit} * 0.5);
+		}
+		
+		.o-layout--wide[class*="u-bg-"]::before {
+			left: calc(#{$global-spacing-unit} * 2);
+		}
+		
+		.o-layout--flush[class*="u-bg-"]::before {
+			left: 0;
+		}
+	
+	.o-layout[class*="u-bg-"] > * {
+		position: relative;
+		z-index: 1;
+	}

@@ -1,0 +1,244 @@
+/* ==========================================================================
+   COMPONENTS / BUTTONS
+   ========================================================================== */
+
+/**
+ * 1.  Allows styling of box model properties.
+ * 2.  Reset browser styles.
+ * 3.  Subtract border-width from the padding so buttons don't grow if the
+ *     border-width is modified.
+ * 4.  Tidy alignment for when the button size needs to be modified.
+ * 5.  Make buttons inherit font styles (necessary when styling `input`s as
+ *     buttons).
+ * 6.  Set default button font-size.
+ * 7.  Set default button font-weight.
+ * 8.  Set default button text-alignment.
+ * 9.  Remove anchor text-decoration (necessary when styling `a`s as buttons).
+ * 10. Base transparent border for modifiers to alter.
+ * 11. Set default button border-radius.
+ * 12. Set default button transition (color, background-color, border-color and box-shadow)
+ * 13. Force all button-styled elements to appear click-able.
+ */
+.c-button {
+	display: inline-block; /* [1] */
+	margin: 0; /* [2] */
+	padding: calc(0.5em - #{$global-border-width}) calc(1em - #{$global-border-width}); /* [3] */
+	position: relative;
+	vertical-align: middle; /* [4] */
+	font-family: inherit; /* [5] */
+	font-size: 1em; /* [6] */
+	font-weight: 400; /* [7] */
+	line-height: normal;
+	text-align: center; /* [8] */
+	text-decoration: none; /* [9] */
+	background-color: $color-gray-30;
+	border: $global-border-width solid rgba(0, 0, 0, 0); /* [10] */
+	border-radius: $global-border-radius; /* [11] */
+	color: $color-white;
+	appearance: none;
+	cursor: pointer; /* [13] */
+	transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* [12] */
+	user-select: none;
+}
+
+	.c-button:hover,
+	.c-button:active,
+	.c-button:focus {
+		text-decoration: none; /* [9] */
+	}
+
+	.c-button:not([class*="u-bg-"]):hover{
+		background-color: $color-gray-20--shaded;
+	}
+
+	
+/**
+ * Fix a Firefox bug whereby `input type="submit"` gains 2px extra padding.
+ */
+.c-button::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+
+/**
+ * Button Icon
+ *
+ * This enables an icon to be placed to the **left** of a button's text. The
+ * icon's colour will be inherited from the component's `color` attribute unless
+ * the icon has an explicit `fill` property set.
+ *
+ * Note: To avoid spacing issues, do *not* add an extra space character between
+ *       your button text and image tag.
+ *
+ * 1. Offset icon from the text baseline to be centered within
+      the component.
+ * 2. Icons must always conform to a set width and height.
+ * 3. Icon should inherit it's fill from the component's text colour.
+ */
+.c-button__icon {
+	width: 16px; /* [2] */
+	height: 16px; /* [2] */
+	margin-right: 8px;
+	position: relative; /* [1] */
+	top: 4px; /* [1] */
+	line-height: inherit; /* [1] */
+	vertical-align: top; /* [1] */
+	fill: currentColor; /* [3] */
+}
+
+/**
+ * Button Icon - Right
+ *
+ * This enables an icon to be placed to the **right** side of a button's text.
+ */
+.c-button__icon--right {
+	margin-right: 0;
+	margin-left: 8px;
+}
+
+
+/* Button aesthetic modifiers
+   =========================================== */
+/**
+* For outlined or hollow buttons.
+*/
+.c-button--hollow {
+	background-color: rgba(0, 0, 0, 0);
+	border-color: currentColor;
+	color: $color-gray-30;
+	
+}
+
+.c-button--hollow:not([class*="u-bg-"]):hover{
+	background-color: $color-gray-10;
+}
+
+.c-button--hollow:not([class*="u-color-"]):hover{
+	background-color: $color-black;
+}
+
+
+/**
+* For buttons you want to look like normal links.
+*/
+.c-button--clear {
+	padding: 0;
+	background-color: rgba(0, 0, 0, 0);
+	vertical-align: baseline;
+	
+}
+
+	.c-button--clear:hover,
+	.c-button--clear:active {
+		border-bottom: 1px solid currentColor;
+	}
+	
+	.c-button--clear:not([class*="u-bg-"]):hover{
+		background-color: rgba(0, 0, 0, 0);
+	}
+
+
+/* Button state modifiers
+   =========================================== */
+
+/**
+ * For buttons whose state is toggled.
+ */
+.c-button:disabled,
+.c-button.is-disabled,
+.c-button.is-disabled:hover,
+.c-button.is-disabled:active,
+.c-button.is-disabled:focus {
+	box-shadow: none;
+	cursor: not-allowed;
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+  
+/**
+* For buttons whose state is toggled when a related form or field contains
+* an error or multiple errors.
+*/
+.c-button.is-error,
+.c-button.is-error:hover,
+.c-button.is-error:active,
+.c-button.is-error:focus,
+.is-error .c-button,
+.is-error .c-button:hover,
+.is-error .c-button:active,
+.is-error .c-button:focus {
+	background-color: $color-red;
+	border-color: $color-red--shaded;
+	color: $color-white;
+	cursor: not-allowed;
+}
+
+
+
+
+
+/* Button sizing modifiers
+   =========================================== */
+.c-button--tiny {
+	padding: calc(0.25em - #{$global-border-width}) calc(0.5em - #{$global-border-width}); /* [3] */
+	font-size: 0.625em;
+}
+
+.c-button--small {
+	padding: calc(0.333em - #{$global-border-width}) calc(0.667em - #{$global-border-width}); /* [3] */
+	font-size: 0.75em;
+}
+
+.c-button--large {
+	padding: calc(1em - #{$global-border-width}) calc(2em - #{$global-border-width}); /* [3] */
+}
+
+.c-button--huge {
+	padding: calc(1.5em - #{$global-border-width}) calc(3em - #{$global-border-width}); /* [3] */
+}
+
+.c-button--flush {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+
+/**
+* For buttons that need to display full-width on small devices only.
+*/
+.c-button--full-small {
+	display: block;
+	width: 100%;
+}
+
+/**
+* For buttons that need to display full-width.
+*/
+.c-button--full {
+	display: block;
+	width: 100%;
+}
+
+
+
+
+
+/* Button glossy modifiers
+   =========================================== */
+.c-button--glossy {
+	box-shadow: 0 1px 4px -2px $color-gray-30;
+	text-shadow: 0 -1px $color-gray-30;
+}
+
+	.c-button--glossy::after {
+		width: 100%;
+		height: 50%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+		border-radius: inherit;
+		content: '';
+	}
