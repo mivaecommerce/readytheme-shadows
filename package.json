@@ -1,0 +1,48 @@
+{
+	"name": "readytheme-shadows",
+	"version": "1.0.0",
+	"description": "Gulp workflow for Shadows ReadyTheme",
+	"main": "./deploy/js/scripts.js",
+	"keywords": [
+		"scss",
+		"css",
+		"framework",
+		"design-system",
+		"html",
+		"front-end",
+		"miva"
+	],
+	"dependencies": {
+		"gulp": "^4.0.2"
+	},
+	"devDependencies": {
+		"autoprefixer": "^9.7.4",
+		"cssnano": "^4.1.10",
+		"gulp": "^4.0.2",
+		"gulp-concat": "^2.6.1",
+		"gulp-postcss": "^8.0.0",
+		"gulp-rename": "^2.0.0",
+		"gulp-sass": "^4.0.2",
+		"gulp-sourcemaps": "^2.6.5",
+		"gulp-terser": "^1.2.0",
+		"postcss-calc": "^7.0.2",
+		"postcss-css-variables": "git+https://github.com/CodyHouse/postcss-css-variables.git",
+		"postcss-discard-comments": "^4.0.2"
+	},
+	"scripts": {
+		"build": "gulp build",
+		"init": "gulp init",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": {
+		"name": "Matt Zimmermann",
+		"company": "Miva, Inc.",
+		"url": "https://www.miva.com"
+	},
+	"license": "MIT",
+	"homepage": "https://apps.miva.com/shadows-readytheme.html",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mivaecommerce/readytheme-shadows.git"
+	}
+}
