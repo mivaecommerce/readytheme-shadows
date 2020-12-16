@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+[2.00.04]: https://github.com/mivaecommerce/readytheme-shadows/compare/v2.0.0...v2.00.04
+## [2.00.04] - 2020-12-18
+
+#### Updated
+This maintenance release addresses all issues contained in the v2.00.04 milestone.
+- [Milestone v2.00.04](https://github.com/mivaecommerce/readytheme-shadows/milestone/8?closed=1)
+
 [2.0.0]: https://github.com/mivaecommerce/readytheme-shadows/compare/v1.0.6...v2.0.0
 ## [2.0.0] - 2020-09-22
 
