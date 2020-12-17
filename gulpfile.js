@@ -72,11 +72,7 @@ gulp.task('fallbackStyles', function () {
 			calc(),
 			discardComments()
 		]))
-		.pipe(rename('styles-fallback.css'))
-		.pipe(gulp.dest(outputPath + '/css'))
-		.pipe(rename({
-			suffix: '.min'
-		}))
+		.pipe(rename('styles-fallback.css.min'))
 		.pipe(postcss([
 			nano({
 				discardComments: {
@@ -110,11 +106,11 @@ gulp.task('scripts', function () {
 	])
 		.pipe(sourceMap.init())
 		.pipe(concat('scripts.js'))
-		.pipe(gulp.dest(outputPath + '/js'))
 		/**
-		 * If you would like to have a minified version of the JavaScript build,
-		 * uncomment the following three lines.
+		 * If you would like to have an un-minified version of the JavaScript build,
+		 * uncomment the following line.
 		 */
+		//.pipe(gulp.dest(outputPath + '/js'))
 		.pipe(rename({
 			suffix: '.min'
 		}))

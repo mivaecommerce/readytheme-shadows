@@ -4240,8 +4240,7 @@ small {
    ========================================================================== */
 /**
  * This contains the "@font-face" call needed to add the ReadyTheme Icons Font 
- * package to your site. These icons are available for use in addition to any 
- * theme-based icons which may be referenced in the "theme-fonts.css" file.
+ * package to your site.
  */
 @font-face {
 	font-display: block;
@@ -4251,7 +4250,7 @@ small {
 	src: url("themes/00000001/shadows/ui/css/ReadyThemeIcons.woff") format("woff");
 }
 
-/* line 19, build/core/css/utilities/_icons.scss */
+/* line 18, build/core/css/utilities/_icons.scss */
 [class^="u-icon-"],
 [class*=" u-icon-"],
 [data-icon]::before {
@@ -4265,320 +4264,320 @@ small {
 	text-transform: none;
 }
 
-/* line 32, build/core/css/utilities/_icons.scss */
+/* line 31, build/core/css/utilities/_icons.scss */
 [data-icon]::before {
 	content: attr(data-icon);
 }
 
-/* line 36, build/core/css/utilities/_icons.scss */
+/* line 35, build/core/css/utilities/_icons.scss */
 [class^="u-icon-"]::before,
 [class*=" u-icon-"]::before,
 [data-icon]::before {
 	background-color: rgba(0, 0, 0, 0);
 }
 
-/* line 42, build/core/css/utilities/_icons.scss */
+/* line 41, build/core/css/utilities/_icons.scss */
 .u-icon-error::before {
 	content: "\21";
 }
 
-/* line 46, build/core/css/utilities/_icons.scss */
+/* line 45, build/core/css/utilities/_icons.scss */
 .u-icon-warning::before {
 	content: "\22";
 }
 
-/* line 50, build/core/css/utilities/_icons.scss */
+/* line 49, build/core/css/utilities/_icons.scss */
 .u-icon-question::before {
 	content: "\23";
 }
 
-/* line 54, build/core/css/utilities/_icons.scss */
+/* line 53, build/core/css/utilities/_icons.scss */
 .u-icon-info::before {
 	content: "\24";
 }
 
-/* line 58, build/core/css/utilities/_icons.scss */
+/* line 57, build/core/css/utilities/_icons.scss */
 .u-icon-gift::before {
 	content: "\25";
 }
 
-/* line 62, build/core/css/utilities/_icons.scss */
+/* line 61, build/core/css/utilities/_icons.scss */
 .u-icon-settings::before {
 	content: "\26";
 }
 
-/* line 66, build/core/css/utilities/_icons.scss */
+/* line 65, build/core/css/utilities/_icons.scss */
 .u-icon-protected::before {
 	content: "\27";
 }
 
-/* line 70, build/core/css/utilities/_icons.scss */
+/* line 69, build/core/css/utilities/_icons.scss */
 .u-icon-secure::before {
 	content: "\28";
 }
 
-/* line 74, build/core/css/utilities/_icons.scss */
+/* line 73, build/core/css/utilities/_icons.scss */
 .u-icon-envelope::before {
 	content: "\29";
 }
 
-/* line 78, build/core/css/utilities/_icons.scss */
+/* line 77, build/core/css/utilities/_icons.scss */
 .u-icon-truck::before {
 	content: "\2a";
 }
 
-/* line 82, build/core/css/utilities/_icons.scss */
+/* line 81, build/core/css/utilities/_icons.scss */
 .u-icon-globe::before {
 	content: "\2b";
 }
 
-/* line 86, build/core/css/utilities/_icons.scss */
+/* line 85, build/core/css/utilities/_icons.scss */
 .u-icon-history::before {
 	content: "\2c";
 }
 
-/* line 90, build/core/css/utilities/_icons.scss */
+/* line 89, build/core/css/utilities/_icons.scss */
 .u-icon-balance::before {
 	content: "\2d";
 }
 
-/* line 94, build/core/css/utilities/_icons.scss */
+/* line 93, build/core/css/utilities/_icons.scss */
 .u-icon-remove::before {
 	content: "\2e";
 }
 
-/* line 98, build/core/css/utilities/_icons.scss */
+/* line 97, build/core/css/utilities/_icons.scss */
 .u-icon-cart-add::before {
 	content: "\2f";
 }
 
-/* line 102, build/core/css/utilities/_icons.scss */
+/* line 101, build/core/css/utilities/_icons.scss */
 .u-icon-chevron-up::before {
 	content: "\30";
 }
 
-/* line 106, build/core/css/utilities/_icons.scss */
+/* line 105, build/core/css/utilities/_icons.scss */
 .u-icon-chevron-down::before {
 	content: "\31";
 }
 
-/* line 110, build/core/css/utilities/_icons.scss */
+/* line 109, build/core/css/utilities/_icons.scss */
 .u-icon-chevron-left::before {
 	content: "\32";
 }
 
-/* line 114, build/core/css/utilities/_icons.scss */
+/* line 113, build/core/css/utilities/_icons.scss */
 .u-icon-chevron-right::before {
 	content: "\33";
 }
 
-/* line 118, build/core/css/utilities/_icons.scss */
+/* line 117, build/core/css/utilities/_icons.scss */
 .u-icon-triangle-up::before {
 	content: "\34";
 }
 
-/* line 122, build/core/css/utilities/_icons.scss */
+/* line 121, build/core/css/utilities/_icons.scss */
 .u-icon-triangle-down::before {
 	content: "\35";
 }
 
-/* line 126, build/core/css/utilities/_icons.scss */
+/* line 125, build/core/css/utilities/_icons.scss */
 .u-icon-triangle-left::before {
 	content: "\36";
 }
 
-/* line 130, build/core/css/utilities/_icons.scss */
+/* line 129, build/core/css/utilities/_icons.scss */
 .u-icon-triangle-right::before {
 	content: "\37";
 }
 
-/* line 134, build/core/css/utilities/_icons.scss */
+/* line 133, build/core/css/utilities/_icons.scss */
 .u-icon-arrow-up::before {
 	content: "\38";
 }
 
-/* line 138, build/core/css/utilities/_icons.scss */
+/* line 137, build/core/css/utilities/_icons.scss */
 .u-icon-arrow-down::before {
 	content: "\39";
 }
 
-/* line 142, build/core/css/utilities/_icons.scss */
+/* line 141, build/core/css/utilities/_icons.scss */
 .u-icon-arrow-left::before {
 	content: "\3a";
 }
 
-/* line 146, build/core/css/utilities/_icons.scss */
+/* line 145, build/core/css/utilities/_icons.scss */
 .u-icon-arrow-right::before {
 	content: "\3b";
 }
 
-/* line 150, build/core/css/utilities/_icons.scss */
+/* line 149, build/core/css/utilities/_icons.scss */
 .u-icon-subtract::before {
 	content: "\3c";
 }
 
-/* line 154, build/core/css/utilities/_icons.scss */
+/* line 153, build/core/css/utilities/_icons.scss */
 .u-icon-add::before {
 	content: "\3d";
 }
 
-/* line 158, build/core/css/utilities/_icons.scss */
+/* line 157, build/core/css/utilities/_icons.scss */
 .u-icon-cross::before {
 	content: "\3e";
 }
 
-/* line 162, build/core/css/utilities/_icons.scss */
+/* line 161, build/core/css/utilities/_icons.scss */
 .u-icon-check::before {
 	content: "\3f";
 }
 
-/* line 166, build/core/css/utilities/_icons.scss */
+/* line 165, build/core/css/utilities/_icons.scss */
 .u-icon-zoom-out::before {
 	content: "\40";
 }
 
-/* line 170, build/core/css/utilities/_icons.scss */
+/* line 169, build/core/css/utilities/_icons.scss */
 .u-icon-zoom-in::before {
 	content: "\41";
 }
 
-/* line 174, build/core/css/utilities/_icons.scss */
+/* line 173, build/core/css/utilities/_icons.scss */
 .u-icon-search::before {
 	content: "\42";
 }
 
-/* line 178, build/core/css/utilities/_icons.scss */
+/* line 177, build/core/css/utilities/_icons.scss */
 .u-icon-credit-card::before {
 	content: "\43";
 }
 
-/* line 182, build/core/css/utilities/_icons.scss */
+/* line 181, build/core/css/utilities/_icons.scss */
 .u-icon-heart-empty::before {
 	content: "\44";
 }
 
-/* line 186, build/core/css/utilities/_icons.scss */
+/* line 185, build/core/css/utilities/_icons.scss */
 .u-icon-heart-full::before {
 	content: "\45";
 }
 
-/* line 190, build/core/css/utilities/_icons.scss */
+/* line 189, build/core/css/utilities/_icons.scss */
 .u-icon-star-empty::before {
 	content: "\46";
 }
 
-/* line 194, build/core/css/utilities/_icons.scss */
+/* line 193, build/core/css/utilities/_icons.scss */
 .u-icon-star-full::before {
 	content: "\47";
 }
 
-/* line 198, build/core/css/utilities/_icons.scss */
+/* line 197, build/core/css/utilities/_icons.scss */
 .u-icon-home::before {
 	content: "\48";
 }
 
-/* line 202, build/core/css/utilities/_icons.scss */
+/* line 201, build/core/css/utilities/_icons.scss */
 .u-icon-user::before {
 	content: "\49";
 }
 
-/* line 206, build/core/css/utilities/_icons.scss */
+/* line 205, build/core/css/utilities/_icons.scss */
 .u-icon-phone::before {
 	content: "\4a";
 }
 
-/* line 210, build/core/css/utilities/_icons.scss */
+/* line 209, build/core/css/utilities/_icons.scss */
 .u-icon-facebook::before {
 	content: "\4b";
 }
 
-/* line 214, build/core/css/utilities/_icons.scss */
+/* line 213, build/core/css/utilities/_icons.scss */
 .u-icon-twitter::before {
 	content: "\4c";
 }
 
-/* line 218, build/core/css/utilities/_icons.scss */
+/* line 217, build/core/css/utilities/_icons.scss */
 .u-icon-pinterest::before {
 	content: "\4d";
 }
 
-/* line 222, build/core/css/utilities/_icons.scss */
+/* line 221, build/core/css/utilities/_icons.scss */
 .u-icon-google::before {
 	content: "\4e";
 }
 
-/* line 226, build/core/css/utilities/_icons.scss */
+/* line 225, build/core/css/utilities/_icons.scss */
 .u-icon-instagram::before {
 	content: "\4f";
 }
 
-/* line 230, build/core/css/utilities/_icons.scss */
+/* line 229, build/core/css/utilities/_icons.scss */
 .u-icon-vimeo::before {
 	content: "\50";
 }
 
-/* line 234, build/core/css/utilities/_icons.scss */
+/* line 233, build/core/css/utilities/_icons.scss */
 .u-icon-youtube::before {
 	content: "\51";
 }
 
-/* line 238, build/core/css/utilities/_icons.scss */
+/* line 237, build/core/css/utilities/_icons.scss */
 .u-icon-flickr::before {
 	content: "\52";
 }
 
-/* line 242, build/core/css/utilities/_icons.scss */
+/* line 241, build/core/css/utilities/_icons.scss */
 .u-icon-print::before {
 	content: "\53";
 }
 
-/* line 246, build/core/css/utilities/_icons.scss */
+/* line 245, build/core/css/utilities/_icons.scss */
 .u-icon-wallet::before {
 	content: "\54";
 }
 
-/* line 250, build/core/css/utilities/_icons.scss */
+/* line 249, build/core/css/utilities/_icons.scss */
 .u-icon-document::before {
 	content: "\55";
 }
 
-/* line 254, build/core/css/utilities/_icons.scss */
+/* line 253, build/core/css/utilities/_icons.scss */
 .u-icon-menu::before {
 	content: "\56";
 }
 
-/* line 258, build/core/css/utilities/_icons.scss */
+/* line 257, build/core/css/utilities/_icons.scss */
 .u-icon-calendar::before {
 	content: "\57";
 }
 
-/* line 262, build/core/css/utilities/_icons.scss */
+/* line 261, build/core/css/utilities/_icons.scss */
 .u-icon-bag-empty::before {
 	content: "\58";
 }
 
-/* line 266, build/core/css/utilities/_icons.scss */
+/* line 265, build/core/css/utilities/_icons.scss */
 .u-icon-bag-full::before {
 	content: "\59";
 }
 
-/* line 270, build/core/css/utilities/_icons.scss */
+/* line 269, build/core/css/utilities/_icons.scss */
 .u-icon-cart-empty::before {
 	content: "\5a";
 }
 
-/* line 274, build/core/css/utilities/_icons.scss */
+/* line 273, build/core/css/utilities/_icons.scss */
 .u-icon-cart-full::before {
 	content: "\5b";
 }
 
-/* line 278, build/core/css/utilities/_icons.scss */
+/* line 277, build/core/css/utilities/_icons.scss */
 .u-icon-location::before {
 	content: "\5c";
 }
 
 @media speech {
-	/* line 284, build/core/css/utilities/_icons.scss */
+	/* line 283, build/core/css/utilities/_icons.scss */
 	[class^="u-icon-"]::before,
 	[class*=" u-icon-"]::before,
 	[data-icon]::before {
@@ -6990,13 +6989,18 @@ Overrides should be placed in the 'ui/css/theme.scss' file.
 /* line 12, build/extensions/quantify/_quantify.scss */
 .x-quantify .c-control-group__button {
 	border-color: #c0c0c0;
-	-ms-user-select: none;
 	-webkit-user-select: none;
 	   -moz-user-select: none;
+	    -ms-user-select: none;
 	        user-select: none;
 }
 
-/* line 18, build/extensions/quantify/_quantify.scss */
+/* line 17, build/extensions/quantify/_quantify.scss */
+.x-quantify .c-control-group__button > * {
+	pointer-events: none;
+}
+
+/* line 21, build/extensions/quantify/_quantify.scss */
 .x-quantify .c-control-group__field {
 	height: auto;
 	border-left-width: 0;
@@ -7609,7 +7613,7 @@ Overrides should be placed in the 'ui/css/theme.scss' file.
 /* line 50, build/extensions/product-layout/picturebook/_photo-gallery.scss */
 [data-filmstrip] li {
 	flex: 0 0 auto;
-	padding-right: 16px;
+	margin-right: 16px;
 	list-style: none;
 	scroll-snap-align: none;
 	transition: opacity ease-in-out 0.1s;

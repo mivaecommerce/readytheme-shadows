@@ -11,10 +11,13 @@
 
 	.x-quantify .c-control-group__button {
 		border-color: $color-gray-20;
-		-ms-user-select: none;
 		user-select: none;
 	}
-	
+
+		.x-quantify .c-control-group__button > * {
+			pointer-events: none;
+		}
+
 	.x-quantify .c-control-group__field {
 		height: auto;
 		border-left-width: 0;
