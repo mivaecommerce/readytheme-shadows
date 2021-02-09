@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+[2.00.05]: https://github.com/mivaecommerce/readytheme-shadows/compare/v2.00.04...v2.00.05
+## [2.00.05] - 2021-02-09
+
+#### Updated
+This maintenance release addresses all issues contained in the v2.00.05 milestone.
+- [Milestone v2.00.05](https://github.com/mivaecommerce/readytheme-shadows/milestone/9?closed=1)
+  - **New Extension** [Show Password](https://github.com/mivaecommerce/Extensions/tree/master/show-password)
+  - **New Feature** [Customer Quick Add Action](https://github.com/mivaecommerce/readytheme-shadows/issues/90)
+  - **New Feature** [PROD: Update Product Weight Display on Attribute Change](https://github.com/mivaecommerce/readytheme-shadows/issues/89)
+  - **Bug Fix** [OSEL: Shipping method radio buttons become misaligned on long shipping method names](https://github.com/mivaecommerce/readytheme-shadows/issues/88)
+
 [2.00.04]: https://github.com/mivaecommerce/readytheme-shadows/compare/v2.0.0...v2.00.04
 ## [2.00.04] - 2020-12-18
 

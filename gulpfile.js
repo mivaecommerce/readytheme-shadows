@@ -100,6 +100,7 @@ gulp.task('scripts', function () {
 		buildPathExtensions + '/quantify/quantify.js',
 		buildPathExtensions + '/payment/payment-method.js',
 		buildPathExtensions + '/product-layout/ajax-add-to-cart.js',
+		buildPathExtensions + '/show-password/show-password.js',
 		buildPathExtensions + '/show-related/a11y-toggle.js',
 		buildPathExtensions + '/tabs/a11y-tabs.js',
 		uiJsPath + '/theme.js'
