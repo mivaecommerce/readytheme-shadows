@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+[2.01.00]: https://github.com/mivaecommerce/readytheme-shadows/compare/v2.00.05...v2.01.00
+## [2.01.00] - 2021-06-15
+
+#### Updated
+This maintenance release addresses all issues contained in the v2.01.00 milestone.
+- [Milestone v2.01.00](https://github.com/mivaecommerce/readytheme-shadows/milestone/10?closed=1)
+  - **Bug** [OPAY: Missing Order Instructions](https://github.com/mivaecommerce/readytheme-shadows/issues/92)
+  - **Enhancement** [OPAY: Duplicate payment authorizations gets caught in method checks](https://github.com/mivaecommerce/readytheme-shadows/issues/93)
+  - **Bug** [PROD: Empty Volume Pricing Table Showing on Variant Change](https://github.com/mivaecommerce/readytheme-shadows/issues/94)
+  - **Enhancement** [PROD: Attribute Machine: Allow dynamic update of price for non-variant attributes](https://github.com/mivaecommerce/readytheme-shadows/issues/95)
+  - **Bug** [PROD: Inventory Messaging](https://github.com/mivaecommerce/readytheme-shadows/issues/96)
+  - **Bug** [ACAD, ACED, AFAD, CADA, CADE, OCST: State/Province field not populated](https://github.com/mivaecommerce/readytheme-shadows/issues/97)
+  - **Enhancement** [Add onChange function to country selector to toggle the required attributes on the state/province inputs](https://github.com/mivaecommerce/readytheme-shadows/issues/98)
+  - **Bug** [CADA/CADE: Address Validation Issue](https://github.com/mivaecommerce/readytheme-shadows/issues/99)
+  - **Enhancement** [ORDH: Sort By Order Status](https://github.com/mivaecommerce/readytheme-shadows/issues/100)
+  - **Bug** [CPCE: Form identified incorrectly](https://github.com/mivaecommerce/readytheme-shadows/issues/101)
+  - **Enhancement** [A11Y: Update `dialog` for `prefers-reduced-motion`](https://github.com/mivaecommerce/readytheme-shadows/issues/102)
+  - **Bug** [iOS Input Zooming](https://github.com/mivaecommerce/readytheme-shadows/issues/103)
+  - **Bug** [PROD: Ajax Add to Cart interferes with Google Analytics](https://github.com/mivaecommerce/readytheme-shadows/issues/104)
+  - **Bug/Enhancement** [CSBE: Attributes Not Displayed and New Shipping Options](https://github.com/mivaecommerce/readytheme-shadows/issues/105)
+
 [2.00.05]: https://github.com/mivaecommerce/readytheme-shadows/compare/v2.00.04...v2.00.05
 ## [2.00.05] - 2021-02-09
 
