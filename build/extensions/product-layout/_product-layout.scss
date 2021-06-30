@@ -41,15 +41,19 @@
 		.x-product-layout-purchase__pricing-original,
 		.x-product-layout-purchase__pricing-current {
 			font-size: 1.125rem;
-			font-weight: 500;
-		}
-		
-		.x-product-layout-purchase .is-required {
-			font-weight: 500;
 		}
 
-		.x-product-layout-purchase__pricing-original {
+		.x-product-layout-purchase__pricing-current {
+			font-weight: 700;
+		}
+
+		.x-product-layout-purchase__pricing-original:not(:empty) {
 			padding-right: calc(#{$global-spacing-unit} * 2);
+			text-decoration: line-through;
+		}
+
+		.x-product-layout-purchase__inventory-message:empty {
+			display: none;
 		}
 
 		.x-product-layout-purchase__options {

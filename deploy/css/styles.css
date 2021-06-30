@@ -651,6 +651,16 @@ textarea {
 	letter-spacing: 0.05em;
 }
 
+/**
+ * Ensure that, when focused, the iOS Input Zoom doesn't happen.
+ */
+/* line 49, build/core/css/elements/_forms.scss */
+input:not([type="checkbox"]):not([type="radio"]):focus,
+select:focus,
+textarea:focus {
+	font-size: 16px;
+}
+
 /* ==========================================================================
    ELEMENTS / LINKS
    ========================================================================== */
@@ -2137,6 +2147,21 @@ small {
 .c-dialog[aria-hidden="true"] .c-dialog__container {
 	-webkit-animation: dialogSlideOut 0.3s cubic-bezier(0, 0, 0.2, 1);
 	        animation: dialogSlideOut 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+	/* line 143, build/core/css/components/_dialog.scss */
+	.c-dialog[aria-hidden="false"] .c-dialog__overlay {
+		opacity: 1;
+		-webkit-animation: none;
+		        animation: none;
+	}
+	/* line 148, build/core/css/components/_dialog.scss */
+	.c-dialog[aria-hidden="true"] .c-dialog__overlay {
+		opacity: 0;
+		-webkit-animation: none;
+		        animation: none;
+	}
 }
 
 /* ==========================================================================
@@ -6425,55 +6450,60 @@ Overrides should be placed in the 'ui/css/theme.scss' file.
 .x-product-layout-purchase__pricing-original,
 .x-product-layout-purchase__pricing-current {
 	font-size: 1.125rem;
-	font-weight: 500;
 }
 
-/* line 47, build/extensions/product-layout/_product-layout.scss */
-.x-product-layout-purchase .is-required {
-	font-weight: 500;
+/* line 46, build/extensions/product-layout/_product-layout.scss */
+.x-product-layout-purchase__pricing-current {
+	font-weight: 700;
 }
 
-/* line 51, build/extensions/product-layout/_product-layout.scss */
-.x-product-layout-purchase__pricing-original {
+/* line 50, build/extensions/product-layout/_product-layout.scss */
+.x-product-layout-purchase__pricing-original:not(:empty) {
 	padding-right: calc(16px * 2);
+	text-decoration: line-through;
 }
 
 /* line 55, build/extensions/product-layout/_product-layout.scss */
+.x-product-layout-purchase__inventory-message:empty {
+	display: none;
+}
+
+/* line 59, build/extensions/product-layout/_product-layout.scss */
 .x-product-layout-purchase__options {
 	display: flex;
 	width: auto;
 	max-width: none;
 }
 
-/* line 61, build/extensions/product-layout/_product-layout.scss */
+/* line 65, build/extensions/product-layout/_product-layout.scss */
 .x-product-layout-purchase__options-attribute {
 	width: 100%;
 	margin-bottom: calc(16px / 2);
 }
 
-/* line 66, build/extensions/product-layout/_product-layout.scss */
+/* line 70, build/extensions/product-layout/_product-layout.scss */
 .x-product-layout-purchase__options-attribute .c-form-label {
 	font-size: 0.75rem;
 }
 
-/* line 71, build/extensions/product-layout/_product-layout.scss */
+/* line 75, build/extensions/product-layout/_product-layout.scss */
 .x-product-layout-purchase__swatches {
 	padding-top: 3px;
 }
 
-/* line 74, build/extensions/product-layout/_product-layout.scss */
+/* line 78, build/extensions/product-layout/_product-layout.scss */
 .x-product-layout-purchase__swatches button {
 	padding: 0;
 	border: 0 none;
 	background-color: transparent;
 }
 
-/* line 80, build/extensions/product-layout/_product-layout.scss */
+/* line 84, build/extensions/product-layout/_product-layout.scss */
 .x-product-layout-purchase__swatches--active {
 	box-shadow: 0 0 0 2px #eaeaea, 0 0 3px 3px #767676;
 }
 
-/* line 85, build/extensions/product-layout/_product-layout.scss */
+/* line 89, build/extensions/product-layout/_product-layout.scss */
 .x-product-description {
 	margin-bottom: calc(16px * 6);
 	padding-top: calc(16px * 6);
@@ -7508,6 +7538,43 @@ Overrides should be placed in the 'ui/css/theme.scss' file.
 	.x-fasten-header__logo-image {
 		max-height: 4rem;
 	}
+}
+
+/* ==========================================================================
+   EXTENSIONS / SHOW PASSWORD / SHOW PASSWORD
+   ========================================================================== */
+/**
+ * This extension allows a user to reveal the password they have typed.
+ */
+/* line 9, build/extensions/show-password/_show-password.scss */
+.x-toggle-password {
+	width: 8ch;
+	margin-top: -0.125em;
+	padding: calc(0.5em - 1px);
+	position: absolute;
+	top: 50%;
+	right: 2%;
+	color: currentColor;
+	font-size: 0.75em;
+	font-weight: 400;
+	text-decoration: underline;
+	border: 0 none;
+	border-radius: 0;
+}
+
+/* line 24, build/extensions/show-password/_show-password.scss */
+.x-toggle-password--no-label {
+	margin-top: 0;
+	padding: 0.5em;
+	top: 25%;
+}
+
+/* line 30, build/extensions/show-password/_show-password.scss */
+.x-toggle-password:focus,
+.x-toggle-password:hover {
+	color: #000;
+	text-shadow: 0 0 0 currentColor;
+	outline: 2px solid currentColor;
 }
 
 /* line 5, build/extensions/show-related/_a11y-toggle.scss */
@@ -8605,67 +8672,99 @@ Overrides should be placed in the 'ui/css/theme.scss' file.
 	border-color: #c0c0c0;
 }
 
+/* line 664, build/ui/css/theme.scss */
+.t-shipping-method .c-form-checkbox__caption::before {
+	position: absolute;
+}
+
+/* line 668, build/ui/css/theme.scss */
+.t-shipping-method-name {
+	max-width: 45ch;
+}
+
+/* line 672, build/ui/css/theme.scss */
+.t-shipping-method .c-keyline {
+	margin-bottom: 0;
+}
+
+/* line 677, build/ui/css/theme.scss */
+.t-order-complete-heading {
+	padding: 2em 2em 1em 1em;
+}
+
+/* line 681, build/ui/css/theme.scss */
+.t-order-complete-heading form {
+	padding-top: 0.5em;
+}
+
+/* line 685, build/ui/css/theme.scss */
+.t-page-invc .x-toggle-password {
+	margin-top: 0;
+	padding: 0.5em;
+	top: 25%;
+}
+
 /* Account Landing Page
     =========================================== */
-/* line 667, build/ui/css/theme.scss */
+/* line 697, build/ui/css/theme.scss */
 .t-account-landing-section {
 	margin-bottom: 1rem;
 }
 
-/* line 673, build/ui/css/theme.scss */
+/* line 703, build/ui/css/theme.scss */
 .t-account-landing-section .c-heading-echo {
 	font-size: 14px;
 }
 
 @media (min-width: 48em) {
-	/* line 678, build/ui/css/theme.scss */
+	/* line 708, build/ui/css/theme.scss */
 	.t-account-landing-section .x-collapsible-content__toggle {
 		display: none;
 	}
-	/* line 682, build/ui/css/theme.scss */
+	/* line 712, build/ui/css/theme.scss */
 	.t-account-landing-section .x-collapsible-content__item {
 		max-height: none;
 		opacity: 1;
 		overflow: visible;
 		visibility: visible;
 	}
-	/* line 689, build/ui/css/theme.scss */
+	/* line 719, build/ui/css/theme.scss */
 	.t-account-landing-section .c-heading-echo {
 		font-size: 15px;
 	}
 }
 
-/* line 694, build/ui/css/theme.scss */
+/* line 724, build/ui/css/theme.scss */
 .t-account-landing-section__content {
 	padding-top: 1.25rem;
 	padding-right: 1rem;
 	padding-bottom: 1rem;
 }
 
-/* line 700, build/ui/css/theme.scss */
+/* line 730, build/ui/css/theme.scss */
 .t-account-landing-section__content.x-category-tree__row {
 	padding-left: 1rem;
 }
 
-/* line 704, build/ui/css/theme.scss */
+/* line 734, build/ui/css/theme.scss */
 .t-account-landing-section__content.x-category-tree__row span.x-category-tree__link:hover {
 	text-decoration: none;
 }
 
 /* Wish List Page
     =========================================== */
-/* line 714, build/ui/css/theme.scss */
+/* line 744, build/ui/css/theme.scss */
 .t-wish-list-search .c-control-group {
 	border: 1px solid #eaeaea;
 }
 
-/* line 718, build/ui/css/theme.scss */
+/* line 748, build/ui/css/theme.scss */
 .t-wish-list-search__button {
 	padding-right: calc(1em - 1px);
 	padding-left: calc(1em - 1px);
 }
 
-/* line 724, build/ui/css/theme.scss */
+/* line 754, build/ui/css/theme.scss */
 .t-wish-list__item .c-control-group__button {
 	flex: 1 1 50%;
 	padding-right: 0;

@@ -138,3 +138,15 @@
 .c-dialog[aria-hidden="true"] .c-dialog__container {
 	animation: dialogSlideOut .3s cubic-bezier(0, 0, 0.2, 1);
 }
+
+@media screen and (prefers-reduced-motion: reduce) {
+	.c-dialog[aria-hidden="false"] .c-dialog__overlay {
+		opacity: 1;
+		animation: none;
+	}
+
+	.c-dialog[aria-hidden="true"] .c-dialog__overlay {
+		opacity: 0;
+		animation: none;
+	}
+}
