@@ -654,11 +654,26 @@ textarea {
 /**
  * Ensure that, when focused, the iOS Input Zoom doesn't happen.
  */
-/* line 49, build/core/css/elements/_forms.scss */
-input:not([type="checkbox"]):not([type="radio"]):focus,
-select:focus,
-textarea:focus {
-	font-size: 16px;
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+	/* line 50, build/core/css/elements/_forms.scss */
+	input[type="color"]:focus,
+	input[type="date"]:focus,
+	input[type="datetime"]:focus,
+	input[type="datetime-local"]:focus,
+	input[type="email"]:focus,
+	input[type="month"]:focus,
+	input[type="number"]:focus,
+	input[type="password"]:focus,
+	input[type="search"]:focus,
+	input[type="tel"]:focus,
+	input[type="text"]:focus,
+	input[type="time"]:focus,
+	input[type="url"]:focus,
+	input[type="week"]:focus,
+	select:focus,
+	textarea:focus {
+		font-size: 16px;
+	}
 }
 
 /* ==========================================================================
