@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+[2.01.02]: https://github.com/mivaecommerce/readytheme-shadows/compare/v2.01.00...2.01.02
+## [2.01.02] - 2021-09-15
+
+#### Updated
+This maintenance release addresses all issues contained in the v2.01.02 milestone.
+- [Milestone v2.01.02](https://github.com/mivaecommerce/readytheme-shadows/milestone/11?closed=1)
+  - **Bug** [OUS1, PATR, PROD, and UATR: Attribute options with a code that is a string of zeros can overwrite the attribute option default flag](https://github.com/mivaecommerce/readytheme-shadows/issues/107)
+  - **Bug** [AFCL: Incorrect "name" attribute on Affiliate Password input](https://github.com/mivaecommerce/readytheme-shadows/issues/108)
+  - **Bug** [iOS Input Zooming...Revisited](https://github.com/mivaecommerce/readytheme-shadows/issues/109)
+  - **Bug** [WLGN: Error when loading a wish list after creating a customer](https://github.com/mivaecommerce/readytheme-shadows/issues/110)
+  - **Bug** [PROD: Single Product Image Won't Show Zoom Image](https://github.com/mivaecommerce/readytheme-shadows/issues/111)
+
 [2.01.00]: https://github.com/mivaecommerce/readytheme-shadows/compare/v2.00.05...2.01.00
 ## [2.01.00] - 2021-06-15
 
@@ -75,7 +87,7 @@ The extensions affected, at this time, are the breadcrumbs and navigation.
 #### Added
 - Support for the new [Customer Password Reset](https://docs.miva.com/how-to-guide/customer-password-reset) functionality introduced in 9.13.
 - Support for the new [Combined Resource](https://docs.miva.com/how-to-guides/javascript-asset-management#combined-resources) and [Deferred JavaScript](https://docs.miva.com/how-to-guides/deferred-javascript) functionality introduced in 9.13.
-	- You can use the [css_javascript+resources.xml](css_javascript_resources.xml) file to update your site to use this functionality.
+	- You can use the [css_javascript+resources.xml](https://github.com/mivaecommerce/readytheme-shadows/blob/v1.0.5/css_javascript_resources.xml) file to update your site to use this functionality.
 
 #### Fixed
 This maintenance release addresses all issues contained in the v1.0.5 milestone.
