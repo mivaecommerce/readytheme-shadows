@@ -17,8 +17,6 @@ This maintenance release addresses all issues contained in the v2.02.00 mileston
   - **Bug** [PROD: Image Zoom with Long Character Names](https://github.com/mivaecommerce/readytheme-shadows/issues/117)
   - **Bug** [ORDL: Logo Off-Center on Mobile](https://github.com/mivaecommerce/readytheme-shadows/issues/118)
 
-
-
 [2.01.02]: https://github.com/mivaecommerce/readytheme-shadows/compare/v2.01.00...2.01.02
 ## [2.01.02] - 2021-09-15
 
@@ -30,7 +28,6 @@ This maintenance release addresses all issues contained in the v2.01.02 mileston
   - **Bug** [iOS Input Zooming...Revisited](https://github.com/mivaecommerce/readytheme-shadows/issues/109)
   - **Bug** [WLGN: Error when loading a wish list after creating a customer](https://github.com/mivaecommerce/readytheme-shadows/issues/110)
   - **Bug** [PROD: Single Product Image Won't Show Zoom Image](https://github.com/mivaecommerce/readytheme-shadows/issues/111)
-
 
 [2.01.00]: https://github.com/mivaecommerce/readytheme-shadows/compare/v2.00.05...2.01.00
 ## [2.01.00] - 2021-06-15
@@ -103,7 +100,7 @@ The extensions affected, at this time, are the breadcrumbs and navigation.
 #### Added
 - Support for the new [Customer Password Reset](https://docs.miva.com/how-to-guide/customer-password-reset) functionality introduced in 9.13.
 - Support for the new [Combined Resource](https://docs.miva.com/how-to-guides/javascript-asset-management#combined-resources) and [Deferred JavaScript](https://docs.miva.com/how-to-guides/deferred-javascript) functionality introduced in 9.13.
-	- You can use the [css_javascript+resources.xml](css_javascript_resources.xml) file to update your site to use this functionality.
+	- You can use the [css_javascript+resources.xml](https://github.com/mivaecommerce/readytheme-shadows/blob/v1.0.5/css_javascript_resources.xml) file to update your site to use this functionality.
 
 #### Fixed
 This maintenance release addresses all issues contained in the v1.0.5 milestone.
