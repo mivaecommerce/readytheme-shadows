@@ -7885,15 +7885,16 @@ Overrides should be placed in the 'ui/css/theme.scss' file.
 
 /* line 224, build/extensions/product-layout/picturebook/_photo-gallery.scss */
 .x-photo-viewer__title {
-	flex-grow: 1;
+	flex: 1;
 	margin: 0;
 	padding-left: 2.1em;
 	color: #fff;
 	font-size: 1.25rem;
 	text-align: center;
+	white-space: normal;
 }
 
-/* line 233, build/extensions/product-layout/picturebook/_photo-gallery.scss */
+/* line 234, build/extensions/product-layout/picturebook/_photo-gallery.scss */
 .x-photo-viewer__close {
 	width: 2.25em;
 	height: 2.25em;
@@ -7902,12 +7903,12 @@ Overrides should be placed in the 'ui/css/theme.scss' file.
 	text-align: center;
 }
 
-/* line 241, build/extensions/product-layout/picturebook/_photo-gallery.scss */
+/* line 242, build/extensions/product-layout/picturebook/_photo-gallery.scss */
 .x-photo-viewer__close button {
 	padding: 0;
 }
 
-/* line 245, build/extensions/product-layout/picturebook/_photo-gallery.scss */
+/* line 246, build/extensions/product-layout/picturebook/_photo-gallery.scss */
 .x-photo-viewer__container {
 	display: flex;
 	align-items: center;
@@ -7919,7 +7920,7 @@ Overrides should be placed in the 'ui/css/theme.scss' file.
 	touch-action: manipulation;
 }
 
-/* line 256, build/extensions/product-layout/picturebook/_photo-gallery.scss */
+/* line 257, build/extensions/product-layout/picturebook/_photo-gallery.scss */
 .x-photo-viewer__current-image {
 	display: flex;
 	align-items: center;
@@ -7930,25 +7931,25 @@ Overrides should be placed in the 'ui/css/theme.scss' file.
 	transition: opacity ease-in 0.3s 0.3s;
 }
 
-/* line 266, build/extensions/product-layout/picturebook/_photo-gallery.scss */
+/* line 267, build/extensions/product-layout/picturebook/_photo-gallery.scss */
 .x-photo-viewer__current-image.is-loaded {
 	opacity: 1;
 	transition: opacity 0.3s ease-out;
 }
 
-/* line 271, build/extensions/product-layout/picturebook/_photo-gallery.scss */
+/* line 272, build/extensions/product-layout/picturebook/_photo-gallery.scss */
 .x-photo-viewer__current-image img {
 	max-height: 80vh;
 }
 
-/* line 275, build/extensions/product-layout/picturebook/_photo-gallery.scss */
+/* line 276, build/extensions/product-layout/picturebook/_photo-gallery.scss */
 .x-photo-viewer__controls {
 	justify-content: space-between;
 	padding: 1em 2em;
 	color: #fff;
 }
 
-/* line 281, build/extensions/product-layout/picturebook/_photo-gallery.scss */
+/* line 282, build/extensions/product-layout/picturebook/_photo-gallery.scss */
 .x-photo-viewer__count {
 	text-align: center;
 }
@@ -8582,6 +8583,7 @@ Overrides should be placed in the 'ui/css/theme.scss' file.
 
 @media (max-width: 59.9em) {
 	/* line 559, build/ui/css/theme.scss */
+	.t-page-ordl .t-site-header__logo,
 	.t-page-ocst .t-site-header__logo,
 	.t-page-osel .t-site-header__logo,
 	.t-page-opay .t-site-header__logo {
@@ -8591,7 +8593,7 @@ Overrides should be placed in the 'ui/css/theme.scss' file.
 }
 
 @media (min-width: 90em) {
-	/* line 568, build/ui/css/theme.scss */
+	/* line 569, build/ui/css/theme.scss */
 	.t-page-ocst .t-main-content-element,
 	.t-page-osel .t-main-content-element,
 	.t-page-opay .t-main-content-element {
@@ -8599,27 +8601,27 @@ Overrides should be placed in the 'ui/css/theme.scss' file.
 		padding-right: 0;
 		padding-left: 0;
 	}
-	/* line 577, build/ui/css/theme.scss */
+	/* line 578, build/ui/css/theme.scss */
 	.t-checkout-basket-summary {
 		height: 100%;
 	}
-	/* line 581, build/ui/css/theme.scss */
+	/* line 582, build/ui/css/theme.scss */
 	.t-checkout-basket-summary .c-table-simple {
 		width: 60%;
 	}
-	/* line 585, build/ui/css/theme.scss */
+	/* line 586, build/ui/css/theme.scss */
 	.t-checkout-basket-summary__promo-form,
 	.t-checkout-basket-summary__promo-form:first-child,
 	.t-checkout-basket-summary__promo-form:last-child {
 		margin: -1px 0;
 	}
-	/* line 592, build/ui/css/theme.scss */
+	/* line 593, build/ui/css/theme.scss */
 	.t-page-ocst .t-site-footer,
 	.t-page-osel .t-site-footer,
 	.t-page-opay .t-site-footer {
 		padding-top: 0;
 	}
-	/* line 598, build/ui/css/theme.scss */
+	/* line 599, build/ui/css/theme.scss */
 	.t-page-ocst .t-site-footer__disclaimer,
 	.t-page-osel .t-site-footer__disclaimer,
 	.t-page-opay .t-site-footer__disclaimer {
@@ -8627,7 +8629,7 @@ Overrides should be placed in the 'ui/css/theme.scss' file.
 		padding-bottom: 1em;
 		text-align: left;
 	}
-	/* line 606, build/ui/css/theme.scss */
+	/* line 607, build/ui/css/theme.scss */
 	.t-page-ocst .t-site-footer__disclaimer .o-layout__item,
 	.t-page-osel .t-site-footer__disclaimer .o-layout__item,
 	.t-page-opay .t-site-footer__disclaimer .o-layout__item {
@@ -8637,81 +8639,81 @@ Overrides should be placed in the 'ui/css/theme.scss' file.
 }
 
 @media (min-width: 48em) {
-	/* line 615, build/ui/css/theme.scss */
+	/* line 616, build/ui/css/theme.scss */
 	.t-payment-cta {
 		flex-grow: 0;
 	}
-	/* line 619, build/ui/css/theme.scss */
+	/* line 620, build/ui/css/theme.scss */
 	.t-payment-form {
 		justify-content: center;
 	}
-	/* line 622, build/ui/css/theme.scss */
+	/* line 623, build/ui/css/theme.scss */
 	.t-payment-form .o-layout__item {
 		display: flex;
 		max-width: 75%;
 		align-items: center;
 	}
-	/* line 628, build/ui/css/theme.scss */
+	/* line 629, build/ui/css/theme.scss */
 	.t-payment-form .c-form-label {
 		width: 25%;
 		margin-right: 1rem;
 	}
-	/* line 633, build/ui/css/theme.scss */
+	/* line 634, build/ui/css/theme.scss */
 	.t-payment-form .c-form-input {
 		max-width: 50%;
 	}
-	/* line 637, build/ui/css/theme.scss */
+	/* line 638, build/ui/css/theme.scss */
 	.t-payment-form .c-form-input--cvv {
 		max-width: none;
 	}
-	/* line 641, build/ui/css/theme.scss */
+	/* line 642, build/ui/css/theme.scss */
 	.t-payment-form .t-data-cvv {
 		margin-left: 0.5rem;
 	}
-	/* line 645, build/ui/css/theme.scss */
+	/* line 646, build/ui/css/theme.scss */
 	.t-payment-form .c-control-group {
 		max-width: 50%;
 		flex-grow: 1;
 	}
 }
 
-/* line 652, build/ui/css/theme.scss */
+/* line 653, build/ui/css/theme.scss */
 .t-checkout-customer-summary {
 	margin-bottom: 1rem;
 	padding: 1rem 2rem 0;
 }
 
-/* line 657, build/ui/css/theme.scss */
+/* line 658, build/ui/css/theme.scss */
 .t-checkout-customer-summary .c-keyline {
 	border-color: #c0c0c0;
 }
 
-/* line 664, build/ui/css/theme.scss */
+/* line 665, build/ui/css/theme.scss */
 .t-shipping-method .c-form-checkbox__caption::before {
 	position: absolute;
 }
 
-/* line 668, build/ui/css/theme.scss */
+/* line 669, build/ui/css/theme.scss */
 .t-shipping-method-name {
 	max-width: 45ch;
 }
 
-/* line 672, build/ui/css/theme.scss */
+/* line 673, build/ui/css/theme.scss */
 .t-shipping-method .c-keyline {
 	margin-bottom: 0;
 }
 
-/* line 677, build/ui/css/theme.scss */
+/* line 678, build/ui/css/theme.scss */
 .t-order-complete-heading {
 	padding: 2em 2em 1em 1em;
 }
 
-/* line 681, build/ui/css/theme.scss */
+/* line 682, build/ui/css/theme.scss */
 .t-order-complete-heading form {
 	padding-top: 0.5em;
 }
 
-/* line 685, build/ui/css/theme.scss */
+/* line 686, build/ui/css/theme.scss */
 .t-page-invc .x-toggle-password {
 	margin-top: 0;
 	padding: 0.5em;
@@ -8720,65 +8722,65 @@ Overrides should be placed in the 'ui/css/theme.scss' file.
 
 /* Account Landing Page
     =========================================== */
-/* line 697, build/ui/css/theme.scss */
+/* line 698, build/ui/css/theme.scss */
 .t-account-landing-section {
 	margin-bottom: 1rem;
 }
 
-/* line 703, build/ui/css/theme.scss */
+/* line 704, build/ui/css/theme.scss */
 .t-account-landing-section .c-heading-echo {
 	font-size: 14px;
 }
 
 @media (min-width: 48em) {
-	/* line 708, build/ui/css/theme.scss */
+	/* line 709, build/ui/css/theme.scss */
 	.t-account-landing-section .x-collapsible-content__toggle {
 		display: none;
 	}
-	/* line 712, build/ui/css/theme.scss */
+	/* line 713, build/ui/css/theme.scss */
 	.t-account-landing-section .x-collapsible-content__item {
 		max-height: none;
 		opacity: 1;
 		overflow: visible;
 		visibility: visible;
 	}
-	/* line 719, build/ui/css/theme.scss */
+	/* line 720, build/ui/css/theme.scss */
 	.t-account-landing-section .c-heading-echo {
 		font-size: 15px;
 	}
 }
 
-/* line 724, build/ui/css/theme.scss */
+/* line 725, build/ui/css/theme.scss */
 .t-account-landing-section__content {
 	padding-top: 1.25rem;
 	padding-right: 1rem;
 	padding-bottom: 1rem;
 }
 
-/* line 730, build/ui/css/theme.scss */
+/* line 731, build/ui/css/theme.scss */
 .t-account-landing-section__content.x-category-tree__row {
 	padding-left: 1rem;
 }
 
-/* line 734, build/ui/css/theme.scss */
+/* line 735, build/ui/css/theme.scss */
 .t-account-landing-section__content.x-category-tree__row span.x-category-tree__link:hover {
 	text-decoration: none;
 }
 
 /* Wish List Page
     =========================================== */
-/* line 744, build/ui/css/theme.scss */
+/* line 745, build/ui/css/theme.scss */
 .t-wish-list-search .c-control-group {
 	border: 1px solid #eaeaea;
 }
 
-/* line 748, build/ui/css/theme.scss */
+/* line 749, build/ui/css/theme.scss */
 .t-wish-list-search__button {
 	padding-right: calc(1em - 1px);
 	padding-left: calc(1em - 1px);
 }
 
-/* line 754, build/ui/css/theme.scss */
+/* line 755, build/ui/css/theme.scss */
 .t-wish-list__item .c-control-group__button {
 	flex: 1 1 50%;
 	padding-right: 0;

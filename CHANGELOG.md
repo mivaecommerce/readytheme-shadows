@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+[2.02.00]: https://github.com/mivaecommerce/readytheme-shadows/compare/v2.01.02...2.02.00
+## [2.02.00] - 2021-11-09
+
+#### Updated
+This maintenance release addresses all issues contained in the v2.02.00 milestone.
+- [Milestone v2.02.00](https://github.com/mivaecommerce/readytheme-shadows/milestone/12?closed=1)
+  - **Bug** [Address Validation: Checkout in IE11 does not show validated addresses modal](https://github.com/mivaecommerce/readytheme-shadows/issues/113)
+  - **Bug** [CSBE: Cancel Subscription button appears when minimum order hasn't been met](https://github.com/mivaecommerce/readytheme-shadows/issues/114)
+  - **Bug** [OSEL and OPAY: Shadows, unable to checkout with a lower priority payment card if Higher priority payment card from a different module is present](https://github.com/mivaecommerce/readytheme-shadows/issues/115)
+  - **Bug** [Checkout: Product Attribute Character Limits](https://github.com/mivaecommerce/readytheme-shadows/issues/116)
+  - **Bug** [PROD: Image Zoom with Long Character Names](https://github.com/mivaecommerce/readytheme-shadows/issues/117)
+  - **Bug** [ORDL: Logo Off-Center on Mobile](https://github.com/mivaecommerce/readytheme-shadows/issues/118)
 
 [2.01.02]: https://github.com/mivaecommerce/readytheme-shadows/compare/v2.01.00...2.01.02
 ## [2.01.02] - 2021-09-15

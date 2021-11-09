@@ -48,7 +48,9 @@ const addToCart = (function (document) {
 
 			purchaseForm.setAttribute('data-status', 'idle');
 
-			for (let field of requiredFields) {
+			for (let i = 0; i < requiredFields.length; i++) {
+				let field = requiredFields[i];
+
 				field.setCustomValidity('');
 
 				if (!field.validity.valid) {

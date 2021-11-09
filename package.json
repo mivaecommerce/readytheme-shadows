@@ -1,6 +1,6 @@
 {
 	"name": "readytheme-shadows",
-	"version": "1.0.0",
+	"version": "2.02.00",
 	"description": "Gulp workflow for Shadows ReadyTheme",
 	"main": "./deploy/js/scripts.js",
 	"keywords": [
