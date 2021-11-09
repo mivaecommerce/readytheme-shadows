@@ -425,12 +425,14 @@ const themeFunctionality = {
 						}
 
 						paymentMethod.detect(this, function (paymentDetected) {
-							if (paymentDetected) {
+							if (paymentDetected && supportedPaymentMethods.findPaymentMethod(paymentDetected.name)) {
 								cardInput.classList.remove('has-error');
 								document.querySelector('[data-hook="payment-method-display"]').textContent = paymentDetected.display;
 								document.querySelector('[data-hook="payment-method"]').value = supportedPaymentMethods.findPaymentMethod(paymentDetected.name);
 							}
-
+							else {
+								cardInput.classList.add('has-error');
+							}
 						})
 
 					})
