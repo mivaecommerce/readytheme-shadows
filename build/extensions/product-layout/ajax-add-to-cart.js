@@ -56,29 +56,49 @@ const addToCart = (function (document) {
 				if (!field.validity.valid) {
 					if (field.type === 'checkbox') {
 						field.focus();
-						field.setCustomValidity('Please check this box if you want to proceed.');
-						field.reportValidity();
+						if (HTMLInputElement.prototype.reportValidity) {
+							field.setCustomValidity('Please check this box if you want to proceed.');
+							field.reportValidity();
+						}
+						else {
+							alert(field.validationMessage);
+						}
 						purchaseForm.setAttribute('data-status', 'submitting');
 						break;
 					}
 					else if (field.type === 'radio') {
 						field.focus();
-						field.setCustomValidity('Please select one of these options.');
-						field.reportValidity();
+						if (HTMLInputElement.prototype.reportValidity) {
+							field.setCustomValidity('Please select one of these options.');
+							field.reportValidity();
+						}
+						else {
+							alert(field.validationMessage);
+						}
 						purchaseForm.setAttribute('data-status', 'submitting');
 						break;
 					}
 					else if (field.type.indexOf('select') !== -1) {
 						field.focus();
-						field.setCustomValidity('Please select an item in the list.');
-						field.reportValidity();
+						if (HTMLInputElement.prototype.reportValidity) {
+							field.setCustomValidity('Please select an item in the list.');
+							field.reportValidity();
+						}
+						else {
+							alert(field.validationMessage);
+						}
 						purchaseForm.setAttribute('data-status', 'submitting');
 						break;
 					}
 					else if (field.type === 'text' || field.type === 'textarea') {
 						field.focus();
-						field.setCustomValidity('Please fill out this field.');
-						field.reportValidity();
+						if (HTMLInputElement.prototype.reportValidity) {
+							field.setCustomValidity('Please fill out this field.');
+							field.reportValidity();
+						}
+						else {
+							alert(field.validationMessage);
+						}
 						purchaseForm.setAttribute('data-status', 'submitting');
 						break;
 					}
