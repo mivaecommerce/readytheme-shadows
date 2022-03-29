@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+[2.03.00]: https://github.com/mivaecommerce/readytheme-shadows/compare/v2.02.00...2.03.00
+## [2.03.00] - 2022-03-29
+
+#### Updated
+This maintenance release addresses all issues contained in the v2.03.00 milestone.
+- [Milestone v2.03.00](https://github.com/mivaecommerce/readytheme-shadows/milestone/13?closed=1)
+  - **Bug** [CSBE: Save button not enabled correctly and quantity can be updated regardless of settings](https://github.com/mivaecommerce/readytheme-shadows/issues/120)
+  - **Bug** [ Global Account: Product not found after logging in on PROD screen](https://github.com/mivaecommerce/readytheme-shadows/issues/121)
+  - **Bug** [AFED: The Affiliate Link URL is missing the symbol appending the affiliate account](https://github.com/mivaecommerce/readytheme-shadows/issues/122)
+  - **Bug** [BASK: Removing a non-removable product causes the item removed message to appear](https://github.com/mivaecommerce/readytheme-shadows/issues/123)
+  - **Bug** [PROD: Runtime error when no images are set for product](https://github.com/mivaecommerce/readytheme-shadows/issues/124)
+  - **Bug** [OCST/OSEL: Custom template code overrides basket address](https://github.com/mivaecommerce/readytheme-shadows/issues/125)
+  - **Enhancement** [Quantify: Min/Max Setting](https://github.com/mivaecommerce/readytheme-shadows/issues/126)
+  - **Enhancement** [BASK: Edit Product Attributes on the Basket Page](https://github.com/mivaecommerce/readytheme-shadows/issues/127)
+
 [2.02.00]: https://github.com/mivaecommerce/readytheme-shadows/compare/v2.01.02...2.02.00
 ## [2.02.00] - 2021-11-09
 

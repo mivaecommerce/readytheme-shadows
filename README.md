@@ -4,7 +4,7 @@
 
 ## Installing / Getting started
 
-There are two ways to get started with Shadows. Choose the method that is most appropriate to your project and environment. You can [download the framework](https://apps.miva.com/shadows-readytheme.html) and install it directly into your store through the administration portal. Or, if you would like to use the developer edition, you can clone the repository from GitHub:
+The latest version of Shadows is shipped with new releases of Miva. If you would like to use the developer edition, you can clone the repository from GitHub:
 
 ```shell
 git clone https://github.com/mivaecommerce/readytheme-shadows.git
@@ -25,7 +25,7 @@ We examined the way ReadyThemes worked with the core software and wanted a tight
 
 *   Cleaned and trimmed up the HTML, CSS, and JavaScript code.
 *   Improved accessibility for better user inclusivity.
-*   Compliant with Googles latest Web Vitals metrics.
+*   Compliant with the latest Google Web Vitals metrics.
 *   Improved overall Page Speed Metrics.
 
 Additionally, you now have the option to use a developer version of Shadows for your site builds.
@@ -40,7 +40,7 @@ Includes the necessary building blocks to create many of the common UX design pa
 
 ### BEM-IT-ECSS
 
-Developed with the [BEMIT methodology](//csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) in mind. [BEM](//getbem.com/introduction/) promotes component modularity, [IT](//itcss.io/) helps control the architecture, and [ECSS](//ecss.io/) helps to make extending the framework more manageable.
+Developed with the [BEMIT methodology](//csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) in mind. [BEM](//getbem.com/introduction/) promotes component modularity, [IT](//itcss.io/) helps control the architecture, and [ECSS](//ecss.benfrain.com/) helps to make extending the framework more manageable.
 
 ### Modern Layout
 
@@ -48,7 +48,7 @@ Shadows is an evergreen-browser framework with a modern Flexbox layout system. N
 
 ### Accessibility/Inclusivity
 
-With the importance of inclusivity in website layout in mind, Shadows ships with passing grades, as of August 2020, for [Web Content Accessibility Guidelines 2.1](https://www.w3.org/WAI/standards-guidelines/wcag/) Level A and Level AA as well as [Section 508](https://www.section508.gov/) standards for accessibility as tested through [ARC by The Paciello Group](https://www.paciellogroup.com/toolkit/), [Axe by Deque](https://www.deque.com/axe/), and [WAVE by WebAIM](https://wave.webaim.org/).
+With the importance of inclusivity in website layout in mind, Shadows ships with a high level of accessibility as tested through for [Web Content Accessibility Guidelines 2.1](https://www.w3.org/WAI/standards-guidelines/wcag/) Level A and Level AA as well as [Section 508](https://www.section508.gov/) standards for accessibility as tested through [ARC by The Paciello Group](https://www.paciellogroup.com/toolkit/), [Axe by Deque](https://www.deque.com/axe/), and [WAVE by WebAIM](https://wave.webaim.org/).
 
 ## Browser Support
 
