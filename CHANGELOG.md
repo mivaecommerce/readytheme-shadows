@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+[10.04.00]: https://github.com/mivaecommerce/readytheme-shadows/compare/v2.03.00...10.04.00
+## [10.04.00] - 2022-05-18
+
+#### Updated
+This maintenance release addresses all issues contained in the v10.04.00 milestone.
+- [Milestone v10.04.00](https://github.com/mivaecommerce/readytheme-shadows/milestone/14?closed=1)
+  - **Bug** [Multiple places output "invalid_credentials" unencoded](https://github.com/mivaecommerce/readytheme-shadows/issues/129)
+  - **Bug** [Bask "Undo" link is susceptible to XSS](https://github.com/mivaecommerce/readytheme-shadows/issues/130)
+
 [2.03.00]: https://github.com/mivaecommerce/readytheme-shadows/compare/v2.02.00...2.03.00
 ## [2.03.00] - 2022-03-29
 
