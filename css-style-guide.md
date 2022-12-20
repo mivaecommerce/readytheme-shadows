@@ -23,7 +23,7 @@
 
 ### Template
 
-Before diving into the details of CSS coding style, you can find a conforming, `.css` template over at [https://git.io/vdoF3](https://github.com/mivaecommerce/readytheme-shadows/blob/master/docs/stylesheet-template.css).
+Before diving into the details of CSS coding style, you can find a conforming, `.css` template over at [https://git.io/vdoF3](https://github.com/mivaecommerce/readytheme-shadows/blob/master/stylesheet-template.css).
 
 [⬆ Back to contents](#contents)
 

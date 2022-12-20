@@ -64,7 +64,7 @@ While every effort has been made to make sure Shadows performs across a variety 
 
 ## Contributing
 
-You can help make Shadows better. Please read [CONTRIBUTING.md](https://github.com/mivaecommerce/readytheme-shadows/blob/master/docs/CONTRIBUTING.md) to see how you can participate.
+You can help make Shadows better. Please read [CONTRIBUTING.md](https://github.com/mivaecommerce/readytheme-shadows/blob/master/CONTRIBUTING.md) to see how you can participate.
 
 ## Licensing
 
